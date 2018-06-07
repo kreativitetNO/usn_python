@@ -1,62 +1,40 @@
 \chapter{En god begynnelse}
 \section{Våre første små tester: print, Spyder}
+\todo[author=Christian]{Heading uten brødtekst...fy...}
 \subsection*{Først litt om Spyder}
-Start Spyder. Du skal da på skjermen ha et stort vindu, typisk med tittel Spyder (Python 3.6)
-Helt øverst er den vanlige menylinjen (File Edit Search ... Projects ...) etc.
-Like under er der en linje med div. ikoner. Dette er ulike toolbars.
-De er snarveier til funksjonaliteter som også kan nås fra menylinjen. 
-Toolbarene kan flyttes rundt eller fjernes helt ved View / Toolbars / og klikke de av.)
-Vi trenger ikke tenke på disse ennå. 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=1.0\textwidth]{img/spyder_overview.png}
+\end{center}
+\caption{Spyder}
+\label{fig:spyder_overview}
+\end{figure}
 
-Under linjen med toolbars, på venstreside har du Editor-vinduet.
-Det er et tekstbehandlingsprogram. 
-Her er det du skriver inn python-programmet ditt, linje for linje.
-Du kan flytte deg rundt med piltastene (og musen).
-(Ikke skriv noe ennå.) 
+\todo[author=christian]{Trenger kanskje ikke så mye tekst siden vi har fått inn bilde}
+Start Spyder. Du skal da på skjermen ha et stort vindu, typisk med tittel Spyder (Python 3.6) Helt øverst er den vanlige menylinjen (File Edit Search ... Projects ...) etc. Like under er der en linje med div. ikoner. Dette er ulike toolbars. De er snarveier til funksjonaliteter som også kan nås fra menylinjen. Toolbarene kan flyttes rundt eller fjernes helt ved View / Toolbars / og klikke de av.) Vi trenger ikke tenke på disse ennå. 
 
-Hvis dette er første gangen du bruker Spyder, vil Spyder ha lagt inn noe tekst
-i et nytt dokument (program/fil).
-På linje 5 eller 6 vil der stå @author 
-Navnet på filen står øverst, noe slikt som untitled0.py. 
-Dette er en fil som spyder har åpnet og som ikke gjør noe ennå. 
-Hvis du allerede har brukt Spyder litt, vil kanskje den siste fil/programmet
-du arbeidet med være i editoren.
+Under linjen med toolbars, på venstreside har du Editor-vinduet. Det er et tekstbehandlingsprogram.  Her er det du skriver inn python-programmet ditt, linje for linje. Du kan flytte deg rundt med piltastene (og musen). (Ikke skriv noe ennå.) 
 
-Når programmet (det du har skrevet inn) er passe klart, kjører (eksekverer, execute)
-du det ved å trykke på den grønne "play"-knappen, like under menylinja øverst.
-(Den viser "Run file (F5)" når du tar musepekeren over knappen).
-Ikke gjør det nå. Vi skal ikke bruke editoren nå helt i begynnelsen.
+Hvis dette er første gangen du bruker Spyder, vil Spyder ha lagt inn noe tekst i et nytt dokument (program/fil). På linje 5 eller 6 vil det stå @author og brukernavnet ditt. Navnet på filen står øverst, noe slikt som untitled1.py. Dette er en fil som spyder har åpnet og som ikke gjør noe ennå. Hvis du allerede har brukt Spyder litt, vil kanskje den siste fil/programmet du arbeidet med være i editoren.
 
+Når programmet (det du har skrevet inn) er passe klart, kjører (eksekverer, execute) du det ved å trykke på den grønne "play"-knappen, like under menylinja øverst. (Den viser "Run file (F5)" når du tar musepekeren over knappen). Ikke gjør det nå. Vi skal ikke bruke editoren nå helt i begynnelsen.
 
-På høyresiden, nederst, har du Python/IPython-vinduet, også kalt konsollen (Console).
-Nederst står det Python console, IPython console og kanskje History log. 
-Klikk på flappen med IPython console.
-(Du kan også bruke Python console, men IPython er å foretrekke.) 
-I IPython-vinduet kan du skrive python-kommandoer direkte inn. 
-Det skal vi gjøre mye av nå i begynnelsen. 
-(I'en i IPython står for interaktivt, dvs. to-veis kommunikasjon mellom deg og python.) 
+På høyresiden, nederst, har du Python/IPython-vinduet, også kalt konsollen (Console). Nederst står det \todo[author=Christian]{Det ser ikke ut som det er default at Python consolen vises lenger} Python console, IPython console og kanskje History log. Klikk på flappen med IPython console. (Du kan også bruke Python console, men IPython er å foretrekke.) I IPython-vinduet kan du skrive python-kommandoer direkte inn. Det skal vi gjøre mye av nå i begynnelsen. (I'en i IPython står for interaktivt, dvs. to-veis kommunikasjon mellom deg og python.) 
 
+På høyresiden, over IPython-konsollen er der et vindu. Dette har flapper Help, Variable explorer og File explorer. Litt mer om det nedenfor. 
 
-På høyresiden, over IPython-konsollen er der et vindu.
-Dette har flapper Help, Variable explorer og File explorer.
-Litt mer om det nedenfor. 
-
-
-Python har mange kommandoer (funksjoner) innebygd.
-Det er disse vi bruker når vi programmerer. 
-Den første funksjonen vi trenger er print (skriv til skjerm), 
-Klikk på (inne i) IPython-vinduet for å aktivere det.
-Skriv så første linja nedenfor og trykk ENTER.
+Python har mange kommandoer (funksjoner) innebygd. Det er disse vi bruker når vi programmerer. Den første funksjonen vi trenger er print (skriv til skjerm), Klikk på (inne i) IPython-vinduet for å aktivere det. Skriv så første linja nedenfor og trykk ENTER:
+\begin{lstlisting}[caption={Din første Python kode}]
 print(365)
+\end{lstlisting}
 Python skriver ut 365.
-Prøv
 
-\begin{lstlisting}
+Prøv:
+\begin{lstlisting}[caption={Din andre Python kode}]
 print("Hei Python")
 \end{lstlisting}
 
-Merk at tekst må stå innenfor hermetegn
-
+(Merk at tekst må stå innenfor hermetegn)
 
 print() en funksjon, og funksjoner tar argumenter i parentes.
 Argumentet til print er det som skal printes, her tekststrengen "Hei Python" eller tallet 365. 

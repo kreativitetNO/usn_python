@@ -3,7 +3,16 @@
 \begin{document}
 \maketitle
 \frontmatter
+%\iffalse % iffalse for å fjerne todo-list
+\listoftodos
+%\fi
+\newpage
 \import{tex/}{F_01_Revisjoner.tex}
+\listoffigures
+%\iffalse % iiffalse hvis det ikke er noen tabeller
+\listoftables
+%\fi
+\lstlistoflistings
 \tableofcontents
 \mainmatter
 \import{tex/}{M_01_Introduksjon.tex}
