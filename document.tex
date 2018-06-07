@@ -1,0 +1,26 @@
+\documentclass[a4paper,12pt,oneside]{book}
+\usepackage{usn_python}
+\begin{document}
+\maketitle
+\frontmatter
+\import{tex/}{F_01_Revisjoner.tex}
+\tableofcontents
+\mainmatter
+\import{tex/}{M_01_Introduksjon.tex}
+\import{tex/}{M_02_EnGodBegynnelse.tex}
+\appendix
+\printbibliography[heading=bibnumbered]
+
+\end{document}
+
+\iffalse % Eksempel på figur
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{img/SystemArchitecture.png}
+\end{center}
+\caption{System Architecture}
+\label{fig:SysArch}
+\end{figure}
+
+\fi
