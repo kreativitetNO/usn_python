@@ -36,68 +36,72 @@ print("Hei Python")
 
 (Merk at tekst må stå innenfor hermetegn)
 
-print() en funksjon, og funksjoner tar argumenter i parentes.
-Argumentet til print er det som skal printes, her tekststrengen "Hei Python" eller tallet 365. 
+print() er en funksjon, og funksjoner tar argumenter i parentes. Argumentet til print er det som skal printes, her tekststrengen ``Hei Python'' eller tallet 365. 
 
-VARIABLER: 
-En variabel er noe som inneholder en verdi. 
-En variabel har et navn og en verdi.
+\subsubsection{Variabler}
+En variabel er noe som inneholder en verdi. En variabel har et navn og en verdi.
 
-min{\_}var1 = "Hei Python!"
-Navnet er min{\_}var1, verdien er "Hei Python". Det er en tekststreng (str). 
-min{\_}var2 = 365
-Navnet er min{\_}var2, verdien er 365, det er et (hel)tall (int). 
-min{\_}var2 = 300
+\begin{lstlisting}
+min_var1 = "Hei Python!"
+\end{lstlisting}
+
+Navnet er \lstinline{min_var1}, verdien er ``Hei Python''. Det er en tekststreng (str). 
+
+\begin{lstlisting}
+min_var2 = 365
+\end{lstlisting}
+
+Navnet er \lstinline{min_var2}, verdien er 365, det er et (hel)tall (int). 
+
+\begin{lstlisting}
+min_var2 = 300
+\end{lstlisting}
+
 Nå skiftet vi verdi. 
 
-Du kan godt ha mellomrom, linja over kan også skrives som: 
-min{\_}var2=300
-min{\_}var2= 300
-min{\_}var2 =300
-Men du kan ikke skrive
-min var2 = 300
-for variabelen heter min{\_}var2, den må være i ett ord. 
+Du kan godt ha mellomrom, linjene over kan også skrives som: 
+\begin{lstlisting}
+min_var2=300
+min_var2= 300
+min_var2 =300
+\end{lstlisting}
 
-Nå kan vi printe variabelen, 
-print(min{\_}var1)
-Flere variabler og verdier kan printes samtidig: 
-print(min{\_}var1, "Det er", min{\_}var2, "dager i et år.")
+Men du kan ikke skrive \lstinline{min var2 = 300} for variabelen heter \lstinline{min_var2}, den må være i ett ord. 
+
+Nå kan vi printe variabelen:
+\begin{lstlisting}
+print(min_var1)
+\end{lstlisting}
+Flere variabler og verdier kan printes samtidig:
+\begin{lstlisting}
+print(min_var1, "Det er", min_var2, "dager i et år.")
+\end{lstlisting}
+
+I IPython-vinduet kan du bruke piltastene for å hente frem igjen det du har skrevet tidligere. Prøv pil opp. Og ned igjen. Du kan endre på linja. Trykk ENTER for å kjøre/utføre (eksekvere) linja (på nytt). (Eller visk ut linja eller trykk piltast ned til du får tom linje.) Du kan også se alt du har skrevet i vinduet ved å trykke på History log nederst. (Gå tilbake til IPython-vinduet.) 
+
+\subsection{Variable explorer}
+
+Nå har du definert et par variabler (min\_{}var1 og min\_{}var2). I vinduet oppe til høyre, kan du se innholdet til variablene. Klikk på flappen ``Variable explorer''. Det kan være nyttig når du har litt større programmer og programmet ikke helt oppfører seg som du tenkte. (Mer om debugging senere.) 
+
+I IPython-vinduet trenger du forsåvidt ikke bruke print for å se verdien til en variabel, bare skriv navnet og trykk ENTER:
+\begin{lstlisting}
+min_var1
+\end{lstlisting}
+
+Det blir ikke helt som med print. Hermetegnene vises. Og det er dessuten enkle hermetegn, og ikke doble som vi brukte. Både doble og enkle hermetegn kan brukes i Python. Men de må stemme parvis. Du kan ikke skrive:
+
+\begin{lstlisting}
+min\_{}var3 = 'Hei"
+\end{lstlisting}
+
+Da får du en feilmelding: ``SyntaxError''
+
+\subsection{Feilmeldinger}
+
+Når du skriver noe som python ikke forstår, får du en feilmelding.  Lag noen feil og se hva Python svarer:
 
 \iffalse
 
-I IPython-vinduet kan du bruke piltastene for å hente frem igjen det du har skrevet tidligere. 
-Prøv pil opp. Og ned igjen. 
-Du kan endre på linja. 
-Trykk ENTER for å kjøre/utføre (eksekvere) linja (på nytt).
-(Eller visk ut linja eller trykk piltast ned til du får tom linje.)
-Du kan også se alt du har skrevet i vinduet ved å trykke på History log nederst.
-(Gå tilbake til IPython-vinduet.) 
-
-
-Variable explorer:
-Nå har du definert et par variabler (min_var1 og min_var2).
-I vinduet oppe til høyre, kan du se innholdet til variablene. 
-Klikk på flappen Variable explorer.
-Det kan være nyttig når du har litt større programmer og programmet ikke helt
-oppfører seg som du tenkte.
-(Mer om debugging senere.) 
-
-
-I IPython-vinduet trenger du forsåvidt ikke bruke print for å se verdien
-til en variabel, bare skriv navnet og trykk ENTER: 
-min_var1
-Det blir ikke helt som med print. Hermetegnene vises.
-Og det er dessuten enkle hermetegn, og ikke doble som vi brukte.
-Både doble og enkle hermetegn kan brukes i Python. 
-Men de må stemme parvis. Du kan ikke skrive
-min_var3 = 'Hei"
-Da får du en feilmelding: SyntaxError 
-
-
-
-FEILMELDINGER
-Når du skriver noe som python ikke forstår, får du en feilmelding. 
-Lag noen feil og se hva Python svarer
 asdf
 Du får NameError - python aner ikke hva asdf skal bety 
 'asdf'
