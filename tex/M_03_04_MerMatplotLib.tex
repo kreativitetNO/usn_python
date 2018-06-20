@@ -1,0 +1,114 @@
+######################################################################## 
+KAP. 3.4  MER MATPLOTLIB
+
+Tema: akser, flere subplot i samme vindu, flere vinduer samtidig 
+
+NB: her må plottingen foregår i eget vindu (ikke inline), 
+enten i IPython-konsollen (med ion) eller i Python-vinduet. 
+
+
+
+A. Flere grafer i samme figur: 
+
+(Starte på nytt ved å klikke vekk vinduet eller skrive plt.cla(), eller ved å restarte IPython-konsollen.) 
+
+import numpy                        # om nødvendig
+import matplotlib.pyplot as plt     # om nødvendig
+#plt.cla()                          # om nødvendig  Fjerner alt fra figuren. (cla: Clear current Axes.) 
+
+x = numpy.linspace(0,2,21)
+y1 = x
+y2 = x**2                 # vektorisering 
+y3 = numpy.sqrt(x)        # bruker igjen vektorisering
+
+# Tre grafer i samme figur. NB: Vi tar med label
+plt.plot(x, y1, 'r*-' , label='x')
+plt.plot(x, y2, 'g^--', label='x**2')
+plt.plot(x, y3, 'b-.' , label='sqrt(x)') 
+
+plt.legend()    # Først her blir label'ene vist 
+
+plt.title('Noen grafer')  # Tittel
+plt.xlabel('X') 
+plt.ylabel('Y')
+
+# Vi kan bestemme hvor mye av x- og y-aksen som skal plottes [xmin,xmax, ymin,ymax]
+plt.axis([0,2, -1,2])     # x mellom 0 og 2, y mellom -1 og 2  (ikke optimalt)
+plt.axis('tight')         # plotter akkurat så mye som trengs for å vise grafene 
+                          # (er default dersom axis ikke blir satt)
+ 
+plt.savefig('noenfigurer.jpg')  # lagrer figuren, kan velge format (jpg, png, pdf, eps, ...). 
+
+Det går også an å lagre figuren direkte fra figurvinduet ved å klikke diskettikonet. 
+
+
+
+
+B. Flere figurer i samme figur-vindu: Subplot 
+
+subplot(k, r, i) tar tre argumenter 
+ K: antall kolonner 
+ R: antall rader
+ i: hvilket subplot som gjøres til det aktive 
+    (1: oppe til venstre, 2: en til høyre, etc. Når du har nådd antall kolonner, går du en rad ned)
+subplot() setter altså av plass til K x R subplott, og velger det aktive. 
+
+plt.subplot(2,2,1)          # oppe til venstre 
+plt.plot(x,y1,'*--b')       # 
+plt.title("x")
+
+plt.subplot(2,2,2)          # oppe til høyre
+plt.plot(x,y2,'*--g')       # 
+plt.title("x**2")
+
+plt.subplot(2,2,3)          # nede til venstre
+plt.plot(x,x**3,'*--y')     # 
+plt.title("x**3")
+
+plt.subplot(2,2,4)          # nede til høyre
+plt.plot(x,x**0.25,'*--r')  # 
+plt.title('x**0.25')
+
+
+Det går an å endre størrelsen på figuren-vinduet manuelt. 
+
+
+Hvordan fjerne grafene ovenfor? 
+Å klikke vekk vinduet er en mulighet. Da er vi tilbake til 1-figur-i-vinduet neste gang vi plotter. 
+
+plt.cla()  fungerer ikke. Det bare fjerner den aktive figuren, som for oss figuren nede til høyre. 
+
+plt.subplot(1,1,1) fungerer. Da sier vi at vi skal ha 1 figur i vinduet, og alle 4 blir fjernet 
+og vi står med blanke ark. 
+
+
+
+
+C. Flere figurvinduer 
+
+Eksempel: 
+plt.figure("fig1")                     # lag et figurvindu (og la det være det aktive)
+plt.plot(x, 3+x**2, '*--b')          # legg en graf i figurvinduet
+plt.plot(x, 3-x**2, '*--r')          # legg en graf til i figurvinduet
+
+plt.figure("fig2")                     # lag et annet figurvindu
+plt.plot(x, x**1.5,'*--g')             # legg en graf i dette vinduet (siden det nå er det aktive vinduet)
+
+plt.figure("fig3")                     # skift tilbake til det første vinduet (fig1 blir nå det aktive vinduet)
+plt.plot(x, 2+x**4,'*--y')             # legg en graf til i det aktive vinduet (som er fig1)
+
+
+
+
+Oppgave 1
+Lag et program som åpner et figur-vindu med fire subfigurer.
+Utgangspunktet er skrått kast med starthastighet 10 m/s og både x- og y-retning (som vi hadde tidligere).
+I fire subfigurvinduer skal så fart i x- og y-retning (vx og vy) plottes,
+og tilbakelagt strekning i x- og y-retning (sx og sy). 
+Hint: vx = vx0, vy = vy0`+ g*t, sx = vx*t, sy = vy0*t + 0.5*a*t**2  der a=-9.81 (tyngdeakselerasjonen)
+(Diskuter med sidemannen.) 
+
+
+
+# Mange eksempler som viser hva man kan gjøre med matplotlib
+https://matplotlib.org/examples/index.html

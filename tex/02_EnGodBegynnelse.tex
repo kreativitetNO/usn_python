@@ -1,247 +1,173 @@
-\documentclass[a4paper,11pt,utf8]{book}
-\usepackage{url}
-\begin{document}
-\title{Python-kurs\\
-Førsteårs ingeniørstudenter USN Kongsberg}
-\author{Joakim Bjørk \& Børge Kile Gjelsten}
-\maketitle
-\newpage
-\tableofcontents
-\newpage
+\chapter{En god begynnelse}
+Dette kompendiet er en praktisk innføring i Python. Den går ikke i dybden på det tekniske, og er ikke en uttømmende kilde til informasjon om de forskjellige temaene som tas opp. Målet er å komme fortest mulig i gang med praktisk problemløsning, også for å øke motivasjonen til å lære mer.
 
+\section{Våre første små tester: print, Spyder}
 
-\newpage
+I denne delen ser vi først på hvordan vi kommer i gang med Spyder. Dette er et utviklingsverktøy som lar oss skrive og kjøre Python både interaktivt og ved å skrive programmer. 
 
-\section*{Fjernes}
-{\em
-NB: Dette dokumentet vil bli oppdatert litt og litt gjennom de neste dagene.
-Det er best å ikke skrive det ut, men lese det i nettleseren.
+\subsection*{Først litt om Spyder}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=1.0\textwidth]{img/spyder_overview.png}
+\end{center}
+\caption{Spyder}
+\label{fig:spyder_overview}
+\end{figure}
 
-\noindent {\bfseries Denne versjon ble oppdatert Onsdag 23. august}
-\bigskip
-}
+Start Spyder. Du skal da på skjermen ha et stort vindu, typisk med tittel Spyder (Python 3.6) Helt øverst er den vanlige menylinjen ( \menuitem{File} \menuitem{edit} \menuitem{search} \ldots..). Like under er der en linje med forskjellige ikoner. Dette er ulike toolbars. De er snarveier til funksjonaliteter som også kan nås fra menylinjen. Toolbarene kan flyttes rundt eller fjernes helt ved \menuitem{View} \menuitem{Toolbars} og klikke de av.) Vi trenger ikke tenke på disse ennå. 
 
-\section{En god begynnelse}
-\subsection{Våre første små tester: print, Spyder}
-\subsubsection*{Først litt om Spyder}
-Start Spyder. Du skal da på skjermen ha et stort vindu, typisk med tittel Spyder (Python 3.6)
-Helt øverst er den vanlige menylinjen (File Edit Search ... Projects ...) etc.
-Like under er der en linje med div. ikoner. Dette er ulike toolbars.
-De er snarveier til funksjonaliteter som også kan nås fra menylinjen. 
-Toolbarene kan flyttes rundt eller fjernes helt ved View / Toolbars / og klikke de av.)
-Vi trenger ikke tenke på disse ennå. 
+Under linjen med toolbars, på venstreside har du Editor-vinduet. Det er et tekstbehandlingsprogram.  Her er det du skriver inn Python programmet ditt, linje for linje. Du kan flytte deg rundt med piltastene (og musen). Ikke skriv noe ennå. 
 
-Under linjen med toolbars, på venstreside har du Editor-vinduet.
-Det er et tekstbehandlingsprogram. 
-Her er det du skriver inn python-programmet ditt, linje for linje.
-Du kan flytte deg rundt med piltastene (og musen).
-(Ikke skriv noe ennå.) 
+Hvis dette er første gangen du bruker Spyder, vil Spyder ha lagt inn noe tekst i et nytt dokument. På linje 5 eller 6 vil det stå @author og brukernavnet ditt. Navnet på filen står øverst, noe slikt som \emph{untitled1.py}. Dette er en fil som Spyder har åpnet og som ikke gjør noe ennå. Hvis du allerede har brukt Spyder litt, vil kanskje den siste fil/programmet du arbeidet med være i editoren.
 
-Hvis dette er første gangen du bruker Spyder, vil Spyder ha lagt inn noe tekst
-i et nytt dokument (program/fil).
-På linje 5 eller 6 vil der stå @author 
-Navnet på filen står øverst, noe slikt som untitled0.py. 
-Dette er en fil som spyder har åpnet og som ikke gjør noe ennå. 
-Hvis du allerede har brukt Spyder litt, vil kanskje den siste fil/programmet
-du arbeidet med være i editoren.
+Når programmet (det du har skrevet inn) er klart, kjører (eksekverer, execute) du det ved å trykke på den grønne \emph{play}-knappen, like under menylinja øverst. (Den viser \emph{Run file (F5)} når du holder musepekeren over knappen). Ikke gjør det nå. Vi skal ikke bruke editoren nå helt i begynnelsen.
 
-Når programmet (det du har skrevet inn) er passe klart, kjører (eksekverer, execute)
-du det ved å trykke på den grønne "play"-knappen, like under menylinja øverst.
-(Den viser "Run file (F5)" når du tar musepekeren over knappen).
-Ikke gjør det nå. Vi skal ikke bruke editoren nå helt i begynnelsen.
+På høyresiden, nederst, har du Python/IPython-vinduet, også kalt konsollen (Console). Nederst står det \tabitem{Python console}, \tabitem{IPython console} og/eller \tabitem{History log} avhengig av hvilken versjon du kjører. Klikk på tab-en \tabitem{IPython console}. Du kan også bruke Python console, men IPython er å foretrekke. I IPython-vinduet kan du skrive Python kommandoer direkte inn. Det skal vi gjøre mye av nå i begynnelsen. (I'en i IPython står for interaktivt, dvs. to-veis kommunikasjon mellom deg og Python.) 
 
+På høyresiden, over IPython-konsollen er der et vindu. Dette har tab-ene \tabitem{Help}, \tabitem{Variable explorer} og \tabitem{File explorer}. Litt mer om det nedenfor. 
 
-På høyresiden, nederst, har du Python/IPython-vinduet, også kalt konsollen (Console).
-Nederst står det Python console, IPython console og kanskje History log. 
-Klikk på flappen med IPython console.
-(Du kan også bruke Python console, men IPython er å foretrekke.) 
-I IPython-vinduet kan du skrive python-kommandoer direkte inn. 
-Det skal vi gjøre mye av nå i begynnelsen. 
-(I'en i IPython står for interaktivt, dvs. to-veis kommunikasjon mellom deg og python.) 
-
-
-På høyresiden, over IPython-konsollen er der et vindu.
-Dette har flapper Help, Variable explorer og File explorer.
-Litt mer om det nedenfor. 
-
-
-Python har mange kommandoer (funksjoner) innebygd.
-Det er disse vi bruker når vi programmerer. 
-Den første funksjonen vi trenger er print (skriv til skjerm), 
-Klikk på (inne i) IPython-vinduet for å aktivere det.
-Skriv så første linja nedenfor og trykk ENTER.
+Python har mange kommandoer (funksjoner) innebygd. Det er disse vi bruker når vi programmerer. Den første funksjonen vi trenger er print (skriv til skjerm), Klikk på (inne i) IPython-vinduet for å aktivere det. Skriv så første linja nedenfor og trykk \keypress{enter} :
+\begin{lstlisting}
 print(365)
-Python skriver ut 365.
-Prøv 
+\end{lstlisting}
+Python skriver ut \verb|365|.
+
+Prøv:
+\begin{lstlisting}
 print("Hei Python")
-Merk at tekst må stå innenfor hermetegn
+\end{lstlisting}
 
+(Merk at tekst må stå innenfor hermetegn)
 
-print() en funksjon, og funksjoner tar argumenter i parentes.
-Argumentet til print er det som skal printes, her tekststrengen "Hei Python" eller tallet 365. 
+print() er en funksjon, og funksjoner tar argumenter i parentes. Argumentet til print er det som skal printes, her tekststrengen ``Hei Python'' eller tallet \verb|365|.
 
-VARIABLER: 
-En variabel er noe som inneholder en verdi. 
-En variabel har et navn og en verdi.
+\subsubsection{Variabler}
+En variabel er noe som inneholder en verdi. En variabel har både et navn og en verdi.
 
+\begin{lstlisting}
 min_var1 = "Hei Python!"
-Navnet er min_var1, verdien er "Hei Python". Det er en tekststreng (str). 
+\end{lstlisting}
+
+Navnet er \lstinline{min_var1}, verdien er ``Hei Python''. Det er en tekststreng (str). 
+
+\begin{lstlisting}
 min_var2 = 365
-Navnet er min_var2, verdien er 365, det er et (hel)tall (int). 
+\end{lstlisting}
+
+Navnet er \lstinline{min_var2}, verdien er $365$, det er et (hel)tall (int). 
+
+\begin{lstlisting}
 min_var2 = 300
+\end{lstlisting}
+
 Nå skiftet vi verdi. 
 
-Du kan godt ha mellomrom, linja over kan også skrives som: 
+Du kan godt ha mellomrom, linjene over kan også skrives som: 
+\begin{lstlisting}
 min_var2=300
 min_var2= 300
 min_var2 =300
-Men du kan ikke skrive
-min var2 = 300
-for variabelen heter min_var2, den må være i ett ord. 
+\end{lstlisting}
 
-Nå kan vi printe variabelen, 
+Men du kan ikke skrive \verb|min var2 = 300| for variabelen heter \lstinline{min_var2}, den må være i ett ord. 
+
+Nå kan vi printe variabelen:
+\begin{lstlisting}
 print(min_var1)
-Flere variabler og verdier kan printes samtidig: 
-print(min_var1, "Det er", min_var2, "dager i et år.") 
+\end{lstlisting}
+Flere variabler og verdier kan printes samtidig:
+\begin{lstlisting}
+print(min_var1, "Det er", min_var2, "dager i et år.")
+\end{lstlisting}
 
-I IPython-vinduet kan du bruke piltastene for å hente frem igjen det du har skrevet tidligere. 
-Prøv pil opp. Og ned igjen. 
-Du kan endre på linja. 
-Trykk ENTER for å kjøre/utføre (eksekvere) linja (på nytt).
-(Eller visk ut linja eller trykk piltast ned til du får tom linje.)
-Du kan også se alt du har skrevet i vinduet ved å trykke på History log nederst.
-(Gå tilbake til IPython-vinduet.) 
+I IPython-vinduet kan du bruke piltastene for å hente frem igjen det du har skrevet tidligere. Prøv pil opp, og ned igjen. Du kan også endre på linja, og trykke {\em enter} for å kjøre/utføre (eksekvere) linja (på nytt). (Eller visk ut linja eller trykk piltast ned til du får tom linje.) Du kan også se alt du har skrevet i vinduet ved å trykke på History log nederst. (Gå tilbake til IPython-vinduet.) 
 
+\subsection{Variable explorer}
 
-Variable explorer:
-Nå har du definert et par variabler (min_var1 og min_var2).
-I vinduet oppe til høyre, kan du se innholdet til variablene. 
-Klikk på flappen Variable explorer.
-Det kan være nyttig når du har litt større programmer og programmet ikke helt
-oppfører seg som du tenkte.
-(Mer om debugging senere.) 
+Nå har du definert et par variabler (min\_{}var1 og min\_{}var2). I vinduet oppe til høyre, kan du se innholdet til variablene. Klikk på flappen ``Variable explorer''. Det kan være nyttig når du har litt større programmer og programmet ikke helt oppfører seg som du tenkte. (Mer om debugging senere.) 
 
-
-I IPython-vinduet trenger du forsåvidt ikke bruke print for å se verdien
-til en variabel, bare skriv navnet og trykk ENTER: 
+I IPython-vinduet trenger du forsåvidt ikke bruke print for å se verdien til en variabel, bare skriv navnet og trykk {\em enter}:
+\begin{lstlisting}
 min_var1
-Det blir ikke helt som med print. Hermetegnene vises.
-Og det er dessuten enkle hermetegn, og ikke doble som vi brukte.
-Både doble og enkle hermetegn kan brukes i Python. 
-Men de må stemme parvis. Du kan ikke skrive
+\end{lstlisting}
+
+Det blir ikke helt som med print. Hermetegnene vises. Og det er dessuten enkle hermetegn, og ikke doble som vi brukte. Både doble og enkle hermetegn kan brukes i Python. Men de må stemme parvis. Du kan ikke skrive:
+
+\begin{lstlisting}
 min_var3 = 'Hei"
-Da får du en feilmelding: SyntaxError 
+\end{lstlisting}
+
+Da får du en feilmelding: ``SyntaxError''
+
+\subsection{Feilmeldinger}
+
+Når du skriver noe som python ikke forstår, får du en feilmelding.  Lag noen feil og se hva Python svarer:
 
 
-
-FEILMELDINGER
-Når du skriver noe som python ikke forstår, får du en feilmelding. 
-Lag noen feil og se hva Python svarer
+\begin{lstlisting}
 asdf
-Du får NameError - python aner ikke hva asdf skal bety 
-'asdf'
-Nå er asdf innenfor hermetegn, og da er det bare en verdi. Python klager ikke.
-a = "asdf
-SyntaxError: EOL while scanning string literal
+\end{lstlisting}
 
-Du vil komme borti flere feilmeldingerstyper. 
-Det er viktig å skjønne hva feilmeldingen betyr.  
-I interaktiv kjøring, er det alltid siste kommando som er feil, så vi vet hvor feilen er. 
-Når vi kjører et program fra fil, og noe går galt, forteller Python i hvilken linje
+Du får \texttt{NameError} - python aner ikke hva \texttt{asdf} skal bety.
+
+\begin{lstlisting}
+'asdf'
+\end{lstlisting}
+
+Nå er \texttt{asdf} innenfor hermetegn, og da er det bare en verdi. Python klager ikke.
+
+\begin{lstlisting}
+a = "asdf
+\end{lstlisting}
+
+\texttt{SyntaxError: EOL while scanning string literal}
+
+Du vil komme borti flere feilmeldingerstyper. Det er viktig å skjønne hva feilmeldingen betyr. I interaktiv kjøring, er det alltid siste kommando som er feil, så vi vet hvor feilen er. Når vi kjører et program fra fil, og noe går galt, forteller Python i hvilken linje
 feilen oppstod. Det er praktisk. 
 
 
-TAB-COMPLETION: 
-IPython-vinduet ditt kan hjelpe deg med å skrive raskere.
-F.eks. skriv pri og trykk TAB. IPython fullfører så med å legge til nt så det blir print.
-Det er den i stand til fordi der kun er én kommando som begynner med pri.
-Dersom du bare skriver pr og trykker TAB kommer det opp noen flere alternativer.
-Du kan velge med piltastene (og ENTER eller TAB), eller trykke Escape (ESC) for å kansellere.
+\subsection{Tab-completion}
 
-TAB-completion plukker også opp variabler.
-Dersom du skriver mi og trykker TAB, blir en n lagt til så du har min,
-og du får flere alternativ, min (som er en funksjon som vi skal komme tilbake til),
-eller variablene du selv har definert, min_var1, min_var2 og min_var3.
+IPython-vinduet ditt kan hjelpe deg med å skrive raskere. F.eks. skriv \lstinline{pri} og trykk {\em tab}. IPython fullfører så med å legge til \lstinline{nt} så det blir \lstinline{print}. Det er den i stand til fordi der kun er én kommando som begynner med \lstinline{pri}. Dersom du bare skriver pr og trykker TAB kommer det opp noen flere alternativer. Du kan velge med piltastene (og {\em enter} eller {\em tab}, eller trykke {\em escape} for å kansellere.
+
+Tab-completion plukker også opp variabler. Dersom du skriver \lstinline{mi} og trykker {\em TAB}, blir en \lstinline{n} lagt til så du har \lstinline{min}, og du får flere alternativ, \lstinline{min} (som er en funksjon som vi skal komme tilbake til),
+eller variablene du selv har definert, \lstinline{min_var1}, \lstinline{min_var2} og \lstinline{min_var3}.
 
 
+\subsection{Spyder}
+Restarte IPython-vinduet. Noen ganger henger IPython-vinduet, og du må restarte for å komme videre. Eller du har kanskje lyst til å bli kvitt alle variablene du har definert, starte med blanke ark.  Da kan du trykke på Consoles i hovedmenyen øverst, deretter Restart kernel. Da går det noen sekunder, så kommer et nytt, rent IPython-vindu opp. (NB: du mister altså alle variablene du har laget. Du trenger ikke gjøre det nå.)
+
+Du kan også ha flere IPython- og/eller Python-terminaler oppe samtidig. Klikk Consoles, og deretter Open an IPython console eller Open a Python console.
+
+Restarte Spyder. Dersom du vil ta ned hele Spyder: Se oppe til venstre, trykk File, så Quit. (Ikke gjør det nå.) 
 
 
+\subsection{Litt mer om Spyder: Layout} 
+Spyder er en GUI (Grafisk User Interface, grafisk brukergrensesnitt) som gjør det enklere å arbeide med Python. Spyder eksisterer for windows/mac/linux og er open source og gratis. Vi har installert det som en del av Anaconda eller Miniconda. (Det går naturligvis også an å kjøre Python uten Spyder.)
 
+Spyder har mange funksjonaliteter. (Se de mange valgene i hovedmenyen øverst i vinduet.) En av disse er hvordan layouten skal være. Trykk på View / Window layouts. Sansynligvis er det Spyder Default Layout du bruker. Du kan velge en av de andre, f.eks. Matlab Layout. Den gir deg flere vinduer med informasjon, som kan være nyttig. Men vi holder oss til Spyder Default Layout.
 
-SPYDER
-Restarte IPython-vinduet.
-Noen ganger henger IPython-vinduet, og du må restarte for å komme videre.
-Eller du har kanskje lyst til å bli kvitt alle variablene du har definert,
-starte med blanke ark. 
-Da kan du trykke på Consoles i hovedmenyen øverst, deretter Restart kernel. 
-Da går det noen sekunder, så kommer et nytt, rent IPython-vindu opp.
-(NB: du mister altså alle variablene du har laget.) 
-(Du trenger ikke gjøre det nå.)
+Du kan justere størrelsen på vinduene med musen.
 
-Du kan også ha flere IPython- og/eller Python-terminaler oppe samtidig.
-Klikk Consoles, og deretter 
-Open an IPython console
-eller 
-Open a Python console
+Du kan øke/minske tekststørrelsen i Editor-vinduet og IPython-terminal-vinduet (uavhengig av hverandre) med CTRL+ / CTRL- mens vinduet er aktivt. 
 
+Noe som kan være praktisk nå i begynnelsen, er muligheten til å lagre alt som er gjort i IPython-vinduet. Aktiver IPython-vinduet. Trykk så CTRL+s (CTRL og s). Da kommer et vindu opp som lar deg lagre IPython-aktiviteten som html-fil. Velg et passende navn (og katalog). Filen må leses med en nettleser (Firefox, IE/Edge, Safari). (Enten kan du finne filen med f.eks. Windows Explorer, dernest klikke på den. Eller du kan åpne en ny tab/vindu i nettleseren og skrive file:/// i url-en. Da vil du få opp filstrukturen din. Du må da klikke deg frem til rett sted og finne filen.) Det går imidlertid ikke an å laste det inn igjen i spyder og slik fortsette der du slapp. 
 
-Restarte Spyder.
-Dersom du vil ta ned hele Spyder: Se oppe til venstre, trykk File, så Quit. 
-(Ikke gjør det nå.) 
+\section{Oppgaver}
 
+\begin{question}
+Bruk et minutt eller to på å gjøre deg litt kjent med Spyder. Endre litt på vindusstørrelse, klikke på ulike flapper, sjekke hva menyene inneholder.
+\end{question}
+\begin{question}
+Lag to variabler som inneholder tall. Lag to variabler som inneholder tekst. Skriv ut innholdet av de fire variablene. Se om de er i Variable explorer-vinduet. Endre innholdet til en av variablene. Se om variabelverdien endres i Variable explorer.
+\end{question}
+\begin{question}
+Lagre en html-fil med IPython-aktiviteten din og finn den igjen med en nettleser.
+\end{question}
 
-Litt mer om Spyder: Layout 
-Spyder er en GUI (Grafisk User Interface, grafisk brukergrensesnitt)
-som gjør det enklere å arbeide med Python.
-Spyder eksisterer for windows/mac/linux og er open source og gratis. 
-Vi har installert det som en del av Anaconda eller Miniconda. 
-(Det går naturligvis også an å kjøre Python uten Spyder.)
+REF: For mer Spyder-info: klikk på Help-flappen på vinduet øverst til høyre (som også har flappen Variable explorer). Der kan du ved anledning (senere) følge en tutorial (klikk tutorial) som beskriver ganske greit hva Spyder har å tilby.
 
-
-Spyder har mange funksjonaliteter.
-(Se de mange valgene i hovedmenyen øverst i vinduet.)
-En av disse er hvordan layouten skal være. 
-Trykk på View / Window layouts.
-Sansynligvis er det Spyder Default Layout du bruker.
-Du kan velge en av de andre, f.eks. Matlab Layout.
-Den gir deg flere vinduer med informasjon, som kan være nyttig.
-Men vi holder oss til Spyder Default Layout.
-
-Du kan justere størrelsen på vinduene med musen. 
-
-Du kan øke/minske tekststørrelsen i Editor-vinduet og IPython-terminal-vinduet
-(uavhengig av hverandre) med CTRL+ / CTRL- mens vinduet er aktivt. 
-
-Noe som kan være praktisk nå i begynnelsen, er muligheten til å lagre alt
-som er gjort i IPython-vinduet. 
-Aktiver IPython-vinduet. Trykk så CTRL+s (CTRL og s).
-Da kommer et vindu opp som lar deg lagre IPython-aktiviteten som html-fil.
-Velg et passende navn (og katalog).
-Filen må leses med en nettleser (Firefox, IE/Edge, Safari).
-(Enten kan du finne filen med f.eks. Windows Explorer, dernest klikke på den. 
-Eller du kan åpne en ny tab/vindu i nettleseren og skrive file:/// i url-en.
-Da vil du få opp filstrukturen din. Du må da klikke deg frem til rett sted og finne filen.)
-Det går imidlertid ikke an å laste det inn igjen i spyder og slik fortsette der du slapp. 
-
-
-Oppgave 1:
-Bruk et minutt eller to på å gjøre deg litt kjent med Spyder.
-Endre litt på vindusstørrelse, klikke på ulike flapper, sjekke hva menyene inneholder. 
-
-Oppgave 2:
-Lag to variabler som inneholder tall. Lag to variabler som inneholder tekst.
-Skriv ut innholdet av de fire variablene. Se om de er i Variable explorer-vinduet.
-Endre innholdet til en av variablene. Se om variabelverdien endres i Variable explorer.
-
-Oppgave 3:
-Lagre en html-fil med IPython-aktiviteten din og finn den igjen med en nettleser. 
-
-
-REF: For mer Spyder-info: klikk på Help-flappen på vinduet øverst til høyre
-(som også har flappen Variable explorer).
-Der kan du ved anledning (senere) følge en tutorial (klikk tutorial)
-som beskriver ganske greit hva Spyder har å tilby.
-
+\iffalse
 
 ######################################################################## 
 KAP. 2.2  TALL
@@ -253,6 +179,8 @@ Prøv følgende:
 (NB: Python leser ikke det som står til høyre for # på en linje.
 Det kaller vi en kommentar, så den delen trenger du ikke skrive, bare mattestykket.)
 (Du kan også ha en hel linje som starter med #, en kommentarlinje.) 
+
+# Dette er en kommentar. Her kan jeg skrive noe stygt som Python ikke leser ... (Python er et dårlig språk) 
 2+2   # pluss, addisjon
 4-2   # minus, subraksjon
 2*3   # gange, multiplikasjon
@@ -273,6 +201,8 @@ Så, vil vi regne ut 4+3 først, gjør vi det slik:
 (4+3)*2 
 Er det forskjell på 4+(3*2) og 4+3*2? 
 
+Disse prioriteringsreglene er de samme som på kalkulatoren din. 
+
 Du kan ha mellomrom (space) hvor som helst mellom de ulike elementene på en linje,
 de spiller ingen rolle. 
 4 + 3*2
@@ -286,34 +216,39 @@ feilmelding i linja over.
 IPython-konsollen forstår hva som er ment.
 Python-konsollen vil imidlertid gi feilmelding.
 Prøv. (Du må da klikke på Python console nederst. Og etterpå tilbake til IPython.) 
-Og hvis du gjør det i et program, får du også feilmelding. 
+Og hvis du gjør det i et program, som er det vi vanligvis vil gjøre, får du også feilmelding. 
 
 Du kan naturligvis heller ikke sette et mellomrom midt i et tall,
 f.eks. skrive 44 + 3 som 4 4 + 3). 
 
 
 
-Vi bruker de matematiske operasjonene til å regne ut ting.
+Vi bruker de matematiske operasjonene til å regne ut ting og tang.
 Vanligvis gjør vi det slik:
 EN VARIABEL = ET REGNESTYKKE
 Dette er metakode, dvs. ikke virkelig kode, men kode-aktig. 
-Den vil ikke fungere om du skriver den inn i IPython-vinduet.
+Den vil ikke fungere om du skriver den inn i IPython-konsollen.
 Mer standardisert måte er å omslutte forklaringene i vinkelparenteser.
 <en variabel> = <et regnestykke> 
-(Den fungerer fortsatt ikke i IPython-vinduet.)
+(Den fungerer fortsatt ikke i IPython-konsollen.)
 Det som er omsluttet skal erstattes av syntaktisk korrekt kode.
 Du vil ofte møte slik kode, f.eks. når du leter på nettet.
 
 
-Eksempel
+Eksempel (på matematikk, ikke på metakode)
 a = 5 + 3
-Her blir variabelen a, som er på venstresiden, satt til å være lik 5 + 3, altså 8.
+Her blir variabelen a, som er på venstresiden, satt til å være lik 5 + 3, altså 8. 
+(Det kan du se ved å bare skrive a, eller print(a). Du ser det også i Variable explorer.) 
 Dette kalles tilordning (assignment), a blir tilordnet verdi 8.
-Der er ulike meninger om man bør ha mellomrom mellom tallene og tegnene.
+Der er litt ulike meninger om man bør ha mellomrom mellom tallene og tegnene.
 Der finnes visse stil-standarder. Litt mer om style senere. 
 
 Ofte er det ikke bare tall som står på høyresiden, men også andre variabler. 
 b = 2*a + 3  # Her får variabelen b verdien 2*8 + 3 = 19  (fordi a = 8, se ovenfor).
+Hvis a ikke er definert, vil du få feilmelding. 
+Prøv i stedet: 
+b = 2*c + 3 
+Da klager python (rettmessig) over at c ikke er definert. 
 
 Det er også mulig at den variabelen som står på venstresiden også står på høyresiden.
 a = 2*a + 3
@@ -324,7 +259,7 @@ Variablen a blir altså her 19 til slutt.
 (a'en på høyresida er 8, men når linja er ferdig utført, har a fått verdi 19.)  
 Linjen ovenfor skal altså IKKE leses som en ligning.
 Den matematiske ligningen a = 2a + 3 har løsning a = -3.
-Og det er ikke det som skjer. 
+Og det er ikke det som skjer i denne linja. 
 Det kan virke merkelig å bruke samme variabel på høyre og venstre side.
 Men det er ofte brukt. 
 
@@ -342,21 +277,20 @@ Da slipper vi å løse ligningen selv.
 Vi skal se på sympy senere. 
 
 
+I oppgavene nedenfor: regn ut for hånd (kalkulator). Prøv så i python. 
+
 Oppgave 1:
-Hva blir 2*3-4/2*2, (1-3)*(-3)/(2*2), 2*3**2/2, 1/2**3-4-8/2*4 , 2**3-(4-8)/2*4 ? 
-Regn ut for hånd, prøv så i python. 
+Hva blir 2*3-4/2*2, (1-3)*(-3)/(2*2), 2*3**2/2, 1/2**3-4-8/2*4 , 2**3-(4-8)/2*4 ?  
 
 Oppgave 2:
 Regn ut arealet av en firkant med side a=3 og b=12. (Diskuter med sidemannen.) 
 
 Oppgave 3: Regn ut omkretsen av en firkant med side a=4 og b=5.
 
-Oppgave 3: Løs 3x - 2 = 13 
+Oppgave 4: Løs 3x - 2 = 13 
 
-Oppgave 4: Regn ut omkretsen av en sirkel med radius 3.
+Oppgave 5: Regn ut omkretsen av en sirkel med radius 3.
 (Hva er radius? Og pi? Diskuter med sidemannen.) 
-
-
 
 ######################################################################## 
 KAP. 2.3  DATATYPER #1: int, float, str
@@ -369,13 +303,16 @@ For eksempel kan to tall multipliseres (ganges) med hverandre.
 Men det gir ikke mening å gange to tekststrenger med hverandre.
 'asdf' * 'abc'
 Da klager python.
+(Men det gir faktisk mening å skrive 3 * 'abc'. Prøv.) 
 
-Funksjonen type() forteller oss hvilken datatype en variabel har. 
+Funksjonen type() forteller oss hvilken datatype en variabel (eller en verdi) har. 
 Prøv: 
 type(23)               # int    (integer, heltall) 
 type(23.3)             # float  (desimaltall) 
 type(23.0)             # float  
-type('or not to be')   # str    (tekststreng) 
+type('23')             # str    (tekststreng) 
+a = 43.3
+type(a)
 
 Merk at vi for desimaltall bruker punktum, ikke komma.
 (Det er engelskspråklig stil, som er den som er brukt i programmering.) 
@@ -383,12 +320,19 @@ NB: vanligvis vil argumentet ikke være et tall, men en variabel, f.eks. type(mi
 
 Noen ganger er det viktig å skille mellom int og float, men som oftest ikke. 
 (I tidligere versjoner av Python, er det veldig viktig å skille mellom int og float.
-I Python2 vil 1/2 ikke gi 0.5, men 0 fordi det er heltallsdivisjon.) 
+I Python2 vil 1/2 ikke gi 0.5, men 0 fordi det er såkalt heltallsdivisjon. 
+Vi kjører Python3, nærmere bestemt Python 3.6) 
+
 
 Omgjøring av datatyper (recast): 
+
 Fra tall til tekst: 
 str(33.0)        # gir '33.0'
 str(33)          # gir '33'
+type(str(33))    # str
+a = 334
+str(a)
+type(str(a))     # str
 
 Fra tekst til tall: 
 int('345')       # gir 345
@@ -412,6 +356,9 @@ Med round kan du også runde av til et gitt antall desimaler (default er null de
 round(33.499,2)  # blir 33.50
 round(33.43,1)   # blir 33.4
 
+(NB: vanligvis er det variabler vi har som argumenter, ikke verdiene selv.)  
+
+
 
 
 Oppgave 1: Du har to tekstvariabler, a = ' 7.3' og b = '30.1'.
@@ -423,8 +370,6 @@ Er det mulig å runde av tallet til to desimaler på bare en linje?
 
 Oppgave 3: Du har en variabel a = 3.14 og b = "Pi er ".
 Lag en tekststreng c som kombinerer a og b og gir verdien "Pi er 3.14". 
-
-
 
 ######################################################################## 
 KAP. 2.4  IMPORTERE PAKKER
@@ -530,7 +475,6 @@ Oppgave 5: Finn cos og sin til 2.3 radianer
 
 Oppgave 6: Finn kvadratroten av 256. 
 
-
 ######################################################################## 
 KAP. 2.5  NY FUNKSJON: input : lese fra tastaturet 
 
@@ -558,8 +502,6 @@ NB: dersom du bruker int(alder), men oppgir f.eks. '21.5', vil du få feilmeldin
 
 Oppgave 1: Be om et tall med input(). Gjør den innleste verdien om til float,
 og finn til slutt kvadratroten og multipliser med pi. 
-
-
 
 ######################################################################## 
 KAP. 2.6  LAGE ET PROGRAM, EN FIL
@@ -597,10 +539,10 @@ I Windows blir .py lagt til automatisk dersom du ikke selv gjør det.
 
 For å kjøre filen, trykker du på den grønne pilen øverst til venstre (Run file),
 eller trykker F5. 
-I det interaktive vinduet (IPython-vinduet) får du nå spørsmål å svare på. 
+I det interaktive vinduet (IPython-konsollen) får du nå spørsmål å svare på. 
 Du må sannsynligvis først aktivere vinduet ved å klikke på det
 før du kan skrive inn navn (og trykke ENTER) og alder (og trykke ENTER). 
-Merk at mens programmet kjøres, kan du ikke bruke IPython-vinduet til andre ting
+Merk at mens programmet kjøres, kan du ikke bruke IPython-konsollen til andre ting
 (f.eks. til å regne ut 365+366). 
 Når du har oppgitt navn og alder avsluttes programmet.
 Da kan du igjen bruke det interaktive vinduet til andre ting. 
@@ -616,7 +558,7 @@ den grønne filen og kjører programmet.
 Det er viktig å bli komfortabel med filer, vite hvor de er, kunne lagre,
 kunne opprette nye, laste inn filer du har laget tidligere etc.
 Vanlig bruk av python er via filer. 
-Kun for veldig små oppgaver vil du skrive kommandoene direkte inn i IPython-vinduet. 
+Kun for veldig små oppgaver vil du skrive kommandoene direkte inn i IPython-konsollen. 
 I linjen over editor-vinduet, vil der vere en eller flere flapper,
 og kanskje piler til venstre/høyre.
 Dette er aktive filer. Du kan klikke på en flapp, så blir filen lastet inn i editoren.
@@ -633,9 +575,6 @@ Skriv til slutt ut alle opplysningene.
 Oppgave 2:
 Lag et program som leser inn navnet ditt, og så finner et tilfeldig tall
 mellom 15 og 35, og påstår at det er alderen din.
-
-
-
 
 ######################################################################## 
 KAP. 2.7  BETINGELSER 
@@ -724,7 +663,7 @@ Ofte blir den produsert via følgende sammenligningsoperatorer
  != : ikke lik
 
 
-Prøv (interaktivt, dvs i IPython-vinduet): 
+Prøv (interaktivt, dvs i IPython-konsollen): 
 2 == 3   # False
 2 = 3    # Dette må vel gi feilmelding? (Tilordning/assignment)
 2 == 2   # True
@@ -790,9 +729,6 @@ Oppgave 4: Lag et program plukker to tall, x og y, mellom (f.eks.) 10 og 100.
 Brukeren blir så spurt om å svare på følgende regnestykker, x+y, x-y, x*y (etc?) 
 For hvert regnestykke kontrollerer programmet svaret og skriver en kommentar. 
 
-
-
-
 ######################################################################## 
 KAP. 2.8  NY DATATYPE: LIST
 (Nye funksjoner: len, help, range
@@ -803,7 +739,7 @@ Datatyper så langt: int, float, str, bool
 Datatypen list er en liste (sekvens) med elementer. 
 Elementene kan være tall, tekst, andre lister eller andre ting.
 
-Prøv i IPython-vinduet:
+Prøv i IPython-konsollen:
 
 liste1 = [1,3,5,2,33,0,2]  # deklarerer og fyller en liste med tall
 type(liste1)
@@ -1014,9 +950,6 @@ Oppgave 5: Du har lst2 = [11,22,33,44,55,66,77]
 Lag en ny liste som inneholder de tre midterste elementene.
 (Det kan gjøres på mange måter. Hva er den raskeste?)
 
-
-
-
 ######################################################################## 
 KAP. 2.9  FOR-LØKKE (FOR LOOP)
 
@@ -1031,11 +964,11 @@ Det er ikke spesielt praktisk å skrive opp linjen 100 ganger.
 Det er her en for-løkke kommer inn. 
 
 La oss først ta en veldig enkel for-løkke:
-(Du kan skrive dette i IPython-vinduet.) 
+(Du kan skrive dette i IPython-konsollen.) 
 for i in [0,1,2,3]:
     print(i)
 Når du er trykker ENTER etter kolon på første linje,
-vil IPython-vinduet selv sørge for å indentere teksten.
+vil IPython-konsollen selv sørge for å indentere teksten.
 Skriv så inn print(i) og trykk ENTER, og ENTER igjen på den tomme linjen etterpå.
 Da utføres for-loopen.
 (Vanligvis vil vi ha for-looper inne i et program, ikke interaktivt.) 
@@ -1103,10 +1036,6 @@ Oppgave 3: Som ovenfor, men i stedet for å bruke variablene n1, n2, ..., n6,
 bruk heller en liste antall som er initialisert slik: antall = [0,0,0,0,0,0].
 NB: antall[0] vil da typisk innholde antall 1'ere. 
 NB: Kan du nå forenkle testingen? Bruke bare én test-linje i stedet for seks? 
-
-
-
-
 
 ######################################################################## 
 KAP. 2.10  WHILE-LØKKER (WHILE LOOP)
@@ -1227,10 +1156,8 @@ Utvidelse a): La programmet heller gjette et tilfeldig tall mellom den til enhve
 Programmet er da typisk mindre effektivt, men muligens mer robust mot.
 
 Utvidelse b): Hva skjer hvis du angir grensene 1 og 10, og så velger tallet 15?
-(NB: Du kan avbryte en evig loop ved å trykke CTRL+c i IPython-vinduet.) 
+(NB: Du kan avbryte en evig loop ved å trykke CTRL+c i IPython-konsollen.) 
 Kan du sikre deg mot dette i koden? Prøv. 
-
-
 
 ######################################################################## 
 KAP. 2.11  FUNKSJONER
@@ -1261,7 +1188,7 @@ Lagre gjerne programmet som tut_funksjon1.py
 
 NB: Når du har implementert og kjørt denne i Spyder og fått ut noen tall som resultat, 
 kan du fra det interaktive vinduet fortsette å bruke rettlinje-funksjonen.
-Ved å kjøre koden har du importert den og IPython-vinduet kjenner innholdet. 
+Ved å kjøre koden har du importert den og IPython-konsollen kjenner innholdet. 
 Prøv:
 rettlinje(2,1,9) 
 
@@ -1394,10 +1321,6 @@ For hver t-verdi skal funksjonen kalles med v0=0 og g=9.81,
 og tid og strekning skal printes ut.
 (Hvor langt faller man på 10 sekunder?) 
 
-
-
-
-
 ######################################################################## 
 KAP. 2.12  VARIABLER INNENFOR OG UTENFOR EN FUNKSJON. 
 (NAMESPACES, SCOPES)
@@ -1456,10 +1379,6 @@ Studer utskriften.
 Prøv å forstå hvorfor variablene har de verdiene de har innenfor og utenfor programmet.
 Diskuter med sidemannen. 
 Gjør endringer og test litt, se om ting oppfører seg slik du forventer. 
-
-
-
-
 
 ######################################################################## 
 KAP. 2.13  GODE PROGRAMMERINGSVANER  (optional)
@@ -1524,8 +1443,6 @@ finne_fart(), finne_posisjon_ball(), tegne_graf()
 
 Full info: https://www.python.org/dev/peps/pep-0008/ (Style Guide for Python Code) 
 
-
-
 ######################################################################## 
 KAP. 2.14  DEBUGGING  (optional)
 
@@ -1569,7 +1486,7 @@ Kall det gjerne tut_debugtest1.py (File/Save as)
 Start debugging ved Debug/Debug eller CTRL+F5 (virker kanskje ikke)
 eller klikk på symbolet.
 
-I IPython-vinduet har nå prompten blitt endret fra den vanlige "In []:" til "ipdb>".
+I IPython-konsollen har nå prompten blitt endret fra den vanlige "In []:" til "ipdb>".
 Vi er i debugging-modus. 
 Det vises nå 5 linjer av programmet. Den midterste av de 5 har en pil på seg.
 Det er den linja python ser på akkurat nå (og venter).
@@ -1593,7 +1510,7 @@ og nå pekes det på for-løkka.
 
 Underveis i debuggingen kan du printe variabler. 
 (Det er ikke er så nyttig siden du har de i Variable explorer.)
-Prøv likevel i IPython-vinduet:
+Prøv likevel i IPython-konsollen:
 print(sko)
 Du kan også endre verdier. Det kan være aktuelt mens du debugger. 
 Prøv:
@@ -1624,7 +1541,7 @@ Noe har med hvordan du skal utføre funksjoner, linje for linje eller hele funks
 
 Utføre løkke/funksjon med ett tastetrykk: 
 La oss prøve en gang til, men nå uten å gå gjennom loopen gang på gang:
-Trykk først CTRL+. for å restarte IPython-vinduet (og fjerne variablene).
+Trykk først CTRL+. for å restarte IPython-konsollen (og fjerne variablene).
 Trykk så Debug-symbolet (eller Debug/Debug).
 Trykk Debug/Step tre ganger.
 Da står interpreteren og venter på for-linja. 
@@ -1651,7 +1568,7 @@ Du har nå to breakpoints i koden din.
 (Dersom du fortsatt er i debug-modus, velg Debug/Stop.)
 For at vi skal starte med blanke ark, kan det være greit å velge
 Consoles / Restart kernel (eller CTRL+.).
-Det tar et par sekunder å restarte IPython-vinduet.
+Det tar et par sekunder å restarte IPython-konsollen.
 I Variable explorer ser du nå at alle variablene er borte.
 
 La oss nå prøve debugging via breakpoints.
@@ -1676,12 +1593,10 @@ Oppgave 1: Legg til noen linjer i programmet ovenfor.
 Prøv deg litt frem med linje-for-linje-debugging. 
 Prøv å gå gjennom loopen, og prøv å utføre den i et tastetrykk (Debug / Step Return). 
 Og prøv breakpoint-debugging: sett noen breakpoints og forsikre deg om at du forstår. 
-Prøv også å restarte IPython-vinduet (så variablene forsvinner). 
+Prøv også å restarte IPython-konsollen (så variablene forsvinner). 
 
 
 For mer info: Se Help-vinduet, klikk tutorial. Der er et kapittel om Debugging.
-
-
 
 ######################################################################## 
 KAP. 2.15  EKSEMPEL: FUNKSJON: SKRAATT KAST  (optional)
@@ -1728,8 +1643,6 @@ Vi har nå formatert teksten.
 Vi har bestemt at tid skal vises med 2 desimal og ta opp minst 4 plasser, kommaet inkludert.
 Likedan skal både sx og sy vises med 2 desimaler og ta opp minst 5 plasser.
 Det blir mer systematisk. Mer om det nedenfor. 
-
-
 
 ######################################################################## 
 KAP. 2.16  FORMATERING AV PRINT  
@@ -1854,10 +1767,7 @@ Oppgave 2: Som ovenfor, men bruk nå scientific notasjon med 2 desimaler (eks: 1
 Oppgave 3: navn = ['Newton', 'Descartes', 'Euler'], alder = [84, 53, 76], 
 foedt = ['januar','mars','april']
 Lag et program som skriver ut navn, alder og fødselsmåned i fine kolonner.
-La navn være venstrejustert, og la fødselsmåned være høyrejustert. 
-
-
-
+La navn være venstrejustert, og la fødselsmåned være høyrejustert.
 
 ######################################################################## 
 KAP. 2.17  DATATYPE: TUPLES 
@@ -1898,8 +1808,6 @@ Oppgave 3: Lag de 100 tuplene som kan lages av to siffer som begge er mellom 0 o
 dvs. (0,0), (0,1), ..., (0,9), (1,0), (1,1), ..., (1,9), ..., (9,0), (9,1), .., (9,9)
 Tips: Bruk to for-løkker, den ene inni den andre. 
 Legg tuplene inn i en liste som du laget ved start.
-
-
 
 ######################################################################## 
 KAP. 2.18  FILER 
@@ -1956,9 +1864,6 @@ opplysningene fra filen og skriver de til skjerm.
 Oppgave 2: Lag et program som skriver til fil 20 linjer som hver skal inneholde linjenummer til venstre,
 så 5 tilfeldig valgte tall mellom 0 og 200 oppgitt med 3 desimaler.
 Tall-kolonnene skal være fint justerte. 
-
-
-
 
 ######################################################################## 
 KAP. 2.19  DATATYPE DICTIONARIES  (optional)
@@ -2047,9 +1952,6 @@ Oppgave 2: Lag en dictionary dct1 som inneholder navn og alder (som ovenfor).
 Dictionary'en inneholder også en key 'annet' som har annen dictionary som verdi.
 Denne dictionary'en har innhold {'hobby':'lego', 'mobiler':4}
 
-
-
-
 ######################################################################## 
 KAP. 2.20  TRY-EXCEPT (optional)
 
@@ -2106,8 +2008,6 @@ så skriv da i stedet ut melding om at kvadratroten ikke lar seg regne ut for de
 Bruk try/except-konstruksjon til å gjennomføre.
 (NB: her kunne vi enkelt testet om tallet var negativt i stedet for å sette opp en try/except-konstruksjon.) 
 
-
-
 ######################################################################## 
 KAP. 2.21  NOEN SMÅ TRIKS
 
@@ -2155,8 +2055,6 @@ help(range)
 Der er det mye mer info. 
 Det er ikke alltid så lett å finne frem til det man leter etter.
 Ofte er et søk på nettet raskeste vei, men help() kan også være til god hjelp. 
-
-
 
 ######################################################################## 
 KAP. 2.22  MER OM tekststrenger
@@ -2227,1400 +2125,4 @@ print('Han sa "Pass opp!"')
 
 
 
-
-
-
-
-
-
-######################################################################## 
-KAP. 3.1  NUMPY/MATLIB: motivasjon
-
-Figur-motivasjon
-Følgende program plotter to grafer. 
-
-import numpy as np
-import matplotlib.pyplot as plt   
-x = np.linspace(0,3,31)
-y1 = x**2
-y2 = 25-x**3
-plt.plot(x,y1,'bo-')   # blå, heltrukket linje, sirkel for hvert av punktene  
-plt.plot(x,y2,'r--')   # rød, stiplet linje
-plt.show()
-
-Grafen vises inline i IPython-vinduet.
-Dersom du klikker på flappen med Python (i stedet for IPython) og kjører på ny, 
-vil grafen bli vist i et eget vindu.
-(Mer om det senere.) 
-
-Nedenfor ser vi nærmere på numpy og matplotlib, de to pakkene vi bruker når vi lager grafer. 
-
-
-
-######################################################################## 
-KAP. 3.2  NUMPY: array
-
-Numpy står for Numerical Python og inneholder matematiske ressurser 
-som gjør det enklere å bruke Python til numeriske beregninger, plotting etc. 
-
-(Scipy (Scientific Python) er en lignende pakke du fort kan komme borti. 
-Den bygger videre på numpy.)
-
-Spesielt er det datatypen array (ndarray, n-dimensional array) vi trenger fra numpy. 
-(Datatyper vi har vært borti så langt: int, float, str, bool, list, tuple, (dict).) 
-Et array kan lages fra en liste:
-import numpy
-mylist = [1, 2, 3.3, 4.5, 4] 
-myarr = numpy.array(mylist) 
-type(myarr)    # (numpy.ndarray)
-print(myarr)
-
-(NB: når du printer et array, vises kommaet mellom elementene.)  
-
-Et array er som en spesiell type liste. 
-Du kan endre verdier, f.eks.
-myarr[1] = 2.44
-Men du kan ikke endre lengden (legge til eller fjerne verdier) ved append(), 
-som vi kan gjøre med en vanlig liste. 
-Skriv myarr. og trykk TAB for å se hvilke funksjoner denne datatypen tilbyr. 
-(Vi skal bruke bare noen få av disse.) 
-
-
-Andre måter å lage et array på, er:
-arr1 = numpy.zeros(6)    # lager et array med 6 nuller
-arr2 = numpy.ones(6)     # lager et array med 6 enere
-
-Der finnes to funksjoner for å lage et array som øker jevnt mellom en minste og en største verdi. 
-Den ene: arange() er nesten det range() er for lister: 
-arr3 = numpy.arange(1, 2, 0.1) 
-print(arr3)
-Her lages et array med verdier 1., 1.1, 1.2, ..., 1.9  (NB: maksverdien 2 er ikke med)
-Til forskjell fra range(), tillater arange() desimalverdier. 
-
-Den andre: linspace(a,b,n) lager et array med n verdier. Første verdien er a, siste er b. 
-arr4 = numpy.linspace(1,2,11)  # gir 1., 1.1, ..., 2.0  
-print(arr4)
-
-
-Metoden med arange() eller linspace() er praktisk når vi skal lage figurer. 
-Typisk vil vi ønske en jevn sekvens av x-verdier, som er det linspace() og arange() gir.  
-Så regner vi ut y-verdier, en for hver x-verdi, utifra en prosedyre eller formel, 
-og plotter til slutt x mot y. 
-
-Ex.:
-import numpy
-x = numpy.linspace(0,1,11)
-y = numpy.zeros(11)
-for i in range(11): 
-    y[i] = x[i]**2
-print(x)
-print(y)
-
-Vi bruker her en loop for å fylle y-arrayet.
-I for-loopen er i først lik 0 og vi regner ut y[0] basert på x[0], så blir i lik 1 etc., 
-frem til i=10, som er siste elementet i x og y. 
-
-Dette er fint, og vi er nå forsåvidt klare til å bruke matplotlib for å tegne figuren.
-
-
-Men først: vektorisering
-Der finnes imidlertid en raskere og kortere (og dermed bedre) måte å regne ut y på.
-I tilfellet ovenfor kan loopen erstattes av vektorisering. 
-Vi kan ganske enkelt skrive:
-y = x**2
-Python vil da se at x er et array og internt gjøre det vi gjør med for-loopen, 
-men på en mer effektiv måte.
-Vi trenger altså ikke for-loopen vi hadde i eksempelet ovenfor. 
-(NB: dette ville ikke fungert dersom x var en liste av tall (x = [0,.1,.2,.3]), 
-vektorisering fungerer kun med arrays.) 
-
-
-
-Programmet blir da:
-import numpy
-x = numpy.linspace(0,1,11)
-y = x**2
-print(x)
-print(y)
-
-Vi kan også printe ut resultatet slik:
-for i in range(len(x)):
-    print("x:%5.3f  y:%5.3f" %(x[i], y[i]))
-
-
-For å tillate vektorisering
-Numpy inneholder egne versjoner av forskjellige funksjoner for bruk sammen med array 
-der de opprinnelige funksjonene ikke kan brukes til vektorisering. 
-
-F.eks. kan vi skape et array av 10 tilfeldige desimaltall mellom 3 og 5 med numpys 
-egen numpy.random.uniform(): 
-arr10 = numpy.random.uniform(3,5,10)
-
-Dette er ikke mulig med den vanlige random.uniform(). 
-Den tar bare to argumenter, og gir ett tilfeldig tall. 
-Skulle vi laget en liste med ti tilfeldige tall, måtte vi brukt en for-loop. 
-list10 = []
-for i in range(10): 
-    list10.append( random.uniform(3,5) ) 
-
-
-Og dersom vi har et array og vi vil ta kvadratroten av hvert element i arrayet, 
-kan vi gjøre: 
-arr10b = numpy.sqrt(arr10)
-Igjen: Dette er ikke mulig med math sin sqrt-funksjon. 
-Prøv: 
-import math 
-arr10c = math.sqrt(arr10). 
-Du får feilmelding TypeError. 
-
-
-Så: Med vektorisering gjør numpy at vi kan utføre matematiske operasjoner 
-som vi ellers måtte brukt en loop for å gjøre. 
-Det er effektivt (raskt), og gir også mer konsis kode. 
-
-
-NB: Når du printer eller viser et array i spyder, vil alle elementene vises dersom arrayet 
-har ti eller færre elementer.
-Er det flere enn ti, vil kun de 3 første og de 3 siste elementene vises, med '...' imellom.
-Prøv: 
-numpy.random.uniform(0,1,10)
-numpy.random.uniform(0,1,11)
-
-
-
-Oppgave 1: Lag et array som går fra 0 til 10 (inkludert endepunktene). 
-Steglengden (spacing) skal være 1  (dvs. [0, 1, 2, ..., 10]). 
-
-
-Oppgave 2: Lag et array som går fra 0 til 10 (inkludert endepunktene). 
-Steglengden (spacing) skal være 0.2  (dvs. [0, 0.2, 0.4, ..., 9.8, 10])
-
-
-Oppgave 3: Sammenlign numpy.linspace(0,10,6) med numpy.linspace(0,10,5). Forstå forskjellen
-
-
-Oppgave 4: Lag et array med 10 tilfeldige desimaltall mellom 0 og 100 
-uten å bruke numpy's egne random-funksjoner. 
-Dvs. du må bruke random.uniform(0,100).
-Gjør så det samme ved hjelp av numpys randomfunksjoner (numpy.random.uniform).
-
-
-Oppgave 5: 
-En bil starter fra ro (startfart lik 0) og har akselerasjon på 3 m/s2. 
-Lag et program som for hvert sekund fra 0 til 10 sekunder regner ut farten til bilen 
-og hvor langt den har gått, og skriver det ut til skjerm. 
-Hint: farten v og strekningen s ved tid t er gitt ved v = a*t og s = 0.5*a*t**2 der a = 3 er akselerasjonen.
-Utskriften skal se omtrent slik ut:
-tid:  0.00 s    fart:  0.00 m/s    strekning:   0.00 m
-tid:  1.00 s    fart:  3.00 m/s    strekning:   1.50 m
-... etc. 
-
-
-Lese mer: https://en.wikipedia.org/wiki/NumPy
-
-
-
-######################################################################## 
-KAP. 3.3  MATPLOTLIB
-
-I pakken matplotlib er der mange ressurser som har med plotting å gjøre.
-Vi skal her bruke en underpakke (sub-package) som heter pyplot.
-(Den er inspirert av plottingen i Matlab.)
-
-Nedenfor skiller vi mellom (figur)vindu, figur og graf. 
-  Vindu: selve figurvinduet, som du kan flytte rundt på skjermen om du vil 
-  Figur: Koordinatsystem
-  Graf:  Selve linja eller punktene som representerer funksjonen du plotter
-
-Skriv inn følgende program og lagre det som tut_matplotlib1.py. 
-
-import numpy 
-import matplotlib.pyplot as plt 
-x = numpy.linspace(0,1,11)
-y = x**2
-plt.xlabel('x')   # Vi kan sette titler på aksene
-plt.ylabel('y')   # y-aksen
-plt.title('En fin funksjon')    # figurtittel 
-plt.plot(x,y,'*--') 
-  # x er array med x-verdiene
-  # y er array med y-verdiene
-  # neste argument pynter på grafen: b er blå, * er sirkel, -- er stiplet linje
-plt.show()   
-
-Siste linja er kun nødvendig dersom figuren vises i eget vindu. 
-Viser du grafen inline, (som er det spyder i utgangspunktet gjør), 
-gjør linja ingenting (og skader dermed heller ikke). 
-
-Kjør programmet. 
-Der er to måter figuren kan vises.
-Enten skjer det inline i IPython-vinduet, som er default. 
-Eller så blir et nytt vindu åpnet ved kommandoen ovenfor. 
-I inline-modus har siste linja, plt.show() ingen effekt. 
-Men er du ikke i inline-modus, og et nytt vindu åpnes, må den linja være med 
-ellers lukker vinduet seg når programmet er ferdig, dvs. så å si umiddelbart.  
-I sistnevnte tilfelle kan vi ikke bruke IPython-terminalen så lenge vinduet er oppe. 
-Avslutt i så fall ved å klikke krysset oppe i høyre hjørne på figur-vinduet. 
-Men du er sannsynligvis i inline-modus. 
-
-For å endre fra/til inline plotting kan du enten ...:
-klikke fra toppmenyen: 
-Tools / Preferences / IPython console / Graphics
-og velg så Backend (Inline eller Automatic) 
-Automatic gir et eget figur-vindu.
-Du må muligens restarte IPython-vinduet: Consoles / Restart kernel
-Det er tar et par sekunder.
-
-... eller du kan skrive i IPython-vinduet en av følgende: 
-%matplotlib inline   # figur inline i IPython-vinduet
-%matplotlib qt       # figur i eget vindu
-
-
-En annen mulighet for å tvinge figurer til å lages i eget vindu er å bruke 
-Python-konsollen i stedet for IPython-konsollen. 
-
-(Så: dersom du har problem med å få det som du vil, prøv en av de andre mulighetene.) 
-
-
-
-Når du plotter i en eget vindu i IPython-terminalen, trenger du plt.show() 
-for å unngå at programmet avsluttes og vinduet forsvinner med en gang. 
-Dette låser imidlertid terminalen, slik at du må klikke vekk figurvinduet 
-for å igjen kunne skrive i terminalen. 
-Dette er ikke alltid det du ønsker. 
-Og der er en løsning. 
-Det er mulig å plotte såkalt interaktivt. 
-Figuren kommer da opp allerede med plt.plot(), og forsvinner ikke når programmet er ferdig, 
-og du trenger ikke plt.show(). 
-Du kan da gjøre endringer. Terminalen låser seg ikke. 
-Det du må gjøre er å bruke plt.ion(), der ion betyr interactive on. 
-(Interaktiv plotting slås av ved plt.ioff()) 
-
-
-# Prøv (i IPython-vinduet)
-import numpy 
-import matplotlib.pyplot as plt 
-
-x = numpy.linspace(0,1,11)
-y = x**2
-
-plt.ion()              # interactive on 
-plt.plot(x,y,'b*--')   # Figuren vises med en gang, du trenger ikke plt.show()
-plt.xlabel('X')        # Kan legge til ting underveis
-plt.ylabel('Y') 
-
-Du kan lagre figuren: 
-plt.savefig('x_i_andre.png')   # Tillatte formater: png, jpg, pdf, ... 
-
-
-Skal du tegne en ny graf, må du lukke figurvinduet eller skrive plt.cla(), 
-ellers blir grafen plottet i den samme figuren. 
-
-
-
-Oppgave 1: Tegn grafen f(x) = x**3-x for -2 < x < 2. 
-Sett passende label på x- og y-aksen, og gi grafen en tittel.
-Tegn grafen både inline og i eget vindu (i to ulike kjøringer). 
-
-
-
-Mye mer å lese (matplotlib inneholder mye): 
-http://www.labri.fr/perso/nrougier/teaching/matplotlib/  (tutorial) 
-matplotlib.org
-http://matplotlib.org/gallery.html 
-http://matplotlib.org/examples/index.html
-http://matplotlib.org/api/pyplot_summary.html
-http://matplotlib.org/resources/index.html  (Matplotlib-tutorials etc.)
-
-
-######################################################################## 
-KAP. 3.4  MER MATPLOTLIB
-
-Tema: akser, flere subplot i samme vindu, flere vinduer samtidig 
-
-NB: her må plottingen foregår i eget vindu (ikke inline), 
-enten i IPython-vinduet (med ion) eller i Python-vinduet. 
-
-
-
-A. Flere grafer i samme figur: 
-
-(Starte på nytt ved å klikke vekk vinduet eller skrive plt.cla(), eller ved å restarte IPython-vinduet.) 
-
-import numpy                        # om nødvendig
-import matplotlib.pyplot as plt     # om nødvendig
-#plt.cla()                          # om nødvendig  Fjerner alt fra figuren. (cla: Clear current Axes.) 
-
-x = numpy.linspace(0,2,21)
-y1 = x
-y2 = x**2                 # vektorisering 
-y3 = numpy.sqrt(x)        # bruker igjen vektorisering
-
-# Tre grafer i samme figur. NB: Vi tar med label
-plt.plot(x, y1, 'r*-' , label='x')
-plt.plot(x, y2, 'g^--', label='x**2')
-plt.plot(x, y3, 'b-.' , label='sqrt(x)') 
-
-plt.legend()    # Først her blir label'ene vist 
-
-plt.title('Noen grafer')  # Tittel
-plt.xlabel('X') 
-plt.ylabel('Y')
-
-# Vi kan bestemme hvor mye av x- og y-aksen som skal plottes [xmin,xmax, ymin,ymax]
-plt.axis([0,2, -1,2])     # x mellom 0 og 2, y mellom -1 og 2  (ikke optimalt)
-plt.axis('tight')         # plotter akkurat så mye som trengs for å vise grafene 
-                          # (er default dersom axis ikke blir satt)
- 
-plt.savefig('noenfigurer.jpg')  # lagrer figuren, kan velge format (jpg, png, pdf, eps, ...). 
-
-Det går også an å lagre figuren direkte fra figurvinduet ved å klikke diskettikonet. 
-
-
-
-
-B. Flere figurer i samme figur-vindu: Subplot 
-
-subplot(k, r, i) tar tre argumenter 
- K: antall kolonner 
- R: antall rader
- i: hvilket subplot som gjøres til det aktive 
-    (1: oppe til venstre, 2: en til høyre, etc. Når du har nådd antall kolonner, går du en rad ned)
-subplot() setter altså av plass til K x R subplott, og velger det aktive. 
-
-plt.subplot(2,2,1)          # oppe til venstre 
-plt.plot(x,y1,'*--b')       # 
-plt.title("x")
-
-plt.subplot(2,2,2)          # oppe til høyre
-plt.plot(x,y2,'*--g')       # 
-plt.title("x**2")
-
-plt.subplot(2,2,3)          # nede til venstre
-plt.plot(x,x**3,'*--y')     # 
-plt.title("x**3")
-
-plt.subplot(2,2,4)          # nede til høyre
-plt.plot(x,x**0.25,'*--r')  # 
-plt.title('x**0.25')
-
-
-Det går an å endre størrelsen på figuren-vinduet manuelt. 
-
-
-Hvordan fjerne grafene ovenfor? 
-Å klikke vekk vinduet er en mulighet. Da er vi tilbake til 1-figur-i-vinduet neste gang vi plotter. 
-
-plt.cla()  fungerer ikke. Det bare fjerner den aktive figuren, som for oss figuren nede til høyre. 
-
-plt.subplot(1,1,1) fungerer. Da sier vi at vi skal ha 1 figur i vinduet, og alle 4 blir fjernet 
-og vi står med blanke ark. 
-
-
-
-
-C. Flere figurvinduer 
-
-Eksempel: 
-plt.figure("fig1")                     # lag et figurvindu (og la det være det aktive)
-plt.plot(x, 3+x**2, '*--b')          # legg en graf i figurvinduet
-plt.plot(x, 3-x**2, '*--r')          # legg en graf til i figurvinduet
-
-plt.figure("fig2")                     # lag et annet figurvindu
-plt.plot(x, x**1.5,'*--g')             # legg en graf i dette vinduet (siden det nå er det aktive vinduet)
-
-plt.figure("fig3")                     # skift tilbake til det første vinduet (fig1 blir nå det aktive vinduet)
-plt.plot(x, 2+x**4,'*--y')             # legg en graf til i det aktive vinduet (som er fig1)
-
-
-
-
-Oppgave 1
-Lag et program som åpner et figur-vindu med fire subfigurer.
-Utgangspunktet er skrått kast med starthastighet 10 m/s og både x- og y-retning (som vi hadde tidligere).
-I fire subfigurvinduer skal så fart i x- og y-retning (vx og vy) plottes,
-og tilbakelagt strekning i x- og y-retning (sx og sy). 
-Hint: vx = vx0, vy = vy0`+ g*t, sx = vx*t, sy = vy0*t + 0.5*a*t**2  der a=-9.81 (tyngdeakselerasjonen)
-(Diskuter med sidemannen.) 
-
-
-
-# Mange eksempler som viser hva man kan gjøre med matplotlib
-https://matplotlib.org/examples/index.html
-
-
-######################################################################## 
-KAP. 3.5  SCATTERPLOTT  (optional)
-
-Scatterplot:
-I figuren ovenfor økte x-verdien med indeksen (x[0] < x[1] < x[2] < ... ). 
-Ofte er det det naturlige, f.eks. tid på x-aksen og posisjon på y-aksen. 
-I et scatterplott trenger ikke x-verdiene å øke, de kan være tilfeldige. 
-Man er kun interessert i xy-parene. 
-F.eks. la x være lengden på en bil og y være tiden det tar å akselerere til 100 km/t.
-
-import numpy 
-import matplotlib.pyplot as plt
-
-N = 7
-x = numpy.random.uniform(3.5,6,N)   # N tilfeldige billengder (alle mellom 3.5 og 6 meter)
-y = numpy.random.uniform(4,12,N)    # N tilfeldige 0-100-tider (alle mellom 4 og 12 sekunder)
-#plt.figure("scatter: ordinary")    # åpner nytt figurvindu  (kan droppe)
-plt.cla()                           # rensker figurvinduet (dersom du allerede har et figurvindu), evt. åpner et nytt
-plt.scatter(x, y)                   # scatterplot: x vs y
-plt.xlabel('billengde')
-plt.ylabel('tid 0-100 km/t')
-
-Med et enkelt scatterplot som det ovenfor, ville plt.plot(x,y,'o') gitt samme plott. 
-Merk at vi ikke er interessert i linje mellom punktene, siden der ikke er noen sammenheng/kronologi
-mellom x-verdiene. 
-
-
-
-Scatterplot har noen grafiske finesser som kan være vakre og/eller nyttige.
-Du kan angi ulik størrelse per punkt, og farge, samt gjennomsiktighet: 
-
-import numpy 
-import matplotlib.pyplot as plt
-
-N = 50   # nå 50 biler 
-x = numpy.random.uniform(3.5,6,N)   # N tilfeldige billengder (alle mellom 3.5 og 6 meter)
-y = numpy.random.uniform(4,12,N)    # N tilfeldige 0-100-tider (alle mellom 4 og 12 sekunder)
-colors = numpy.random.rand(N)       # tilfeldig farge til hvert punkt
-areal = numpy.pi * (15 * numpy.random.rand(N))**2    # 0-15 punkts radius 
-plt.scatter(x, y, s=areal, c=colors, alpha=0.5)
-
-# colors: farge angitt med float mellom 0 og 1.
-# Fargene følger et fargekart med lilla nederst (0), via blå og grønn mot gul (1) (kan endres). 
-# area: størrelse på punktene, bruker areal = pi*radius**2
-# alpha: gjennomsiktighet, 0:helt gjennomsiktig, 1:ingen gjennomsiktighet
-
-
-
-
-######################################################################## 
-KAP. 3.6  ANIMASJON i for-løkke  (optional)
-
-Ting som beveger seg er gøy, og kan også være informativt. 
-Det er mulig å lage ting som beveger seg via matplotlib.
-Det kan være funksjoner som oppdaterer seg ettersom tiden går, f.eks. sin(t).
-Det kan være (veldig) enkle fysikkanimasjoner, som f.eks. en ball som blir kastet.
-Animasjonen kan vises mens programmet kjører, eller man kan også lage en liten
-video-fil (mp4) som f.eks. kan legges ut på nettet.
-Det kan imidlertid også bli litt vel teknisk på dette nivået. 
-
-
-En enkel, men begrenset og vanligvis hakkete måte er å oppdatere grafen i en loop. 
-Det fungerer ikke dersom figurene vises inline.
-Man bruker da ingen av de mer avanserte animasjons-funksjonene i matplotlib,
-og kan heller ikke lage mp4-fil.
-
-Eksempel (skrått kast):
-(Skriv inn og lagre som tut_skraattkast_anim_for.py) 
-
-import numpy as np
-from matplotlib import pyplot as plt
-
-plt.ion()   # interaktiv kjøring
-fig = plt.figure()    # åpner et figurvindu
-akse = plt.axes(xlim=(0, 25), ylim=(0, 10))  # setter opp koordinatsystem
-
-# initialisere kastet
-vx0 = 10       # startfart i x-retning
-vy0 = 10       # startfart i y-retning
-
-dt = 0.1       # oppdaterer hvert 0.1 sekund
-t = 0          # starttid
-ay = -9.81     # akselerasjon i y-retning er tyngdeakselerasjonen (nedover, derfor minus)
-x = 0 
-y = 0          # startposisjon 
-
-while y >= 0:  # stopper når ballen når bakken
-    x = vx0*t
-    y = vy0*t + 0.5*ay*t**2
-    akse.scatter([x],[y],c='r')  # her plottes den nye posisjonen (den forrige slettes ikke)
-    t = t + dt          # oppdatere tiden
-    plt.pause(0.02)     # liten pause for aa gjoere plottingen litt realistisk
-
-
-
-Dette fungerer forsåvidt, men det kan altså gjøres bedre.
-
-
-
-######################################################################## 
-KAP. 3.7  ANIMASJON : avansert, lage mp4 (optional)
-
-Nedenfor gjøres det samme.
-Her bruker vi de mer avanserte funksjonene. 
-NB: kan måtte trenge å installere ffmpeg eller mencoder. 
-
-Legg følgende kode inn i en fil, og kall den gjerne tut_animasjon_skraattkast_mp4.py. 
-(Ligger på http://kilelabs.no/p/tut/)
-
-
-import numpy as np
-from matplotlib import pyplot as plt
-from matplotlib import animation
-
-plt.ion()   # ved interaktiv kjoering 
-
-# Sett opp figur og plotteelementene vi ønsker å animere
-fig = plt.figure()                           # aapner et figurvindu
-akse = plt.axes(xlim=(0, 25), ylim=(0, 10))  # setter opp koordinatsystem
-
-# Initialiser fysikken
-x0  = 0
-y0  = 0
-vx0 = 10
-vy0 = 10
-t0  = 0      # starttid
-ay  = -9.81  # akselerasjon i y-retning er tyngdeakselerasjonen (nedover, derfor minus)
-x   = 0
-y   = 0
-
-p = akse.scatter([x],[y],c='r')
-akse.xaxis.set_label_text('lengde (m)')  # optional
-akse.yaxis.set_label_text('høyde (m)')   # optional
-
-# 
-fps = 30      # vil ha 30 frames per second (i mp4-fil)
-dt = 1./fps   # tid mellom hver oppdatering 
-
-t_tot = 2*vy0/(-ay) + 1      # la programmet regne ut totaltid (og legge til 1 sek)
-#t_tot = 3                   # eller for hand: totaltid er ca. 2 sekunder. Legger til 1
-n_frames = int(fps * t_tot)  # antall frames (heltall). Trenger dette nedenfor. 
-
-
-
-# Til animasjonen trenger vi to funksjoner: animate() og init() 
-
-def init():
-    p = akse.scatter([x0],[y0])
-    return p,
-
-
-def animate(i):
-    # Her oppdateres tid og posisjon, og grafen
-    t = t0 + i*dt
-    x = vx0*t
-    y = vy0*t + 0.5*ay*t**2
-    p = akse.scatter([x],[y],c='r')
-    return p,
-    
-
-# Saa kaller vi matplotlib sin animator-funsjon.  
-anim = animation.FuncAnimation(fig, animate, init_func=init, frames=n_frames, interval=dt*1000, blit=True)
-# fig       : er den plt.figure vi bruker
-# animate   : er funksjonen vi har definert som regner ut neste steg (og tegner)
-# init_func : startsituasjonen
-# frames    : antall frames i animasjonen (i går fra 0 til antall frames)
-# interval  : tid i ms mellom hver frame 
-# blit=True : kun det som har endret seg blir tegnet 
-
-
-# Til slutt lagres animasjonen som mp4 (kommentert ut i foerste omgang)
-#anim.save('tut_scatter_skraattkast.mp4', fps=fps, extra_args=['-vcodec', 'libx264'])
-# Dette krever at en encoder er installert (ffmpeg, mencoder, ...)
-# Argumentet libx264 gjør at videoen kan vises i html5. 
-# Detaljer:  http://matplotlib.sourceforge.net/api/animation_api.html
-
-
-
-
-Prøv å kjøre programmet. 
-Skal vise animasjon av skrått kast. 
-
-Prøv også å lage mp4, dvs. fjerne '#' fra anim.save-linja (mot slutten).
-Du får sannsynligvis feilmelding om at ffmpeg el.l. ikke er installert. 
-
-Vi skal ikke gå i mer detalj her.
-For å lære mer om hva som kan gjøres i matplotlib og hvordan,
-sjekk ut matplotlib-referansene gitt i av KAP. 3.3. 
-
-
-
-######################################################################## 
-KAP. 3.8  ANIMASJON : avansert : ballen spretter tilbake  (optional)
-
-Skrått kast igjen, men nå spretter ballen opp igjen fra bakken,
-og tilbake fra veggene.
-Se http://kilelabs.no/p/tut/
-tut_scatter_ball_bouncing.py 
-tut_scatter_ball_bouncing.mp4
-
-
-
-######################################################################## 
-KAP. 4.1  MATEMATIKK, NUMERISK INTEGRASJON
-
-Trapes- og Midtpunktmetoden
-(Se. s.55-68 i boka.) 
-https://en.wikipedia.org/wiki/Trapezoidal_rule 
-
-Anta at vi har en funksjon f(x) som er positiv for a < x < b, dvs for x mellom to verdier.
-F.eks. f(x) = x**2 + 2 med a = 0 og b = 1
-Hvordan regne ut arealet under kurven (dvs. mellom x-aksen og kurven)?
-For vår enkle funksjon kan vi integrere (symbolsk) og finne eksakt svar.
-For mer kompliserte er ikke dette alltid mulig. 
-Men vi kan alltid integrere numerisk. 
-
-Der finnes flere metoder for numerisk integrasjon. 
-Trapesmetoden er kanskje den enkleste. 
-
-Tavle: 
-X-intervallet (a,b) deles inn i n like store deler.
-Hver del har da en bredde lik delx = (b-a)/n
-Arealet under kurven mellom to x-verdier, f.eks, x3 og x4 tilnærmes av trapeset,
-A_34 = ( f(x3) + f(x4) ) / 2 * delx
-Så legger vi alle del-arealene sammen og får en tilnærming for hele arealet. 
-
-Lag følgende program og lagre gjerne som tut_integration1.py 
-
-import numpy as np
-
-def f1(x):
-    return x**3   # eksempel
-
-
-def trapes_for(f, a, b, n):  # integrasjon med for-loop
-    Fsum = 0
-    delx = (b-a)/n
-    for i in range(n+1):
-        if i in [0,n]:
-           Fsum = Fsum + f(a+i*delx) * delx / 2  # endepunktene faar halv verdi
-        else: 
-           Fsum = Fsum + f(a+i*delx) * delx
-    return Fsum
-
-
-def trapes_vec(f, a, b, n):  # integrasjon med vektorisering (er raskere)
-    delx = (b-a)/n
-    xs = linspace(a,b,n+1)   # NB: n+1 gir n intervaller
-    Fs = xs*f(xs)   # bruker vektorisering
-    Fsum = sum(Fs[1:n]) + (Fs[0] + Fs[n]) / 2
-    return Fsum 
-
-
-def F1(x):    
-    return x**4/4    # den antideriverte til f1(x)
-
-def exact(f,a,b):
-    Fsum = F1(b) - F1(a)
-    return Fsum
-
-
-
-Du kan nå gjøre
-from tut_integration1 import *
-ntrapeser = 10
-trapes_for(f1, 1, 5, n_trapeser)
-exact(F1,1,5)
-
-Er det stor forskjell?
-Prøv å øke n_trapeser og kjør trapes_for() på ny. 
-Ettersom n blir større og større, skal feilen bli mindre og mindre. 
-Du skal da komme nærmere og nærmere exact(). 
-Stemmer det? 
-
-
-
-Oppgave 1: Hvor stor må n være for at forskjellen skal være mindre enn 0.01
-
-
-Oppgave 2: Hvor stor må n være for at den relative forskjellen, abs(eksakt-trapes)/eksakt, skal være mindre enn 1e-5 (som er 0.00001)? 
-
-
-Oppgave 3: Legg til funksjonen f2 = x**2-2x og finn integralet med trapes_vec og exact. 
-
-
-Oppgave 4: Prøv å forstå trapesmetoden. Lag så din egen versjon av trapes_for() eller trapes_vec(), 
-helst uten å se for mye på metodene ovenfor. 
-
-
-Oppgave 5: Legg til funksjon for integrasjon med Midpoint rule (Rectangle rule). 
-Se s.65-67 i boka.
-I midtpunkt-regelen deles igjen x-aksen inn i n like store deler. 
-Vi bruker imidlertid ikke trapes-tilnærmingen.
-I stedet bruker vi firkantent med høyde gitt av f(midtpunkt) i hvert intervall.
-Hint: Dette gir en for-loop av typen:
-    for i in range(n):
-        x = a + (i+0.5)*delx
-        ... 
-
-
-Oppgave 6: En bil starter fra ro med akselerasjon lik a = 5 m/s**2.
-Etter en tid t har bilen farten v = a*t.
-Implementer farten som en funksjon f3. 
-Bruk trapes-regelen til å finne strekningen bilen har kjørt i løpet av 10 sekunder. 
-Sammenlign dette med den eksakte løsningen gitt ved s = 0.5*a*t**2.
-Hvor stor n trenger du for å ha en relativ feil mindre enn 0.00001 ? 
-
-
-
-######################################################################## 
-KAP. 4.2  SYMBOLSK REGNING, SYMPY  (optional)
-
-Python har en modul som gjør det mulig å regne symbolsk: sympy
-Prøv i IPython-vinduet:
-import sympy
-Skriv så sympy. og trykk TAB
-Du ser da alle funksjoner som finnes i pakken. Det er mange.
-
-For å bruke en variabel symbolsk må du fortelle python at den skal være en symbolsk variabel:
-
-from sympy import *
-x = Symbol('x')   # kan også bruke symbols(), se lenger ned 
-type(x)           # Er av type sympy.core.symbol.Symbol
-
-Vi kan lage et uttrykk f
-f = x**2 - 2*x - 3 
-print(f)
-
-Vi kan løse ligningen x**2 - 2x - 3 = 0
-solve(f)
-Svaret er [-1, 3]. Der er altså to løsninger, x=-1 og x=3.
-Som vi husker, siden det er en andregradsligning.
-
-Vi kan også faktorisere uttrykket
-factor(utt1)    # gir (x-3)*(x+1)
-
-Hvis vi ser på utt1 som en funksjon f(x), husker vi fra matematikken at f(x) har nullpunkter for x=3 og x-1. 
-Hvis x blir veldig stor eller veldig liten, vil f(x) bli veldig stor. 
-Et sted vil der dermed være et minimumspunkt.
-Minumuspunktet er der den deriverte til funksjonen er lik null. (I dette tilfellet.) 
-Kan python finne den deriverte? 
-f_der = diff(f,x)    # gir 2x-2
-NB: siden der kun er en symbolsk variabel (x) i f(x), ville også f_der = diff(x) fungert. 
-
-Vi kan erstatte x med et annet symbol eller med et tall:
-f.subs(x,4)    # som gir svaret 5
-NB: I linjen over blir ikke f erstattet med tallet, f er fortsatt symbolsk: 
-print(f)
-(f = f.subs(x,4) ville erstattet f)
-
-Vi kan ha uttrykk med flere variable: 
-y,a = sympy.symbols('y a')    # NB: med symbols() kan flere symbolske variable defineres med ett kall 
-
-g = 2*x*y - 3*a*x**2
-
-Prøv:
-print(g)
-solve(g,x)        # Løser med hensyn til x. Gir to løsninger. 
-simplify(g)       # Prøver å forenkle. I dette tilfellet velger python å faktorisere. 
-
-g2 = g.subs(a,3)
-g3 = g2.subs(y,x)
-Dersom du vil erstatte flere verdier samtidig, må du bruke en dict: 
-g4 = g.subs({a:3, y:x})
-(Vi kan også bruke dict som argument når bare en verdi skal erstattes, g2 = g.subs({a:3}), men det er mer å skrive.) 
-
-
-Vi kan derivere g med hensyn til en av variablene, f.eks. x:
-diff(g,x)
-
-
-Python kan også symbolsk integrasjon:
-F = integrate(f,x) 
-print(F)
-integrate(g,x)
-
-
-
-
-Løse ligningssett 
-Hvordan løse et ligningssett bestående av to ligninger.
-Eks: x+y=1 og x-y=-3
-(To variable, x og y, og to ligninger, da kan vi finne en løsning.)
-Metoden er å skrive ligningene slik at høyresiden er 0.
-Da blir det:
-x + y - 1 = 0  og  x - y + 3 = 0
-Kan løses slik:
-lign1 = x + y - 1
-lign2 = x - y + 3
-from sympy.solvers.solveset import linsolve
-linsolve( [lign1, lign2], (x,y) )     # Det andre argumentet (x,y) angir hvilke variabler vi skal løse for
-Gir svaret {(-1,2)} som betyr at x = -1 og y = -2.
-(Sjekk manuelt ved å legge sammen de to ligningene, og trekke den ene fra den andre.) 
-
-Kan også skrive det eksplisitt:
-linsolve( [x + y - 1, x - y + 3], (x,y))
-
-Kan også ha med flere symbolske variable: 
-linsolve( [x + y - a, x - y + 3], (x,y))
-
-Da kunne det også gitt mening å løse for f.eks. x og a:
-linsolve( [x + y - a, x - y + 3], (x,a))
-
-
-
-Vi ønsker gjerne å lagre svaret i en variabel:
-ans = linsolve( [lign1, lign2], (x,y) )  
-print(ans)
-Hvordan får vi tak i svaret?
-type(ans)     # sympy.sets.sets.FiniteSet()
-
-Det enkleste er slik:
-ans, = ans    # Merk kommaet
-Da er ans2 en tuple, og kan akssesserers med indekser,
-print(ans2[0])  # f.eks. slik
-x1,y1 = ans2    # eller slik 
-
-Aller enklest er å bruke komma-trikset direkte i linsolve-kallet: 
-ans, = linsolve( [lign1, lign2], (x,y) )  
-
-
-
-Oppgave 1: Finn nullpunktene for funksjonen f = 3*x**3 + 82.5*x**2 - 640.5*x + 765 = 0
-
-
-Oppgave 2: Finn x fra ligningen   1/(x-a) = 2/(x+a)
-
-
-Oppgave 3: Løs ligningssettet 2x + a = x + y + 5  og  3x - y = 2a - 3  med hensyn på x og y (for variabel a).
-Finn også løsningene når a = 5. 
-
-
-
-######################################################################## 
-KAP. 4.3  SYMPY: FYSIKKOPPGAVE  (optional)
-
-(Litt vanskelig. Kanskje spare til en fysikktime.) 
-En kloss med masse m ligger på et flatt bord. 
-To snorer er festet i klossen.
-Den ene er horisontal og drar klossen mot høyre med kraft Sx.
-Den andre er vertikal og drar klossen rett opp med kraft Sy.
-Der er friksjon mellom klossen og underlaget.
-Friksjonskraften er R = mu*N, horisontal, i motsatt retning av Sx.
-(N er normalkraften, mu er friksjonstallet.) 
-Anta at Sy ikke er stor nok til at klossen løfter fra bakken, der er altså ingen akselerasjon i y-retning.
-Anta at Sx er stor nok til at klossen får en akselerasjon a mot høyre. 
-Finn akselerasjonen som funksjon av variablene m, Sx, Sy og mu. 
-(Tegn figur.) 
-Vi har fire ligninger:
-G = m*g       # m:masse, g:tyngdeakselerasjonen (9.81 m/s**2)
-R = mu*N      
-Sy + N = G    # y-retning: Newtons 1. lov: summen av kreftene er null (fordi der ikke er akselerasjon i y-retning)
-Sx - R = ma
-
-Vi må skrive ligningene om så vi får 0 på høyresiden. 
-Da blir det slik:
-
-from sympy import *
-m,g,mu,Sx,Sy,N,R,G,a = symbols('m g mu Sx Sy N R G a')
-ans, = linsolve( [Sx-R-m*a, Sy+N-G, R-mu*N, G-m*g], (a,R,N,G) )
-
-Rett svar for akselerasjonen er da
-ans[0]        # (Sx + Sy*mu - g*m*mu)/m
-
-Vi kan sette inn noen tall, f.eks. Sx = 10, Sy = 2 (enhet er Newton for begge, men vi skriver det ikke inn).
-Og mu = 0.3, m = 1 (kg), og g = 9.81 (m/s**2)
-ans.subs({Sx:10, Sy:2, mu:0.3, m:1, g:9.81})   # gir (7.657, 2.343, 7.81, 9.81)
-altså en akselerasjon på 7.657 m/s**2.
-
-
-
-Over satte vi inn 4 ligninger og hadde 4 variabler.
-Vi kunne forenklet litt først, og fått to ligninger,
-Sy + N - m*g = 0
-Sx - mu*N - m*a = 0
-Disse kunne vi da løst for a og N:
-linsolve( [Sx - mu*N - m*a, Sy + N - m*g], (a,N) )
-Resultatet blir det samme. 
-
-
-
-
-######################################################################## 
-KAP. 5.1  MER OM LISTER, DICTS OG LØKKER
-
-Å kopiere en liste:
-
-L1 = ['a','c','b']
-L2 = L1
-Dette lager ikke en kopi av liste L1.
-L2 peker bare på samme objekt i hukommelsen.
-Så dersom den ene endres, endres også den andre, det er samme objekt.
-Se: 
-print(L2)       # L2 er ['a','c','b']
-L1.append('d')  # Vi endrer L1
-print(L2)       # L2 har blitt ['a','c','b','d']
-
-Dersom vi vil lage en frittstående kopi, kan vi bruke 
-L3 = L1.copy()
-(eller L3 = list(L1))
-
-
-
-Å kopiere en dictionary: 
-
-Hvis du vil lage en frittstående kopi av en dictionary, må du bruke copy()
-D1 = {'en':'one', 'to':'two'}
-D2 = D1           # peker på samme objekt
-D3 = D1.copy()    # lager en nytt, frittstående dictionary
-
-
-
-To måter å gå gjennom en liste på: 
-Via indeks: 
-for i in range(len(L1)):
-    print("%i  %s" %(i,L1[i]))
-Eller bare via verdiene: 
-for L in L1:
-    print(L) 
-
-
-Sortere en liste (ordne alfabetisk m.m.)
-sorted(L1)               # endrer ikke L1, men gir en sortert liste 
-L1s = sorted(L1)         # 
-L1.sort()                # sorterer (endrer) L1
-L1.sort(reverse=True)    # alfabetisk baklengs
-sorted(L1,reverse=True)  # endrer ikke L1
-
-
-
-Løkker: break og continue 
-
-Continue brukes for å droppe resten av linjene og gå direkte til neste 
-iterasjon i for- eller while-loopen
-Eksempel: 
-for i in range(5): 
-    print(i, 'before')
-    if i == 2: continue
-    print(i, 'after')
-
-Break brukes for å hoppe helt ut av en loop: 
-Eksempel 1: 
-for i in range(5): 
-    print(i)
-    if i == 2: break
-
-Eksempel 2
-for i in range(3): 
-    for j in range(5): 
-         if j == 2: break  # hopper ut av j-loopen
-         print(i,j)
-
-
-
-
-######################################################################## 
-KAP. 5.2  KLASSER  (utgår)
-
-
-
-######################################################################## 
-KAP. 5.3  NYTTIG SMÅTTERIER
-
-
-
-######################################################################## 
-KAP. 5.4  TKINTER: LAGE GUI  (optional)
-
-Tkinter er den vanligste pakken for å lage menyer, knapper etc 
-(men kanskje ikke så moderne). 
-
-For mer (veldig mye) info: 
-Tkinter Basics - Python Programming Tutorials:  https://docs.python.org/3/library/tk.html 
-
-
-
-Minimalt program som viser frem label, input, text og funksjon
-http://kilelabs.no/p/tut/tut_tkinter_menu.py 
-
-
-Skrått-kast-kalkulator: 
-http://kilelabs.no/p/tut/tut_tkinter_skraattkast1.py
-
-
-Skrått-kast-kalkulator med figur: 
-http://kilelabs.no/p/tut/tut_tkinter_skraattkast2.py
-
-
-
-
-######################################################################## 
-KAP. 6.1  PYGAME: Installere 
-
-Python er ikke språket for å skrive profesjonelle spill med grafikk og lyd.
-Men det kan gjøres, og er gøy. Og man kan lære mye underveis: 
-Eksempel: spaceinvaders.py 
-
-Python har en pakke som heter pygame.
-Den følger ikke med i vanlig installasjon.
-Men skal være lett å installere:
-Windows: Åpne Anaconda Prompt fra startmenyen og skriv følgende:
-pip install pygame
-Det er gjort på et par sekunder. 
-Mac: Åpne terminal og skriv: pip install pygame 
-
-pygame har imidlertid problemer med pygame og python 3.6. 
-For den som vil bruke pygame på Mac er det mulig å installere python 2.7 
-(samtidig med 3.6 som du allerede har installert). 
-Det gjøres slik: 
- - Åpne terminal og skriv: conda create -n py27 python=2.7 anaconda 
-   Det tar 10-15 minutter. Da installerer du python 2.7 (uten å miste 3.6) 
-   Du kan da, når du starter spyder, velge om du vil kjøre python 3.6 eller 2.7. 
-   Det kan du enten gjøre i Anaconda Navigator: Øverst ser du Applications on: root. 
-   Når du nå har installert python 2.7 og kalt den py27, kan du velge py27 i stedet for root. 
-   Og så klikker du spyder. Da er det 2.7 du kjører. Neste gang kan du velge root og da kjøre 3.6. 
- - Du har nå python 2.7, og må nå installere pygame under 2.7 (den du har er under 3.6). 
-   Gå til terminalvinduet og skriv: source activate py27 
-   Da skal prompten få (py27) foran det vanlige. 
-   Skriv nå, som du gjorde sist: pip install pygame 
-   Det tar bare noen sekunder. 
-   Nå har du installert pygame også for python 2.7. 
- - For å prøve spaceinvaders (se Game #3 nedenfor), kan du da starte spyder under py27, 
-   hente ned spaceinvaders.zip (eller pythonfil og lyd/grafikk fil for fil) og kjøre. 
-   Det skal fungere. 
-   (Det som fortsatt ikke fungerer på Mac med python 2.7, er highscoren.)  
-
-
-
-
-
-######################################################################## 
-KAP. 6.2  PYGAME: Introduksjon til skjerm, sprite, lyd
-
-
-import pygame   # required
-Det kan være lurt å importere noen konstanter etc.: 
-from pygame.locals import *     # optional 
-Så må pygame initialiseres
-pygame.init()   # required
-
-# Variabler 
-# Det er nesten alltid bedre å bruke variabler 
-# enn å skrive inn tallene direkte i funksjoner etc. 
-WIDTH  = 800  # skjermflaten 
-HEIGHT = 600  # skjermflaten
-
-# Farger oppgis med tre tall, hvert mellom 0 og 255
-# Tallene står for mengde Rødt, Grønt og Blått (RGB)
-# Det kan være greit å definere noen så: 
-DARKGREEN = ( 0,  100 ,  0 )
-RED = (255,0,0)
-BGCOLOR = DARKGREEN
-
-
-# Lage "spill-vinduet" 
-skjerm = pygame.display.set_mode((WIDTH, HEIGHT))
-# Nå kom vinduet opp. Svart.  
-# (Vi har ikke full kontroll på hvor det plasserer seg.) 
-
-# Vi kan alltids gi vinduet en tittel:
-pygame.display.set_caption("Leking er beste form for læring") 
-
-# La oss gi vinduet en farge:
-skjerm.fill(DARKGREEN)
-# Men ingenting skjer. 
-# Vi trenger følgende linje for at endringer vi har gjort skal vises. 
-pygame.display.flip()
-
-
-Sprite 
-# Vi vil putte en ball (et grafisk objekt, en sprite) på skjermen 
-# Først må vi laste inn fra fil (png, jpg, gif, ..) 
-# Kan finne den her:  http://kilelabs.no/p/tut/ball1.png 
-ball = pygame.image.load("ball1.png")
-
-# Det er lurt (men ikke absolutt nødvendig) å konvertere grafikken
-ball = ball.convert_alpha() 
-# Hver sprite har et rektangel rundt seg, det trenger vi 
-ballrect = ball.get_rect()
-
-# Prøv
-print(ballrect)    # (eller bare skriv ballrect)
-# Du får ut <rect(0, 0, 95, 95)>
-# Det er x- og y-pos, samt bredde og høyde
-# Prøv ballrect. og trykk TAB
-# Da ser du hva ballrect inneholder, hva du kan gjøre med den
-# F.eks.: angir ballrect.x  x-posisjonen 
-# Prøv:
-ballrect.x = 45
-print(ballrect.x)   # 45
-print(ballrect.y)   # 0
-# Ingenting skjer, men du har nå endret x-posisjonen. 
-
-# La oss få ballen opp på skjermen:
-# Det gjøres slik, med blit-funksjonen
-skjerm.blit(ball, ballrect)
-# Første argument er ballen, det andre er ballrektangelet
-# Egentlig er det nok å angi posisjonen (x,y) som andre argument.
-# Så skjerm.blit(ball, (130,200)) hadde også fungert. 
-# Som tidligere er det ingenting som skjer før du gjør 
-pygame.display.flip()
-# Nå kom ballen på skjermen.
-# Stemmer størrelsene?
-# Ballen er 95x95, skjermen du satte opp er 800x600.
-# Det ser ut til å stemme.
-
-# Posisjonen ser også ut til å stemme.
-# Men vi ser at y=0 betyr øverst. y-posisjonen vokser nedover på skjermen. 
-
-
-# Du kan flytte ballen ved å endre posisjonen
-ballrect.x = 100
-# Så må du blitte ballen på skjermen 
-skjerm.blit(ball, ballrect)
-# Og til slutt må du oppdatere skjermen 
-pygame.display.flip()
-
-# Men det var kanskje ikke helt slik vi tenkte det.
-# Det forrige bildet av ballen forsvant ikke, ble bare delvis overskrevet.
-
-# Datagrafikk fungerer ikke helt som vi kanskje ser for oss. 
-# Det er ikke egentlig objekter (f.eks. baller) som beveger seg omkring. 
-# Det er bilde på bilde som vises etter hverandre. 
-# Og hvert bilde må tegnes fra grunnen.
-# Vi kan forsåvidt ta utgangspunkt i det forrige bildet,
-# men må da fjerne de delene som har flyttet seg,
-# tegne på bakgrunnen der de var, så tegne objektene på sine nye plasser.
-# (Det kan bli komplisert, men er ofte nødvendig når du behov for rask
-# oppdatering av skjermen.)
-
-# Vi trenger altså å gjøre følgende:
-skjerm.fill(DARKGREEN)       # grønn bakgrunn
-skjerm.blit(ball, ballrect)  # blitte ballen på skjermen
-pygame.display.flip()        # først nå vises endringene
-
-# Hvorfor vises endringene først når vi gjør flip() ?
-# Skjermen har egentlig en kopi av seg selv.
-# Dvs. der er to buffere som brukes.
-# Den ene er den aktive, den som viser skjermbildet.
-# Den andre (den inaktive) blir satt lik den aktive like etter flip().
-# (Den blir en kopi av den nye aktive.) 
-# Når vi så gjør ting som skjrem.fill() eller skjerm.blit(),
-# så er det den inaktive vi gjør endringer på.
-# Når vi gjør flip(), så flipper vi mellom de to bufferene. 
-# Da blir den inaktive den aktive (og skjermbildet endres), 
-# og den som var den aktive tar en kopi av den nye aktive
-# og blir selv den inaktive.
-# 
-# Grunnen til at det er slik, er at det å endre skjermbildet
-# er noe av det som koster mest, noe av det mest intensive. 
-
-
-# La oss lage en ball til 
-ball2 = ball.copy()  # Vi baserer den på den forrige
-# La oss skalere den til størrelse 50x70 (fra 95x95)
-ball2 = pygame.transform.scale(ball2, (50,70))
-ball2rect = ball2.get_rect()
-ball2rect.y = 100
-# La oss få den på skjermen
-# Denne gangen vil vi bare ha den nye ballen på uten å endre det gamle,
-# så da er det nok å gjøre
-skjerm.blit(ball2,ball2rect)
-pygame.display.flip()
-
-
-ball3 = pygame.transform.rotate(ball, 180)  # rotere 180 grader
-ball3rect = ball3.get_rect()
-ball3rect.x = 200
-
-# Sette ballen på skjermen.
-# Igjen bryr vi oss ikke med å fjerne og tegne på resten
-# (for det har ikke bevegd seg)
-skjerm.blit(ball3,ball3rect)
-pygame.display.flip()
-# Ikke så lett å se umiddelbart, men ballen er rotert 180 grader
-
-
-
-TEKST PÅ SKJERMEN
-Det er litt omstendelig å putte tekst på skjermen.
-Først må vi lage et font-objekt (tekst-objekt):
-font = pygame.font.Font(None, 36)
-Første argumentet er fonttypen. Med None vil pygame velge for deg.
-Problemet med å angi fonter, er at de ikke nødvendigvis finnes
-der du er. De må være installert for å kunne brukes.
-Andre arguementet angir fontstørrelsen.
-
-Så må en surface (et grafikk-objekt) lages 
-tekst = font.render("Python rules!", 1, (10, 10, 10))
-Første argumentet er tekststrengen.
-Andre argumentet er 1 (True) for antialiasing, som gjør overgangen
-mellom tekst og bakgrunn mindre hard, eller 0 (False) for ingen antialiasing.
-Tredje argument er fontfargen i (R,G,B).
-Man kan også ha et fjerde argument, det er da fargen til tekstbakgrunnen.
-
-Så er det bare å blitte teksten til skjerm, samt flippe skjermen:
-skjerm.blit(tekst, (50,400) ) 
-pygame.display.flip()
-Som tidligere angir andre argumentet til blit() posisjonen til
-øvre-venstre hjørne av objektet som du blitter (her tekst). 
-
-
-En til, rød tekst på blå bakgrunn (husk RGB): 
-tekst2 = font.render("pygame rules!", 1, (255,0,0), (0,0,255))
-skjerm.blit(tekst2, (50,430) ) 
-pygame.display.flip()
-
-Vi kan sette samme teksten flere steder
-skjerm.blit(tekst2, (0,0))
-pygame.display.flip()
-
-Noen ganger trenger du å vite størrelsen på teksten for å kunne plassere
-den slik du vil.
-Størrelsen får du med
-tekst2.get_width()
-tekst2.get_height()
-eller
-tekst2.get_size()
-som gir en tuple med vidde og høyde. 
-
-(Eks.: Hvordan skal du da plassere teksten sentrert på skjermen?
-Du må da også vite skjermstørrelsen. Det gjør du som oftest.
-Eller du kan bruke skjerm.get_width() og skjerm.get_height()
-Så må du regne ut hvor øvre-venstre hjørne av teksten skal være.
-x blir  skjerm.get_width()/2 - tekst2.get_width()/2
-Og tilsvarende for y.) 
-
-
-Fonten kan også gjøres bold, italic etc.
-Skriv font. og trykk TAB og se mulighetene
-Prøv:
-font.set_italic(True)
-tekst3 = font.render("pygame rules!", 1, RED)
-skjerm.blit(tekst3, (100,200))
-
-
-FONTER
-Fonter kan du få tak i på maskinen din.
-Der er flere metoder.
-F.eks. vil pygame.font.get_fonts()
-gi deg en liste over hvilke systemfonter du har.
-Anta at du har 'arial' i den lista.
-Da kan du hente den via SysFont()
-font_arial = pygame.font.SysFont('arial', 36)
-
-Det er også mulig å finne fonter via 
-matplotlib.font_manager.FontManager()
-
-Og det er mulig å definere en font i en ttf-fil
-som da må være tilgjengelig for python. 
-
-
-
-LYD
-import pygame
-pygame.init()
-
-pygame har to måter å gjengi lyd på.
-Den ene, Sound(), er ment for (korte) lydeffekter.
-Flere kan spille samtidig. 
-Den andre, music(), er ment for (bakgrunns)musikk.
-Her går det ikke å spille flere samtidig.
-Men man kan naturligvis spille Sound() mens music() pågår.
-
-LYD SOM LYDEFFEKT: Sound(): 
-
-lyd1 = pygame.mixer.Sound("plopp5.ogg")
-# Du kan finne lyden her:
-# http://kilelabs.no/p/spaceinvaders/spacedata/plopp5.ogg
-# Andre formater WAV. 
-
-lyd1.  pluss TAB viser følgende funksjoner:
-lyd1.get_length()     # lengden i sekunder
-lyd1.play()           # start
-lyd1.stop()           # stop
-lyd1.fadeout(4000)    # i millisekunder (her: 4s)
-lyd1.get_volume()     #
-lyd1.set_volume(1.0)  # mellom 0.0 og 1.0
-
-Det går an å spille en og samme lyd(objekt) flere ganger samtidig.
-Det vil være aktuelt hvis du f.eks. har flere baller som spretter omkring,
-eller hvis du har en mengde aliens som skyter.
-lyd1.play()
-lyd1.play()
-lyd1.play()
-lyd1.stop()   # vil i så fall stoppe alle lyd1-lyder som ikke allerede er ferdig. 
-
-Er du interessert i vite hvor mange som fortsatt spiller: 
-lyd1.get_num_channels()
-
-
-
-LYD SOM (BAKGRUNNS)MUSIKK: music()
-
-pygame.mixer.music.load("piano1.ogg")
-# http://kilelabs.no/p/spaceinvaders/spacedata/piano1.ogg 
-
-pygame.mixer.music.  pluss TAB for å se hva som er mulig 
-pygame.mixer.music.play()    # spille av en gang
-pygame.mixer.music.play(3)   # spille av 1+3 ganger
-pygame.mixer.music.play(-1)  # spille av uendelig mange ganger
-
-Interessante funksjoner:
-get_pos()     # gir posisjonen i millisekunder
-set_pos(3.5)  # angir posisjon å spille fra (i sekunder)
-play(0,3.5)   # starter avspillingen etter 3.5 sekunder 
-pause()
-unpause()
-
-
-
-
-
-######################################################################## 
-KAP. 6.3  PYGAME: gameloop, bevegelse, fysikk
-tut_pygame_min1.py
-
-
-
-######################################################################## 
-KAP. 6.4  PYGAME: spaceinvaders.py 
-
-Programmet består av én python-fil, samt noen lyd- og bildefiler 
-som ligger i egen katalog. 
-Enklest er å laste ned zipfilen 
-http://kilelabs.no/p/spaceinvaders/spaceinvaders.zip 
-(og gjør extract eller unzip på maskinen din). 
-
-Eventuelt kan du laste ned pythonfilen 
-http://kilelabs.no/p/spaceinvaders/spaceinvaders.py
-og lyd/bilde en for en, alle filene ligger under
-http://kilelabs.no/p/spaceinvaders/spacedata/
-Disse må legges i en katalog (folder) spacedata/
-
-NB: koden er ikke optimal for læring. 
-Bl.a. er det brukt klasser. 
-(Men det samme kan gjøres uten klasser.) 
-
-
-
-
-
-
-######################################################################## 
-######################################################################## 
-REFERANSER
-
-boka: http://hplgit.github.io/prog4comp/doc/pub/p4c_Python.pdf
-(A Gentle Introduction to Numerical Simulations with Python)
-
-PEP 8 - Style Guide for Python Code
-http://legacy.python.org/dev/peps/pep-0008/ 
-
-http://www.scipy-lectures.org
-http://www.scipy-lectures.org/intro/numpy/index.html
-http://www.scipy-lectures.org/intro/matplotlib/index.html
-http://www.scipy-lectures.org/packages/sympy.html
-
-https://docs.python.org/3/library/tk.html (Tkinter Basics - Python Programming Tutorials)
-
-
-########################################################################
-########################################################################
-GJENSTÅR 
-
-- flere oppgaver
-- get from web
-- pygame 
-- mer references, lenker
-- Python 2 vs 3 
-- Date/time: bruk 
-
-- PROSJEKTER 
-
-########################################################################
-\end{document}
+\fi

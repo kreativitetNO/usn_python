@@ -1,0 +1,104 @@
+######################################################################## 
+KAP. 4.1  MATEMATIKK, NUMERISK INTEGRASJON
+
+Trapes- og Midtpunktmetoden
+(Se. s.55-68 i boka.) 
+https://en.wikipedia.org/wiki/Trapezoidal_rule 
+
+Anta at vi har en funksjon f(x) som er positiv for a < x < b, dvs for x mellom to verdier.
+F.eks. f(x) = x**2 + 2 med a = 0 og b = 1
+Hvordan regne ut arealet under kurven (dvs. mellom x-aksen og kurven)?
+For vår enkle funksjon kan vi integrere (symbolsk) og finne eksakt svar.
+For mer kompliserte er ikke dette alltid mulig. 
+Men vi kan alltid integrere numerisk. 
+
+Der finnes flere metoder for numerisk integrasjon. 
+Trapesmetoden er kanskje den enkleste. 
+
+Tavle: 
+X-intervallet (a,b) deles inn i n like store deler.
+Hver del har da en bredde lik delx = (b-a)/n
+Arealet under kurven mellom to x-verdier, f.eks, x3 og x4 tilnærmes av trapeset,
+A_34 = ( f(x3) + f(x4) ) / 2 * delx
+Så legger vi alle del-arealene sammen og får en tilnærming for hele arealet. 
+
+Lag følgende program og lagre gjerne som tut_integration1.py 
+
+import numpy as np
+
+def f1(x):
+    return x**3   # eksempel
+
+
+def trapes_for(f, a, b, n):  # integrasjon med for-loop
+    Fsum = 0
+    delx = (b-a)/n
+    for i in range(n+1):
+        if i in [0,n]:
+           Fsum = Fsum + f(a+i*delx) * delx / 2  # endepunktene faar halv verdi
+        else: 
+           Fsum = Fsum + f(a+i*delx) * delx
+    return Fsum
+
+
+def trapes_vec(f, a, b, n):  # integrasjon med vektorisering (er raskere)
+    delx = (b-a)/n
+    xs = linspace(a,b,n+1)   # NB: n+1 gir n intervaller
+    Fs = xs*f(xs)   # bruker vektorisering
+    Fsum = sum(Fs[1:n]) + (Fs[0] + Fs[n]) / 2
+    return Fsum 
+
+
+def F1(x):    
+    return x**4/4    # den antideriverte til f1(x)
+
+def exact(f,a,b):
+    Fsum = F1(b) - F1(a)
+    return Fsum
+
+
+
+Du kan nå gjøre
+from tut_integration1 import *
+ntrapeser = 10
+trapes_for(f1, 1, 5, n_trapeser)
+exact(F1,1,5)
+
+Er det stor forskjell?
+Prøv å øke n_trapeser og kjør trapes_for() på ny. 
+Ettersom n blir større og større, skal feilen bli mindre og mindre. 
+Du skal da komme nærmere og nærmere exact(). 
+Stemmer det? 
+
+
+
+Oppgave 1: Hvor stor må n være for at forskjellen skal være mindre enn 0.01
+
+
+Oppgave 2: Hvor stor må n være for at den relative forskjellen, abs(eksakt-trapes)/eksakt, skal være mindre enn 1e-5 (som er 0.00001)? 
+
+
+Oppgave 3: Legg til funksjonen f2 = x**2-2x og finn integralet med trapes_vec og exact. 
+
+
+Oppgave 4: Prøv å forstå trapesmetoden. Lag så din egen versjon av trapes_for() eller trapes_vec(), 
+helst uten å se for mye på metodene ovenfor. 
+
+
+Oppgave 5: Legg til funksjon for integrasjon med Midpoint rule (Rectangle rule). 
+Se s.65-67 i boka.
+I midtpunkt-regelen deles igjen x-aksen inn i n like store deler. 
+Vi bruker imidlertid ikke trapes-tilnærmingen.
+I stedet bruker vi firkantent med høyde gitt av f(midtpunkt) i hvert intervall.
+Hint: Dette gir en for-loop av typen:
+    for i in range(n):
+        x = a + (i+0.5)*delx
+        ... 
+
+
+Oppgave 6: En bil starter fra ro med akselerasjon lik a = 5 m/s**2.
+Etter en tid t har bilen farten v = a*t.
+Implementer farten som en funksjon f3. 
+Bruk trapes-regelen til å finne strekningen bilen har kjørt i løpet av 10 sekunder. 
+Sammenlign dette med den eksakte løsningen gitt ved s = 0.5*a*t**2.
+Hvor stor n trenger du for å ha en relativ feil mindre enn 0.00001 ? 

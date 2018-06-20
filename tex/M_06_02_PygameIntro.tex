@@ -1,0 +1,279 @@
+######################################################################## 
+KAP. 6.2  PYGAME: Introduksjon til skjerm, sprite, lyd
+
+
+import pygame   # required
+Det kan være lurt å importere noen konstanter etc.: 
+from pygame.locals import *     # optional 
+Så må pygame initialiseres
+pygame.init()   # required
+
+# Variabler 
+# Det er nesten alltid bedre å bruke variabler 
+# enn å skrive inn tallene direkte i funksjoner etc. 
+WIDTH  = 800  # skjermflaten 
+HEIGHT = 600  # skjermflaten
+
+# Farger oppgis med tre tall, hvert mellom 0 og 255
+# Tallene står for mengde Rødt, Grønt og Blått (RGB)
+# Det kan være greit å definere noen så: 
+DARKGREEN = ( 0,  100 ,  0 )
+RED = (255,0,0)
+BGCOLOR = DARKGREEN
+
+
+# Lage "spill-vinduet" 
+skjerm = pygame.display.set_mode((WIDTH, HEIGHT))
+# Nå kom vinduet opp. Svart.  
+# (Vi har ikke full kontroll på hvor det plasserer seg.) 
+
+# Vi kan alltids gi vinduet en tittel:
+pygame.display.set_caption("Leking er beste form for læring") 
+
+# La oss gi vinduet en farge:
+skjerm.fill(DARKGREEN)
+# Men ingenting skjer. 
+# Vi trenger følgende linje for at endringer vi har gjort skal vises. 
+pygame.display.flip()
+
+
+Sprite 
+# Vi vil putte en ball (et grafisk objekt, en sprite) på skjermen 
+# Først må vi laste inn fra fil (png, jpg, gif, ..) 
+# Kan finne den her:  http://kilelabs.no/p/tut/ball1.png 
+ball = pygame.image.load("ball1.png")
+
+# Det er lurt (men ikke absolutt nødvendig) å konvertere grafikken
+ball = ball.convert_alpha() 
+# Hver sprite har et rektangel rundt seg, det trenger vi 
+ballrect = ball.get_rect()
+
+# Prøv
+print(ballrect)    # (eller bare skriv ballrect)
+# Du får ut <rect(0, 0, 95, 95)>
+# Det er x- og y-pos, samt bredde og høyde
+# Prøv ballrect. og trykk TAB
+# Da ser du hva ballrect inneholder, hva du kan gjøre med den
+# F.eks.: angir ballrect.x  x-posisjonen 
+# Prøv:
+ballrect.x = 45
+print(ballrect.x)   # 45
+print(ballrect.y)   # 0
+# Ingenting skjer, men du har nå endret x-posisjonen. 
+
+# La oss få ballen opp på skjermen:
+# Det gjøres slik, med blit-funksjonen
+skjerm.blit(ball, ballrect)
+# Første argument er ballen, det andre er ballrektangelet
+# Egentlig er det nok å angi posisjonen (x,y) som andre argument.
+# Så skjerm.blit(ball, (130,200)) hadde også fungert. 
+# Som tidligere er det ingenting som skjer før du gjør 
+pygame.display.flip()
+# Nå kom ballen på skjermen.
+# Stemmer størrelsene?
+# Ballen er 95x95, skjermen du satte opp er 800x600.
+# Det ser ut til å stemme.
+
+# Posisjonen ser også ut til å stemme.
+# Men vi ser at y=0 betyr øverst. y-posisjonen vokser nedover på skjermen. 
+
+
+# Du kan flytte ballen ved å endre posisjonen
+ballrect.x = 100
+# Så må du blitte ballen på skjermen 
+skjerm.blit(ball, ballrect)
+# Og til slutt må du oppdatere skjermen 
+pygame.display.flip()
+
+# Men det var kanskje ikke helt slik vi tenkte det.
+# Det forrige bildet av ballen forsvant ikke, ble bare delvis overskrevet.
+
+# Datagrafikk fungerer ikke helt som vi kanskje ser for oss. 
+# Det er ikke egentlig objekter (f.eks. baller) som beveger seg omkring. 
+# Det er bilde på bilde som vises etter hverandre. 
+# Og hvert bilde må tegnes fra grunnen.
+# Vi kan forsåvidt ta utgangspunkt i det forrige bildet,
+# men må da fjerne de delene som har flyttet seg,
+# tegne på bakgrunnen der de var, så tegne objektene på sine nye plasser.
+# (Det kan bli komplisert, men er ofte nødvendig når du behov for rask
+# oppdatering av skjermen.)
+
+# Vi trenger altså å gjøre følgende:
+skjerm.fill(DARKGREEN)       # grønn bakgrunn
+skjerm.blit(ball, ballrect)  # blitte ballen på skjermen
+pygame.display.flip()        # først nå vises endringene
+
+# Hvorfor vises endringene først når vi gjør flip() ?
+# Skjermen har egentlig en kopi av seg selv.
+# Dvs. der er to buffere som brukes.
+# Den ene er den aktive, den som viser skjermbildet.
+# Den andre (den inaktive) blir satt lik den aktive like etter flip().
+# (Den blir en kopi av den nye aktive.) 
+# Når vi så gjør ting som skjrem.fill() eller skjerm.blit(),
+# så er det den inaktive vi gjør endringer på.
+# Når vi gjør flip(), så flipper vi mellom de to bufferene. 
+# Da blir den inaktive den aktive (og skjermbildet endres), 
+# og den som var den aktive tar en kopi av den nye aktive
+# og blir selv den inaktive.
+# 
+# Grunnen til at det er slik, er at det å endre skjermbildet
+# er noe av det som koster mest, noe av det mest intensive. 
+
+
+# La oss lage en ball til 
+ball2 = ball.copy()  # Vi baserer den på den forrige
+# La oss skalere den til størrelse 50x70 (fra 95x95)
+ball2 = pygame.transform.scale(ball2, (50,70))
+ball2rect = ball2.get_rect()
+ball2rect.y = 100
+# La oss få den på skjermen
+# Denne gangen vil vi bare ha den nye ballen på uten å endre det gamle,
+# så da er det nok å gjøre
+skjerm.blit(ball2,ball2rect)
+pygame.display.flip()
+
+
+ball3 = pygame.transform.rotate(ball, 180)  # rotere 180 grader
+ball3rect = ball3.get_rect()
+ball3rect.x = 200
+
+# Sette ballen på skjermen.
+# Igjen bryr vi oss ikke med å fjerne og tegne på resten
+# (for det har ikke bevegd seg)
+skjerm.blit(ball3,ball3rect)
+pygame.display.flip()
+# Ikke så lett å se umiddelbart, men ballen er rotert 180 grader
+
+
+
+TEKST PÅ SKJERMEN
+Det er litt omstendelig å putte tekst på skjermen.
+Først må vi lage et font-objekt (tekst-objekt):
+font = pygame.font.Font(None, 36)
+Første argumentet er fonttypen. Med None vil pygame velge for deg.
+Problemet med å angi fonter, er at de ikke nødvendigvis finnes
+der du er. De må være installert for å kunne brukes.
+Andre arguementet angir fontstørrelsen.
+
+Så må en surface (et grafikk-objekt) lages 
+tekst = font.render("Python rules!", 1, (10, 10, 10))
+Første argumentet er tekststrengen.
+Andre argumentet er 1 (True) for antialiasing, som gjør overgangen
+mellom tekst og bakgrunn mindre hard, eller 0 (False) for ingen antialiasing.
+Tredje argument er fontfargen i (R,G,B).
+Man kan også ha et fjerde argument, det er da fargen til tekstbakgrunnen.
+
+Så er det bare å blitte teksten til skjerm, samt flippe skjermen:
+skjerm.blit(tekst, (50,400) ) 
+pygame.display.flip()
+Som tidligere angir andre argumentet til blit() posisjonen til
+øvre-venstre hjørne av objektet som du blitter (her tekst). 
+
+
+En til, rød tekst på blå bakgrunn (husk RGB): 
+tekst2 = font.render("pygame rules!", 1, (255,0,0), (0,0,255))
+skjerm.blit(tekst2, (50,430) ) 
+pygame.display.flip()
+
+Vi kan sette samme teksten flere steder
+skjerm.blit(tekst2, (0,0))
+pygame.display.flip()
+
+Noen ganger trenger du å vite størrelsen på teksten for å kunne plassere
+den slik du vil.
+Størrelsen får du med
+tekst2.get_width()
+tekst2.get_height()
+eller
+tekst2.get_size()
+som gir en tuple med vidde og høyde. 
+
+(Eks.: Hvordan skal du da plassere teksten sentrert på skjermen?
+Du må da også vite skjermstørrelsen. Det gjør du som oftest.
+Eller du kan bruke skjerm.get_width() og skjerm.get_height()
+Så må du regne ut hvor øvre-venstre hjørne av teksten skal være.
+x blir  skjerm.get_width()/2 - tekst2.get_width()/2
+Og tilsvarende for y.) 
+
+
+Fonten kan også gjøres bold, italic etc.
+Skriv font. og trykk TAB og se mulighetene
+Prøv:
+font.set_italic(True)
+tekst3 = font.render("pygame rules!", 1, RED)
+skjerm.blit(tekst3, (100,200))
+
+
+FONTER
+Fonter kan du få tak i på maskinen din.
+Der er flere metoder.
+F.eks. vil pygame.font.get_fonts()
+gi deg en liste over hvilke systemfonter du har.
+Anta at du har 'arial' i den lista.
+Da kan du hente den via SysFont()
+font_arial = pygame.font.SysFont('arial', 36)
+
+Det er også mulig å finne fonter via 
+matplotlib.font_manager.FontManager()
+
+Og det er mulig å definere en font i en ttf-fil
+som da må være tilgjengelig for python. 
+
+
+
+LYD
+import pygame
+pygame.init()
+
+pygame har to måter å gjengi lyd på.
+Den ene, Sound(), er ment for (korte) lydeffekter.
+Flere kan spille samtidig. 
+Den andre, music(), er ment for (bakgrunns)musikk.
+Her går det ikke å spille flere samtidig.
+Men man kan naturligvis spille Sound() mens music() pågår.
+
+LYD SOM LYDEFFEKT: Sound(): 
+
+lyd1 = pygame.mixer.Sound("plopp5.ogg")
+# Du kan finne lyden her:
+# http://kilelabs.no/p/spaceinvaders/spacedata/plopp5.ogg
+# Andre formater WAV. 
+
+lyd1.  pluss TAB viser følgende funksjoner:
+lyd1.get_length()     # lengden i sekunder
+lyd1.play()           # start
+lyd1.stop()           # stop
+lyd1.fadeout(4000)    # i millisekunder (her: 4s)
+lyd1.get_volume()     #
+lyd1.set_volume(1.0)  # mellom 0.0 og 1.0
+
+Det går an å spille en og samme lyd(objekt) flere ganger samtidig.
+Det vil være aktuelt hvis du f.eks. har flere baller som spretter omkring,
+eller hvis du har en mengde aliens som skyter.
+lyd1.play()
+lyd1.play()
+lyd1.play()
+lyd1.stop()   # vil i så fall stoppe alle lyd1-lyder som ikke allerede er ferdig. 
+
+Er du interessert i vite hvor mange som fortsatt spiller: 
+lyd1.get_num_channels()
+
+
+
+LYD SOM (BAKGRUNNS)MUSIKK: music()
+
+pygame.mixer.music.load("piano1.ogg")
+# http://kilelabs.no/p/spaceinvaders/spacedata/piano1.ogg 
+
+pygame.mixer.music.  pluss TAB for å se hva som er mulig 
+pygame.mixer.music.play()    # spille av en gang
+pygame.mixer.music.play(3)   # spille av 1+3 ganger
+pygame.mixer.music.play(-1)  # spille av uendelig mange ganger
+
+Interessante funksjoner:
+get_pos()     # gir posisjonen i millisekunder
+set_pos(3.5)  # angir posisjon å spille fra (i sekunder)
+play(0,3.5)   # starter avspillingen etter 3.5 sekunder 
+pause()
+unpause()
+

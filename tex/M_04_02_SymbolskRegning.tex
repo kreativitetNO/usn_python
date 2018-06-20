@@ -1,0 +1,123 @@
+######################################################################## 
+KAP. 4.2  SYMBOLSK REGNING, SYMPY  (optional)
+
+Python har en modul som gjør det mulig å regne symbolsk: sympy
+Prøv i IPython-konsollen:
+import sympy
+Skriv så sympy. og trykk TAB
+Du ser da alle funksjoner som finnes i pakken. Det er mange.
+
+For å bruke en variabel symbolsk må du fortelle python at den skal være en symbolsk variabel:
+
+from sympy import *
+x = Symbol('x')   # kan også bruke symbols(), se lenger ned 
+type(x)           # Er av type sympy.core.symbol.Symbol
+
+Vi kan lage et uttrykk f
+f = x**2 - 2*x - 3 
+print(f)
+
+Vi kan løse ligningen x**2 - 2x - 3 = 0
+solve(f)
+Svaret er [-1, 3]. Der er altså to løsninger, x=-1 og x=3.
+Som vi husker, siden det er en andregradsligning.
+
+Vi kan også faktorisere uttrykket
+factor(utt1)    # gir (x-3)*(x+1)
+
+Hvis vi ser på utt1 som en funksjon f(x), husker vi fra matematikken at f(x) har nullpunkter for x=3 og x-1. 
+Hvis x blir veldig stor eller veldig liten, vil f(x) bli veldig stor. 
+Et sted vil der dermed være et minimumspunkt.
+Minumuspunktet er der den deriverte til funksjonen er lik null. (I dette tilfellet.) 
+Kan python finne den deriverte? 
+f_der = diff(f,x)    # gir 2x-2
+NB: siden der kun er en symbolsk variabel (x) i f(x), ville også f_der = diff(x) fungert. 
+
+Vi kan erstatte x med et annet symbol eller med et tall:
+f.subs(x,4)    # som gir svaret 5
+NB: I linjen over blir ikke f erstattet med tallet, f er fortsatt symbolsk: 
+print(f)
+(f = f.subs(x,4) ville erstattet f)
+
+Vi kan ha uttrykk med flere variable: 
+y,a = sympy.symbols('y a')    # NB: med symbols() kan flere symbolske variable defineres med ett kall 
+
+g = 2*x*y - 3*a*x**2
+
+Prøv:
+print(g)
+solve(g,x)        # Løser med hensyn til x. Gir to løsninger. 
+simplify(g)       # Prøver å forenkle. I dette tilfellet velger python å faktorisere. 
+
+g2 = g.subs(a,3)
+g3 = g2.subs(y,x)
+Dersom du vil erstatte flere verdier samtidig, må du bruke en dict: 
+g4 = g.subs({a:3, y:x})
+(Vi kan også bruke dict som argument når bare en verdi skal erstattes, g2 = g.subs({a:3}), men det er mer å skrive.) 
+
+
+Vi kan derivere g med hensyn til en av variablene, f.eks. x:
+diff(g,x)
+
+
+Python kan også symbolsk integrasjon:
+F = integrate(f,x) 
+print(F)
+integrate(g,x)
+
+
+
+
+Løse ligningssett 
+Hvordan løse et ligningssett bestående av to ligninger.
+Eks: x+y=1 og x-y=-3
+(To variable, x og y, og to ligninger, da kan vi finne en løsning.)
+Metoden er å skrive ligningene slik at høyresiden er 0.
+Da blir det:
+x + y - 1 = 0  og  x - y + 3 = 0
+Kan løses slik:
+lign1 = x + y - 1
+lign2 = x - y + 3
+from sympy.solvers.solveset import linsolve
+linsolve( [lign1, lign2], (x,y) )     # Det andre argumentet (x,y) angir hvilke variabler vi skal løse for
+Gir svaret {(-1,2)} som betyr at x = -1 og y = -2.
+(Sjekk manuelt ved å legge sammen de to ligningene, og trekke den ene fra den andre.) 
+
+Kan også skrive det eksplisitt:
+linsolve( [x + y - 1, x - y + 3], (x,y))
+
+Kan også ha med flere symbolske variable: 
+linsolve( [x + y - a, x - y + 3], (x,y))
+
+Da kunne det også gitt mening å løse for f.eks. x og a:
+linsolve( [x + y - a, x - y + 3], (x,a))
+
+
+
+Vi ønsker gjerne å lagre svaret i en variabel:
+ans = linsolve( [lign1, lign2], (x,y) )  
+print(ans)
+Hvordan får vi tak i svaret?
+type(ans)     # sympy.sets.sets.FiniteSet()
+
+Det enkleste er slik:
+ans, = ans    # Merk kommaet
+Da er ans2 en tuple, og kan akssesserers med indekser,
+print(ans2[0])  # f.eks. slik
+x1,y1 = ans2    # eller slik 
+
+Aller enklest er å bruke komma-trikset direkte i linsolve-kallet: 
+ans, = linsolve( [lign1, lign2], (x,y) )  
+
+
+
+Oppgave 1: Finn nullpunktene for funksjonen f = 3*x**3 + 82.5*x**2 - 640.5*x + 765 = 0
+
+
+Oppgave 2: Finn x fra ligningen   1/(x-a) = 2/(x+a)
+
+
+Oppgave 3: Løs ligningssettet 2x + a = x + y + 5  og  3x - y = 2a - 3  med hensyn på x og y (for variabel a).
+Finn også løsningene når a = 5. 
+
+

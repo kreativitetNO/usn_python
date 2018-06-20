@@ -1,26 +1,40 @@
-\documentclass[a4paper,12pt,oneside]{book}
+\documentclass[a4paper,12pt,twoside,openany]{book}
 \usepackage{usn_python}
+\usepackage[norsk]{babel}
+\usepackage[autostyle=true]{csquotes}
+\usepackage{syntonly} % Faster build (doesn't compile to pdf)
+%\syntaxonly % Comment out this line to do a proper build
+\title{Python-kurs\\
+Førsteårs ingeniørstudenter USN Kongsberg}
+\author{Joakim Bjørk \and Børge Kile Gjelsten}
+\includeonly{%
+	./tex/F01_Revisjoner,%
+	./tex/01_Introduksjon,
+	./tex/02_EnGodBegynnelse%
+	}
 \begin{document}
-\maketitle
 \frontmatter
+\maketitle
+\include{./tex/F01_Revisjoner}
+\listoffigures
+\lstlistoflistings
+\iffalse % iiffalse hvis det ikke er noen tabeller
+\listoftables
+\fi
+\tableofcontents
+\mainmatter
+\include{./tex/01_Introduksjon}
+\include{./tex/02_EnGodBegynnelse}
+\appendix
+%Vedlegg går her før backmatter
+\backmatter
+\printbibliography[heading=bibnumbered]
 %\iffalse % iffalse for å fjerne todo-list
 \listoftodos
 %\fi
-\newpage
-\import{tex/}{F_01_Revisjoner.tex}
-\listoffigures
-%\iffalse % iiffalse hvis det ikke er noen tabeller
-\listoftables
-%\fi
-\lstlistoflistings
-\tableofcontents
-\mainmatter
-\import{tex/}{M_01_Introduksjon.tex}
-\import{tex/}{M_02_EnGodBegynnelse.tex}
-\appendix
-\printbibliography[heading=bibnumbered]
 
 \end{document}
+
 
 \iffalse % Eksempel på figur
 

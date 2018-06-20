@@ -1,0 +1,72 @@
+######################################################################## 
+KAP. 5.1  MER OM LISTER, DICTS OG LØKKER
+
+Å kopiere en liste:
+
+L1 = ['a','c','b']
+L2 = L1
+Dette lager ikke en kopi av liste L1.
+L2 peker bare på samme objekt i hukommelsen.
+Så dersom den ene endres, endres også den andre, det er samme objekt.
+Se: 
+print(L2)       # L2 er ['a','c','b']
+L1.append('d')  # Vi endrer L1
+print(L2)       # L2 har blitt ['a','c','b','d']
+
+Dersom vi vil lage en frittstående kopi, kan vi bruke 
+L3 = L1.copy()
+(eller L3 = list(L1))
+
+
+
+Å kopiere en dictionary: 
+
+Hvis du vil lage en frittstående kopi av en dictionary, må du bruke copy()
+D1 = {'en':'one', 'to':'two'}
+D2 = D1           # peker på samme objekt
+D3 = D1.copy()    # lager en nytt, frittstående dictionary
+
+
+
+To måter å gå gjennom en liste på: 
+Via indeks: 
+for i in range(len(L1)):
+    print("%i  %s" %(i,L1[i]))
+Eller bare via verdiene: 
+for L in L1:
+    print(L) 
+
+
+Sortere en liste (ordne alfabetisk m.m.)
+sorted(L1)               # endrer ikke L1, men gir en sortert liste 
+L1s = sorted(L1)         # 
+L1.sort()                # sorterer (endrer) L1
+L1.sort(reverse=True)    # alfabetisk baklengs
+sorted(L1,reverse=True)  # endrer ikke L1
+
+
+
+Løkker: break og continue 
+
+Continue brukes for å droppe resten av linjene og gå direkte til neste 
+iterasjon i for- eller while-loopen
+Eksempel: 
+for i in range(5): 
+    print(i, 'before')
+    if i == 2: continue
+    print(i, 'after')
+
+Break brukes for å hoppe helt ut av en loop: 
+Eksempel 1: 
+for i in range(5): 
+    print(i)
+    if i == 2: break
+
+Eksempel 2
+for i in range(3): 
+    for j in range(5): 
+         if j == 2: break  # hopper ut av j-loopen
+         print(i,j)
+
+
+

@@ -1,62 +1,41 @@
-\ProvidesPackage{usn_python}
+\ProvidesPackage{usn_python}[2018/06/19 USN Compendium/book package]
 
-\ExecuteOptions{norsk}
-\ExecuteOptions{singlespacing}
-\ExecuteOptions{parskip}
+\RequirePackage[T1]{fontenc}  % Font encoding - helps with accented character, copy-and-paste etc
+\RequirePackage{exsheets}     % For exercises and questions
+\RequirePackage{xcolor}       % For more colors and color options
+\RequirePackage[backend=biber, style=numeric, sorting=none]{biblatex} % Biber reference motor
+\RequirePackage{hyperref}     % Create hyperlinks automatically
+\RequirePackage{listings}     % Enables code formatting
+\RequirePackage{todonotes}    % Used while editing to allow todo-notes in document
+\RequirePackage{fontspec}     % To allow custom fonts
+\RequirePackage{amsmath}      % Enables math formatting
+\RequirePackage{import}       % Enables import/include
+\RequirePackage{graphicx}     % You'll rarely avoid needing this in a book with illustrations etc
+\RequirePackage{hhline}       % Allows double horizontal lines in a tabular to be connected vertically
+\RequirePackage{fancyhdr}     % Because the built-in stuff is ugly
 
-\RequirePackage{hhline}
-\RequirePackage[subpreambles=true]{standalone}
-\RequirePackage[T1]{fontenc}
-\RequirePackage[norsk]{babel}
-\RequirePackage[parfill]{parskip}
-\RequirePackage[table, dvipsnames]{xcolor}
-\RequirePackage{graphicx}
-\RequirePackage{wrapfig}
-\RequirePackage{fancyhdr} %for header og footer
-\RequirePackage{import}
-\RequirePackage{geometry}
-\RequirePackage[backend=biber, style=numeric, sorting=none]{biblatex}
-\RequirePackage[autostyle=true]{csquotes}
-\RequirePackage{setspace}
-\RequirePackage{hyperref}
-\RequirePackage{amsmath}
-\RequirePackage{latexsym}
-\RequirePackage{color}
-\RequirePackage{todonotes}
-\RequirePackage{fontspec}
-\RequirePackage{array, multirow}
-\RequirePackage{hhline}
-\RequirePackage{listings}
-\RequirePackage{color}
-
-\ProcessOptions\relax
-
-\setmainfont[Path=C:/Windows/Fonts/,
-    BoldItalicFont=calibriz.ttf,
-    BoldFont      =calibrib.ttf,
-    ItalicFont    =calibrii.ttf]{calibri.ttf}
-\geometry{
-	paper=a4paper, 
-	inner=4cm, 
-	outer=2cm, 
-	top=2cm, 
-	bottom=2.54cm,
-}
+% Header/footer format
 \pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LE, RO]{\rightmark}
-\fancyhead[LO, RE]{\leftmark}
-\cfoot{Page \thepage}
-%\addbibresource{bibliotek.bib} % Legg til filnavn på bibliotek
-\title{Python-kurs\\
-Førsteårs ingeniørstudenter USN Kongsberg}
-\author{Joakim Bjørk \& Børge Kile Gjelsten}
-\setlength{\marginparwidth}{3cm}
-\reversemarginpar
+
+%\addbibresource{references.bib} % Nice place to put references
+
+% Color definitions
+\definecolor{console-foreground}{RGB}{255,255,225}
+\definecolor{console-background}{RGB}{10,10,10}
+\definecolor{tab-foreground}{RGB}{152,251,152}
+
+% Color definitions for listings package
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
+% Nice font...
+\setmainfont[Path=C:/Windows/Fonts/,
+    BoldItalicFont=calibriz.ttf,
+    BoldFont      =calibrib.ttf,
+    ItalicFont    =calibrii.ttf]{calibri.ttf}
+
+% Set formatting for listings package
 \lstset{frame=tb,
   language=Python,
   aboveskip=3mm,
@@ -73,5 +52,32 @@ Førsteårs ingeniørstudenter USN Kongsberg}
   breakatwhitespace=true,
   tabsize=3
 }
+
+
+\newcommand{\keypress}[1]{\colorbox{lightgray}{#1}}
+\newcommand{\menuitem}[1]{\textbf{-> \colorbox{lightgray}{#1}}}
+\newcommand{\tabitem}[1]{\colorbox{tab-foreground}{#1}}
+
+% This .sty is taken from a bachelor thesis at USN in 2018. Most of the options are removed, waiting
+% for a clear reason to re-include them.
+
+%\ExecuteOptions{singlespacing} % Not good typesetting practice
+%\RequirePackage[parfill]{parskip} % Not good typesetting practice
+%\RequirePackage[subpreambles=true]{standalone} % ?
+%\RequirePackage{wrapfig}
+%\RequirePackage{import}
+%\RequirePackage{geometry}
+%\RequirePackage{setspace}
+%\RequirePackage{latexsym}
+%\RequirePackage{array, multirow}
+%\RequirePackage{color}
+
+%\ProcessOptions\relax
+
+%\geometry{paper=a4paper,inner=4cm,outer=2cm,top=2cm,bottom=2.54cm}
+%\setlength{\marginparwidth}{3cm}
+%\reversemarginpar
+
+%\SetupExSheets{counter-format={section}\,se~{question}\,(qu[a])}
 
 \endinput

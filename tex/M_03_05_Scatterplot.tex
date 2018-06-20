@@ -1,0 +1,48 @@
+######################################################################## 
+KAP. 3.5  SCATTERPLOTT  (optional)
+
+Scatterplot:
+I figuren ovenfor økte x-verdien med indeksen (x[0] < x[1] < x[2] < ... ). 
+Ofte er det det naturlige, f.eks. tid på x-aksen og posisjon på y-aksen. 
+I et scatterplott trenger ikke x-verdiene å øke, de kan være tilfeldige. 
+Man er kun interessert i xy-parene. 
+F.eks. la x være lengden på en bil og y være tiden det tar å akselerere til 100 km/t.
+
+import numpy 
+import matplotlib.pyplot as plt
+
+N = 7
+x = numpy.random.uniform(3.5,6,N)   # N tilfeldige billengder (alle mellom 3.5 og 6 meter)
+y = numpy.random.uniform(4,12,N)    # N tilfeldige 0-100-tider (alle mellom 4 og 12 sekunder)
+#plt.figure("scatter: ordinary")    # åpner nytt figurvindu  (kan droppe)
+plt.cla()                           # rensker figurvinduet (dersom du allerede har et figurvindu), evt. åpner et nytt
+plt.scatter(x, y)                   # scatterplot: x vs y
+plt.xlabel('billengde')
+plt.ylabel('tid 0-100 km/t')
+
+Med et enkelt scatterplot som det ovenfor, ville plt.plot(x,y,'o') gitt samme plott. 
+Merk at vi ikke er interessert i linje mellom punktene, siden der ikke er noen sammenheng/kronologi
+mellom x-verdiene. 
+
+
+
+Scatterplot har noen grafiske finesser som kan være vakre og/eller nyttige.
+Du kan angi ulik størrelse per punkt, og farge, samt gjennomsiktighet: 
+
+import numpy 
+import matplotlib.pyplot as plt
+
+N = 50   # nå 50 biler 
+x = numpy.random.uniform(3.5,6,N)   # N tilfeldige billengder (alle mellom 3.5 og 6 meter)
+y = numpy.random.uniform(4,12,N)    # N tilfeldige 0-100-tider (alle mellom 4 og 12 sekunder)
+colors = numpy.random.rand(N)       # tilfeldig farge til hvert punkt
+areal = numpy.pi * (15 * numpy.random.rand(N))**2    # 0-15 punkts radius 
+plt.scatter(x, y, s=areal, c=colors, alpha=0.5)
+
+# colors: farge angitt med float mellom 0 og 1.
+# Fargene følger et fargekart med lilla nederst (0), via blå og grønn mot gul (1) (kan endres). 
+# area: størrelse på punktene, bruker areal = pi*radius**2
+# alpha: gjennomsiktighet, 0:helt gjennomsiktig, 1:ingen gjennomsiktighet
+
+
+
