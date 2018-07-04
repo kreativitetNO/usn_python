@@ -53,10 +53,18 @@
   tabsize=3
 }
 
-
-\newcommand{\keypress}[1]{\colorbox{lightgray}{#1}}
-\newcommand{\menuitem}[1]{\textbf{-> \colorbox{lightgray}{#1}}}
-\newcommand{\tabitem}[1]{\colorbox{tab-foreground}{#1}}
+\newcommand{\usninlinecode}[1]{\lstinline{#1}}
+\newcommand{\usnfilename}[1]{\textit{#1}}
+\newcommand{\usnvarname}[1]{\texttt{\textit{#1}}}
+\newcommand{\usnvarvalue}[1]{\texttt{\textit{#1}}}
+\newcommand{\usnkeypress}[1]{\colorbox{lightgray}{#1}}
+\newcommand{\usnmenulabel}[1]{\textbf{-> \colorbox{lightgray}{#1}}}
+\newcommand{\usntablabel}[1]{\colorbox{tab-foreground}{#1}}
+\newcommand{\usnbuttonlabel}[1]{\colorbox{red}{#1}}
+\newcommand{\usnoutput}[1]{\texttt{#1}}
+\newenvironment{usnintro}{\par\addvspace{\baselineskip}\noindent\begin{minipage}[tbh]{0.9\textwidth}\textbf{I denne delen:}}{\end{minipage}\par\addvspace{\baselineskip}}
+\newenvironment{usncomment}{\par\addvspace{\baselineskip}\noindent\begin{minipage}[t]{0.9\textwidth}\textbf{Merk:}\\}{\end{minipage}\par\addvspace{\baselineskip}}
+\lstnewenvironment{usncodebox}{}{}
 
 % This .sty is taken from a bachelor thesis at USN in 2018. Most of the options are removed, waiting
 % for a clear reason to re-include them.

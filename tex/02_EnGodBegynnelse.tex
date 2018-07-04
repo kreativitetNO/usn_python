@@ -1,5 +1,5 @@
 \chapter{En god begynnelse}
-Dette kompendiet er en praktisk innføring i Python. Den går ikke i dybden på det tekniske, og er ikke en uttømmende kilde til informasjon om de forskjellige temaene som tas opp. Målet er å komme fortest mulig i gang med praktisk problemløsning, også for å øke motivasjonen til å lære mer.
+Dette kompendiet er en praktisk innføring i Python. Den går ikke i dybden på det tekniske, og er ikke en uttømmende kilde til informasjon om de forskjellige temaene som tas opp. Målet er å komme fortest mulig i gang med praktisk problemløsning og øke motivasjonen til å lære mer.
 
 \section{Våre første små tester: print, Spyder}
 
@@ -14,23 +14,23 @@ I denne delen ser vi først på hvordan vi kommer i gang med Spyder. Dette er et
 \label{fig:spyder_overview}
 \end{figure}
 
-Start Spyder. Du skal da på skjermen ha et stort vindu, typisk med tittel Spyder (Python 3.6) Helt øverst er den vanlige menylinjen ( \menuitem{File} \menuitem{edit} \menuitem{search} \ldots..). Like under er der en linje med forskjellige ikoner. Dette er ulike toolbars. De er snarveier til funksjonaliteter som også kan nås fra menylinjen. Toolbarene kan flyttes rundt eller fjernes helt ved \menuitem{View} \menuitem{Toolbars} og klikke de av.) Vi trenger ikke tenke på disse ennå. 
+Start Spyder. Du skal da på skjermen ha et stort vindu, typisk med tittel \emph{Spyder (Python 3.6)}. Helt øverst er den vanlige menylinjen: \usnmenulabel{File} \usnmenulabel{Edit} \usnmenulabel{Search}\ldots. Like under er der en linje med forskjellige ikoner. Dette er ulike toolbars. De er snarveier til funksjonaliteter som også kan nås fra menylinjen. Toolbarene kan flyttes rundt eller fjernes helt ved \usnmenulabel{View - Toolbars} og klikke de av.) Vi trenger ikke tenke på disse ennå. 
 
 Under linjen med toolbars, på venstreside har du Editor-vinduet. Det er et tekstbehandlingsprogram.  Her er det du skriver inn Python programmet ditt, linje for linje. Du kan flytte deg rundt med piltastene (og musen). Ikke skriv noe ennå. 
 
-Hvis dette er første gangen du bruker Spyder, vil Spyder ha lagt inn noe tekst i et nytt dokument. På linje 5 eller 6 vil det stå @author og brukernavnet ditt. Navnet på filen står øverst, noe slikt som \emph{untitled1.py}. Dette er en fil som Spyder har åpnet og som ikke gjør noe ennå. Hvis du allerede har brukt Spyder litt, vil kanskje den siste fil/programmet du arbeidet med være i editoren.
+Hvis dette er første gangen du bruker Spyder, vil Spyder ha lagt inn noe tekst i et nytt dokument. På linje 5 eller 6 vil det stå @author og brukernavnet ditt. Navnet på filen står øverst, noe slikt som \usnfilename{untitled1.py}. Dette er en fil som Spyder har åpnet og som ikke gjør noe ennå. Hvis du allerede har brukt Spyder litt, vil kanskje den siste fil/programmet du arbeidet med være i editoren.
 
-Når programmet (det du har skrevet inn) er klart, kjører (eksekverer, execute) du det ved å trykke på den grønne \emph{play}-knappen, like under menylinja øverst. (Den viser \emph{Run file (F5)} når du holder musepekeren over knappen). Ikke gjør det nå. Vi skal ikke bruke editoren nå helt i begynnelsen.
+Når programmet (det du har skrevet inn) er klart, kjører (eksekverer, execute) du det ved å trykke på den grønne \usnbuttonlabel{Play}-knappen, like under menylinja øverst. (Den viser \emph{Run file (F5)} når du holder musepekeren over knappen). Ikke gjør det nå. Vi skal ikke bruke editoren nå helt i begynnelsen.
 
-På høyresiden, nederst, har du Python/IPython-vinduet, også kalt konsollen (Console). Nederst står det \tabitem{Python console}, \tabitem{IPython console} og/eller \tabitem{History log} avhengig av hvilken versjon du kjører. Klikk på tab-en \tabitem{IPython console}. Du kan også bruke Python console, men IPython er å foretrekke. I IPython-vinduet kan du skrive Python kommandoer direkte inn. Det skal vi gjøre mye av nå i begynnelsen. (I'en i IPython står for interaktivt, dvs. to-veis kommunikasjon mellom deg og Python.) 
+På høyresiden, nederst, har du Python/IPython-vinduet, også kalt konsollen (Console). Nederst står det \usntablabel{Python console}, \usntablabel{IPython console} og/eller \usntablabel{History log} avhengig av hvilken versjon du kjører. Klikk på tab-en \usntablabel{IPython console}. Du kan også bruke Python console, men IPython er å foretrekke. I IPython-vinduet kan du skrive Python kommandoer direkte inn. Det skal vi gjøre mye av nå i begynnelsen. (I'en i IPython står for interaktivt, dvs. to-veis kommunikasjon mellom deg og Python.)
 
-På høyresiden, over IPython-konsollen er der et vindu. Dette har tab-ene \tabitem{Help}, \tabitem{Variable explorer} og \tabitem{File explorer}. Litt mer om det nedenfor. 
+På høyresiden, over IPython-konsollen er der et vindu. Dette har tab-ene \usntablabel{Help}, \usntablabel{Variable explorer} og \usntablabel{File explorer}. Litt mer om det nedenfor. 
 
-Python har mange kommandoer (funksjoner) innebygd. Det er disse vi bruker når vi programmerer. Den første funksjonen vi trenger er print (skriv til skjerm), Klikk på (inne i) IPython-vinduet for å aktivere det. Skriv så første linja nedenfor og trykk \keypress{enter} :
+Python har mange kommandoer (funksjoner) innebygd. Det er disse vi bruker når vi programmerer. Den første funksjonen vi trenger er print (skriv til skjerm), Klikk på (inne i) IPython-vinduet for å aktivere det. Skriv så første linja nedenfor og trykk \usnkeypress{enter} :
 \begin{lstlisting}
 print(365)
 \end{lstlisting}
-Python skriver ut \verb|365|.
+Python skriver ut \usnvarvalue|365|.
 
 Prøv:
 \begin{lstlisting}
@@ -39,7 +39,7 @@ print("Hei Python")
 
 (Merk at tekst må stå innenfor hermetegn)
 
-print() er en funksjon, og funksjoner tar argumenter i parentes. Argumentet til print er det som skal printes, her tekststrengen ``Hei Python'' eller tallet \verb|365|.
+\usninlinecode{print()} er en funksjon, og funksjoner tar argumenter i parentes. Argumentet til \usninlinecode{print} er det som skal printes, her tekststrengen \verb|Hei Python| eller tallet \verb|365|.
 
 \subsubsection{Variabler}
 En variabel er noe som inneholder en verdi. En variabel har både et navn og en verdi.
@@ -48,13 +48,13 @@ En variabel er noe som inneholder en verdi. En variabel har både et navn og en 
 min_var1 = "Hei Python!"
 \end{lstlisting}
 
-Navnet er \lstinline{min_var1}, verdien er ``Hei Python''. Det er en tekststreng (str). 
+Navnet er \usnvarname{min\_var1}, verdien er \usnvarvalue{``Hei Python''}. Det er en \emph{tekststreng} (str). 
 
 \begin{lstlisting}
 min_var2 = 365
 \end{lstlisting}
 
-Navnet er \lstinline{min_var2}, verdien er $365$, det er et (hel)tall (int). 
+Navnet er \usnvarname{min\_var2}, verdien er \usnvarvalue{365}, det er et \emph{(hel)tall} (int).
 
 \begin{lstlisting}
 min_var2 = 300
@@ -69,7 +69,7 @@ min_var2= 300
 min_var2 =300
 \end{lstlisting}
 
-Men du kan ikke skrive \verb|min var2 = 300| for variabelen heter \lstinline{min_var2}, den må være i ett ord. 
+Men du kan ikke skrive \usninlinecode{min var2 = 300} for variabelen heter \usnvarname{min\_var2}, den må være i ett ord. 
 
 Nå kan vi printe variabelen:
 \begin{lstlisting}
@@ -80,13 +80,13 @@ Flere variabler og verdier kan printes samtidig:
 print(min_var1, "Det er", min_var2, "dager i et år.")
 \end{lstlisting}
 
-I IPython-vinduet kan du bruke piltastene for å hente frem igjen det du har skrevet tidligere. Prøv pil opp, og ned igjen. Du kan også endre på linja, og trykke {\em enter} for å kjøre/utføre (eksekvere) linja (på nytt). (Eller visk ut linja eller trykk piltast ned til du får tom linje.) Du kan også se alt du har skrevet i vinduet ved å trykke på History log nederst. (Gå tilbake til IPython-vinduet.) 
+I IPython-vinduet kan du bruke piltastene for å hente frem igjen det du har skrevet tidligere. Prøv pil opp, og ned igjen. Du kan også endre på linja, og trykke {\em enter} for å kjøre/utføre (eksekvere) linja (på nytt). (Eller visk ut linja eller trykk piltast ned til du får tom linje.) Du kan også se alt du har skrevet i vinduet ved å trykke på \usntablabel{History log} nederst. (Gå tilbake til {usntabel{IPython}-vinduet.) 
 
 \subsection{Variable explorer}
 
-Nå har du definert et par variabler (min\_{}var1 og min\_{}var2). I vinduet oppe til høyre, kan du se innholdet til variablene. Klikk på flappen ``Variable explorer''. Det kan være nyttig når du har litt større programmer og programmet ikke helt oppfører seg som du tenkte. (Mer om debugging senere.) 
+Nå har du definert et par variabler: \usnvarname{min\_var1} og \usnvarname{min\_var2}. I vinduet oppe til høyre, kan du se innholdet til variablene. Klikk på tab'en \usntablabel{Variable explorer}. Det kan være nyttig når du har litt større programmer og programmet ikke helt oppfører seg som du tenkte. (Mer om debugging senere.)
 
-I IPython-vinduet trenger du forsåvidt ikke bruke print for å se verdien til en variabel, bare skriv navnet og trykk {\em enter}:
+I IPython-vinduet trenger du forsåvidt ikke bruke \usninlinecode{print} for å se verdien til en variabel, bare skriv navnet og trykk \usnkeypress{enter}:
 \begin{lstlisting}
 min_var1
 \end{lstlisting}
@@ -97,7 +97,7 @@ Det blir ikke helt som med print. Hermetegnene vises. Og det er dessuten enkle h
 min_var3 = 'Hei"
 \end{lstlisting}
 
-Da får du en feilmelding: ``SyntaxError''
+Da får du en feilmelding: \usnoutput{SyntaxError}.
 
 \subsection{Feilmeldinger}
 
@@ -108,52 +108,48 @@ Når du skriver noe som python ikke forstår, får du en feilmelding.  Lag noen 
 asdf
 \end{lstlisting}
 
-Du får \texttt{NameError} - python aner ikke hva \texttt{asdf} skal bety.
+Du får \usnoutput{NameError} - python aner ikke hva \usnvarvalue{asdf} skal bety.
 
 \begin{lstlisting}
 'asdf'
 \end{lstlisting}
 
-Nå er \texttt{asdf} innenfor hermetegn, og da er det bare en verdi. Python klager ikke.
+Nå er \usnvarvalue{asdf} innenfor hermetegn, og da er det bare en verdi. Python klager ikke.
 
 \begin{lstlisting}
 a = "asdf
 \end{lstlisting}
 
-\texttt{SyntaxError: EOL while scanning string literal}
+\usnoutput{SyntaxError: EOL while scanning string literal}
 
 Du vil komme borti flere feilmeldingerstyper. Det er viktig å skjønne hva feilmeldingen betyr. I interaktiv kjøring, er det alltid siste kommando som er feil, så vi vet hvor feilen er. Når vi kjører et program fra fil, og noe går galt, forteller Python i hvilken linje
 feilen oppstod. Det er praktisk. 
 
-
 \subsection{Tab-completion}
 
-IPython-vinduet ditt kan hjelpe deg med å skrive raskere. F.eks. skriv \lstinline{pri} og trykk {\em tab}. IPython fullfører så med å legge til \lstinline{nt} så det blir \lstinline{print}. Det er den i stand til fordi der kun er én kommando som begynner med \lstinline{pri}. Dersom du bare skriver pr og trykker TAB kommer det opp noen flere alternativer. Du kan velge med piltastene (og {\em enter} eller {\em tab}, eller trykke {\em escape} for å kansellere.
+\usntablabel{IPython}-vinduet ditt kan hjelpe deg med å skrive raskere. F.eks. skriv \usninlinecode{pri} og trykk \usnkeypress{tab}. IPython fullfører så med å legge til \ldots\usninlinecode{nt} så det blir \usninlinecode{print}. Det er den i stand til fordi der kun er én kommando som begynner med \usninlinecode{pri}\ldots. Dersom du bare skriver \usninlinecode{pr} og trykker \usnkeypress{tab} kommer det opp noen flere alternativer. Du kan velge med piltastene (og \usnkeypress{enter} eller \usnkeypress{tab}, eller trykke \usnkeypress{escape} for å kansellere.
 
-Tab-completion plukker også opp variabler. Dersom du skriver \lstinline{mi} og trykker {\em TAB}, blir en \lstinline{n} lagt til så du har \lstinline{min}, og du får flere alternativ, \lstinline{min} (som er en funksjon som vi skal komme tilbake til),
-eller variablene du selv har definert, \lstinline{min_var1}, \lstinline{min_var2} og \lstinline{min_var3}.
-
+Tab-completion plukker også opp variabler. Dersom du skriver \usninlinecode{mi} og trykker \usnkeypress{tab}, blir en \ldots\usninlinecode{n} lagt til så du har \usnvarname{min}, og du får flere alternativer, \usninlinecode{min} (som er en funksjon som vi skal komme tilbake til), eller variablene du selv har definert, \usnvarname{min\_var1}, \usnvarname{min\_var2} og \usnvarname{min\_var3}.
 
 \subsection{Spyder}
-Restarte IPython-vinduet. Noen ganger henger IPython-vinduet, og du må restarte for å komme videre. Eller du har kanskje lyst til å bli kvitt alle variablene du har definert, starte med blanke ark.  Da kan du trykke på Consoles i hovedmenyen øverst, deretter Restart kernel. Da går det noen sekunder, så kommer et nytt, rent IPython-vindu opp. (NB: du mister altså alle variablene du har laget. Du trenger ikke gjøre det nå.)
+Restarte IPython-vinduet. Noen ganger henger IPython-vinduet, og du må restarte for å komme videre. Eller du har kanskje lyst til å bli kvitt alle variablene du har definert, starte med blanke ark.  Da kan du trykke på \usnmenulabel{Consoles} i hovedmenyen øverst, deretter \usnmenulabel{Restart kernel}. Da går det noen sekunder, så kommer et nytt, rent IPython-vindu opp. (NB: du mister altså alle variablene du har laget. Du trenger ikke gjøre det nå.)
 
-Du kan også ha flere IPython- og/eller Python-terminaler oppe samtidig. Klikk Consoles, og deretter Open an IPython console eller Open a Python console.
+Du kan også ha flere IPython- og/eller Python-terminaler oppe samtidig. Klikk \usnmenulabel{Consoles}, og deretter \usnmenulabel{Open an IPython console} eller \usnmenulabel{Open a Python console}.
 
-Restarte Spyder. Dersom du vil ta ned hele Spyder: Se oppe til venstre, trykk File, så Quit. (Ikke gjør det nå.) 
-
+Restarte Spyder. Dersom du vil ta ned hele Spyder: Se oppe til venstre, trykk \usnmenulabel{File - Quit}. (Ikke gjør det nå.) 
 
 \subsection{Litt mer om Spyder: Layout} 
-Spyder er en GUI (Grafisk User Interface, grafisk brukergrensesnitt) som gjør det enklere å arbeide med Python. Spyder eksisterer for windows/mac/linux og er open source og gratis. Vi har installert det som en del av Anaconda eller Miniconda. (Det går naturligvis også an å kjøre Python uten Spyder.)
+Spyder er en GUI (Grafisk User Interface, grafisk brukergrensesnitt) som gjør det enklere å arbeide med Python. Spyder eksisterer for Windows/MacOS/Linux og er open source og gratis. Vi har installert det som en del av Anaconda eller Miniconda. (Det går naturligvis også an å kjøre Python uten Spyder.)
 
-Spyder har mange funksjonaliteter. (Se de mange valgene i hovedmenyen øverst i vinduet.) En av disse er hvordan layouten skal være. Trykk på View / Window layouts. Sansynligvis er det Spyder Default Layout du bruker. Du kan velge en av de andre, f.eks. Matlab Layout. Den gir deg flere vinduer med informasjon, som kan være nyttig. Men vi holder oss til Spyder Default Layout.
+Spyder har mange funksjonaliteter. (Se de mange valgene i hovedmenyen øverst i vinduet.) En av disse er hvordan layouten skal være. Trykk på \usnmenulabel{View - Window layouts}. Sansynligvis er det Spyder Default Layout du bruker. Du kan velge en av de andre, f.eks. Matlab Layout. Den gir deg flere vinduer med informasjon, som kan være nyttig. Men vi holder oss til Spyder Default Layout.
 
 Du kan justere størrelsen på vinduene med musen.
 
-Du kan øke/minske tekststørrelsen i Editor-vinduet og IPython-terminal-vinduet (uavhengig av hverandre) med CTRL+ / CTRL- mens vinduet er aktivt. 
+Du kan øke/minske tekststørrelsen i Editor-vinduet og IPython-terminal-vinduet (uavhengig av hverandre) med \usnkeypress{CTRL-+} / \usnkeypress{CTRL--} mens vinduet er aktivt. 
 
-Noe som kan være praktisk nå i begynnelsen, er muligheten til å lagre alt som er gjort i IPython-vinduet. Aktiver IPython-vinduet. Trykk så CTRL+s (CTRL og s). Da kommer et vindu opp som lar deg lagre IPython-aktiviteten som html-fil. Velg et passende navn (og katalog). Filen må leses med en nettleser (Firefox, IE/Edge, Safari). (Enten kan du finne filen med f.eks. Windows Explorer, dernest klikke på den. Eller du kan åpne en ny tab/vindu i nettleseren og skrive file:/// i url-en. Da vil du få opp filstrukturen din. Du må da klikke deg frem til rett sted og finne filen.) Det går imidlertid ikke an å laste det inn igjen i spyder og slik fortsette der du slapp. 
+Noe som kan være praktisk nå i begynnelsen, er muligheten til å lagre alt som er gjort i IPython-vinduet. Aktiver IPython-vinduet. Trykk så \usnkeypress{CTRL-S} (CTRL og s). Da kommer et vindu opp som lar deg lagre IPython-aktiviteten som html-fil. Velg et passende navn (og katalog). Filen må leses med en nettleser (Firefox, IE/Edge, Safari). (Enten kan du finne filen med f.eks. Windows Explorer, dernest klikke på den. Eller du kan åpne en ny tab/vindu i nettleseren og skrive file:/// i url-en. Da vil du få opp filstrukturen din. Du må da klikke deg frem til rett sted og finne filen.) Det går imidlertid ikke an å laste det inn igjen i spyder og slik fortsette der du slapp. 
 
-\section{Oppgaver}
+\subsection{Oppgaver}
 
 \begin{question}
 Bruk et minutt eller to på å gjøre deg litt kjent med Spyder. Endre litt på vindusstørrelse, klikke på ulike flapper, sjekke hva menyene inneholder.
@@ -167,458 +163,479 @@ Lagre en html-fil med IPython-aktiviteten din og finn den igjen med en nettleser
 
 REF: For mer Spyder-info: klikk på Help-flappen på vinduet øverst til høyre (som også har flappen Variable explorer). Der kan du ved anledning (senere) følge en tutorial (klikk tutorial) som beskriver ganske greit hva Spyder har å tilby.
 
-\iffalse
+\section{Tall}
 
-######################################################################## 
-KAP. 2.2  TALL
+\begin{usnintro}
+\begin{itemize}
+\item Tall, matematikk
+\item Operasjoner: +, -, *, /, **, parenteser
+\end{itemize}
+\end{usnintro}
 
-TALL, MATEMATIKK
-Operasjoner: + - * / ** parenteser
+\begin{usncomment}
+Python leser ikke det som står til høyre for \# på en linje. Det kaller vi en kommentar, så den delen trenger du ikke skrive, bare mattestykket. Du kan også ha en hel linje som starter med \#, en kommentarlinje.
+\end{usncomment}
 
 Prøv følgende:
-(NB: Python leser ikke det som står til høyre for # på en linje.
-Det kaller vi en kommentar, så den delen trenger du ikke skrive, bare mattestykket.)
-(Du kan også ha en hel linje som starter med #, en kommentarlinje.) 
 
-# Dette er en kommentar. Her kan jeg skrive noe stygt som Python ikke leser ... (Python er et dårlig språk) 
+\begin{lstlisting}
+# Dette er en kommentar. Her kan jeg skrive noe stygt som Python ikke leser ... (Python er et dårlig språk)
 2+2   # pluss, addisjon
 4-2   # minus, subraksjon
 2*3   # gange, multiplikasjon
 7/3   # dele, divisjon
 2**3  # opphøyd i, dette er 2*2*2
+\end{lstlisting}
 
-Maskinen regner ikke fra venstre mot høyre. 
-Den har regler for hva som skal regnes ut først: 
-Prioritert rekkefølge: først ** så * og /, så + og -. 
+Maskinen regner ikke fra venstre mot høyre. Den har regler for hva som skal regnes ut først:
+\begin{enumerate}
+\item ** (opphøyd i)
+\item * og / (ganger og deler)
+\item + og - (pluss og minus)
+\end{enumerate}
+
+\begin{lstlisting}
 4+3*2   # 14 eller 10? 
 3*2**2  # 36 eller 12?
+\end{lstlisting}
 
-Men hva gjør vi om det faktisk er slik at vi vil at 4+3 skal regnest ut først,
-så skal vi gange resultatet med 2? 
-Da bruker vi parenteser. Parenteser har enda høyere prioritet enn **,
-dvs. det som er inni en parentes blir alltid regnet ut først.
-Så, vil vi regne ut 4+3 først, gjør vi det slik: 
-(4+3)*2 
+(Det andre svaret er riktig i begge tilfeller.)
+
+Men hva gjør vi om det faktisk er slik at vi vil at 4+3 skal regnest ut først, så skal vi gange resultatet med 2? Da bruker vi parenteser. Parenteser har enda høyere prioritet enn **, dvs. det som er inni en parentes blir alltid regnet ut først. Så, vil vi regne ut 4+3 først, gjør vi det slik: 
+\begin{lstlisting}
+(4+3)*2
+\end{lstlisting}
+
 Er det forskjell på 4+(3*2) og 4+3*2? 
 
 Disse prioriteringsreglene er de samme som på kalkulatoren din. 
 
-Du kan ha mellomrom (space) hvor som helst mellom de ulike elementene på en linje,
-de spiller ingen rolle. 
+Du kan ha mellomrom (space) hvor som helst mellom de ulike elementene på en linje, de spiller ingen rolle.
+
+\begin{lstlisting}
 4 + 3*2
 4+3 * 2 
-Men første tegn er hellig, det må stå der det skal stå 
-Linja under vil derfor gi feilmelding siden linja starter med en space (IndentationError). 
+\end{lstlisting}
+
+Men første tegn er hellig, det må stå der det skal stå. Linja under vil derfor gi feilmelding (IndentationError) siden linja starter med en space.
+\begin{lstlisting}
  4+3*2
+\end{lstlisting}
 
-Men: Når du skriver det direkte inn i IPython-konsollen, får du (dessverre) ikke
-feilmelding i linja over.
-IPython-konsollen forstår hva som er ment.
-Python-konsollen vil imidlertid gi feilmelding.
-Prøv. (Du må da klikke på Python console nederst. Og etterpå tilbake til IPython.) 
-Og hvis du gjør det i et program, som er det vi vanligvis vil gjøre, får du også feilmelding. 
+Men: Når du skriver det direkte inn i IPython-konsollen, får du (dessverre) ikke feilmelding i linja over. IPython-konsollen forstår hva som er ment. Python-konsollen vil imidlertid gi feilmelding. Prøv. (Du må da klikke på Python console nederst. Og etterpå tilbake til IPython.) Og hvis du gjør det i et program, som er det vi vanligvis vil gjøre, får du også feilmelding. 
 
-Du kan naturligvis heller ikke sette et mellomrom midt i et tall,
-f.eks. skrive 44 + 3 som 4 4 + 3). 
+Du kan naturligvis heller ikke sette et mellomrom midt i et tall, f.eks. skrive 44 + 3 som 4 4 + 3). 
 
+Vi bruker de matematiske operasjonene til å regne ut ting og tang. Vanligvis gjør vi det slik:
 
+\usnoutput{EN VARIABEL = ET REGNESTYKKE}
 
-Vi bruker de matematiske operasjonene til å regne ut ting og tang.
-Vanligvis gjør vi det slik:
-EN VARIABEL = ET REGNESTYKKE
-Dette er metakode, dvs. ikke virkelig kode, men kode-aktig. 
-Den vil ikke fungere om du skriver den inn i IPython-konsollen.
-Mer standardisert måte er å omslutte forklaringene i vinkelparenteser.
-<en variabel> = <et regnestykke> 
-(Den fungerer fortsatt ikke i IPython-konsollen.)
-Det som er omsluttet skal erstattes av syntaktisk korrekt kode.
-Du vil ofte møte slik kode, f.eks. når du leter på nettet.
+Dette er metakode, dvs. ikke virkelig kode, men kode-aktig. Den vil ikke fungere om du skriver den inn i IPython-konsollen. Mer standardisert måte er å omslutte forklaringene i vinkelparenteser.
 
+\usnoutput{<en variabel> = <et regnestykke>}
+
+(Den fungerer fortsatt ikke i IPython-konsollen.) Det som er omsluttet skal erstattes av syntaktisk korrekt kode. Du vil ofte møte slik kode, f.eks. når du leter på nettet.
 
 Eksempel (på matematikk, ikke på metakode)
+
+\begin{lstlisting}
 a = 5 + 3
-Her blir variabelen a, som er på venstresiden, satt til å være lik 5 + 3, altså 8. 
-(Det kan du se ved å bare skrive a, eller print(a). Du ser det også i Variable explorer.) 
-Dette kalles tilordning (assignment), a blir tilordnet verdi 8.
-Der er litt ulike meninger om man bør ha mellomrom mellom tallene og tegnene.
-Der finnes visse stil-standarder. Litt mer om style senere. 
+\end{lstlisting}
+
+Her blir variabelen a, som er på venstresiden, satt til å være lik 5 + 3, altså 8. (Det kan du se ved å bare skrive a, eller print(a). Du ser det også i Variable explorer.) Dette kalles tilordning (assignment), a blir tilordnet verdi 8. Der er litt ulike meninger om man bør ha mellomrom mellom tallene og tegnene. Der finnes visse stil-standarder. Litt mer om style senere. 
 
 Ofte er det ikke bare tall som står på høyresiden, men også andre variabler. 
+
+\begin{lstlisting}
 b = 2*a + 3  # Her får variabelen b verdien 2*8 + 3 = 19  (fordi a = 8, se ovenfor).
-Hvis a ikke er definert, vil du få feilmelding. 
-Prøv i stedet: 
+\end{lstlisting}
+
+Hvis a ikke er definert, vil du få feilmelding. Prøv i stedet: 
+
+\begin{lstlisting}
 b = 2*c + 3 
-Da klager python (rettmessig) over at c ikke er definert. 
+\end{lstlisting}
 
-Det er også mulig at den variabelen som står på venstresiden også står på høyresiden.
+Da klager python (rettmessig) over at c ikke er definert. Det er også mulig at den variabelen som står på venstresiden også står på høyresiden.
+
+\begin{lstlisting}
 a = 2*a + 3
-Men hvordan skal det forstås? Hvordan forstår python det? 
-Regelen er at høyresiden regnes ut først, så blir venstresiden,
-som alltid må være en variabel, satt lik denne verdien. 
-Variablen a blir altså her 19 til slutt.
-(a'en på høyresida er 8, men når linja er ferdig utført, har a fått verdi 19.)  
-Linjen ovenfor skal altså IKKE leses som en ligning.
-Den matematiske ligningen a = 2a + 3 har løsning a = -3.
-Og det er ikke det som skjer i denne linja. 
-Det kan virke merkelig å bruke samme variabel på høyre og venstre side.
-Men det er ofte brukt. 
+\end{lstlisting}
 
-Kan vi skrive følgende ligning? 
+Men hvordan skal det forstås? Hvordan forstår python det? Regelen er at høyresiden regnes ut først, så blir venstresiden, som alltid må være en variabel, satt lik denne verdien. Variablen a blir altså her 19 til slutt. (a'en på høyresida er 8, men når linja er ferdig utført, har a fått verdi 19.) Linjen ovenfor skal altså IKKE leses som en ligning. Den matematiske ligningen a = 2a + 3 har løsning a = -3.
+Og det er ikke det som skjer i denne linja. Det kan virke merkelig å bruke samme variabel på høyre og venstre side. Men det er ofte brukt. 
+
+Kan vi skrive følgende ligning?
+
+\begin{lstlisting}
 x + 5*3 = 3
-(Nei. Prøv. Det gir SyntaxError.) 
-Har vi en variabel som er definert gjennom en ligning,
-og vi vil at Python skal regne ut denne variablen,
-da må vi først løse ligningen (på ark) slik at vi får variabelen alene på venstresiden.
-For ligningen ovenfor blir det slik: 
-x = 3 - 5*3
-NB: Der finnes en pakke (package) i python som løser ligninger for oss: sympy. 
-Den kan regne algebraisk, symbolsk. 
-Da slipper vi å løse ligningen selv.
-Vi skal se på sympy senere. 
+\end{lstlisting}
 
+(Nei. Prøv. Det gir SyntaxError.) Har vi en variabel som er definert gjennom en ligning, og vi vil at Python skal regne ut denne variablen, da må vi først løse ligningen (på ark) slik at vi får variabelen alene på venstresiden. For ligningen ovenfor blir det slik: 
+
+\begin{lstlisting}
+x = 3 - 5*3
+\end{lstlisting}
+
+NB: Der finnes en pakke (package) i python som løser ligninger for oss: sympy. Den kan regne algebraisk, symbolsk. Da slipper vi å løse ligningen selv. Vi skal se på sympy senere. 
+
+\subsection{oppgaver}
 
 I oppgavene nedenfor: regn ut for hånd (kalkulator). Prøv så i python. 
 
-Oppgave 1:
+\begin{question}
 Hva blir 2*3-4/2*2, (1-3)*(-3)/(2*2), 2*3**2/2, 1/2**3-4-8/2*4 , 2**3-(4-8)/2*4 ?  
+\end{question}
 
-Oppgave 2:
+\begin{question}
 Regn ut arealet av en firkant med side a=3 og b=12. (Diskuter med sidemannen.) 
+\end{question}
 
-Oppgave 3: Regn ut omkretsen av en firkant med side a=4 og b=5.
+\begin{question}
+Regn ut omkretsen av en firkant med side a=4 og b=5.
+\end{question}
 
-Oppgave 4: Løs 3x - 2 = 13 
+\begin{question}
+Løs 3x - 2 = 13 
+\end{question}
 
-Oppgave 5: Regn ut omkretsen av en sirkel med radius 3.
-(Hva er radius? Og pi? Diskuter med sidemannen.) 
+\begin{question}
+Regn ut omkretsen av en sirkel med radius 3. (Hva er radius? Og pi? Diskuter med sidemannen.)
+\end{question}
 
-######################################################################## 
-KAP. 2.3  DATATYPER #1: int, float, str
+\section{Datatyper 1 : int, float, str}
 
-Verdien til en variabel er alltid av en viss type,
-f.eks. en tekststreng eller et heltall eller et desimaltall. 
-Typen avgjør hva vi kan gjøre med variabelen.
-For eksempel kan to tall multipliseres (ganges) med hverandre.
+Verdien til en variabel er alltid av en viss type, f.eks. en tekststreng eller et heltall eller et desimaltall. Typen avgjør hva vi kan gjøre med variabelen. For eksempel kan to tall multipliseres (ganges) med hverandre.
+
+\begin{lstlisting}
 3.3*4.1
+\end{lstlisting}
+
 Men det gir ikke mening å gange to tekststrenger med hverandre.
+
+\begin{lstlisting}
 'asdf' * 'abc'
-Da klager python.
-(Men det gir faktisk mening å skrive 3 * 'abc'. Prøv.) 
+\end{lstlisting}
+
+Da klager python. (Men det gir faktisk mening å skrive 3 * 'abc'. Prøv.) 
 
 Funksjonen type() forteller oss hvilken datatype en variabel (eller en verdi) har. 
+
 Prøv: 
+\begin{lstlisting}
 type(23)               # int    (integer, heltall) 
 type(23.3)             # float  (desimaltall) 
 type(23.0)             # float  
 type('23')             # str    (tekststreng) 
 a = 43.3
 type(a)
+\end{lstlisting}
 
-Merk at vi for desimaltall bruker punktum, ikke komma.
-(Det er engelskspråklig stil, som er den som er brukt i programmering.) 
-NB: vanligvis vil argumentet ikke være et tall, men en variabel, f.eks. type(min_var). 
+Merk at vi for desimaltall bruker punktum, ikke komma. (Det er engelskspråklig stil, som er den som er brukt i programmering.) NB: vanligvis vil argumentet ikke være et tall, men en variabel, f.eks. type(min\_{}var).
 
-Noen ganger er det viktig å skille mellom int og float, men som oftest ikke. 
-(I tidligere versjoner av Python, er det veldig viktig å skille mellom int og float.
-I Python2 vil 1/2 ikke gi 0.5, men 0 fordi det er såkalt heltallsdivisjon. 
-Vi kjører Python3, nærmere bestemt Python 3.6) 
+Noen ganger er det viktig å skille mellom int og float, men som oftest ikke. (I tidligere versjoner av Python, er det veldig viktig å skille mellom int og float. I Python2 vil 1/2 ikke gi 0.5, men 0 fordi det er såkalt heltallsdivisjon.  Vi kjører Python3, nærmere bestemt Python 3.6)
 
-
-Omgjøring av datatyper (recast): 
+\subsubsection{Omgjøring av datatyper --- recast}
 
 Fra tall til tekst: 
+
+\begin{lstlisting}
 str(33.0)        # gir '33.0'
 str(33)          # gir '33'
 type(str(33))    # str
 a = 334
 str(a)
 type(str(a))     # str
+\end{lstlisting}
 
-Fra tekst til tall: 
+Fra tekst til tall:
+
+\begin{lstlisting} 
 int('345')       # gir 345
 float('345')     # gir 345.0  (float) 
 float('345.3')   # gir 345.3 
 int('345.3')     # gir feilmelding
+\end{lstlisting}
 
 Fra int til float: 
+\begin{lstlisting}
 float(33)        # gir 33.0
+\end{lstlisting}
 
-Fra float til int 
+Fra float til int:
+\begin{lstlisting}
 int(33.3)        # gir 33
-int(33.6)        # gir 33 (!) 
+int(33.6)        # gir 33 (!)
+\end{lstlisting}
+
 int() runder altså ikke av slik vi er vant til, den bare fjerner desmaldelen. 
 
+Der er en annen funksjon som runder av, round().
 
-Der er en annen funksjon som runder av, round(). 
+\begin{lstlisting}
 round(33.5)      # blir 34 
 round(33.499)    # blir 33
+\end{lstlisting}
+
 Med round kan du også runde av til et gitt antall desimaler (default er null desimaler).
+\begin{lstlisting}
 round(33.499,2)  # blir 33.50
 round(33.43,1)   # blir 33.4
+\end{lstlisting}
 
 (NB: vanligvis er det variabler vi har som argumenter, ikke verdiene selv.)  
 
+\subsection{Oppgaver}
 
+\begin{question}
+Du har to tekstvariabler, a = ' 7.3' og b = '30.1'. Bruk korrekt omgjøring av datatyper og finn så differansen (den ene minus den andre),
+summen og produktet (den ene ganget med den andre).
+\end{question}
 
+\begin{question}
+Du har c = '7.345'. Er det mulig å runde av tallet til to desimaler på bare en linje?
+\end{question}
 
-Oppgave 1: Du har to tekstvariabler, a = ' 7.3' og b = '30.1'.
-Bruk korrekt omgjøring av datatyper og finn så differansen (den ene minus den andre),
-summen og produktet (den ene ganget med den andre). 
+\begin{question}
+Du har en variabel \usninlinecode{a = 3.14} og \usninlinecode{b = "Pi er "}. Lag en tekststreng c som kombinerer a og b og gir verdien \usnvarvalue{``Pi er 3.14''}.
+\end{question}
 
-Oppgave 2: Du har c = '7.345'.
-Er det mulig å runde av tallet til to desimaler på bare en linje?
+\section{Importere pakker}
 
-Oppgave 3: Du har en variabel a = 3.14 og b = "Pi er ".
-Lag en tekststreng c som kombinerer a og b og gir verdien "Pi er 3.14". 
+Python har en del innebygde (builtin) funksjoner. Disse er tilgjengelig idet vi starter opp Python. F.eks. alt vi har nevnt så langt: print(), int(), float(), str(), type(), round(). Noen flere som kan være nyttige for oss: abs(), max(), min().
 
-######################################################################## 
-KAP. 2.4  IMPORTERE PAKKER
-
-Python har en del innebygde (builtin) funksjoner.
-Disse er tilgjengelig idet vi starter opp Python.
-F.eks. alt vi har nevnt så langt: print(), int(), float(), str(), type(), round()
-Noen flere som kan være nyttige for oss: abs(), max(), min() 
-
-Prøv: 
+Prøv:
+\begin{lstlisting}
 abs(-3)          # tar absoluttverdien (dvs. fjerner eventuelt minus foran)
 abs(-3.3)
 max(1,3,99,-29)  # finner maksimumsverdi av en liste med tall
 min(1,3,99,-29)  # finner minimumsverdi 
+\end{lstlisting}
 
+Men mye mye mer er tilgjengelig som pakker (packages) som vi kan laste inn etter behov. F.eks. finnes der en pakke som heter math. Der finnes blant annet pi (3.14159...) og kvadratrot (sqrt) og sinus (sin). For å bruke det som finnes i pakken, må vi først importere den.
 
-Men mye mye mer er tilgjengelig som pakker (packages) som vi kan laste inn etter behov.
-F.eks. finnes der en pakke som heter math.
-Der finnes blant annet pi (3.14159...) og kvadratrot (sqrt) og sinus (sin). 
-For å bruke det som finnes i pakken, må vi først importere den. 
+\begin{lstlisting}
 import math
+\end{lstlisting}
+
 Da kan vi gjøre f.eks.
-math.pi 
-For å se hva som finnes i math, kan vi skrive math. (math og punktum), trykk så TAB.
-Da kommer det opp en liste over funksjoner (og f.eks. konstanter som pi), bl.a. math.sin()
+
+\begin{lstlisting}
+math.pi
+\end{lstlisting}
+
+For å se hva som finnes i math, kan vi skrive math. (math og punktum), trykk så \usnkeypress{tab}. Da kommer det opp en liste over funksjoner (og f.eks. konstanter som pi), bl.a. math.sin().
+
 Prøv
+\begin{lstlisting}
 math.sqrt(9)         # Kvadratroten (square root, sqrt)
 math.sqrt(2)         # 
 math.sin(1.57)       # Skal bli nesten 1
 math.sin(math.pi/2)  # Skal bli akkurat 1
+\end{lstlisting}
 
-NB: De trigonometriske funksjonene (sin, cos, ...) tar argumentet i radianer,
-ikke i grader. 
-Har du vinkelen i grader, må du først regne om til radianer.
-180 grader tilsvarer pi (radianer). (pi er 3.14159265...) 
-Så har du g grader tilsvarer det r = pi * g / 180  radianer.
-(Og har du r radianer, tilsvarer det g = 180 * r / pi  grader.) 
+NB: De trigonometriske funksjonene (sin, cos, ...) tar argumentet i radianer, ikke i grader. Har du vinkelen i grader, må du først regne om til radianer. 180 grader tilsvarer pi (radianer). (pi er 3.14159265...) Så har du g grader tilsvarer det r = pi * g / 180  radianer. (Og har du r radianer, tilsvarer det g = 180 * r / pi  grader.) 
 
-Der er også funksjoner som gjør akkurat disse omregningene: 
-math.radians() og math.degrees()
-Prøv. 
+Der er også funksjoner som gjør akkurat disse omregningene:  math.radians() og math.degrees() Prøv.
 
-Der finnes et knippe forskjellige måter å importere en pakke på.
-Du vil sannsynligvis møte alle metodene når du leser andre sin kode,
-så greit å ha sett dem. 
-Du vil sannsynligvis bruke flere av metodene selv.
+Der finnes et knippe forskjellige måter å importere en pakke på. Du vil sannsynligvis møte alle metodene når du leser andre sin kode, så greit å ha sett dem. Du vil sannsynligvis bruke flere av metodene selv.
 
 Metode 1: (den vi hadde ovenfor)
+\begin{usncodebox}
 import math
 print(math.pi)
+\end{usncodebox}
 Du må ha math. foran funksjoner/konstanter fra pakken
 
 Metode 2:
+\begin{usncodebox}
 import math as ma
 print(ma.pi)
+\end{usncodebox}
 Som første metoden, men pakken blir hetende ma i stedet for math.
 
 Metode 3:
+\begin{usncodebox}
 from math import pi,sin, sqrt
 print(pi)
+\end{usncodebox}
 I dette tilfellet importerer du kun pi, sin og sqrt fra pakken.
 Du slipper å ha math. foran. 
 
 Metode 4:
+\begin{usncodebox}
 from math import *
 print(pi)
-Som ovenfor, du slipper å ha math. foran.
-Men du importerer alle funksjonene i pakken. 
-Det unødvendig, og generelt ikke anbefalt.
-(Faren er at pakken (her math) kan ha en variabel eller funksjon med samme navn
-som noe du har definert tidligere, og vil da erstatte denne.) 
-(For små programmer er det imidlertid faren kontrollerbar.) 
+\end{usncodebox}
 
+Som ovenfor, du slipper å ha math. foran, men du importerer alle funksjonene i pakken. Det unødvendig, og generelt ikke anbefalt. (Faren er at pakken (her math) kan ha en variabel eller funksjon med samme navn som noe du har definert tidligere, og vil da erstatte denne.) (For små programmer er det imidlertid faren kontrollerbar.) 
 
-Pakken math er del av det såkalte Python Standard Library
-(https://docs.python.org/3/library/)
-Vi skal bruke noen av pakkene der.
-Bl.a. pakken random
-Denne bruker du til å velge tilfeldige tall.
-Den er nyttig f.eks. i spill. Vi skal bruke den om litt. 
+Pakken math er del av det såkalte Python Standard Library \url{https://docs.python.org/3/library/}. Vi skal bruke noen av pakkene der. Bl.a. pakken random. Denne bruker du til å velge tilfeldige tall. Den er nyttig f.eks. i spill. Vi skal bruke den om litt. 
+
+\begin{usncodebox}
 import random
 random.random()          # gir et tilfeldig desimaltall mellom 0 og 1
 random.uniform(7,17)     # gir et tilfeldig desimaltall mellom 7 og 17
-random.randint(1,6)      # gir et tilfeldig heltall mellom 1 og 6. (Grensene, altså 1 og 6, er valgbare.) 
+random.randint(1,6)      # gir et tilfeldig heltall mellom 1 og 6. (Grensene, altså 1 og 6, er valgbare.)
+\end{usncodebox}
 
+Hvis du har importert math i alle mulige fasonger (ovenfor), kan det være på sin plass å restarte IPython-konsollen (\usnkeypress{CTRL+.}) før du begynner på oppgavene nedenfor. 
 
-Hvis du har importert math i alle mulige fasonger (ovenfor),
-kan det være på sin plass å restarte IPython-konsollen (CTRL+.)
-før du begynner på oppgavene nedenfor. 
+\subsection{Oppgaver}
 
+\begin{question}
+En rett vinkel er 90 grader. Finn sin og cos til en rett vinkel.
+\end{question}
 
-Oppgave 1: En rett vinkel er 90 grader. Finn sin og cos til en rett vinkel.
+\begin{question}
+Finn et tilfeldig desimaltall mellom 0 og 1, mellom -5 og 5, mellom -2 og 18.
+\end{question}
 
-Oppgave 2: Finn et tilfeldig desimaltall mellom 0 og 1, mellom -5 og 5, mellom -2 og 18.
+\begin{question}
+Finn et tilfeldig heltall mellom 0 og 9, mellom -5 og 5, mellom -2 og 18. Grensene skal være med.
+\end{question}
 
-Oppgave 3: Finn et tilfeldig heltall mellom 0 og 9, mellom -5 og 5, mellom -2 og 18.
-Grensene skal være med. 
+\begin{question}
+Finn cos og sin til 35 grader. Regn også ut kvadratet av sin og av cos, og ta summen.
+\end{question}
 
-Oppgave 4: Finn cos og sin til 35 grader.
-Regn også ut kvadratet av sin og av cos, og ta summen.
+\begin{question}
+Finn cos og sin til 2.3 radianer.
+\end{question}
 
-Oppgave 5: Finn cos og sin til 2.3 radianer 
+\begin{question}
+Finn kvadratroten av 256.
+\end{question}
 
-Oppgave 6: Finn kvadratroten av 256. 
-
-######################################################################## 
-KAP. 2.5  NY FUNKSJON: input : lese fra tastaturet 
+\section{input - lese fra tastaturet}
 
 Få opplysninger fra brukeren ved funksjonen input()
+
+\begin{usncodebox}
 navn = input("Hva heter du? ") 
 print("Du heter", navn)
 input() leser inn en tekststreng. 
+\end{usncodebox}
+
 Selv om du skriver et tall, vil input gi en tekststreng. 
+
+\begin{usncodebox}
 alder = input("Hvor gammel er du? ")   # svar med et tall 
 print(alder)
 type(alder)
-Type avslører at det er en tekststreng.
-Derfor kan du ikkje gjøre følgende
+\end{usncodebox}
+
+Type avslører at det er en tekststreng. Derfor kan du ikkje gjøre følgende
+
+\begin{usncodebox}
 print(alder + 13)
+\end{usncodebox}
+
 Feilmelding (TypeError), du ikke kan legge sammen et tall og en tekst. 
 
-Hvis det er et tall du ønsker å lese inn (alder), må du selv gjøre om til tall. 
+Hvis det er et tall du ønsker å lese inn (alder), må du selv gjøre om til tall.
+
+\begin{usncodebox}
 alder = int(alder)
-(Evt. kunne du brukt alder = float(alder).)
-Nå har du gjort om alder til heltall.
+\end{usncodebox}
+
+(Evt. kunne du brukt alder = float(alder).) Nå har du gjort om alder til heltall.
+
 Da fungerer dette fint: 
+
+\begin{usncodebox}
 print("Om", 13, "år er du", alder+13, "år") 
+\end{usncodebox}
+
 NB: dersom du bruker int(alder), men oppgir f.eks. '21.5', vil du få feilmelding. 
 
+\subsection{Oppgaver}
 
-Oppgave 1: Be om et tall med input(). Gjør den innleste verdien om til float,
-og finn til slutt kvadratroten og multipliser med pi. 
+\begin{question}
+Be om et tall med input(). Gjør den innleste verdien om til float, og finn til slutt kvadratroten og multipliser med pi. 
+\end{question}
 
-######################################################################## 
-KAP. 2.6  LAGE ET PROGRAM, EN FIL
+\section{Lage et program}
 
-La oss nå lage et program, dvs. opprette en fil og kjøre (eksekvere) den. 
-Klikk på vinduet til venstre, editoren. 
+La oss nå lage et program, dvs. opprette en fil og kjøre (eksekvere) den.  Klikk på vinduet til venstre, editoren.  Dersom du ikke har lastet inn en fil, vil editoren inneholde følgende tekst (omtrent): 
 
-Dersom du ikke har lastet inn en fil, vil editoren inneholde følgende tekst (omtrent): 
-
+\begin{usncodebox}
 # -*- coding: utf-8 -*-
 """
 Created on Sun Aug  6 18:49:51 2017
 
 @author: nobody
 """
+\end{usncodebox}
 
-Dersom du har et annet program (en annen fil) inne i editoren,
-kan du begynne på en ny fil ved å trykke på File, så New file.
-Programmet/filen vil da bli hetende noe sånt som untitled0.py inntil videre,
-til du med File / Save as gir den et bedre navn. 
+Dersom du har et annet program (en annen fil) inne i editoren, kan du begynne på en ny fil ved å trykke på File, så New file. Programmet/filen vil da bli hetende noe sånt som untitled0.py inntil videre, til du med File / Save as gir den et bedre navn. 
 
 Legg inn følgende tekst under det som allerede finnes, dvs. ca. fra linje 7: 
 
+\begin{usncodebox}
 navn = input("Hva heter du? ")
 alder = input("Hvor gammel er du? ") 
 print("Du heter", navn, "og er", alder, "år gammel.") 
+\end{usncodebox}
 
-Trykk så File fra menyen øverst, dernest Save as. 
-Du bør nå velge en grei plass på maskinen for python-filer. 
-Du kan også lage en folder her og nå med New Folder og klikke deg inn i den. 
-Filnavnet bør være beskrivende, f.eks. tut_prog_navnogalder1.py. 
-Filen må ha ending ".py". 
-I Windows blir .py lagt til automatisk dersom du ikke selv gjør det. 
+Trykk så File fra menyen øverst, dernest Save as. Du bør nå velge en grei plass på maskinen for python-filer. Du kan også lage en folder her og nå med New Folder og klikke deg inn i den. Filnavnet bør være beskrivende, f.eks. tut\_{}prog\_{}navnogalder1.py. Filen må ha ending ".py". I Windows blir .py lagt til automatisk dersom du ikke selv gjør det. 
 
-
-For å kjøre filen, trykker du på den grønne pilen øverst til venstre (Run file),
-eller trykker F5. 
-I det interaktive vinduet (IPython-konsollen) får du nå spørsmål å svare på. 
-Du må sannsynligvis først aktivere vinduet ved å klikke på det
-før du kan skrive inn navn (og trykke ENTER) og alder (og trykke ENTER). 
-Merk at mens programmet kjøres, kan du ikke bruke IPython-konsollen til andre ting
-(f.eks. til å regne ut 365+366). 
-Når du har oppgitt navn og alder avsluttes programmet.
-Da kan du igjen bruke det interaktive vinduet til andre ting. 
+For å kjøre filen, trykker du på den grønne pilen øverst til venstre (Run file), eller trykker F5. I det interaktive vinduet (IPython-konsollen) får du nå spørsmål å svare på. Du må sannsynligvis først aktivere vinduet ved å klikke på det før du kan skrive inn navn (og trykke ENTER) og alder (og trykke ENTER). Merk at mens programmet kjøres, kan du ikke bruke IPython-konsollen til andre ting (f.eks. til å regne ut 365+366). Når du har oppgitt navn og alder avsluttes programmet. Da kan du igjen bruke det interaktive vinduet til andre ting. 
 
 Du kan kjøre programmet på nytt ved igjen å klikke på den grønne pilen.
 
-Dersom du gjør endringer i programmet, kan du lagre endringene ved å
-klikke File / Save (eller trykke CTRL+s). 
-Eventuelle endringer som ikke allerede er lagret, vil bli det hvis du trykker på
-den grønne filen og kjører programmet.
+Dersom du gjør endringer i programmet, kan du lagre endringene ved å klikke File / Save (eller trykke CTRL+s). Eventuelle endringer som ikke allerede er lagret, vil bli det hvis du trykker på den grønne filen og kjører programmet.
 
-
-Det er viktig å bli komfortabel med filer, vite hvor de er, kunne lagre,
-kunne opprette nye, laste inn filer du har laget tidligere etc.
-Vanlig bruk av python er via filer. 
-Kun for veldig små oppgaver vil du skrive kommandoene direkte inn i IPython-konsollen. 
-I linjen over editor-vinduet, vil der vere en eller flere flapper,
-og kanskje piler til venstre/høyre.
-Dette er aktive filer. Du kan klikke på en flapp, så blir filen lastet inn i editoren.
-Dersom du har andre python-programmer tilgjengelig på harddisken,
+Det er viktig å bli komfortabel med filer, vite hvor de er, kunne lagre, kunne opprette nye, laste inn filer du har laget tidligere etc.. Vanlig bruk av python er via filer. Kun for veldig små oppgaver vil du skrive kommandoene direkte inn i IPython-konsollen. I linjen over editor-vinduet, vil der vere en eller flere flapper, og kanskje piler til venstre/høyre. Dette er aktive filer. Du kan klikke på en flapp, så blir filen lastet inn i editoren. Dersom du har andre python-programmer tilgjengelig på harddisken,
 kan du laste inn disse ved å klikke File / Open, og så finne frem til den aktuelle filen. 
+\todo[author=Christian]{Fjern ordet flapp rundt omkring}
 
+\subsection{Oppgaver}
 
+\begin{question}
+Lag et program som leser inn fornavn, etternavn og alder i passende variabler. Omtrentlig fødselsår skal så regnes ut, og når du fyller 50 år. Skriv til slutt ut alle opplysningene.
+\end{question}
 
-Oppgave 1:
-Lag et program som leser inn fornavn, etternavn og alder i passende variabler.
-Omtrentlig fødselsår skal så regnes ut, og når du fyller 50 år.
-Skriv til slutt ut alle opplysningene. 
-
-Oppgave 2:
+\begin{question}
 Lag et program som leser inn navnet ditt, og så finner et tilfeldig tall
 mellom 15 og 35, og påstår at det er alderen din.
+\end{question}
 
-######################################################################## 
-KAP. 2.7  BETINGELSER 
+\section{Betingelser}
 
-Ofte må man i et programmet gjøre forskjellige ting avhengig av verdien til variablene. 
-I python gjøres dette med if-konstruksjonen 
-Skriv in følgende programsnutt i et nytt dokument og kjør det: 
+Ofte må man i et programmet gjøre forskjellige ting avhengig av verdien til variablene. I python gjøres dette med if-konstruksjonen. Skriv in følgende programsnutt i et nytt dokument og kjør det: 
 
+\begin{usncodebox}
 alder = 18
 if alder < 20:            # merk kolonet og indenteringen nedenfor
    print("Tenåring")      # Dette blir utført hvis alder er mindre 20
    print("fortsatt")      # også dette, siden det også er indentert
 print("Dette blir printet uansett")
+\end{usncodebox}
 
-Her er å merke seg at to linjer er forskyvd mot høyre, de er indenterte.
-Det som er indentert blir utført dersom alder < 20. 
-Siste linja er det ikke indentert. Det blir printet uansett alder.
+Her er å merke seg at to linjer er forskyvd mot høyre, de er indenterte. Det som er indentert blir utført dersom alder < 20. Siste linja er det ikke indentert. Det blir printet uansett alder.
 
-Det er altså via indenteringen du forteller Python logikken i if-setningen din.
-Editoren du bruker (spyder, emacs, ..) kjenner til indenteringsreglene i python.
-Det vil derfor typisk foreslå indentering når du trykker ENTER etter kolonet.
-Når du er ferdig med indenteringen, må du selv avslutte den ved å trykke
-BACKSPACE eller SHIFT+TAB. 
+Det er altså via indenteringen du forteller Python logikken i if-setningen din. Editoren du bruker (spyder, emacs, ..) kjenner til indenteringsreglene i python. Det vil derfor typisk foreslå indentering når du trykker ENTER etter kolonet. Når du er ferdig med indenteringen, må du selv avslutte den ved å trykke BACKSPACE eller SHIFT+TAB. 
 
 Prøv å skrive inn manuelt (ikke copy/paste), se om Spyder oppfører seg slik den skal. 
 
-(NB: hvis du av en eller annen grunn ikke har .py som endelse på filen,
-vil editoren ikke nødvendigvis vite at du skriver i python,
-og da heller ikke hjelpe deg med indenteringen.) 
+(NB: hvis du av en eller annen grunn ikke har .py som endelse på filen, vil editoren ikke nødvendigvis vite at du skriver i python, og da heller ikke hjelpe deg med indenteringen.) 
 
+\paragraph{Mer komplisert if-setning}
+En if-setning kan også inneholde else, som betyr otherwise/hvis ikke. Dette utføres dersom if-betingelsen ikke er tilfredsstilt. 
 
-Mer komplisert if-setning: 
-En if-setning kan også inneholde else, som betyr otherwise/hvis ikke.
-Dette utføres dersom if-betingelsen ikke er tilfredsstilt. 
-
+\begin{usncodebox}
 if alder < 20: 
    print("Tenåring")
    # gjerne flere linjer
 else: 
    print("Olding")     # Dette utføres dersom alder ikke er < 20
    # gjerne flere linjer
+\end{usncodebox}
 
 Du kan også teste flere alderskategorier (elif, som forstås som else if) 
 
+\begin{usncodebox}
 if alder < 20: 
    print("Tenåring")
 elif alder < 30:           
@@ -627,16 +644,13 @@ elif alder < 40:
    print("Nesten ferdig")  # mellom 30 og 40 (hvorfor?)
 else: 
    print("Ung igjen")  # 40 eller mer 
+\end{usncodebox}
 
-Merk logikken.
-Vær sikker på at du forstår hvorfor alderen må være mellom 30 og 40
-på tredje siste linje.
-(Poenget er at hvis vi allerede har kommet til elif alder < 40, vil vi allerede
-ha feilet på alder < 30, dvs. alderen er 30 eller mer.) 
-
+Merk logikken. Vær sikker på at du forstår hvorfor alderen må være mellom 30 og 40 på tredje siste linje. (Poenget er at hvis vi allerede har kommet til elif alder < 40, vil vi allerede ha feilet på alder < 30, dvs. alderen er 30 eller mer.) 
 
 Mer generelt ser konstruksjonen slik ut
 
+\begin{usncodebox}
 if <BETINGELSE1>: 
    <handling1>
 elif <BETINGELSE2>: 
@@ -644,24 +658,24 @@ elif <BETINGELSE2>:
 <evt. flere elif-bokkker>
 else: 
    <handling_resten>
-
+\end{usncodebox}
 
 Handling kan gå over flere linjer. 
 
+Verdien til BETINGELSE er True eller False. (NB: stor førstebokstav, resten små. Verdien er ikke true eller TRUE, men True.) Dette er en ny datatype: logisk (boolsk, boolean). En boolsk variabel (eller uttrykk) har altså kun to mulige verdier: True eller False. 
 
-Verdien til BETINGELSE er True eller False.
-(NB: stor førstebokstav, resten små. Verdien er ikke true eller TRUE, men True.)
-Dette er en ny datatype: logisk (boolsk, boolean).
-En boolsk variabel (eller uttrykk) har altså kun to mulige verdier: True eller False. 
+Ofte blir den produsert via følgende sammenligningsoperatorer:
+\begin{tabbing}
+=== \=\kill
+>  \> større enn\\
+<  \> mindre enn\\
+== \> er lik  (NB: ved sammenligning bruker vi == ikke =)\\
+<= \> mindre enn eller lik\\
+>= \> større enn eller lik\\
+!= \> ikke lik
+\end{tabbing}
 
-Ofte blir den produsert via følgende sammenligningsoperatorer 
- <  : mindre enn
- >  : større enn
- == : er lik  (NB: ved sammenligning bruker vi == ikke =)
- <= : mindre enn eller lik
- >= : større enn eller lik 
- != : ikke lik
-
+\iffalse
 
 Prøv (interaktivt, dvs i IPython-konsollen): 
 2 == 3   # False
