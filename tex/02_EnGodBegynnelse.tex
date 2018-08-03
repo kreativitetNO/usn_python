@@ -6,9 +6,9 @@ Dette kompendiet er en praktisk innføring i Python. Den går ikke i dybden på 
 I denne delen ser vi først på hvordan vi kommer i gang med Spyder. Dette er et utviklingsverktøy som lar oss skrive og kjøre Python både interaktivt og ved å skrive programmer. 
 
 \subsection*{Først litt om Spyder}
-\begin{figure}[h]
+\begin{figure}[t]
 \begin{center}
-\includegraphics[width=1.0\textwidth]{img/spyder_overview.png}
+\includegraphics[width=0.95\textwidth]{img/spyder_overview.png}
 \end{center}
 \caption{Spyder}
 \label{fig:spyder_overview}
@@ -145,7 +145,8 @@ Spyder har mange funksjonaliteter. (Se de mange valgene i hovedmenyen øverst i 
 
 Du kan justere størrelsen på vinduene med musen.
 
-Du kan øke/minske tekststørrelsen i Editor-vinduet og IPython-terminal-vinduet (uavhengig av hverandre) med \usnkeypress{CTRL-+} / \usnkeypress{CTRL--} mens vinduet er aktivt. 
+% hbox
+Du kan øke/minske tekststørrelsen i Editor-vinduet og IPython vinduet (uavhengig av hverandre) med \usnkeypress{CTRL-+} eller \usnkeypress{CTRL--} mens vinduet er aktivt.
 
 Noe som kan være praktisk nå i begynnelsen, er muligheten til å lagre alt som er gjort i IPython-vinduet. Aktiver IPython-vinduet. Trykk så \usnkeypress{CTRL-S} (CTRL og s). Da kommer et vindu opp som lar deg lagre IPython-aktiviteten som html-fil. Velg et passende navn (og katalog). Filen må leses med en nettleser (Firefox, IE/Edge, Safari). (Enten kan du finne filen med f.eks. Windows Explorer, dernest klikke på den. Eller du kan åpne en ny tab/vindu i nettleseren og skrive file:/// i url-en. Da vil du få opp filstrukturen din. Du må da klikke deg frem til rett sted og finne filen.) Det går imidlertid ikke an å laste det inn igjen i spyder og slik fortsette der du slapp. 
 
@@ -578,7 +579,9 @@ alder = input("Hvor gammel er du? ")
 print("Du heter", navn, "og er", alder, "år gammel.") 
 \end{usncodebox}
 
-Trykk så File fra menyen øverst, dernest Save as. Du bør nå velge en grei plass på maskinen for python-filer. Du kan også lage en folder her og nå med New Folder og klikke deg inn i den. Filnavnet bør være beskrivende, f.eks. tut\_{}prog\_{}navnogalder1.py. Filen må ha ending ".py". I Windows blir .py lagt til automatisk dersom du ikke selv gjør det. 
+Trykk så File fra menyen øverst, dernest Save as. Du bør nå velge en grei plass på maskinen for python filer. Du kan også lage en folder her og nå med New Folder og klikke deg inn i den.
+
+Filnavnet bør være beskrivende, f.eks. \emph{tut\_{}prog\_{}navnogalder1.py}. Filen må ha ending``.py''. I Windows blir .py lagt til automatisk dersom du ikke selv gjør det. 
 
 For å kjøre filen, trykker du på den grønne pilen øverst til venstre (Run file), eller trykker F5. I det interaktive vinduet (IPython-konsollen) får du nå spørsmål å svare på. Du må sannsynligvis først aktivere vinduet ved å klikke på det før du kan skrive inn navn (og trykke ENTER) og alder (og trykke ENTER). Merk at mens programmet kjøres, kan du ikke bruke IPython-konsollen til andre ting (f.eks. til å regne ut 365+366). Når du har oppgitt navn og alder avsluttes programmet. Da kan du igjen bruke det interaktive vinduet til andre ting. 
 
@@ -675,9 +678,8 @@ Ofte blir den produsert via følgende sammenligningsoperatorer:
 != \> ikke lik
 \end{tabbing}
 
-\iffalse
-
-Prøv (interaktivt, dvs i IPython-konsollen): 
+Prøv (interaktivt, dvs i IPython-konsollen):
+\begin{usncodebox}
 2 == 3   # False
 2 = 3    # Dette må vel gi feilmelding? (Tilordning/assignment)
 2 == 2   # True
@@ -689,8 +691,10 @@ Prøv (interaktivt, dvs i IPython-konsollen):
 2 >= 2   # True
 2 =< 2   # SyntaxError
 2 => 2   # SyntaxError
+\end{usncodebox}
 
 også:
+\begin{usncodebox}
 a = 2    # tilordning
 a == 3   # sammenligning
 
@@ -699,15 +703,19 @@ navn == "Einstein"    # False
 navn == "Newton"      # True
 navn == "Newton "     # False
 type(navn)
+\end{usncodebox}
 
 Du kan også legge resultatet av en sammenligning inn i en variabel:
+\begin{usncodebox}
 bet1 = (2 == 3)   
 print(bet1)
 type(bet1)   # bool
+\end{usncodebox}
 
+\subsection{Kombinere betingerlser --- and, or, not}
 
-KOMBINERE BETINGELSER: and, or, not 
-interaktivt: 
+interaktivt:
+\begin{usncodebox}
 a=2             # (tilordning)
 a==1 or a==2    # True 
 a>1  or  a<1    # True 
@@ -715,53 +723,48 @@ a>1  and a<1    # False
 not(3==3)       # False
 not(True)       # False  # not snur True til False og False til True
 not(False)      # True 
+\end{usncodebox}
 
+Betingelser og logiske operatorer blir utført i en viss rekkefølge. Dersom du er usikker på om den rekkefølgen du ønsker faktisk er det Python gjør, eller om du vil fremheve logikken for den som leser koden, kan du alltid sette inn parenteser.
 
+\subsection{Oppgaver}
 
-Betingelser og logiske operatorer blir utført i en viss rekkefølge.
-Dersom du er usikker på om den rekkefølgen du ønsker faktisk er det Python gjør,
-eller om du vil fremheve logikken for den som leser koden, 
-kan du alltid sette inn parenteser.
+\begin{question}
+Lag et program som leser inn tre tall, gjør de om til float, så sjekker hvilket av de tre som er størst og skriver til skjerm om det var det første, andre eller tredje som ble skrevet inn.
+\end{question}
 
+\begin{question}
+Lag et program som finner et tilfeldig tall mellom 1 og 10 (grenser inkludert), og så ber deg gjette tallet. Programmet sier til slutt ifrå om du gjettet for høyt, for lavt eller riktig.
+\end{question}
 
+\begin{question}
+Lag et program som simulerer tre terningkast og skriver ut hvor mange like det ble (3 like, 2 like eller ingen like).
+\end{question}
 
-Oppgave 1: Lag et program som leser inn tre tall, gjør de om til float, 
-så sjekker hvilket av de tre som er størst og skriver til skjerm om
-det var det første, andre eller tredje som ble skrevet inn. 
+\begin{question}
+Lag et program plukker to tall, x og y, mellom (f.eks.) 10 og 100. Brukeren blir så spurt om å svare på følgende regnestykker, x+y, x-y, x*y (etc?) For hvert regnestykke kontrollerer programmet svaret og skriver en kommentar. 
+\end{question}
 
+\section{Ny datatype: List}
 
-Oppgave 2: Lag et program som finner et tilfeldig tall mellom 1 og 10
-(grenser inkludert), og så ber deg gjette tallet.
-Programmet sier til slutt ifrå om du gjettet for høyt, for lavt eller riktig. 
-
-
-Oppgave 3: Lag et program som simulerer tre terningkast og skriver ut hvor mange
-like det ble (3 like, 2 like eller ingen like). 
-
-
-Oppgave 4: Lag et program plukker to tall, x og y, mellom (f.eks.) 10 og 100. 
-Brukeren blir så spurt om å svare på følgende regnestykker, x+y, x-y, x*y (etc?) 
-For hvert regnestykke kontrollerer programmet svaret og skriver en kommentar. 
-
-######################################################################## 
-KAP. 2.8  NY DATATYPE: LIST
-(Nye funksjoner: len, help, range
+\begin{usnintro}
+Nye funksjoner: \usninlinecode{len, help, range}
+\end{usnintro}
 
 Datatyper så langt: int, float, str, bool
 
-
-Datatypen list er en liste (sekvens) med elementer. 
-Elementene kan være tall, tekst, andre lister eller andre ting.
+Datatypen list er en liste (sekvens) med elementer. Elementene kan være tall, tekst, andre lister eller andre ting.
 
 Prøv i IPython-konsollen:
 
+\begin{usncodebox}
 liste1 = [1,3,5,2,33,0,2]  # deklarerer og fyller en liste med tall
 type(liste1)
+\end{usncodebox}
 
-(Du trenger å bruke hakeparentesene. 
-Med engelsk tastatur (som ofte er det enkleste for programmering), 
-er de lette å nå. Med norsk tastatur er det via alt gr. (Mac: alt)) 
+(Du trenger å bruke hakeparentesene. Med engelsk tastatur (som ofte er det enkleste for programmering), er de lette å nå. Med norsk tastatur er det via alt gr. (Mac: alt))
 
+\begin{usncodebox}
 en_liste = []        # tom liste
 en_liste2 = list()   # kan også lage tom liste slik
 
@@ -769,27 +772,26 @@ hummer = [32,'Toyota',333]   # elementene trenger ikke være av samme datatype
 
 biler = ['Toyota','Mazda','Audi'] 
 len(biler) 
+\end{usncodebox}
 
-len() (length) er en funksjon som viser antall elementer i en liste. 
+\usninlinecode{len()} (length) er en funksjon som viser antall elementer i en liste. 
 
+\usninlinecode{help()} er en annen funksjon. Den viser info om det du putter inni parentesen, f.eks. en funksjon
 
-help() er en annen funksjon. Den viser info om det du putter inni parentesen, 
-f.eks. en funksjon
+\begin{usncodebox}
 help(len)
 help(print)
 help(list)
+\end{usncodebox}
+
 (Når du putter inn en variabel, får du info om den typen det er. 
-help(biler) vil vise så å si det samme som help(list).)  
-Beskrivelsen i help kan være ganske teknisk. 
-Det er ikke alltid så lett å finne frem til det man leter etter.
-Ofte er et søk på nettet raskeste vei, men help() kan også være til god hjelp. 
+\usninlinecode{help(biler)} vil vise så å si det samme som help(list).) Beskrivelsen i help kan være ganske teknisk. Det er ikke alltid så lett å finne frem til det man leter etter. Ofte er et søk på nettet raskeste vei, men \usninlinecode{help()} kan også være til god hjelp. 
 
+Tilbake til lister.
 
-Tilbake til lister. 
-Vi kan aksessere (rekke, nå) elementer i listen ved å angi indeksen til elementet. 
-I Python (som i bl.a. C) starter en liste med indeks 0.
-(Det kan være forvirrende i begynnelsen.) 
+Vi kan aksessere (rekke, nå) elementer i listen ved å angi indeksen til elementet. I Python (som i bl.a. C) starter en liste med indeks 0.(Det kan være forvirrende i begynnelsen.) 
 
+\begin{usncodebox}
 biler[0]       # den første bilen 
 biler[1]       # den andre bilen
 biler[2]       # den tredje (og siste) bilen
@@ -799,76 +801,93 @@ biler[-1]      # triks. den siste bilen, faktisk.
 biler[-2]      # triks. nest siste bilen. 
 biler[-3]      # triks. tredje siste bilen (som er det første)
 biler[-4]      # IndexError igjen
+\end{usncodebox}
 
+Hvilke funksjoner (metoder) eksisterer for en liste? Skriv biler. og trykk \usnkeypress{tab}. Du får opp funksjoner som append, clear, count, \ldots
 
-Hvilke funksjoner (metoder) eksisterer for en liste?
-Skriv biler. og trykk TAB. 
-Du får opp funksjoner som append, clear, count, ... 
 La oss se på noen av dem. 
 
+Legge element bakerst i listen / Legge til elementer:
 
-Legge element bakerst i listen / Legge til elementer: 
+\begin{usncodebox}
 biler.append("Tesla")
 print(biler)
+\end{usncodebox}
 
-Legge Mercedes inn som bil nr. 3 og skyve Audi og Tesla til bil 4 og 5 
-biler.insert(2,'Mercedes')
+Legge Mercedes inn som bil nr. 3 og skyve Audi og Tesla til bil 4 og 5 biler.
+
+\begin{usncodebox}
+insert(2,'Mercedes')
 print(biler)
+\end{usncodebox}
 
 Kan erstatte elementer
+
+\begin{usncodebox}
 biler[1] = "Golf"
 print(biler)
+\end{usncodebox}
 
 Du kan også legge til elementer på følgende måte:
+
+\begin{usncodebox}
 biler = biler + ['Honda','Renault']
-og/eller 
+# og/eller
 biler = ['BMW','Volvo'] + biler
+\end{usncodebox}
 
+Du kan aksessere (velge) en del (en slice) av listen ved å spesifisere to indekser. Prøv: 
 
-Du kan aksessere (velge) en del (en slice) av listen ved å spesifisere to indekser.
-Prøv: 
+\begin{usncodebox}
 print(biler)
 biler[2:5]
-De to indeksene er det første elementet du vil ha med,
-og til det siste elementet du vil ha med PLUSS 1. 
-biler[2:5] viser element 2, 3 og 4, som er bil 3, 4 og 5. 
-Det kan være forvirrende. 
+\end{usncodebox}
 
+De to indeksene er det første elementet du vil ha med, og til det siste elementet du vil ha med PLUSS 1. biler[2:5] viser element 2, 3 og 4, som er bil 3, 4 og 5. Det kan være forvirrende. 
+
+\begin{usncodebox}
 biler2 = biler[2:5] 
 print(biler2)
 print(biler)          # NB: biler endres ikke 
+\end{usncodebox}
 
-Prøv også: 
+Prøv også:
+
+\begin{usncodebox}
 biler[1:1]   # tomt
 biler[1:2]   # element 1
-
+\end{usncodebox}
 
 Du kan også droppe første eller andre indeks.
+
+\begin{usncodebox}
 biler[:5]     # viser de 5 første bilene
 biler[2:]     # viser fra bil nummer 3 og til enden av listen
 biler[-3:]    # viser de tre siste bilene
+\end{usncodebox}
 
+Hvilke flere funksjoner finnes for lister? skriv \usninlinecode{biler} og trykk \usnkeypress{tab}, da ser du funksjoner. F.eks.:
 
-Hvilke flere funksjoner finnes for lister?
-skriv biler. og trykk TAB, da ser du funksjoner. 
-F.eks.:
-
+\begin{usncodebox}
 biler.sort()          # sorterer listen. Her: alfabetisk sortering
 print(biler)
 
 biler.reverse()       # reverserer listen. 
 print(biler)
+\end{usncodebox}
 
-NB: .sort() og .reverse() endrer listen. 
+\emph{NB: .sort() og .reverse() endrer listen.}
 
+\begin{usncodebox}
 biler.index('Tesla')  # angir hvilket nummer (indeks) i listen 'Tesla' har 
 biler.index('Fiat')   # ValueError: 'Fiat' er ikke i listen vår 
 
 biler.pop()           # fjerner siste element fra listen
 print(biler)
-
+\end{usncodebox}
 
 Du kan også "plukke opp" det som fjernes:
+\begin{usncodebox}
 bil1 = biler.pop()
 print(bil1)
 print(biler)
@@ -877,134 +896,116 @@ biler.pop(2)          # fjerner tredje element
 
 biler.remove('Golf')  # fjerner 'Golf'
 biler.remove('Fiat')  # ValueError
+\end{usncodebox}
 
 Teste om en gitt verdi er i listen vår:
+\begin{usncodebox}
 'Fiat' in biler       # False
 'Toyota' in biler     # True
+\end{usncodebox}
 
 F.eks.:
 if 'Fiat' in biler:
    print('Ja, har Fiat.')
 
-
-
-
-
-
-RANGE()
+\subsection{RANGE()}
 
 En litt spesiell måte å lage en liste på er via range-funksjonen
+\begin{usncodebox}
 range(5)        # lager listen [0,1,2,3,4]  
 range(2,6)      # lager listen [2,3,4,5]
 range(2,13,3)   # lager listen [2,5,8,11]
+\end{usncodebox}
 
 Forklaring: 
-Når bare ett argument er gitt, gir det maks-grensen på listen, mens start er 0.
-Merk at maks-grensen selv er ikke med i listen.
+Når bare ett argument er gitt, gir det maks-grensen på listen, mens start er 0. Merk at maks-grensen selv er ikke med i listen.
 
-Når to argumenter er gitt, er det startverdi og maks-grensen.
-Igjen: maks-grensen er ikke med i listen. 
+Når to argumenter er gitt, er det startverdi og maks-grensen. Igjen: maks-grensen er ikke med i listen. 
 
-Når tre argumenter er gitt, er det startverdi, maks-grensen, dernest hvor mange
-steg man hopper mellom hvert element.
-Default steg(lengde) er 1, da hopper man ikke over noe, men tar med alle.
-Det er det som skjer i de to første range-kallene. 
+Når tre argumenter er gitt, er det startverdi, maks-grensen, dernest hvor mange steg man hopper mellom hvert element. Default steg(lengde) er 1, da hopper man ikke over noe, men tar med alle. Det er det som skjer i de to første range-kallene. 
 
-Sjekk også 
-help(range)
+Sjekk også \usninlinecode{help(range)}
 (se øverst) 
 
+range() fungerer bare med heltall (int). (Senere skal vi introdusere arange(), som også fungerer med desimaltall (float).) 
 
-
-range() fungerer bare med heltall (int).
-(Senere skal vi introdusere arange(), som også fungerer med desimaltall (float).) 
-
-
-Detalj 1: Merk at range(2,1,3), range(2,14,3), range(2,14,3) gir samme liste. 
+Detalj 1: Merk at range(2,12,3), range(2,13,3), range(2,14,3) gir samme liste.
+\begin{usncodebox}
 list(range(2,12,3))
 list(range(2,13,3))
 list(range(2,14,3))
+\end{usncodebox}
 
-
-Detalj 2: Det er ikke helt sant at range er en liste.
-Det ser du dersom du skriver f.eks. range(5) eller print(range(5)).
-Hvis det var en liste, ville [0,1,2,3,4] blitt printet. 
-Men for de fleste hensyn oppfører det seg som en liste. 
-Du kan lage den tilsvarende listen slik:
+Detalj 2: Det er ikke helt sant at range er en liste. Det ser du dersom du skriver f.eks. range(5) eller print(range(5)). Hvis det var en liste, ville [0,1,2,3,4] blitt printet. Men for de fleste hensyn oppfører det seg som en liste. Du kan lage den tilsvarende listen slik:
+\begin{usncodebox}
 list(range(5))
-
+\end{usncodebox}
 
 Vi bruker ofte range-funksjonen i for-løkker (nedenfor). 
 
+\begin{question}
+Lag et program som leser inn tre navn og legger de i en liste, sorterer listen alfabetisk og skriver den sortert ut til skjerm, navn for navn. 
+\end{question}
 
+\begin{question}
+Som ovenfor, men nå skal det sorteres motsatt vei. 
+\end{question}
 
+\begin{question}
+Lag ved hjelp av range() følgende lister:
+\begin{itemize}
+\item {[0,1,2,3,4,5,6,7,8,9]}
+\item {[0,2,4,6]}
+\item {[2,4,6]}
+\item {[5,8,11,14,17]}
+\end{itemize}
+\end{question}
 
-Oppgave 1: Lag et program som leser inn tre navn og legger de i en liste,
-sorterer listen alfabetisk og skriver den sortert ut til skjerm, navn for navn. 
+\begin{question}
+Fjern element med indeks 3 fra listen lst1 = [0,1,2,3,4,5]. Fjern så elementet med verdi 2. Stikk så inn i listen et element 5 slik at det får indeks 2. Still så inn i listen et element 'fire' slik at det får indeks 2. Finn så hvilken indeks elementet 5 har. (NB: du har to like elementer i listen. Forstå hva funksjonen returnerer.) Fjern så elementet 5 fra listen. (Igjen, du har to elementer med verdi 5. Se hvilken som fjernes.)
+\end{question}
 
+\begin{question}
+Du har lst2 = [11,22,33,44,55,66,77]. Lag en ny liste som inneholder de tre midterste elementene. (Det kan gjøres på mange måter. Hva er den raskeste?)
+\end{question}
 
-Oppgave 2: Som ovenfor, men nå skal det sorteres motsatt vei. 
+\section{For-løkke (For-loop)}
 
+Du vil lage et program som kaster en terning 100 ganger. Du vil så telle antall ganger du får 5 eller 6. Et terningkast kan du simulere med følgende:
 
-Oppgave 3: Lag ved hjelp av range() følgende lister:
-[0,1,2,3,4,5,6,7,8,9], [0,2,4,6], [2,4,6], [5,8,11,14,17] 
-
-
-Oppgave 4: Fjern element med indeks 3 fra listen lst1 = [0,1,2,3,4,5].
-Fjern så elementet med verdi 2.
-Stikk så inn i listen et element 5 slik at det får indeks 2.
-Still så inn i listen et element 'fire' slik at det får indeks 2.
-Finn så hvilken indeks elementet 5 har.
-(NB: du har to like elementer i listen. Forstå hva funksjonen returnerer.)
-Fjern så elementet 5 fra listen.
-(Igjen, du har to elementer med verdi 5. Se hvilken som fjernes.) 
-
-
-Oppgave 5: Du har lst2 = [11,22,33,44,55,66,77]
-Lag en ny liste som inneholder de tre midterste elementene.
-(Det kan gjøres på mange måter. Hva er den raskeste?)
-
-######################################################################## 
-KAP. 2.9  FOR-LØKKE (FOR LOOP)
-
-Du vil lage et program som kaster en terning 100 ganger.
-Du vil så telle antall ganger du får 5 eller 6. 
-Et terningkast kan du simulere med følgende 
+\begin{usncodebox}
 import random
 tall = random.randint(1,6)   # velger mellom 1 og 6
+\end{usncodebox}
 
-Men dette skal du gjøre 100 ganger.
-Det er ikke spesielt praktisk å skrive opp linjen 100 ganger.
-Det er her en for-løkke kommer inn. 
+Men dette skal du gjøre 100 ganger. Det er ikke spesielt praktisk å skrive opp linjen 100 ganger. Det er her en for-løkke kommer inn. 
 
 La oss først ta en veldig enkel for-løkke:
+
 (Du kan skrive dette i IPython-konsollen.) 
+
+\begin{usncodebox}
 for i in [0,1,2,3]:
     print(i)
-Når du er trykker ENTER etter kolon på første linje,
-vil IPython-konsollen selv sørge for å indentere teksten.
-Skriv så inn print(i) og trykk ENTER, og ENTER igjen på den tomme linjen etterpå.
-Da utføres for-loopen.
-(Vanligvis vil vi ha for-looper inne i et program, ikke interaktivt.) 
+\end{usncodebox}
 
-Hvordan virker en for-løkke?
-Iterasjonsvariabelen i går gjennom listen [0,1,2,3]. 
-Første gangen er i lik 0, neste gang er i lik 1 etc.
-For hver i-verdi blir det som er indentert utført (her kun print(i)).
-Det skjer altså 4 ganger her. 
+Når du er trykker ENTER etter kolon på første linje, vil IPython-konsollen selv sørge for å indentere teksten. Skriv så inn print(i) og trykk ENTER, og ENTER igjen på den tomme linjen etterpå. Da utføres for-loopen. (Vanligvis vil vi ha for-looper inne i et program, ikke interaktivt.)
 
-Vi kunne også skrevet listen v.h.a. range(), som altså er nesten det samme som en liste. 
+Hvordan virker en for-løkke? Iterasjonsvariabelen i går gjennom listen [0,1,2,3]. Første gangen er i lik 0, neste gang er i lik 1 etc. For hver i-verdi blir det som er indentert utført (her kun print(i)). Det skjer altså 4 ganger her. 
+
+Vi kunne også skrevet listen v.h.a. range(), som altså er nesten det samme som en liste.
+\begin{usncodebox}
 for i in range(4): 
-    print(i) 
-Det er praktisk dersom du f.eks. skal gjøre det hundre ganger.
-Da slipper du å eksplisitt skrive opp [0,1,2,....,99]
+    print(i)
+\end{usncodebox}
 
+Det er praktisk dersom du f.eks. skal gjøre det hundre ganger. Da slipper du å eksplisitt skrive opp [0,1,2,....,99]
 
 Nå er vi i stand til å utføre den lille terningtesten. 
 
-Åpne en ny fil, dvs klikk på ikonet oppe til venstre. (Eller velg File / Open.)
-Skriv inn følgende (etter de første 6-7 linjene som automatisk kommer opp): 
+Åpne en ny fil, dvs klikk på ikonet oppe til venstre. (Eller velg File / Open.) Skriv inn følgende (etter de første 6-7 linjene som automatisk kommer opp): 
 
+\begin{usncodebox}
 import random
 
 # initialisering
@@ -1021,48 +1022,36 @@ for kast in range(100):
        n5 = n5 + 1    # øker antall femmmer med 1
 
 print("Det ble totalt", n6, "seksere og", n5, "femmere.")
+\end{usncodebox}
 
+Linjer som starter med \# er kommentarlinjer. Python bryr seg ikke om disse. 
 
-Linjer som starter med # er kommentarlinjer. 
-Python bryr seg ikke om disse. 
+Trykk på grønn pil for å kjøre programmet. Du får nå beskjed om å lagre filen. Bruk helst samme katalog som sist. Velg et passende navn, f.eks. \usnfilename{tut\_for\_terning1.py}
 
-Trykk på grønn pil for å kjøre programmet.
-Du får nå beskjed om å lagre filen. Bruk helst samme katalog som sist.
-Velg et passende navn, f.eks. tut_for_terning1.py
-
-Hvor mange seksere ble det?
-Kjør en gang til.
+Hvor mange seksere ble det? Kjør en gang til.
 
 Med for-loop på reportoaret, er det plutselig mange flere ting vi kan gjøre. 
 
+\begin{question}
+Hva om du brukte range(1,101) i for-linja. Hva ville endret seg? (Noen ganger bruker du tellevariabelen (iterasjonsvariabelen) inne i løkka, andre ganger er den ikke i bruk til annet enn å telle f.eks. 100 ganger.)
+\end{question}
 
+\begin{question}
+Tell også opp antall ganger terningen ga 1, 2, 3 og 4, og skriv ut.
+Forsikre deg også om at det hele summerer til 100, skriv evt. ut feilmelding.
+\end{question}
 
-Oppgave 1: Hva om du brukte range(1,101) i for-linja. Hva ville endret seg?
-(Noen ganger bruker du tellevariabelen (iterasjonsvariabelen) inne i løkka,
-andre ganger er den ikke i bruk til annet enn å telle f.eks. 100 ganger.) 
+\begin{question}
+Som ovenfor, men i stedet for å bruke variablene n1, n2, ..., n6, bruk heller en liste antall som er initialisert slik: antall = [0,0,0,0,0,0]. NB: antall[0] vil da typisk innholde antall 1'ere. NB: Kan du nå forenkle testingen? Bruke bare én test-linje i stedet for seks? 
+\end{question}
 
+\section{While-løkker (While-loop)}
 
-Oppgave 2: Tell også opp antall ganger terningen ga 1, 2, 3 og 4, og skriv ut.
-Forsikre deg også om at det hele summerer til 100, skriv evt. ut feilmelding. 
+Det er ikke alltid vi vet hvor mange ganger vi må gå iterere (gå gjennom en løkke) før vi er fornøyd. Dersom problemstillingen f.eks. er å finne ut hvor mange ganger vi må kaste terningen før vi har fått ti seksere, kan vi ikke bruke en for-løkke. En for-løkke forutsetter nemlig at vi vet akkurat hvor mange ganger løkka skal kjøres.
 
+Løsningen ville være en while-løkke. Skriv inn og studer følgende program. Kall det gjerne \usnfilename{tut\_while1.py}
 
-Oppgave 3: Som ovenfor, men i stedet for å bruke variablene n1, n2, ..., n6,
-bruk heller en liste antall som er initialisert slik: antall = [0,0,0,0,0,0].
-NB: antall[0] vil da typisk innholde antall 1'ere. 
-NB: Kan du nå forenkle testingen? Bruke bare én test-linje i stedet for seks? 
-
-######################################################################## 
-KAP. 2.10  WHILE-LØKKER (WHILE LOOP)
-
-Det er ikke alltid vi vet hvor mange ganger vi må gå iterere (gå gjennom en løkke)
-før vi er fornøgd.
-Dersom problemstillingen f.eks. er å finne ut hvor mange ganger vi må kaste terningen
-før vi har fått ti seksere, kan vi ikke bruke en for-løkke.
-En for-løkke forutsetter nemlig at vi vet akkurat hvor mange ganger løkka skal kjøres.
-
-Løsningen ville være en while-løkke.
-Skriv inn og studer følgende program. Kall det gjerne tut_while1.py
-
+\begin{usncodebox}
 import random
 
 # initialisering
@@ -1076,72 +1065,60 @@ while n6 < 10:
        n6 = n6 + 1    # øker antall seksere med 1
     
 print("Vi brukte", nkast, "kast på å få 10 seksere")
+\end{usncodebox}
 
-While-løkke oppfører seg veldig likt en for-løkke. 
-Det som er indentert etter while-linja, blir utført så lenge while-betingelsen,
-som her er n6 < 10, er tilfredsstilt.
-n6 starter med verdi 0.
-Når vi får en sekser, øker verdien av n6 til 1, etc.
-Når n6 har blitt 10 (og vi altså har fått 10 seksere), vil while-løkka avsluttes.
-Koden går videre til linjene nedenfor som ikke er indentert. 
+While-løkke oppfører seg veldig likt en for-løkke. Det som er indentert etter while-linja, blir utført så lenge while-betingelsen, som her er n6 < 10, er tilfredsstilt. n6 starter med verdi 0. Når vi får en sekser, øker verdien av n6 til 1, etc. Når n6 har blitt 10 (og vi altså har fått 10 seksere), vil while-løkka avsluttes. Koden går videre til linjene nedenfor som ikke er indentert. 
 
-
-
-
-Oppgave 1: gangetabell
+\begin{question}
 Lag et gangetabelltestingsprogram som først tar følgende input fra brukeren:
-- Antall oppgaver som må klares (f.eks. 10)
-- Hvor mange minuspoeng man får av å svare feil (f.eks. 1)
-- Det laveste og høyeste tallet i gangetabellen som man blir spurt fra, f.eks. 5 og 12.
-Da er det høyeste gangestykket 12x12, det laveste 5x5, og alt imellom er tillatt.
-(Så f.eks. 5x6, 5x12, 11x5, 12x5 er tillatt, men ikke f.eks. 3x11.) 
-Deretter, i en passende loop, vil to tilfeldige tall (a og b) bli trukket.
-Du vil så bli spurt om produktet (a ganger b).
-Svarer du rett, får du poeng, svarer du feil mister du poeng.
-Når du har svart korrekt det bestemte antall ganger, går programmet ut av loopen. 
-Programmet skriver så ut hvor mange forsøk du trengte.
-(La programmet gi en optimistisk kommentar til brukeren.) 
+\begin{itemize}
+\item Antall oppgaver som må klares (f.eks. 10)
+\item Hvor mange minuspoeng man får av å svare feil (f.eks. 1)
+\item Det laveste og høyeste tallet i gangetabellen som man blir spurt fra, f.eks. 5 og 12.
+\end{itemize}
+Da er det høyeste gangestykket 12x12, det laveste 5x5, og alt imellom er tillatt. (Så f.eks. 5x6, 5x12, 11x5, 12x5 er tillatt, men ikke f.eks. 3x11.) Deretter, i en passende loop, vil to tilfeldige tall (a og b) bli trukket. Du vil så bli spurt om produktet (a ganger b). Svarer du rett, får du poeng, svarer du feil mister du poeng. Når du har svart korrekt det bestemte antall ganger, går programmet ut av loopen. Programmet skriver så ut hvor mange forsøk du trengte. (La programmet gi en optimistisk kommentar til brukeren.) 
+\end{question}
 
-
-Oppgave 2
+\begin{question}
 For å gjøre det litt gøyere, kan du også legge til tidtaking. 
 Da må du importere pakken time.
 Funksjonen time.time() gir deg antall sekunder (med desimaler) siden 1.1.1970.
 Det kan vi bruke til å finne ut hvor lang tid noe tar.
 
-Ved starten av programmet må du ha
-import time
-Ved starten av løkka skriver du: 
-t_start = time.time()
-Ved slutten av løkka skriver du: 
+Ved starten av programmet må du ha \usninlinecode{import time} Ved starten av løkka skriver du: \usninlinecode{t_start = time.time()}. Ved slutten av løkka skriver du:
+\end{question}
+\begin{usncodebox}
 t_slutt = time.time()
 t_tid = t_slutt - t_start
 print("Du brukte", t_tid, "sekunder")
+\end{usncodebox}
 
-
-Oppgave 3
+\begin{question}
 Mulige utvidelser:
 a) Legge til mulighet for addisjon, subtraksjon og/eller divisjon. 
 b) Legge til tidskrav per spørsmål.
 Rett svar på spørsmålet blir ikke godkjent hvis for lang tid er brukt. 
+\end{question}
 
-
-Oppgave 4:
+\begin{question}
 Sjekke (omtrentlig) om time.time() faktisk angir antall sekunder fra. 1.1.1970. 
+\end{question}
 
-
-Oppgave 5:
+\begin{question}
 La python tenke på et tilfeldig heltall mellom 1 og 100 (grenser inkludert). 
 Lag så en løkke der du via input() gjetter på tallet til du har klart det. 
 For hver gang du gjetter skal programmet si ifra om du gjetter for høyt eller for lavt.
 Når du gjetter riktig, avsluttes programmet og det skrives ut hvor mange forsøk du brukte. 
 
 Mulige utvidelser
-a) La brukeren selv med input() velge øvre og nedre grense for gjettingen.
-b) La brukeren få mulighet til å avslutte gjettingen med f.eks. å skrive inn 'quit'.
+\begin{enumerate}
+\item La brukeren selv med input() velge øvre og nedre grense for gjettingen.
+\item La brukeren få mulighet til å avslutte gjettingen med f.eks. å skrive inn 'quit'.
+\end{enumerate}
+\end{question}
 
-
-Oppgave 6: Som ovenfor, men la nå programmet gjette på tallet du tenker på.
+\begin{question}
+Som ovenfor, men la nå programmet gjette på tallet du tenker på.
 Start med å oppgi med input() grensene, samt det spesifikke tallet du tenker på.
 Programmet kjenner til grensene, men ikke tallet.
 Før du leser videre: prøv å tenk ut hvordan du skal programmere dette.
@@ -1172,22 +1149,16 @@ Programmet er da typisk mindre effektivt, men muligens mer robust mot.
 Utvidelse b): Hva skjer hvis du angir grensene 1 og 10, og så velger tallet 15?
 (NB: Du kan avbryte en evig loop ved å trykke CTRL+c i IPython-konsollen.) 
 Kan du sikre deg mot dette i koden? Prøv. 
+\end{question}
 
-######################################################################## 
-KAP. 2.11  FUNKSJONER
+\section{Funksjoner}
 
-Noen ganger trenger du å utføre samme identiske bit med kode 
-flere steder i programmet ditt.
-En løsning er da å skrive den samme biten kode flere ganger.
-Det er en dårlig løsning.
-Det kan ta mye plass og gjøre koden din uoversiktlig. 
-Og dersom du skal gjøre endringer i den koden, 
-må du gjøre de samme endringene flere plasser. 
+Noen ganger trenger du å utføre samme identiske bit med kode flere steder i programmet ditt. En løsning er da å skrive den samme biten kode flere ganger. Det er en dårlig løsning. Det kan ta mye plass og gjøre koden din uoversiktlig. Og dersom du skal gjøre endringer i den koden, må du gjøre de samme endringene flere plasser. 
 
-Den gode løsningen er å legge denne delen av koden inn i en funksjon. 
-Så kan du kalle denne funksjonen fra ulike steder i programmet din.
+Den gode løsningen er å legge denne delen av koden inn i en funksjon. Så kan du kalle denne funksjonen fra ulike steder i programmet din.
 
 Eksempel:
+\begin{usncodebox}
 def rettlinje(x, a, b=0):
     print("x:",x,"  a:", a, "  b:",b)
     y = a*x + b
@@ -1196,82 +1167,61 @@ def rettlinje(x, a, b=0):
 y1 = rettlinje(2,1)
 print(y1)
 print(rettlinje(2,1,10))   # med konstantledd
+\end{usncodebox}
 
+Lagre gjerne programmet som \usnfilename{tut\_funksjon1.py}.
 
-Lagre gjerne programmet som tut_funksjon1.py 
-
-NB: Når du har implementert og kjørt denne i Spyder og fått ut noen tall som resultat, 
-kan du fra det interaktive vinduet fortsette å bruke rettlinje-funksjonen.
-Ved å kjøre koden har du importert den og IPython-konsollen kjenner innholdet. 
+NB: Når du har implementert og kjørt denne i Spyder og fått ut noen tall som resultat, kan du fra det interaktive vinduet fortsette å bruke rettlinje-funksjonen. Ved å kjøre koden har du importert den og IPython-konsollen kjenner innholdet. 
 Prøv:
+
+\begin{usncodebox}
 rettlinje(2,1,9) 
+\end{usncodebox}
 
-
-Forstå koden: 
-En funksjon starter med def (define/definition). 
-Så kommer navnet. 
-Så kommer en liste med argumenter i parentes. 
-Og til slutt må der stå et kolon. 
+Forstå koden:
+En funksjon starter med def (define/definition). Så kommer navnet. Så kommer en liste med argumenter i parentes. Og til slutt må der stå et kolon. 
 
 Selve funksjonskoden er rykket inn (indentert).
 
-Navnet følger samme regler som variabelnavn: 
-- Det må være ett ord.
-- Det kan inneholde store og små bokstaver og tall samt underscore _.
-- Navnet kan ikke starte med et tall.
-- Navnet kan heller ikke være identisk med et av de reserverte ordene (for, if, list, etc.) 
+Navnet følger samme regler som variabelnavn:
+\begin{itemize}
+\item Det må være ett ord.
+\item Det kan inneholde store og små bokstaver og tall samt underscore \_.
+\item Navnet kan ikke starte med et tall.
+\item Navnet kan heller ikke være identisk med et av de reserverte ordene (for, if, list, etc.) 
+\end{itemize}
 
 Argumenter:
-- Har funksjonen ingen argumenter må du likevel ha med parentesene. 
-- Argumenter kan ha en default-verdi. 
-    I vårt eksempel er b lik 0 dersom det tredje argumentet er utelatt fra 
-    funksjonskallet, som er tilfellet i y1 = rettlinje(2,1).
-- Argumenter med default-verdi må stå sist i argumentasjonsrekken. 
-  Følgende funksjonsdefinisjon er f.eks. ikke tillatt:  "def rettlinje(x, a=1, b):" 
-- Når vi kaller en funksjon kan vi utelate de argumentene som har en default verdi, 
-  mens de som ikke har en defaultverdi må angis. 
-- Vi kan også ta med argumentsnavnene i funksjonskallet, f.eks. rettlinje(x=2, a=1, b=10) 
-  som da betyr det samme som rettlinje(2, 1, 10). 
-  Ofte gir det mer oversiktlig kode å gjøre det på denne måten. 
-  Men linjen kan også bli veldig lang dersom variabelnavnene er lange. 
+\begin{itemize}
+\item Har funksjonen ingen argumenter må du likevel ha med parentesene. 
+\item Argumenter kan ha en default-verdi. I vårt eksempel er b lik 0 dersom det tredje argumentet er utelatt fra funksjonskallet, som er tilfellet i y1 = rettlinje(2,1).
+\item Argumenter med default-verdi må stå sist i argumentasjonsrekken. Følgende funksjonsdefinisjon er f.eks. ikke tillatt:  ``def rettlinje(x, a=1, b):''
+\item Når vi kaller en funksjon kan vi utelate de argumentene som har en default verdi, mens de som ikke har en defaultverdi må angis. 
+\item Vi kan også ta med argumentsnavnene i funksjonskallet, f.eks. rettlinje(x=2, a=1, b=10) som da betyr det samme som rettlinje(2, 1, 10). Ofte gir det mer oversiktlig kode å gjøre det på denne måten. Men linjen kan også bli veldig lang dersom variabelnavnene er lange. 
+\end{itemize}
 
 Return: 
-Funksjonen avslutter ved å returnere en verdi (return y), 
-eller ved å returnere ingen verdi (return), 
-eller ved å komme til slutten i den aktuelle indenteringen. 
-Det er altså ikke alltid en funksjon returnerer en verdi, men ofte er det slik. 
+Funksjonen avslutter ved å returnere en verdi (return y), eller ved å returnere ingen verdi (return), eller ved å komme til slutten i den aktuelle indenteringen. Det er altså ikke alltid en funksjon returnerer en verdi, men ofte er det slik. 
 
-
-Funksjonen må være definert før den blir brukt. 
-Dvs. vi kunne ikke hatt y1 = rettlinje(2,1) før vi faktisk definerte fuksjonen. 
-Da ville vi fått NameError: not defined. 
-Altså: definisjonen må stå tidlig nok i programmet. 
-
+Funksjonen må være definert før den blir brukt. Dvs. vi kunne ikke hatt y1 = rettlinje(2,1) før vi faktisk definerte fuksjonen. Da ville vi fått NameError: not defined. Altså: definisjonen må stå tidlig nok i programmet. 
 
 Hva python-interpreteren gjør når den kjører koden ovenfor:
-- Interpreteren starter (alltid) øverst i filen.
-- Det første den møter er en funksjonsdefinisjon. 
-  Den laster prosedyren (funksjonen) inn i hukommelsen (
-  og sjekker at syntaks er ok), og merker seg funksjonsnavnet. 
-- Så kommer den til y1 = rettlinje(2,1).
-- Den husker da at rettlinje() er en funksjon. Den tar med seg argumentene: 
-  her blir x=2 og a=1, og b som er uspesifisert får default verdi som er 0, 
-  så blir funksjonen utført (eksekvert). 
-- Når den kommer til return y, går den tilbake til y1 = rettlinje(2,1) 
-  og lar y1 få verdien som ble returnert.
-- Så printer den. 
-- Så er det et nytt kall til rettlinje() (inne i print). 
-  Interpreteren tar igjen med seg argumentene, kjører rettlinje-koden, 
-  og ved return y gir den resultatet som argument til print() i hovedprogrammet.
-- Når der ikke er mer kode, avslutter interpreteren og gir kontrollen 
-  tilbake til det interaktive vinduet. 
-
-
+\begin{itemize}
+\item Interpreteren starter (alltid) øverst i filen.
+\item Det første den møter er en funksjonsdefinisjon. Den laster prosedyren (funksjonen) inn i hukommelsen (og sjekker at syntaks er ok), og merker seg funksjonsnavnet. 
+\item Så kommer den til y1 = rettlinje(2,1).
+\item Den husker da at rettlinje() er en funksjon. Den tar med seg argumentene: her blir x=2 og a=1, og b som er uspesifisert får default verdi som er 0, så blir funksjonen utført (eksekvert). 
+\item Når den kommer til return y, går den tilbake til y1 = rettlinje(2,1) og lar y1 få verdien som ble returnert.
+\item Så printer den. 
+\item Så er det et nytt kall til rettlinje() (inne i print). Interpreteren tar igjen med seg argumentene, kjører rettlinje-koden, og ved return y gir den resultatet som argument til print() i hovedprogrammet.
+\item Når der ikke er mer kode, avslutter interpreteren og gir kontrollen tilbake til det interaktive vinduet. 
+\end{itemize}
 
 Litt mer om return:
 
 Se på følgende funksjon: 
 
+\begin{usncodebox}
 def fun1(x):
    if x<0:
       return "mindre enn 0"
@@ -1293,68 +1243,38 @@ print("aneg:", aneg)
 print("a8:", a8)
 print("a4:", a4)
 print("a2:", a2)
+\end{usncodebox}
 
-Lagre gjerne funksjonen som tut_funksjon2.py
+Lagre gjerne funksjonen som \usnfilename{tut\_funksjon2.py}
 
-Her er det fire måter funksjonen kan returnere (avsluttes) på.
-Ved x<0 eller x>5 returnerer den en tekststreng, likt det vi hadde i forrige eksempel.
-Ved x mellom 3 og 5 blir funksjonen avsluttet med return, men ingenting blir returnert.
-Det som da blir returnert er spesialverdien None (Ingenting).
-Ved x mellom 0 og 3 er der ingen return, men funksjonen ender av seg self siden 
+Her er det fire måter funksjonen kan returnere (avsluttes) på. Ved x<0 eller x>5 returnerer den en tekststreng, likt det vi hadde i forrige eksempel. Ved x mellom 3 og 5 blir funksjonen avsluttet med return, men ingenting blir returnert. Det som da blir returnert er spesialverdien None (Ingenting). Ved x mellom 0 og 3 er der ingen return, men funksjonen ender av seg self siden 
 indenteringen ender. Da blir også None returnert.
 
-Så der er alltid en verdi som blir returnert fra en funksjon.
-Men det er ikke alltid vi bryr oss om den.
-Noen ganger har vi en funksjon som ikke skal returnere noe f.eks. print(). 
+Så der er alltid en verdi som blir returnert fra en funksjon. Men det er ikke alltid vi bryr oss om den. Noen ganger har vi en funksjon som ikke skal returnere noe f.eks. print().
 
+Jo større et program er, jo viktigere er det å skille ut oppgaver til funksjoner. Også om den aktuelle koden blir kjørt bare én gang. En forutsetning for å plassere en oppgave i en funksjon er at oppgaven avhenger av et begrenset antall variabler og gjør endringer i et begrenset antall variabler. Det er ofte lett å se hva som kan høre hjemme i en funksjon. 
 
+\begin{question}
+Lag Trumps tvitre-funksjon. Den tar ingen argumenter, og la det i funksjonen tilfeldig velges mellom fire mulige utsagn. I programmet skal tvitre-funksjonen kalles 7 ganger. Prøv også å kalle funksjonen før den er definert. Og prøv å kalle funksjonen med et argument, f.eks. et tall. (Du skal få feilmeldinger.) 
+\end{question}
 
-Jo større et program er, jo viktigere er det å skille ut oppgaver til funksjoner.
-Også om den aktuelle koden blir kjørt bare én gang. 
-En forutsetning for å plassere en oppgave i en funksjon 
-er at oppgaven avhenger av et begrenset antall variabler 
-og gjør endringer i et begrenset antall variabler. 
-Det er ofte lett å se hva som kan høre hjemme i en funksjon. 
+\begin{question}
+Lag en funksjon som tar argumentene t, v0 og a (tid, startfart og akselerasjon). La både v0 og a ha default-verdi lik 0 mens t ikke har default-verdi. Funksjonen skal regne ut og returnere  s = v0*t + 0.5*a * t**2 Sett opp en for-loop slik at en tidsvariabel går fra 0, 0.5, 1, ..., 10 (sekunder). For hver t-verdi skal funksjonen kalles med v0=0 og g=9.81, og tid og strekning skal printes ut. (Hvor langt faller man på 10 sekunder?)
+\end{question}
 
-
-
-Oppgave 1: Lag Trumps tvitre-funksjon. Den tar ingen argumenter, 
-og la det i funksjonen tilfeldig velges mellom fire mulige utsagn. 
-I programmet skal tvitre-funksjonen kalles 7 ganger. 
-Prøv også å kalle funksjonen før den er definert. 
-Og prøv å kalle funksjonen med et argument, f.eks. et tall. 
-(Du skal få feilmeldinger.) 
-
-
-Oppgave 2: Lag en funksjon som tar argumentene t, v0 og a 
-(tid, startfart og akselerasjon).
-La både v0 og a ha default-verdi lik 0 mens t ikke har default-verdi. 
-Funksjonen skal regne ut og returnere  s = v0*t + 0.5*a * t**2
-Sett opp en for-loop slik at en tidsvariabel går fra 0, 0.5, 1, ..., 10 (sekunder).
-For hver t-verdi skal funksjonen kalles med v0=0 og g=9.81, 
-og tid og strekning skal printes ut.
-(Hvor langt faller man på 10 sekunder?) 
-
-######################################################################## 
-KAP. 2.12  VARIABLER INNENFOR OG UTENFOR EN FUNKSJON. 
-(NAMESPACES, SCOPES)
+\section{Variabler innenfor og utenfor en funksjoner (namespaces, scopes}
 
 Der finnes regler for hvor i programmet ulike variabler er synlige. 
 
-En variabel som er definert inne i en funksjon (en variabel som er 
-lokal for funksjonen), er ikke synlig utenfor funksjonen. 
-Variabelen blir borte når funksjonen er ferdig. 
+En variabel som er definert inne i en funksjon (en variabel som er lokal for funksjonen), er ikke synlig utenfor funksjonen. Variabelen blir borte når funksjonen er ferdig. 
 
-En variabel som er definert utenfor en funksjon, kan ikke nødvendigvis 
-brukes eller endres inne i funksjonen. 
+En variabel som er definert utenfor en funksjon, kan ikke nødvendigvis brukes eller endres inne i funksjonen. 
 
-Samme variabelnavn kan brukes flere steder i koden din uten at det 
-nødvendigvis er den samme variabelen.
+Samme variabelnavn kan brukes flere steder i koden din uten at det nødvendigvis er den samme variabelen.
 
+La oss se på noen situasjoner. Lag et nytt program (File / New file) og skriv inn følgende etter linje 6-7.
 
-La oss se på noen situasjoner. 
-Lag et nytt program (File / New file) og skriv inn følgende etter linje 6-7.
-
+\begin{usncodebox}
 x1 = 10
 x2 = 20
 x3 = 30
@@ -1380,110 +1300,62 @@ print("utenfor: x4 er", x4)   # Denne gir feilmelding
 print("utenfor: x5 er", x5)   # 53 (Ble skapt i funksjonen, men satt til å være global. 
                               # Vanligvis ikke noe vi ønsker å gjøre.) 
 
-Lagre gjerne programmet som tut_variablescope1.py
+\end{usncodebox}
 
-Kjør programmet
+Lagre gjerne programmet som \usnfilename{tut\_variablescope1.py}
+
+Kjør programmet.
 
 Du får feilmelding på nest siste linje fordi x4 er ikke synlig utenfor funksjonen. 
 
-Kommenter den ut, dvs. sett # helt til venstre i linjen. 
-Kjør programmet på ny.
+Kommenter den ut, dvs. sett \# helt til venstre i linjen. Kjør programmet på ny.
 
-Studer utskriften.
-Prøv å forstå hvorfor variablene har de verdiene de har innenfor og utenfor programmet.
-Diskuter med sidemannen. 
-Gjør endringer og test litt, se om ting oppfører seg slik du forventer. 
+Studer utskriften. Prøv å forstå hvorfor variablene har de verdiene de har innenfor og utenfor programmet. Diskuter med sidemannen. Gjør endringer og test litt, se om ting oppfører seg slik du forventer.
 
-######################################################################## 
-KAP. 2.13  GODE PROGRAMMERINGSVANER  (optional)
+\section{Gode programmeringsvaner (valgfri)}
 
-Bruk nok kommentarer i koden din. 
-Linjer som starter med # er kommentarlinjer. 
-Python bryr seg ikke om disse. 
-Likedan med tekst som står til høyre for # på en linje som inneholder kode.
-Når du skriver programmer er det lurt å legge inn nok kommentarer.
-De skal hjelpe deg til å skjønne hva du har tenkt når du ser på koden din
-en uke eller måned senere og kanskje skal forbedre den.
-Dersom andre skal lese koden din, er det enda viktigere at den er godt kommentert.
-Man føler ofte man har "dårlig tid" når man koder,
-og at man derfor ikke har tid til å kommentere koden.
-Og kanskje at det heller ikke er nødvendig. 
-Men: Selv om du akkurat nå umiddelbart ser hva en gitt del av programmet gjør og hvordan,
-er sjelden det tilfelle det neste gang du ser på programmet.
-Da må du bruke en del tid på å forstå hva du har gjort.
-Noen konsise kommentarer hjelper.
-(Men ikke skriv for mye heller, da skjuler du koden.) 
+Bruk nok kommentarer i koden din. Linjer som starter med \# er kommentarlinjer. Python bryr seg ikke om disse. Likedan med tekst som står til høyre for \# på en linje som inneholder kode. Når du skriver programmer er det lurt å legge inn nok kommentarer. De skal hjelpe deg til å skjønne hva du har tenkt når du ser på koden din en uke eller måned senere og kanskje skal forbedre den. Dersom andre skal lese koden din, er det enda viktigere at den er godt kommentert. Man føler ofte man har "dårlig tid" når man koder, og at man derfor ikke har tid til å kommentere koden. Og kanskje at det heller ikke er nødvendig. Men: Selv om du akkurat nå umiddelbart ser hva en gitt del av programmet gjør og hvordan, er sjelden det tilfelle det neste gang du ser på programmet. Da må du bruke en del tid på å forstå hva du har gjort. Noen konsise kommentarer hjelper. (Men ikke skriv for mye heller, da skjuler du koden.) 
 
-Kommentarlinjer brukes også til å debugge kode, finne feil.
-Du lurer f.eks. på hva en kodelinje gjør, om den har effekt i det hele tatt.
-Da kan du kommentere den ut og se hvilken effekt det har.
-(Der finnes mer avanserte metoder for debugging, se senere.)
+Kommentarlinjer brukes også til å debugge kode, finne feil. Du lurer f.eks. på hva en kodelinje gjør, om den har effekt i det hele tatt. Da kan du kommentere den ut og se hvilken effekt det har. (Der finnes mer avanserte metoder for debugging, se senere.)
 
-Og kommentarlinjer kan brukes til enkel "kodehistorikk". 
-Noen ganger har du gjort endringer i koden, men vil ikke fjerne den gamle måten
-å gjøre det på. Kanskje fordi du muligens vil gå tilbake til denne etterhvert.
-Da kommenterer du typisk ut linjen(e) enn så lenge i stedet for å slette de. 
+Og kommentarlinjer kan brukes til enkel ``kodehistorikk''. Noen ganger har du gjort endringer i koden, men vil ikke fjerne den gamle måten å gjøre det på. Kanskje fordi du muligens vil gå tilbake til denne etterhvert. Da kommenterer du typisk ut linjen(e) enn så lenge i stedet for å slette de.
 
-
-Hvis du ønsker å kommentere ut mange linjer med kode,
-kan du gjøre det ved å sette """ før og etter den delen du vil kommentere ut.
-Dette fungerer, men har i Python egentlig en annen funksjon, nemlig å dokumentere
-hva et program eller en funksjon gjør.
-Så for små prosjekter, som vi vil gjøre her, er det ok, men for større prosjekter, 
-som også gjerne skal deles med andre, er det ikke anbefalt. 
-(Det er f.eks. vanlig å ha en slik "kommentar"-del i begynnelsen av fila.
-Der fortelles kanskje hvem som har laget programmet, når, og hva det gjør.
-Spyder legger inn noen slike linjer når du oppretter en ny fil.
-Du kan selv legge til kommentarer der.) 
-
+Hvis du ønsker å kommentere ut mange linjer med kode, kan du gjøre det ved å sette ''\textquotedbl`` før og etter den delen du vil kommentere ut. Dette fungerer, men har i Python egentlig en annen funksjon, nemlig å dokumentere hva et program eller en funksjon gjør. Så for små prosjekter, som vi vil gjøre her, er det ok, men for større prosjekter, som også gjerne skal deles med andre, er det ikke anbefalt.  (Det er f.eks. vanlig å ha en slik "kommentar"-del i begynnelsen av fila. Der fortelles kanskje hvem som har laget programmet, når, og hva det gjør. Spyder legger inn noen slike linjer når du oppretter en ny fil. Du kan selv legge til kommentarer der.) 
 
 Gode variabelnavn og funksjonsnavn er også viktig for å lage forståelig kode.
 
 Variabelnavn: 
-Der finnes mange forskjellige anbefalinger, f.eks. 
+Der finnes mange forskjellige anbefalinger, f.eks.
+\begin{usncodebox}
 fart_bil = 3
 FART_BIL = 3
 fartBil = 3 (mixedCase)
 FartBil = 3 (CamelCase)
+\end{usncodebox}
 
 Det er fint å holde seg til én konvensjon. 
 
-
 Funksjoner:
-Anbefalt: små bokstaver, underscore for å separere ord, f.eks.
-finne_fart(), finne_posisjon_ball(), tegne_graf()
-(Tidligere har mixedCase også vært anbefalt.) 
+Anbefalt: små bokstaver, underscore for å separere ord, f.eks. finne\_{}fart(), finne\_{}posisjon\_{}ball(), tegne\_{}graf(). (Tidligere har mixedCase også vært anbefalt.) 
 
+Full info: \url{https://www.python.org/dev/peps/pep-0008/} (Style Guide for Python Code) 
 
-Full info: https://www.python.org/dev/peps/pep-0008/ (Style Guide for Python Code) 
+\section{Debugging (optional)}
 
-######################################################################## 
-KAP. 2.14  DEBUGGING  (optional)
+En feil i et program kalles en bug, fra engelsk. Debugging, feilretting, utgjør til tider mye av tiden vi bruker til programmering. 
 
-En feil i et program kalles en bug, fra engelsk. 
-Debugging, feilretting, utgjør til tider mye av tiden vi bruker til programmering. 
+Et program man akkurat har programmert ferdig fungerer sjelden helt som det skal. Ofte er der veldig åpenbare feil som får programmet til å kresje med en feilmelding. Da er det gjerne nok å se på den delen av programmet som feilmelding peker på. 
 
-Et program man akkurat har programmert ferdig fungerer sjelden helt som det skal.
-Ofte er der veldig åpenbare feil som får programmet til å kresje med en feilmelding.
-Da er det gjerne nok å se på den delen av programmet som feilmelding peker på. 
+Andre ganger er feilen mindre åpenbar, både å oppdage, finne årsak til, og fjerne. Kanskje gir den ikke gi en feilmelding, men resultatet er likevel feil. F.eks. blir feil del av koden kjørt fordi en variabel i løpet av kjøring har fått en annen verdi enn du forventet. Der kan være mange grunner til det, og du må sjekke koden nærmere. 
 
-Andre ganger er feilen mindre åpenbar, både å oppdage, finne årsak til, og fjerne. 
-Kanskje gir den ikke gi en feilmelding, men resultatet er likevel feil. 
-F.eks. blir feil del av koden kjørt fordi en variabel 
-i løpet av kjøring har fått en annen verdi enn du forventet.
-Der kan være mange grunner til det, og du må sjekke koden nærmere. 
+Ofte hjelper det å sette inn print-linjer her og der i koden så du kan følge med på hvordan variabler endrer seg. Så kan du fjerne eller kommentere ut linjene når problemet er løst.
 
-Ofte hjelper det å sette inn print-linjer her og der i koden så du kan
-følge med på hvordan variabler endrer seg. 
-Så kan du fjerne eller kommentere ut linjene når problemet er løst.
-
-Men der finnes mer avanserte, mer effektive metoder.  
-Spyder har debugging-funksjonalitet.
+Men der finnes mer avanserte, mer effektive metoder. Spyder har debugging-funksjonalitet.
 Se i toppmenyen: Debug.
-
 
 La oss først lage et enkelt program:
 
+\begin{usncodebox}
 sko = ['Adidas','Puma','Nike']
 kopi = []
 
@@ -1492,66 +1364,37 @@ for i in range(len(sko)):
     kopi.append(sko[i])
 
 print('slutt')
+\end{usncodebox}
 
-Kall det gjerne tut_debugtest1.py (File/Save as)
+Kall det gjerne \usnfilename{tut\_{}debugtest1.py} (File/Save as)
 
+Start debugging ved Debug/Debug eller CTRL+F5 (virker kanskje ikke) eller klikk på symbolet.
 
+I IPython-konsollen har nå prompten blitt endret fra den vanlige \usninlinecode{In []:} til \usninlinecode{ipdb>}. Vi er i debugging-modus.  Det vises nå 5 linjer av programmet. Den midterste av de 5 har en pil på seg. Det er den linja python ser på akkurat nå (og venter). Mer korrekt: det er den linja python-interpreteren nå står klar til å lese.
 
-Start debugging ved Debug/Debug eller CTRL+F5 (virker kanskje ikke)
-eller klikk på symbolet.
+Trykk Debug/Step eller CTRL+F10 eller klikk på symbolet. Nå kjørte vi akkurat den linja. Det var en kommentarlinje, så ingenting skjedde, men interpreteren hoppet akkurat ned til neste ikke-tomme linje. Den peker nå på linja som definerer variabelen sko. (Se på Variable explorer. Der er ingen variabel sko ennå.) Trykk Debug/Step for å utføre linjen. (Nå skal sko vises i Variable explorer.) Og koden hoppet ned en linje.
 
-I IPython-konsollen har nå prompten blitt endret fra den vanlige "In []:" til "ipdb>".
-Vi er i debugging-modus. 
-Det vises nå 5 linjer av programmet. Den midterste av de 5 har en pil på seg.
-Det er den linja python ser på akkurat nå (og venter).
-Mer korrekt: det er den linja python-interpreteren nå står klar til å lese. 
+Den aktuelle (neste) linjen er også opplyst i Editor-vinduet, så det er lett å følge med på hvor interpreteren er. 
 
-Trykk Debug/Step eller CTRL+F10 eller klikk på symbolet.
-Nå kjørte vi akkurat den linja.
-Det var en kommentarlinje, så ingenting skjedde, men interpreteren hoppet akkurat
-ned til neste ikke-tomme linje.
-Den peker nå på linja som definerer variabelen sko.
-(Se på Variable explorer. Der er ingen variabel sko ennå.) 
-Trykk Debug/Step for å utføre linjen.
-(Nå skal sko vises i Variable explorer.)
-Og koden hoppet ned en linje.
+Debug/Step en gang til definerer variabelen kopi, og nå pekes det på for-løkka.
 
-Den aktuelle (neste) linjen er også opplyst i Editor-vinduet,
-så det er lett å følge med på hvor interpreteren er. 
-
-Debug/Step en gang til definerer variabelen kopi,
-og nå pekes det på for-løkka.
-
-Underveis i debuggingen kan du printe variabler. 
-(Det er ikke er så nyttig siden du har de i Variable explorer.)
-Prøv likevel i IPython-konsollen:
+Underveis i debuggingen kan du printe variabler. (Det er ikke er så nyttig siden du har de i Variable explorer.) Prøv likevel i IPython-konsollen:
+\begin{usncodebox}
 print(sko)
-Du kan også endre verdier. Det kan være aktuelt mens du debugger. 
-Prøv:
+\end{usncodebox}
+
+Du kan også endre verdier. Det kan være aktuelt mens du debugger. Prøv:
+\begin{usncodebox}
 kopi.append('sokk')
-Endringen vises ikke i Variable explorer med en gang,
-men vil gjøre det neste gang du trykker Debug/Step. 
+\end{usncodebox}
 
+Endringen vises ikke i Variable explorer med en gang, men vil gjøre det neste gang du trykker Debug/Step. 
 
-Fortsett å trykke Debug/Step (og følg med i Variable explorer).
-Vi ser hvordan variablene i og kopi endres.
-Når kommandoene i løkka har blitt utført tre ganger, er den ferdig (hvorfor?),
-og kommer til siste print-kommandoen.
-Vi kan utføre denne også (Debug/Step).
-Men ikke klikk Debug/Step en gang til. Da hopper Spyder til en annen fil.
-Det vil vi ikke.
-(Har du likevel trykt en gang for mye, og f.eks. filen sitecustomize.py
-kommer opp i editoren, klikk den da bare bort, dvs. klikk på det hvite
-krysset på rød bakgrunn på flappen øverst.)
+Fortsett å trykke Debug/Step (og følg med i Variable explorer). Vi ser hvordan variablene i og kopi endres. Når kommandoene i løkka har blitt utført tre ganger, er den ferdig (hvorfor?), og kommer til siste print-kommandoen. Vi kan utføre denne også (Debug/Step). Men ikke klikk Debug/Step en gang til. Da hopper Spyder til en annen fil. Det vil vi ikke. (Har du likevel trykt en gang for mye, og f.eks. filen \usnfilename{sitecustomize.py} kommer opp i editoren, klikk den da bare bort, dvs. klikk på det hvite krysset på rød bakgrunn på flappen øverst.)
 
-Velg i stedet Debug/Stop eller CTRL+SHIFT+F12 (eller klikk symbolet).
-Da går vi ut av debuggeren.
-Prompten blir igjen "In []:"
+Velg i stedet Debug/Stop eller CTRL+SHIFT+F12 (eller klikk symbolet). Da går vi ut av debuggeren. Prompten blir igjen \usninlinecode{In []:}
 
-
-Der er flere funksjonaliteter i debuggeren.
-Noe har med hvordan du skal utføre funksjoner, linje for linje eller hele funksjonen.
-
+Der er flere funksjonaliteter i debuggeren. Noe har med hvordan du skal utføre funksjoner, linje for linje eller hele funksjonen.
 
 Utføre løkke/funksjon med ett tastetrykk: 
 La oss prøve en gang til, men nå uten å gå gjennom loopen gang på gang:
@@ -1595,30 +1438,22 @@ Da utfører interpreteren alt helt frem til neste breakpoint, som er på siste l
 Når du er ferdig, velger du Debug/Stop.
 (Du kunne også valgt Debug/Stop tidligere. Det kan du gjøre når som helst.) 
 
-
 Det er nyttig å bli komfortabel nok med debugging-funsjonaliteten til at du
 tar den i bruk når du har en mystisk bug i programmet ditt.
 Det vil skje. 
 
-
-
-
-Oppgave 1: Legg til noen linjer i programmet ovenfor.
-Prøv deg litt frem med linje-for-linje-debugging. 
-Prøv å gå gjennom loopen, og prøv å utføre den i et tastetrykk (Debug / Step Return). 
-Og prøv breakpoint-debugging: sett noen breakpoints og forsikre deg om at du forstår. 
-Prøv også å restarte IPython-konsollen (så variablene forsvinner). 
-
+\begin{question}
+Legg til noen linjer i programmet ovenfor. Prøv deg litt frem med linje-for-linje-debugging. Prøv å gå gjennom loopen, og prøv å utføre den i et tastetrykk (Debug / Step Return). Og prøv breakpoint-debugging: sett noen breakpoints og forsikre deg om at du forstår. Prøv også å restarte IPython-konsollen (så variablene forsvinner). 
+\end{question}
 
 For mer info: Se Help-vinduet, klikk tutorial. Der er et kapittel om Debugging.
 
-######################################################################## 
-KAP. 2.15  EKSEMPEL: FUNKSJON: SKRAATT KAST  (optional)
+\section {Eksempel: Funksjon: Skrått kast (optional)}
 
 (Kan evt. hoppe over denne.)
 Bevegelse i x- og y-retning samtidig
 
-
+\begin{usncodebox}
 import time
 
 def posisjon(t, v0=0, a=0):    # funksjon som regner ut posision med tid (t), startfart (v0) og akselerasjonen (a) gitt
@@ -1645,37 +1480,31 @@ while sy >= 0:                    # Vi holder på til ballen har nådd bakken
 
     tid = tid + tid_steg          # oppdatering av tidsvariabelen
     time.sleep(tid_steg)          # denne funksjon stopper Python i tid_steg (0.1) sekunder. 
+\end{usncodebox}
 
+Det første vi ser når vi kjører programmet er at tids- og posisjonsutskrift er vanskelig å lese. Det er hovedsaklig fordi Python skriver ut tallene med ulikt antall desimaler. Det kan vi fikse. Kommenter ut print-linja (sett \# foran), og legg til følgende print-linje på linja under:
 
-Det første vi ser når vi kjører programmet er at tids- og posisjonsutskrift er vanskelig å lese.
-Det er hovedsaklig fordi Python skriver ut tallene med ulikt antall desimaler.
-Det kan vi fikse.
-Kommenter ut print-linja (sett # foran), og legg til følgende print-linje på linja under:
+\begin{usncodebox}
 print("tid: %4.2f s   x-posisjon: %5.2f m   y-posisjon: %5.2f m" %(tid, sx, sy) )
-Kjør så på ny.
-Vi har nå formatert teksten.
-Vi har bestemt at tid skal vises med 2 desimal og ta opp minst 4 plasser, kommaet inkludert.
-Likedan skal både sx og sy vises med 2 desimaler og ta opp minst 5 plasser.
-Det blir mer systematisk. Mer om det nedenfor. 
+\end{usncodebox}
 
-######################################################################## 
-KAP. 2.16  FORMATERING AV PRINT  
+Kjør så på ny. Vi har nå formatert teksten. Vi har bestemt at tid skal vises med 2 desimal og ta opp minst 4 plasser, kommaet inkludert. Likedan skal både sx og sy vises med 2 desimaler og ta opp minst 5 plasser. Det blir mer systematisk. Mer om det nedenfor. 
 
-Det vi har gjort så langt (unntatt i siste eksempel) er å bruke print() slik:
-print(var1,var2,var3,..) der var1,var2,var3,... kan være variabler eller verdier.
+\section{Formattering av print}
+
+Det vi har gjort så langt (unntatt i siste eksempel) er å bruke print() slik: print(var1,var2,var3,..) der var1,var2,var3,... kan være variabler eller verdier.
+
 F.eks.
+\begin{usncodebox}
 var1 = 'Dette'
 var3 = 3.14159265
 print(var1, 'er pi:', var3)
-Et ekstra mellomrom (space) blir satt inn der kommaet er. 
+
+# Et ekstra mellomrom (space) blir satt inn der kommaet er. 
 print('1 / 3 = ', 1/3)
+\end{usncodebox}
 
-Med denne metoden har vi ingen kontroll til å styre f.eks. hvor mange desimaler vi vil vise.
-For å få det, må vi formatere teksten.
-Der er to måter, den gamle "printf-metoden", og en ny metode.
-Den gamle metoden er veldig utbredd (bl.a. også i C), og kommer til å være det i lang tid.
-Vi vil derfor bruke den. 
-
+Med denne metoden har vi ingen kontroll til å styre f.eks. hvor mange desimaler vi vil vise. For å få det, må vi formatere teksten. Der er to måter, den gamle "printf-metoden", og en ny metode. Den gamle metoden er veldig utbredd (bl.a. også i C), og kommer til å være det i lang tid. Vi vil derfor bruke den. 
 
 Gammel metode (printf):
 Der du vil ha en variabel legger du inn en formateringskode som starter 
@@ -1683,8 +1512,8 @@ med % og ender med en bokstav som angir variabeltype (int, float, ..).
 Når du er ferdig med teksten følger variablene i en tuple etter %, 
 slik: %(var1,var2,var3).  (NB: Tuple defineres i neste kapittel.) 
 
-
 Heltall (int), ender med d, kan også bruke i (d er å foretrekke):
+\begin{usncodebox}
 print("Tekst %i tekst" %(343))     # viser tallet som det er (uformatert)
 print("Tekst %d tekst" %(343))     # viser tallet som det er (uformatert) 
 print("Tekst %5d tekst" %(343))    # setter av 5 plasser
@@ -1695,102 +1524,96 @@ print("Tekst %.5d tekst" %(343))   # setter av 5 plasser, der er ledende nuller 
 print("Tekst %d tekst" %(343.66))  # dersom variabelen er float, blir desimalene kastet. 
                                    # (Blir ikke avrundet, det ville gitt 344.)  
 print("Tekst %i tekst" %('343')    # TypeError
-
+\end{usncodebox}
 
 Desimaltall (float), ender med f:  %TOTALBREDDE.ANTALLDESIMALERf
-Eks. %5.2f  
+Eks. %5.2f
   Total bredde er da 5 (inkludert eventuelt fortegn)
   Antall desimaler er 2
 
-print("Noe %6.2f noe" %(43.1415))    # viser 'Noe  43.14 noe'  
+\begin{usncodebox}
 
+print("Noe %6.2f noe" %(43.1415))    # viser 'Noe  43.14 noe'
 print("Noe %6.2f noe" %(43.1))       # viser 'Noe  43.10 noe'
-
 print("Noe %.2f noe"  %(43.1))       # viser 'Noe 43.10 noe' 
                                      # Totalbredde ikke angitt. Python tar det den trenger
-
 print("Noe %3.2f noe" %(43.1))       # viser 'Noe 43.10 noe'      
                                      # Når totalbredde er for liten i forhold til 
                                      # antall desimaler, komma og eventuelt fortegn, 
                                      # bruker Python så mye plass den trenger
-
 print("Noe %5.2f noe" %(43))         # viser 'Noe  43.00 noe'     
                                      # Heltall blir gjort om til desimaltall
-
 print("Noe %f noe"    %(43.14))      # viser 'Noe 43.140000 noe'  
                                      # Hvis ANTALLDESIMALER ikke er angitt, 
                                      # brukes 6 desimaler (systemavhengig?) 
-
 print("Noe %5.2f noe" %(0.00001443)) # viser 'Noe  0.00 noe'      
                                      # Denne formateringen er ofte upraktisk for 
                                      # veldig små (eller store) tall
-
-
+\end{usncodebox}
 
 For både desimaltall og heltall kan vi bruke scientific (e) notasjon: 
-%TOTALBREDDE.ANTALLDESIMALERe   f.eks. %10.2e 
-Dette formatet kan være nyttig når vi har veldig store eller veldig små tall 
-eller ikke vet hvor stort/lite tallet er. 
+\%TOTALBREDDE.ANTALLDESIMALERe   f.eks. \%10.2e
+ 
+Dette formatet kan være nyttig når vi har veldig store eller veldig små tall eller ikke vet hvor stort/lite tallet er. 
 
+\begin{usncodebox}
 print("Sci %10.2e sci" %(12345689.88))   # viser "Sci   1.23e+07 sci" 
-
 print("Sci %.2e sci" %(12345689.88))     # viser "Sci 1.23e+07 sci"    
                                          # TOTALBREDDE ikke spesifisert, Python tar det den trenger
-
 print("Sci %.3e sci" %(.00000323456))    # viser "Sci 3.235e-06 sci"   # (runder av siste desimal)
+\end{usncodebox}
 
-Scientific notasjon har alltid 1 siffer foran komma.
-Eksponenten angis med to siffer.
+Scientific notasjon har alltid 1 siffer foran komma. Eksponenten angis med to siffer.
 1.3e+05 betyr 1.3*10**5
 2.4e-07 betyr 2.4*10**(-7)   (som er det samme som 2.4/10**7)
 
 Vi kan også bruke e-notasjonen selv.
+\begin{usncodebox}
 x = 1.60e-19    # Elementærladningen (i Coulomb) 
 x = 1.01e+05    # Standard lufttrykk (i Pa) ved havoverflaten 
 x = 1.01e5      # enklere
 x = 1.01E5      # kan også bruke stor E
 x = 1.01*10**5  # uten e-notasjon
+\end{usncodebox}
 
+Tekststrenger: \%s
 
-Tekststrenger: %s
-
+\begin{usncodebox}
 print("Str %s str" %("alle"))     # viser "Str alle str"    
                                   # bredde ikke spesifisert, Python tar det den trenger
-
 print("Str %2s str" %("alle"))    # viser "Str alle str"    
                                   # ikke nok plasser, Python tar det den trenger
-
 print("Str %6s str" %("alle"))    # viser "Str   alle str"  # høyre-justert
-
 print("Str %-6s str" %("alle"))   # viser "Str alle   str"  # venstre-justert
-
-
-
+\end{usncodebox}
 
 Ny metode:
-Vi går ikke gjennom den her. 
-For info om den nye formateringsmetoden: se s.17 i boka eller f.eks. https://pyformat.info/
+Vi går ikke gjennom den her. For info om den nye formateringsmetoden: se s.17\todo{Hvilken bok?} i boka eller f.eks. https://pyformat.info/
 
+\begin{question}
+Lag et program som trekker 10 tilfeldige (desimal)tall mellom -2000 og 2000 og skriver ut tallene med tre desimaler i en fin vertikal liste.
+\end{question}
 
+\begin{question}
+Som ovenfor, men bruk nå scientific notasjon med 2 desimaler (eks: 1.25e+05)
+\end{question}
 
-Oppgave 1: Lag et program som trekker 10 tilfeldige (desimal)tall mellom 
--2000 og 2000 og skriver ut tallene med tre desimaler i en fin vertikal liste.
-
-Oppgave 2: Som ovenfor, men bruk nå scientific notasjon med 2 desimaler (eks: 1.25e+05)
-
-Oppgave 3: navn = ['Newton', 'Descartes', 'Euler'], alder = [84, 53, 76], 
+\begin{question}
+Lag et program som skriver ut navn, alder og fødselsmåned i fine kolonner. La navn være venstrejustert, og la fødselsmåned være høyrejustert.
+\end{question}
+\begin{usncodebox}
+navn = ['Newton', 'Descartes', 'Euler'], alder = [84, 53, 76], 
 foedt = ['januar','mars','april']
-Lag et program som skriver ut navn, alder og fødselsmåned i fine kolonner.
-La navn være venstrejustert, og la fødselsmåned være høyrejustert.
+\end{usncodebox}
 
-######################################################################## 
-KAP. 2.17  DATATYPE: TUPLES 
+\section{Datatype: Tuples}
 
 Datatyper vi kjenner: int, float, str, bool, list 
 
 Datatype: tuple
 En tuple er nesten som en liste.
 Eksempler: 
+\begin{usncodebox}
 a = (1,9,3,4,5,8)
 b = ('left','right')
 type(b)    # gir tuple
@@ -1799,188 +1622,191 @@ b[1]       # gir 'right'
 a[1:4]     # gir en tuple (9,3,4)
 a[2:]      # gir en tuple (3,4,5,8)
 a[:3]      # gir en tuple (1,9,3)
+\end{usncodebox}
+
 NB: husk tellemåten. Som i en liste har første element indeks 0. 
 
 Men tupler kan ikke endres:
+\begin{usncodebox}
 a[0] = 11  # gir feilmelding
+\end{usncodebox}
 
 Og du kan ikke legge til elementer. 
 
 Tupler kan brukes som nøkler/keys i dictionaries (se nedenfor), det kan være praktisk. 
 
-
-
-Oppgave 1: Lag en tuple (3,6,77) og skriv ut første, andre og tredje element, dvs. 3, 6 og 77.
+\begin{question}
+Lag en tuple (3,6,77) og skriv ut første, andre og tredje element, dvs. 3, 6 og 77.
 Prøv å endre første elementet. (Du får feilmelding.) 
+\end{question}
 
+\begin{question}
+Lag en tuple ('00','11','22','33','44','55'). Lag fra denne en ny tuple som har med elementene '11','22','33'. 
+\end{question}
 
-Oppgave 2: Lag en tuple ('00','11','22','33','44','55'). 
-Lag fra denne en ny tuple som har med elementene '11','22','33'. 
-
-
-Oppgave 3: Lag de 100 tuplene som kan lages av to siffer som begge er mellom 0 og 9,
-dvs. (0,0), (0,1), ..., (0,9), (1,0), (1,1), ..., (1,9), ..., (9,0), (9,1), .., (9,9)
-Tips: Bruk to for-løkker, den ene inni den andre. 
+\begin{question}
+Lag de 100 tuplene som kan lages av to siffer som begge er mellom 0 og 9, dvs. (0,0), (0,1), ..., (0,9), (1,0), (1,1), ..., (1,9), ..., (9,0), (9,1), .., (9,9)
+(Tips: Bruk to for-løkker, den ene inni den andre.)
 Legg tuplene inn i en liste som du laget ved start.
+\end{question}
 
-######################################################################## 
-KAP. 2.18  FILER 
+\section{Filer}
 
-Filer:
-Ofte vil programmet ditt trenge å lese informasjon fra filer, 
-f.eks. lese inn en ansattliste.
-Og ofte vil programmet ditt ønske å skrive informasjon til fil. 
-Det finnes flere typer filer. 
-Den enkleste er en ren tekstfil, det er det vi skal se på her. 
+Ofte vil programmet ditt trenge å lese informasjon fra filer, f.eks. lese inn en ansattliste. Og ofte vil programmet ditt ønske å skrive informasjon til fil. Det finnes flere typer filer. Den enkleste er en ren tekstfil, det er det vi skal se på her. 
 
 Lese fra tekstfil:
+\begin{usncodebox}
 fil1 = open('traktor.txt','r')    # Kobler til filen, 'r' (read) sier at vi kun skal lese fra filen
 lines1 = fil1.readlines()         # Alle linjene leses inn i variabelen lines1 som da blir en liste
 fil1.close()                      # Dekobler filen. 
+\end{usncodebox}
 
 Så vil du typisk gå gjennom linjene du leste inn, og gjøre noe (analysere, printe)
+\begin{usncodebox}
 for line1 in lines1:
-    print line1.rstrip()          
+    print line1.rstrip()
+\end{usncodebox}
 
 (Mer om rstrip() senere. Det fjerner et linjeskift på slutten av setningen.)
 
-
 Skrive til fil: 
-Anta at du har en liste med tekstlinjer, lines2: 
+Anta at du har en liste med tekstlinjer, lines2:
+
+\begin{usncodebox}
 lines2 = ['Dette er', 'et par', 'linjer', 'med tekst']
+\end{usncodebox}
 
-Du øsker så å skrive dette til fil.
+Du ønsker så å skrive dette til fil.
 
-Åpne filen for skriving, dvs. bruk 'w' i stedet for 'r'. 
-Dersom filen eksisterer fra før, vil det tidligere innholdet bli slettet.
+Åpne filen for skriving, dvs. bruk 'w' i stedet for 'r'. Dersom filen eksisterer fra før, vil det tidligere innholdet bli slettet.
+
+\begin{usncodebox}
 fil2 = open('tekstfil1.txt','w')    
+\end{usncodebox}
 
 Loope gjennom lines2 og skrive til filen:
+\begin{usncodebox}
 for line2 in lines2:
     fil2.write("%s\n" %(line2))
-fil2.close()                        
+fil2.close()
+\end{usncodebox}
 
 Siste linje lukker filen, nå er den lagret. 
 
-Hvis du vil skrive mer til en eksisterende fil uten at det som er der fra før forsvinner,
-bruker du 'a' (for append) i stedet for 'w' når du åpner filen.
+Hvis du vil skrive mer til en eksisterende fil uten at det som er der fra før forsvinner, bruker du 'a' (for append) i stedet for 'w' når du åpner filen.
+
+\begin{usncodebox}
 fil2 = open('tekstfil1.txt','a')
+\end{usncodebox}
+
 Hvis filen ikke eksisterer fra før, vil den bli opprettet. 
-
  
+\begin{question}
+Lag et program som leser inn et par opplysninger fra tastaturet (navn, yrke etc.), skriver opplysningene til fil, og til slutt leser 
+opplysningene fra filen og skriver de til skjerm. (Bruk gjerne oppg\_{}skrivetilfil.py som filnavn.)
+\end{question}
 
-Oppgave 1: Lag et program som leser inn et par opplysninger fra tastaturet 
-(navn, yrke etc.), skriver opplysningene til fil, og til slutt leser 
-opplysningene fra filen og skriver de til skjerm.
-(Bruk gjerne oppg_skrivetilfil.py som filnavn.)
+\begin{question}
+Lag et program som skriver til fil 20 linjer som hver skal inneholde linjenummer til venstre, så 5 tilfeldig valgte tall mellom 0 og 200 oppgitt med 3 desimaler. Tall-kolonnene skal være fint justerte.
+\end{question}
 
-
-Oppgave 2: Lag et program som skriver til fil 20 linjer som hver skal inneholde linjenummer til venstre,
-så 5 tilfeldig valgte tall mellom 0 og 200 oppgitt med 3 desimaler.
-Tall-kolonnene skal være fint justerte. 
-
-######################################################################## 
-KAP. 2.19  DATATYPE DICTIONARIES  (optional)
+\section{Datatype dictionaries (optional)}
 
 Datatyper vi kjenner: int, float, str, bool, list, tuple 
 
 Datatype: Dictionary (oppslagsliste)
 
+\begin{usncodebox}
 jeg = {}  # tom dictionary
 jeg = {'navn':'Neo', 'alder':27, 'egenskaper':['utvalgt','rask'], 33:'et tall', 33.33:'et til'} 
 type(jeg) 
+\end{usncodebox}
 
-Dictionaries består av et sett med keys (nøkler). 
+Dictionaries består av et sett med keys (nøkler).
+\begin{usncodebox}
 - jeg.keys()  # viser keys (nøklene): 'navn', 'alder', ..
-Keys kan bl.a. være tekststreng, tall, tuple, boolsk variable, 
-men ikke en liste eller en annen dictionary 
-Til hver key er der en verdi. 
-Det er nesten ingen begrensninger på hvilken type verdien kan være: 
-streng, tall, liste, andre dictionaries, ...
+\end{usncodebox}
 
+Keys kan bl.a. være tekststreng, tall, tuple, boolsk variable, men ikke en liste eller en annen dictionary. Til hver key er der en verdi.  Det er nesten ingen begrensninger på hvilken type verdien kan være: streng, tall, liste, andre dictionaries, ...
+
+\begin{usncodebox}
 jeg['navn']         # str
 jeg['alder']        # int
 jeg['egenskaper']   # list
 jeg['navn'] = 'Aragorn'        # kan endre verdien til en eksisterende key
 jeg['yrke'] = 'vandringsmann'  # kan legge til key/verdi 
+\end{usncodebox}
 
-
-Mens innholdet i en liste har en bestemt rekkefølge, er ikke dette tilfellet 
-for en dictionary, nøklene er ikke sortert på noen måte.
+Mens innholdet i en liste har en bestemt rekkefølge, er ikke dette tilfellet for en dictionary, nøklene er ikke sortert på noen måte.
 
 Hva skjer viss du prøver en nøkkel som ikke finnes?
+\begin{usncodebox}
 jeg['bil']
+\end{usncodebox}
+
 Da får du KeyError. Det betyr at nøkkelen ikke finnes.
 
-Hvordan teste om en nøkkel eksisterer?
-Testen er: 'bil' in jeg
+Hvordan teste om en nøkkel eksisterer? Testen er: 'bil' in jeg
 F.eks.
+\begin{usncodebox}
 if 'bil' in jeg:
    print('Jeg har bil: ',jeg['bil'])
+\end{usncodebox}
 
-Noen ganger ønsker du å hente ut verdien, gi et alternativ verdi om nøkkelen ikke finnes, 
-.
-Det kan gjøres med dict.get(, ), f.eks. 
-jeg.get('bil','ingen bil')
-Denne funksjonen returnerer verdien til 'bil', hvis 'bil' finnes. 
-Hvis ikke, returnerer den 'ingen bil'.
-
+Noen ganger ønsker du å hente ut verdien, gi et alternativ verdi om nøkkelen ikke finnes. Det kan gjøres med dict.get(, ), f.eks. jeg.get('bil','ingen bil') Denne funksjonen returnerer verdien til 'bil', hvis 'bil' finnes. Hvis ikke, returnerer den 'ingen bil'.
 
 Hvordan gå gjennom alle nøklene i en dictionary?
+\begin{usncodebox}
 for key in jeg.keys():
    print("  %-15s  %s" %(key, jeg[key]) ) 
-
+\end{usncodebox}
 
 Hvordan fjerne en nøkkel/verdi-par. 
+\begin{usncodebox}
 jeg.pop('alder')
+\end{usncodebox}
+
 eller ved å bruke del: 
+\begin{usncodebox}
 del jeg['alder']
+\end{usncodebox}
+
 del er en generell funksjon som fungerer på mange dataobjekter. (Forsiktig.) 
 
-
 Hvordan slå sammen to dictionaries?
-La oss si at vi hadde 
+La oss si at vi hadde:
+\begin{usncodebox}
 mer_om_meg = {'sko':'gul', 'bukse':'svart'}   # fylle en ny dictionary
-og ville legge disse inn i jeg.
-Det gjøres slik:
+\end{usncodebox}
+og ville legge disse inn i jeg. Det gjøres slik:
+\begin{usncodebox}
 jeg.update(mer_om_meg)
-Alternativt kunne vi gått gjennom alle key/verdi-par i mer_om_meg, 
-og lagt de til en for en.
+\end{usncodebox}
+Alternativt kunne vi gått gjennom alle key/verdi-par i mer\_{}om\_{}meg, og lagt de til en for en.
 
-Dictionaries er veldig fleksible, kan brukes til mye.
-F.eks. har du kanskje en liste med 100 kunder.
-For hver kunde vil du ha visse opplysninger.
-Da kunne det vært praktisk å ha en liste der hvert av elementene i listen er en dictionary.
-(Det kunne også vært relevant å bruke klasser (senere), men det er litt mer komplisert.) 
+Dictionaries er veldig fleksible, kan brukes til mye. F.eks. har du kanskje en liste med 100 kunder. For hver kunde vil du ha visse opplysninger. Da kunne det vært praktisk å ha en liste der hvert av elementene i listen er en dictionary. (Det kunne også vært relevant å bruke klasser (senere), men det er litt mer komplisert.)
 
+\begin{question}
+Lag et program som leser inn informasjon om fire personer fra tastaturet. For hver person skal fornavn, etternavn, alder leses inn og legges i en dictionary. Hver persons dictionary legges så inn i en liste. Til slutt skal det loopes gjennom listen og informasjonen skrives ut. (Bruk gjerne \usnfilename{oppg\_{}dictionary1.py} som filnavn.)
+\end{question} 
 
+\begin{question}
+Lag en dictionary dct1 som inneholder navn og alder (som ovenfor). Dictionary'en inneholder også en key 'annet' som har annen dictionary som verdi. Denne dictionary'en har innhold {'hobby':'lego', 'mobiler':4}
+\end{question}
 
-Oppgave 1: Lag et program som leser inn informasjon om fire personer fra tastaturet.
-For hver person skal fornavn, etternavn, alder leses inn og legges i en dictionary.
-Hver persons dictionary legges så inn i en liste.
-til slutt skal det loopes gjennom listen og informasjonen skrives ut. 
-(Bruk gjerne oppg_dictionary1.py som filnavn.) 
+\section{try-except (optional)}
 
-
-Oppgave 2: Lag en dictionary dct1 som inneholder navn og alder (som ovenfor).
-Dictionary'en inneholder også en key 'annet' som har annen dictionary som verdi.
-Denne dictionary'en har innhold {'hobby':'lego', 'mobiler':4}
-
-######################################################################## 
-KAP. 2.20  TRY-EXCEPT (optional)
-
-Noen ganger vil programmet ditt kresje.
-Dette skjer f.eks. dersom du gjør følgende:
+Noen ganger vil programmet ditt kresje. Dette skjer f.eks. dersom du gjør følgende:
+\begin{usncodebox}
 alder = input()
 alder = int(alder)
-(som også kan skrives slik: alder = int(input()) )
-og så skriver brukeren inn noe som ikke er et heltall, f.eks. 7.5 eller 'Jonas'.
-Da får du:
-ValueError: ...
-og programmet kresjer (ender). 
+\end{usncodebox}
+
+(som også kan skrives slik: alder = int(input()) ) og så skriver brukeren inn noe som ikke er et heltall, f.eks. 7.5 eller 'Jonas'. Da får du: ValueError: ... og programmet kresjer (ender). 
 
 Det er mulig å plukke opp en slik feil, og håndtere den. 
-Prøv: 
+Prøv:
+\begin{usncodebox}
 alder = input("Alder: ")
 try:
     alder = int(alder)
@@ -1989,17 +1815,13 @@ except:
     alder = 10 
 
 print("Du er %i år. Om 10 år er du %i år." %(alder, alder + 10)) 
+\end{usncodebox}
     
-Det som skjer her, er at den indenderte blokken under try: blir forsøkt utført.
-Dersom alt går fint, hopper programmet over except: og den indenderte blokken under, 
-og fortsetter videre. 
-Men dersom noe går galt i try-blokken, vil programmet glemme alt som der ble gjort, 
-og koden i except-blokken vil bli utført i stedet. 
-Metoden over fikser feilen (forsåvidt), og gjør programmet i stand til å kjøre videre. 
+Det som skjer her, er at den indenderte blokken under try: blir forsøkt utført. Dersom alt går fint, hopper programmet over except: og den indenderte blokken under, og fortsetter videre. Men dersom noe går galt i try-blokken, vil programmet glemme alt som der ble gjort, og koden i except-blokken vil bli utført i stedet. Metoden over fikser feilen (forsåvidt), og gjør programmet i stand til å kjøre videre. 
 
-Men du ønsker kanskje å gi brukeren en mulighet til å rette opp feilen.
-Da kan du f.eks. gjøre noe slikt:
+Men du ønsker kanskje å gi brukeren en mulighet til å rette opp feilen. Da kan du f.eks. gjøre noe slikt:
 
+\begin{usncodebox}
 alder = input("Alder: ")
 fortsett = True     # en boolsk variabel som blir satt til False når vi har en gyldig alder
 
@@ -2011,80 +1833,79 @@ while fortsett:
         alder = input("%s er ingen gyldig alder. Prøv igjen. Alder: " %(alder))
 
 print("Du er %i år. Om 10 år er du %i år." %(alder, alder + 10)) 
+\end{usncodebox}
 
 Nå vil alderen bli innlest igjen og igjen helt til et heltall blir oppgitt. 
 
+\begin{question}
+Lag et program som trekker ti desimaltall mellom -10 og 10. For hvert tall skal kvadratroten regnes ut.
+For negative tall vil imidlertid sqrt gi feilmelding, så skriv da i stedet ut melding om at kvadratroten ikke lar seg regne ut for dette tallet. Bruk try/except-konstruksjon til å gjennomføre. (NB: her kunne vi enkelt testet om tallet var negativt i stedet for å sette opp en try/except-konstruksjon.)
+\end{question}
 
-Oppgave 1: Lag et program som trekker ti desimaltall mellom -10 og 10.
-For hvert tall skal kvadratroten regnes ut.
-For negative tall vil imidlertid sqrt gi feilmelding, 
-så skriv da i stedet ut melding om at kvadratroten ikke lar seg regne ut for dette tallet. 
-Bruk try/except-konstruksjon til å gjennomføre.
-(NB: her kunne vi enkelt testet om tallet var negativt i stedet for å sette opp en try/except-konstruksjon.) 
+\section{Noen små triks}
 
-######################################################################## 
-KAP. 2.21  NOEN SMÅ TRIKS
-
-Noen muligheter som finnes i Python. 
-Noe av det er ikke anbefalt, men greit å ha sett det. 
-
+Noen muligheter som finnes i Python. Noe av det er ikke anbefalt, men greit å ha sett det. 
 
 Det er mulig å ha flere kommandoer på en linje, separert med semikolon:
+\begin{usncodebox}
 a = 3; b = 4
+\end{usncodebox}
 
-
-Det er mulig å skrive løkke på en linje 
-(dersom det ikke er så mye du skal gjøre i løkka):
+Det er mulig å skrive løkke på en linje (dersom det ikke er så mye du skal gjøre i løkka):
+\begin{usncodebox}
 for i in range(5): print(i)
 for i in range(5): i2 = i**2; print("%i**2 = %2i" %(i, i2))
+\end{usncodebox}
+
 Men det er ikke anbefalt. 
 
-Likedan er det mulig å ha enkel if-setning på en linje 
+Likedan er det mulig å ha enkel if-setning på en linje
+\begin{usncodebox}
 if i == 1: print(i)
-
+\end{usncodebox}
 
 Det er mulig å skrive følgende
+\begin{usncodebox}
 a = b = c = 0
+\end{usncodebox}
 Da blir alle satt til 0
 
-
 Det er mulig å skrive følgende
+\begin{usncodebox}
 a += b    # samme som a = a + b
 a -= b    # samme som a = a - b
 a *= b    # samme som a = a * b
 a \= b    # samme som a = a / b
+\end{usncodebox}
 
 Ofte brukt 
+\begin{usncodebox}
 i += 1    # samme som i = i + 1
+\end{usncodebox}
 
+Python har en funksjon som heter help. Prøv \usninlinecode{help(print)}
 
+Du får litt info om print-funksjonen. Beskrivelsen er ganske teknisk, men litt informativ.
+Prøv \usninlinecode{help(range)}
 
-Python har en funksjon som heter help.
-Prøv
-help(print)
-Du får litt info om print-funksjonen.
-Beskrivelsen er ganske teknisk, men litt informativ.
-Prøv
-help(range)
-Der er det mye mer info. 
-Det er ikke alltid så lett å finne frem til det man leter etter.
-Ofte er et søk på nettet raskeste vei, men help() kan også være til god hjelp. 
+Der er det mye mer info. Det er ikke alltid så lett å finne frem til det man leter etter. Ofte er et søk på nettet raskeste vei, men help() kan også være til god hjelp. 
 
-######################################################################## 
-KAP. 2.22  MER OM tekststrenger
+\section{Mer om tekststrenger}
 
 Til en del programmeringsoppgaver må du kunne behandle tekststrenger.
 
 funksjoner: strip, split, index, upper, lower, startswith, endswith, replace
 
+\begin{usncodebox}
 a = 'Ja'
 b = 'Nei'
 c = a + b    # Kan kombinere tekststrenger med +
 print(c)
 
 a = " Dette er en streng.  "
+\end{usncodebox}
 
-Skriv så a. og trykk TAB. Der er ganske mange funksjoner for tekststrenger.
+Skriv så \usnvarname{a} og trykk \usnkeypress{tab}. Der er ganske mange funksjoner for tekststrenger.
 
 Prøv følgende og se hva de gjør: 
 a.strip()
@@ -2095,32 +1916,42 @@ Så for å endre a må du gjøre
 a = a.strip() 
 print(a)
 
-
 La oss begynne den forrige strengen igjen: 
 a = " Dette er en streng.  "
 
 Du kan også "strippe" bare ene siden:
+\begin{usncodebox}
 a.rstrip()    # right-strip
 a.lstrip()    # left-strip
-
+\end{usncodebox}
 
 Hva om du vil lage en liste med alle ordene i tekststrengen.
+\begin{usncodebox}
 a.split()       # gir listen ['Dette', 'er', 'en', 'streng.']
-Default er å splitte på mellomrom, som er det du vanligvis vil være ute etter. 
-Men du kan splitte på hva du vil:
-a.split("er")   # gir listen [' Dette ', ' en streng.  ']
+\end{usncodebox}
 
+Default er å splitte på mellomrom, som er det du vanligvis vil være ute etter. Men du kan splitte på hva du vil:
+\begin{usncodebox}
+a.split("er")   # gir listen [' Dette ', ' en streng.  ']
+\end{usncodebox}
 
 Telle antall ganger 'r' opptrer
+\begin{usncodebox}
 a.count('r')
-Telle antall ganger 'er' opptrer
-a.count('er')
+\end{usncodebox}
 
+Telle antall ganger 'er' opptrer
+\begin{usncodebox}
+a.count('er')
+\end{usncodebox}
 
 Finne indeks til (første) 'r':
+\begin{usncodebox}
 a.index('r')
+\end{usncodebox}
 
 Kan også finne første fra høyre:
+\begin{usncodebox}
 a.rindex('r')
 
 a.upper()  # endre til store bokstaver
@@ -2131,12 +1962,11 @@ a.startswith(" Det")   # True
 a.endswith("reng.  ")      # True
 
 a.replace(' er ', ' blir ')
+\end{usncodebox}
 
 
-Hermetegn inne i en tekststreng? 
+Hermetegn inne i en tekststreng?
+\begin{usncodebox}
 print("Han sa 'Pass opp!'")
 print('Han sa "Pass opp!"')
-
-
-
-\fi
+\end{usncodebox}

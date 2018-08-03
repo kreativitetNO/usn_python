@@ -1,6 +1,43 @@
+\chapter{Pygame}
+
+\iffalse
+
+\section{Installasjon}
+
+Python er ikke språket for å skrive profesjonelle spill med grafikk og lyd. Men det kan gjøres, og er gøy. Og man kan lære mye underveis.
+
+\subsubsection{Eksempel - spaceinvaders.py}
+
+Python har en pakke som heter pygame. Den følger ikke med i vanlig installasjon. Men skal være lett å installere:
+
+Windows: Åpne Anaconda Prompt fra startmenyen og skriv følgende:
+pip install pygame
+Det er gjort på et par sekunder. 
+Mac: Åpne terminal og skriv: pip install pygame 
+
+pygame har imidlertid problemer med pygame og python 3.6. 
+For den som vil bruke pygame på Mac er det mulig å installere python 2.7 
+(samtidig med 3.6 som du allerede har installert). 
+Det gjøres slik: 
+ - Åpne terminal og skriv: conda create -n py27 python=2.7 anaconda 
+   Det tar 10-15 minutter. Da installerer du python 2.7 (uten å miste 3.6) 
+   Du kan da, når du starter spyder, velge om du vil kjøre python 3.6 eller 2.7. 
+   Det kan du enten gjøre i Anaconda Navigator: Øverst ser du Applications on: root. 
+   Når du nå har installert python 2.7 og kalt den py27, kan du velge py27 i stedet for root. 
+   Og så klikker du spyder. Da er det 2.7 du kjører. Neste gang kan du velge root og da kjøre 3.6. 
+ - Du har nå python 2.7, og må nå installere pygame under 2.7 (den du har er under 3.6). 
+   Gå til terminalvinduet og skriv: source activate py27 
+   Da skal prompten få (py27) foran det vanlige. 
+   Skriv nå, som du gjorde sist: pip install pygame 
+   Det tar bare noen sekunder. 
+   Nå har du installert pygame også for python 2.7. 
+ - For å prøve spaceinvaders (se Game #3 nedenfor), kan du da starte spyder under py27, 
+   hente ned spaceinvaders.zip (eller pythonfil og lyd/grafikk fil for fil) og kjøre. 
+   Det skal fungere. 
+   (Det som fortsatt ikke fungerer på Mac med python 2.7, er highscoren.)  
+
 ######################################################################## 
 KAP. 6.2  PYGAME: Introduksjon til skjerm, sprite, lyd
-
 
 import pygame   # required
 Det kan være lurt å importere noen konstanter etc.: 
@@ -277,3 +314,27 @@ play(0,3.5)   # starter avspillingen etter 3.5 sekunder
 pause()
 unpause()
 
+######################################################################## 
+KAP. 6.3  PYGAME: gameloop, bevegelse, fysikk
+tut_pygame_min1.py
+
+######################################################################## 
+KAP. 6.4  PYGAME: spaceinvaders.py 
+
+Programmet består av én python-fil, samt noen lyd- og bildefiler 
+som ligger i egen katalog. 
+Enklest er å laste ned zipfilen 
+http://kilelabs.no/p/spaceinvaders/spaceinvaders.zip 
+(og gjør extract eller unzip på maskinen din). 
+
+Eventuelt kan du laste ned pythonfilen 
+http://kilelabs.no/p/spaceinvaders/spaceinvaders.py
+og lyd/bilde en for en, alle filene ligger under
+http://kilelabs.no/p/spaceinvaders/spacedata/
+Disse må legges i en katalog (folder) spacedata/
+
+NB: koden er ikke optimal for læring. 
+Bl.a. er det brukt klasser. 
+(Men det samme kan gjøres uten klasser.) 
+
+\fi

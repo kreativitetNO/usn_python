@@ -1,0 +1,302 @@
+\chapter{Matte}
+
+\section{Numerisk integrasjon}
+
+\subsection{Trapes- og Midtpunktmetoden}
+\todo{Hvilken bok?}(Se. s.55-68 i boka.) 
+\url{https://en.wikipedia.org/wiki/Trapezoidal_rule}
+
+Anta at vi har en funksjon f(x) som er positiv for a < x < b, dvs for x mellom to verdier. F.eks. $f(x) = x^2+2$ med a = 0 og b = 1. Hvordan regne ut arealet under kurven (dvs. mellom x-aksen og kurven)? For vår enkle funksjon kan vi integrere (symbolsk) og finne eksakt svar. For mer kompliserte er ikke dette alltid mulig. Men vi kan alltid integrere numerisk.
+
+Der finnes flere metoder for numerisk integrasjon. Trapesmetoden er kanskje den enkleste. 
+
+Tavle: 
+X-intervallet (a,b) deles inn i n like store deler.
+Hver del har da en bredde lik delx = (b-a)/n
+Arealet under kurven mellom to x-verdier, f.eks, x3 og x4 tilnærmes av trapeset,
+\begin{usncodebox}
+A_34 = ( f(x3) + f(x4) ) / 2 * delx
+\end{usncodebox}
+Så legger vi alle del-arealene sammen og får en tilnærming for hele arealet. 
+
+Lag følgende program og lagre gjerne som tut\_{}integration1.py 
+
+\begin{usncodebox}
+import numpy as np
+
+def f1(x):
+    return x**3   # eksempel
+
+def trapes_for(f, a, b, n):  # integrasjon med for-loop
+    Fsum = 0
+    delx = (b-a)/n
+    for i in range(n+1):
+        if i in [0,n]:
+           Fsum = Fsum + f(a+i*delx) * delx / 2  # endepunktene faar halv verdi
+        else: 
+           Fsum = Fsum + f(a+i*delx) * delx
+    return Fsum
+
+
+def trapes_vec(f, a, b, n):  # integrasjon med vektorisering (er raskere)
+    delx = (b-a)/n
+    xs = linspace(a,b,n+1)   # NB: n+1 gir n intervaller
+    Fs = xs*f(xs)   # bruker vektorisering
+    Fsum = sum(Fs[1:n]) + (Fs[0] + Fs[n]) / 2
+    return Fsum 
+
+
+def F1(x):    
+    return x**4/4    # den antideriverte til f1(x)
+
+def exact(f,a,b):
+    Fsum = F1(b) - F1(a)
+    return Fsum
+\end{usncodebox}
+
+Du kan nå gjøre
+\begin{usncodebox}
+from tut_integration1 import *
+ntrapeser = 10
+trapes_for(f1, 1, 5, n_trapeser)
+exact(F1,1,5)
+\end{usncodebox}
+
+Er det stor forskjell? Prøv å øke n\_{}trapeser og kjør trapes\_{}for() på ny. Ettersom n blir større og større, skal feilen bli mindre og mindre. Du skal da komme nærmere og nærmere exact(). Stemmer det? 
+
+\begin{question}
+Hvor stor må n være for at forskjellen skal være mindre enn 0.01
+\end{question}
+
+
+\begin{question}
+Hvor stor må n være for at den relative forskjellen, abs(eksakt-trapes)/eksakt, skal være mindre enn 1e-5 (som er 0.00001)?
+\end{question} 
+
+\begin{question}
+Legg til funksjonen $f2 = x^2-2x$ og finn integralet med trapes\_{}vec og exact. 
+\end{question}
+
+\begin{question}
+Prøv å forstå trapesmetoden. Lag så din egen versjon av trapes\_{}for() eller trapes\_{}vec(), helst uten å se for mye på metodene ovenfor.
+\end{question}
+
+\begin{question}
+Oppgave 5: Legg til funksjon for integrasjon med Midpoint rule (Rectangle rule). 
+Se s.65-67 i boka.
+I midtpunkt-regelen deles igjen x-aksen inn i n like store deler. 
+Vi bruker imidlertid ikke trapes-tilnærmingen.
+I stedet bruker vi firkantent med høyde gitt av f(midtpunkt) i hvert intervall.
+\end{question}
+
+Hint: Dette gir en for-loop av typen:
+\begin{usncodebox}
+    for i in range(n):
+        x = a + (i+0.5)*delx
+        ... 
+\end{usncodebox}
+
+\begin{question}
+En bil starter fra ro med akselerasjon lik a = 5 m/s**2. Etter en tid t har bilen farten v = a*t. Implementer farten som en funksjon f3. Bruk trapes-regelen til å finne strekningen bilen har kjørt i løpet av 10 sekunder. Sammenlign dette med den eksakte løsningen gitt ved s = 0.5*a*t**2. Hvor stor n trenger du for å ha en relativ feil mindre enn 0.00001 ?
+\end{question}
+
+\section{Symbolsk regning - Sympy(optional)}
+
+Python har en modul som gjør det mulig å regne symbolsk: sympy
+
+Prøv i IPython-konsollen:
+\begin{usncodebox}
+import sympy
+\end{usncodebox}
+
+Skriv så sympy. og trykk TAB Du ser da alle funksjoner som finnes i pakken. Det er mange.
+
+For å bruke en variabel symbolsk må du fortelle python at den skal være en symbolsk variabel:
+
+\begin{usncodebox}
+from sympy import *
+x = Symbol('x')   # kan også bruke symbols(), se lenger ned 
+type(x)           # Er av type sympy.core.symbol.Symbol
+\end{usncodebox}
+
+Vi kan lage et uttrykk f
+\begin{usncodebox}
+f = x**2 - 2*x - 3 
+print(f)
+\end{usncodebox}
+
+Vi kan løse ligningen x**2 - 2x - 3 = 0
+\begin{usncodebox}
+solve(f)
+Svaret er [-1, 3]. Der er altså to løsninger, x=-1 og x=3.
+Som vi husker, siden det er en andregradsligning.
+\end{usncodebox}
+
+Vi kan også faktorisere uttrykket
+\begin{usncodebox}
+factor(utt1)    # gir (x-3)*(x+1)
+\end{usncodebox}
+
+Hvis vi ser på utt1 som en funksjon f(x), husker vi fra matematikken at f(x) har nullpunkter for x=3 og x-1. Hvis x blir veldig stor eller veldig liten, vil f(x) bli veldig stor. Et sted vil der dermed være et minimumspunkt. Minumuspunktet er der den deriverte til funksjonen er lik null. (I dette tilfellet.) Kan python finne den deriverte?
+\begin{usncodebox}
+f_der = diff(f,x)    # gir 2x-2
+\end{usncodebox}
+NB: siden der kun er en symbolsk variabel (x) i f(x), ville også f\_{}der = diff(x) fungert. 
+
+Vi kan erstatte x med et annet symbol eller med et tall:
+\begin{usncodebox}
+f.subs(x,4)    # som gir svaret 5
+\end{usncodebox}
+
+NB: I linjen over blir ikke f erstattet med tallet, f er fortsatt symbolsk: 
+\begin{usncodebox}
+print(f)
+\end{usncodebox}
+(f = f.subs(x,4) ville erstattet f)
+
+Vi kan ha uttrykk med flere variable: 
+\begin{usncodebox}
+y,a = sympy.symbols('y a')    # NB: med symbols() kan flere symbolske variable defineres med ett kall 
+
+g = 2*x*y - 3*a*x**2
+\end{usncodebox}
+
+Prøv:
+\begin{usncodebox}
+print(g)
+solve(g,x)        # Løser med hensyn til x. Gir to løsninger. 
+simplify(g)       # Prøver å forenkle. I dette tilfellet velger python å faktorisere. 
+
+g2 = g.subs(a,3)
+g3 = g2.subs(y,x)
+\end{usncodebox}
+Dersom du vil erstatte flere verdier samtidig, må du bruke en dict: 
+\begin{usncodebox}
+g4 = g.subs({a:3, y:x})
+\end{usncodebox}
+(Vi kan også bruke dict som argument når bare en verdi skal erstattes, g2 = g.subs({a:3}), men det er mer å skrive.) 
+
+Vi kan derivere g med hensyn til en av variablene, f.eks. x:
+\begin{usncodebox}
+diff(g,x)
+\end{usncodebox}
+
+Python kan også symbolsk integrasjon:
+\begin{usncodebox}
+F = integrate(f,x) 
+print(F)
+integrate(g,x)
+\end{usncodebox}
+
+Løse ligningssett 
+Hvordan løse et ligningssett bestående av to ligninger.
+Eks: x+y=1 og x-y=-3
+(To variable, x og y, og to ligninger, da kan vi finne en løsning.)
+Metoden er å skrive ligningene slik at høyresiden er 0.
+Da blir det:
+x + y - 1 = 0  og  x - y + 3 = 0
+Kan løses slik:
+\begin{usncodebox}
+lign1 = x + y - 1
+lign2 = x - y + 3
+from sympy.solvers.solveset import linsolve
+linsolve( [lign1, lign2], (x,y) )     # Det andre argumentet (x,y) angir hvilke variabler vi skal løse for
+\end{usncodebox}
+Gir svaret {(-1,2)} som betyr at x = -1 og y = -2. (Sjekk manuelt ved å legge sammen de to ligningene, og trekke den ene fra den andre.) 
+
+Kan også skrive det eksplisitt:
+\begin{usncodebox}
+linsolve( [x + y - 1, x - y + 3], (x,y))
+\end{usncodebox}
+
+Kan også ha med flere symbolske variable: 
+\begin{usncodebox}
+linsolve( [x + y - a, x - y + 3], (x,y))
+\end{usncodebox}
+
+Da kunne det også gitt mening å løse for f.eks. x og a:
+\begin{usncodebox}
+linsolve( [x + y - a, x - y + 3], (x,a))
+\end{usncodebox}
+
+Vi ønsker gjerne å lagre svaret i en variabel:
+\begin{usncodebox}
+ans = linsolve( [lign1, lign2], (x,y) )  
+print(ans)
+\end{usncodebox}
+
+Hvordan får vi tak i svaret?
+\begin{usncodebox}
+type(ans)     # sympy.sets.sets.FiniteSet()
+\end{usncodebox}
+
+Det enkleste er slik:
+\begin{usncodebox}
+ans, = ans    # Merk kommaet
+\end{usncodebox}
+
+Da er ans2 en tuple, og kan akssesserers med indekser,
+\begin{usncodebox}
+print(ans2[0])  # f.eks. slik
+x1,y1 = ans2    # eller slik 
+\end{usncodebox}
+
+Aller enklest er å bruke komma-trikset direkte i linsolve-kallet: 
+\begin{usncodebox}
+ans, = linsolve( [lign1, lign2], (x,y) )  
+\end{usncodebox}
+
+\begin{question}
+Finn nullpunktene for funksjonen f = 3*x**3 + 82.5*x**2 - 640.5*x + 765 = 0
+\end{question}
+
+\begin{question}
+Finn x fra ligningen   1/(x-a) = 2/(x+a)
+\end{question}
+
+\begin{question}
+Løs ligningssettet 2x + a = x + y + 5  og  3x - y = 2a - 3  med hensyn på x og y (for variabel a).
+Finn også løsningene når a = 5. 
+\end{question}
+
+\section{Sympy: Fysikkoppgave (optional)}
+
+(Litt vanskelig. Kanskje spare til en fysikktime.) En kloss med masse m ligger på et flatt bord. To snorer er festet i klossen. Den ene er horisontal og drar klossen mot høyre med kraft Sx. Den andre er vertikal og drar klossen rett opp med kraft Sy. Der er friksjon mellom klossen og underlaget. Friksjonskraften er R = mu*N, horisontal, i motsatt retning av Sx. (N er normalkraften, mu er friksjonstallet.) Anta at Sy ikke er stor nok til at klossen løfter fra bakken, der er altså ingen akselerasjon i y-retning. Anta at Sx er stor nok til at klossen får en akselerasjon a mot høyre. Finn akselerasjonen som funksjon av variablene m, Sx, Sy og mu. 
+(Tegn figur.)
+
+Vi har fire ligninger:
+\begin{usncodebox}
+G = m*g       # m:masse, g:tyngdeakselerasjonen (9.81 m/s**2)
+R = mu*N      
+Sy + N = G    # y-retning: Newtons 1. lov: summen av kreftene er null (fordi der ikke er akselerasjon i y-retning)
+Sx - R = ma
+\end{usncodebox}
+
+Vi må skrive ligningene om så vi får 0 på høyresiden. 
+Da blir det slik:
+\begin{usncodebox}
+from sympy import *
+m,g,mu,Sx,Sy,N,R,G,a = symbols('m g mu Sx Sy N R G a')
+ans, = linsolve( [Sx-R-m*a, Sy+N-G, R-mu*N, G-m*g], (a,R,N,G) )
+\end{usncodebox}
+
+Rett svar for akselerasjonen er da
+\begin{usncodebox}
+ans[0]        # (Sx + Sy*mu - g*m*mu)/m
+\end{usncodebox}
+
+Vi kan sette inn noen tall, f.eks. Sx = 10, Sy = 2 (enhet er Newton for begge, men vi skriver det ikke inn). Og mu = 0.3, m = 1 (kg), og g = 9.81 (m/s**2)
+\begin{usncodebox}
+ans.subs({Sx:10, Sy:2, mu:0.3, m:1, g:9.81})   # gir (7.657, 2.343, 7.81, 9.81)
+\end{usncodebox}
+
+altså en akselerasjon på 7.657 m/s**2.
+
+Over satte vi inn 4 ligninger og hadde 4 variabler. Vi kunne forenklet litt først, og fått to ligninger,
+Sy + N - m*g = 0
+Sx - mu*N - m*a = 0
+Disse kunne vi da løst for a og N:
+\begin{usncodebox}
+linsolve( [Sx - mu*N - m*a, Sy + N - m*g], (a,N) )
+\end{usncodebox}
+Resultatet blir det samme. 

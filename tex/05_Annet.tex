@@ -1,0 +1,98 @@
+\chapter{Tillegg 1}
+
+\section{Mer om lister, dicts og løkker}
+
+Å kopiere en liste:
+
+\begin{usncodebox}
+L1 = ['a','c','b']
+L2 = L1
+\end{usncodebox}
+
+Dette lager ikke en kopi av liste L1. L2 peker bare på samme objekt i hukommelsen. Så dersom den ene endres, endres også den andre, det er samme objekt. Se:
+\begin{usncodebox} 
+print(L2)       # L2 er ['a','c','b']
+L1.append('d')  # Vi endrer L1
+print(L2)       # L2 har blitt ['a','c','b','d']
+\end{usncodebox}
+
+Dersom vi vil lage en frittstående kopi, kan vi bruke :
+\begin{usncodebox}
+L3 = L1.copy() # (eller L3 = list(L1))
+\end{usncodebox}
+
+Å kopiere en dictionary: 
+
+Hvis du vil lage en frittstående kopi av en dictionary, må du bruke copy()
+\begin{usncodebox}
+D1 = {'en':'one', 'to':'two'}
+D2 = D1           # peker på samme objekt
+D3 = D1.copy()    # lager en nytt, frittstående dictionary
+\end{usncodebox}
+
+To måter å gå gjennom en liste på: 
+Via indeks:
+\begin{usncodebox}
+for i in range(len(L1)):
+    print("%i  %s" %(i,L1[i]))
+# Eller bare via verdiene: 
+for L in L1:
+    print(L) 
+\end{usncodebox}
+
+Sortere en liste (ordne alfabetisk m.m.)
+\begin{usncodebox}
+sorted(L1)               # endrer ikke L1, men gir en sortert liste 
+L1s = sorted(L1)         # 
+L1.sort()                # sorterer (endrer) L1
+L1.sort(reverse=True)    # alfabetisk baklengs
+sorted(L1,reverse=True)  # endrer ikke L1
+\end{usncodebox}
+
+Løkker: break og continue 
+
+Continue brukes for å droppe resten av linjene og gå direkte til neste iterasjon i for- eller while-loopen
+Eksempel:
+\begin{usncodebox}
+for i in range(5): 
+    print(i, 'before')
+    if i == 2: continue
+    print(i, 'after')
+\end{usncodebox}
+
+Break brukes for å hoppe helt ut av en loop: 
+Eksempel 1: 
+\begin{usncodebox}
+for i in range(5): 
+    print(i)
+    if i == 2: break
+\end{usncodebox}
+
+Eksempel 2
+\begin{usncodebox}
+for i in range(3): 
+    for j in range(5): 
+         if j == 2: break  # hopper ut av j-loopen
+         print(i,j)
+\end{usncodebox}
+
+\section{Klasser (utgår)}
+
+\section{Nyttige småtterier}
+
+\section{tkinter: Lage GUI (optional)}
+
+Tkinter er den vanligste pakken for å lage menyer, knapper etc (men kanskje ikke så moderne). 
+
+For mer (veldig mye) info: 
+Tkinter Basics - Python Programming Tutorials:
+\url{https://docs.python.org/3/library/tk.html}
+
+Minimalt program som viser frem label, input, text og funksjon
+\url{http://kilelabs.no/p/tut/tut_tkinter_menu.py}
+
+Skrått-kast-kalkulator: 
+\url{http://kilelabs.no/p/tut/tut_tkinter_skraattkast1.py}
+
+Skrått-kast-kalkulator med figur: 
+\url{http://kilelabs.no/p/tut/tut_tkinter_skraattkast2.py}

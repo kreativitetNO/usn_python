@@ -1,17 +1,23 @@
-\documentclass[a4paper,12pt,twoside,openany]{book}
+\documentclass[a4paper,11pt,twoside,openany]{book}
 \usepackage{usn_python}
 \usepackage[norsk]{babel}
 \usepackage[autostyle=true]{csquotes}
-\usepackage{syntonly} % Faster build (doesn't compile to pdf)
+%\usepackage{syntonly} % Faster build (doesn't compile to pdf)
 %\syntaxonly % Comment out this line to do a proper build
 \title{Python-kurs\\
 Førsteårs ingeniørstudenter USN Kongsberg}
 \author{Joakim Bjørk \and Børge Kile Gjelsten}
+\date{02.08.18}
 \includeonly{%
 %	./tex/F01_Revisjoner,%
 %	./tex/01_Introduksjon,%
-	./tex/02_EnGodBegynnelse%
+	./tex/02_EnGodBegynnelse,%
+%	./tex/03_NumpyMatlib,%
+%	./tex/04_Matte,%
+%	./tex/05_Annet,%
+%	./tex/06_Pygame,%
 	}
+\setlength{\headheight}{15.5pt}
 \begin{document}
 \frontmatter
 \maketitle
@@ -25,6 +31,10 @@ Førsteårs ingeniørstudenter USN Kongsberg}
 \mainmatter
 \include{./tex/01_Introduksjon}
 \include{./tex/02_EnGodBegynnelse}
+\include{./tex/03_NumpyMatlib}
+\include{./tex/04_Matte}
+\include{./tex/05_Annet}
+\include{./tex/06_Pygame}
 \appendix
 %Vedlegg går her før backmatter
 \backmatter

@@ -2,6 +2,7 @@
 
 \RequirePackage[T1]{fontenc}  % Font encoding - helps with accented character, copy-and-paste etc
 \RequirePackage{exsheets}     % For exercises and questions
+\RequirePackage{exsheets-listings}     % For exercises and questions
 \RequirePackage{xcolor}       % For more colors and color options
 \RequirePackage[backend=biber, style=numeric, sorting=none]{biblatex} % Biber reference motor
 \RequirePackage{hyperref}     % Create hyperlinks automatically
@@ -13,6 +14,8 @@
 \RequirePackage{graphicx}     % You'll rarely avoid needing this in a book with illustrations etc
 \RequirePackage{hhline}       % Allows double horizontal lines in a tabular to be connected vertically
 \RequirePackage{fancyhdr}     % Because the built-in stuff is ugly
+\RequirePackage{environ}      % Allows new style of declaring environment
+\RequirePackage[shortlabels]{enumitem} % Flexible list formatting
 
 % Header/footer format
 \pagestyle{fancy}
@@ -57,14 +60,15 @@
 \newcommand{\usnfilename}[1]{\textit{#1}}
 \newcommand{\usnvarname}[1]{\texttt{\textit{#1}}}
 \newcommand{\usnvarvalue}[1]{\texttt{\textit{#1}}}
-\newcommand{\usnkeypress}[1]{\colorbox{lightgray}{#1}}
-\newcommand{\usnmenulabel}[1]{\textbf{-> \colorbox{lightgray}{#1}}}
-\newcommand{\usntablabel}[1]{\colorbox{tab-foreground}{#1}}
-\newcommand{\usnbuttonlabel}[1]{\colorbox{red}{#1}}
+\newcommand{\usnkeypress}[1]{\emph{[#1]}}
+\newcommand{\usnmenulabel}[1]{\textit{\textbf{#1}}}
+\newcommand{\usntablabel}[1]{\textit{#1}}
+\newcommand{\usnbuttonlabel}[1]{{\em#1}}
 \newcommand{\usnoutput}[1]{\texttt{#1}}
 \newenvironment{usnintro}{\par\addvspace{\baselineskip}\noindent\begin{minipage}[tbh]{0.9\textwidth}\textbf{I denne delen:}}{\end{minipage}\par\addvspace{\baselineskip}}
 \newenvironment{usncomment}{\par\addvspace{\baselineskip}\noindent\begin{minipage}[t]{0.9\textwidth}\textbf{Merk:}\\}{\end{minipage}\par\addvspace{\baselineskip}}
-\lstnewenvironment{usncodebox}{}{}
+\NewEnviron{usncbox}[1]{\vskip4pt\colorbox{#1}{\parbox{\textwidth}{\vskip4pt\leftskip8pt\rightskip8pt\BODY\vskip4pt}}\vskip4pt}
+
 
 % This .sty is taken from a bachelor thesis at USN in 2018. Most of the options are removed, waiting
 % for a clear reason to re-include them.
