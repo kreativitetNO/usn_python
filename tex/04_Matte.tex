@@ -64,30 +64,30 @@ exact(F1,1,5)
 
 Er det stor forskjell? Prøv å øke n\_{}trapeser og kjør trapes\_{}for() på ny. Ettersom n blir større og større, skal feilen bli mindre og mindre. Du skal da komme nærmere og nærmere exact(). Stemmer det? 
 
-\begin{question}
+\begin{exercise}
 Hvor stor må n være for at forskjellen skal være mindre enn 0.01
-\end{question}
+\end{exercise}
 
 
-\begin{question}
+\begin{exercise}
 Hvor stor må n være for at den relative forskjellen, abs(eksakt-trapes)/eksakt, skal være mindre enn 1e-5 (som er 0.00001)?
-\end{question} 
+\end{exercise} 
 
-\begin{question}
+\begin{exercise}
 Legg til funksjonen $f2 = x^2-2x$ og finn integralet med trapes\_{}vec og exact. 
-\end{question}
+\end{exercise}
 
-\begin{question}
+\begin{exercise}
 Prøv å forstå trapesmetoden. Lag så din egen versjon av trapes\_{}for() eller trapes\_{}vec(), helst uten å se for mye på metodene ovenfor.
-\end{question}
+\end{exercise}
 
-\begin{question}
+\begin{exercise}
 Oppgave 5: Legg til funksjon for integrasjon med Midpoint rule (Rectangle rule). 
 Se s.65-67 i boka.
 I midtpunkt-regelen deles igjen x-aksen inn i n like store deler. 
 Vi bruker imidlertid ikke trapes-tilnærmingen.
 I stedet bruker vi firkantent med høyde gitt av f(midtpunkt) i hvert intervall.
-\end{question}
+\end{exercise}
 
 Hint: Dette gir en for-loop av typen:
 \begin{usncodebox}
@@ -96,9 +96,9 @@ Hint: Dette gir en for-loop av typen:
         ... 
 \end{usncodebox}
 
-\begin{question}
+\begin{exercise}
 En bil starter fra ro med akselerasjon lik a = 5 m/s**2. Etter en tid t har bilen farten v = a*t. Implementer farten som en funksjon f3. Bruk trapes-regelen til å finne strekningen bilen har kjørt i løpet av 10 sekunder. Sammenlign dette med den eksakte løsningen gitt ved s = 0.5*a*t**2. Hvor stor n trenger du for å ha en relativ feil mindre enn 0.00001 ?
-\end{question}
+\end{exercise}
 
 \section{Symbolsk regning - Sympy(optional)}
 
@@ -246,18 +246,18 @@ Aller enklest er å bruke komma-trikset direkte i linsolve-kallet:
 ans, = linsolve( [lign1, lign2], (x,y) )  
 \end{usncodebox}
 
-\begin{question}
+\begin{exercise}
 Finn nullpunktene for funksjonen f = 3*x**3 + 82.5*x**2 - 640.5*x + 765 = 0
-\end{question}
+\end{exercise}
 
-\begin{question}
+\begin{exercise}
 Finn x fra ligningen   1/(x-a) = 2/(x+a)
-\end{question}
+\end{exercise}
 
-\begin{question}
+\begin{exercise}
 Løs ligningssettet 2x + a = x + y + 5  og  3x - y = 2a - 3  med hensyn på x og y (for variabel a).
 Finn også løsningene når a = 5. 
-\end{question}
+\end{exercise}
 
 \section{Sympy: Fysikkoppgave (optional)}
 

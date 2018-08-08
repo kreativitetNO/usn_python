@@ -16,7 +16,7 @@ plt.plot(x,y2,'r--')   # rød, stiplet linje
 plt.show()
 \end{usncodebox}
 
-Grafen vises inline i IPython-konsollen. Dersom du klikker på flappen med Python (i stedet for IPython) og kjører på ny, vil grafen bli vist i et eget vindu. (Mer om det senere.) 
+Grafen vises inline i IPython-konsollen. Dersom du klikker på tab'en med Python (i stedet for IPython) og kjører på ny, vil grafen bli vist i et eget vindu. (Mer om det senere.) 
 
 Nedenfor ser vi nærmere på numpy og matplotlib, de to pakkene vi bruker når vi lager grafer. 
 
@@ -144,26 +144,26 @@ numpy.random.uniform(0,1,10)
 numpy.random.uniform(0,1,11)
 \end{usncodebox}
 
-\begin{question}
+\begin{exercise}
 Lag et array som går fra 0 til 10 (inkludert endepunktene). Steglengden (spacing) skal være 1  (dvs. [0, 1, 2, ..., 10]). 
-\end{question}
+\end{exercise}
 
-\begin{question}
+\begin{exercise}
 Lag et array som går fra 0 til 10 (inkludert endepunktene). Steglengden (spacing) skal være 0.2  (dvs. [0, 0.2, 0.4, ..., 9.8, 10])
-\end{question}
+\end{exercise}
 
-\begin{question}
+\begin{exercise}
 Sammenlign numpy.linspace(0,10,6) med numpy.linspace(0,10,5). Forstå forskjellen
-\end{question}
+\end{exercise}
 
-\begin{question}
+\begin{exercise}
 Lag et array med 10 tilfeldige desimaltall mellom 0 og 100 
 uten å bruke numpy's egne random-funksjoner. 
 Dvs. du må bruke random.uniform(0,100).
 Gjør så det samme ved hjelp av numpys randomfunksjoner (numpy.random.uniform).
-\end{question}
+\end{exercise}
 
-\begin{question}
+\begin{exercise}
 En bil starter fra ro (startfart lik 0) og har akselerasjon på 3 m/s2. Lag et program som for hvert sekund fra 0 til 10 sekunder regner ut farten til bilen  og hvor langt den har gått, og skriver det ut til skjerm. Hint: farten v og strekningen s ved tid t er gitt ved v = a*t og s = 0.5*a*t**2 der a = 3 er akselerasjonen.
 
 Utskriften skal se omtrent slik ut:
@@ -172,7 +172,7 @@ tid: & 0.00 s  &  fart: & 0.00 m/s &   strekning: &  0.00 m\\
 tid: & 1.00 s  &  fart: & 3.00 m/s &   strekning: &  1.50 m\\
 \ldots & & & & & 
 \end{tabular}
-\end{question}
+\end{exercise}
 
 Lese mer: https://en.wikipedia.org/wiki/NumPy
 
@@ -248,9 +248,9 @@ plt.savefig('x_i_andre.png')   # Tillatte formater: png, jpg, pdf, ...
 
 Skal du tegne en ny graf, må du lukke figurvinduet eller skrive plt.cla(), ellers blir grafen plottet i den samme figuren. 
 
-\begin{question}
+\begin{exercise}
 Tegn grafen f(x) = x**3-x for -2 < x < 2. Sett passende label på x- og y-aksen, og gi grafen en tittel. Tegn grafen både inline og i eget vindu (i to ulike kjøringer). 
-\end{question}
+\end{exercise}
 
 Mye mer å lese (matplotlib inneholder mye): 
 \url{http://www.labri.fr/perso/nrougier/teaching/matplotlib/}  (tutorial) 
@@ -353,9 +353,9 @@ plt.figure("fig3")                     # skift tilbake til det første vinduet (
 plt.plot(x, 2+x**4,'*--y')             # legg en graf til i det aktive vinduet (som er fig1)
 \end{usncodebox}
 
-\begin{question}
+\begin{exercise}
 Lag et program som åpner et figur-vindu med fire subfigurer. Utgangspunktet er skrått kast med starthastighet 10 m/s og både x- og y-retning (som vi hadde tidligere). I fire subfigurvinduer skal så fart i x- og y-retning (vx og vy) plottes, og tilbakelagt strekning i x- og y-retning (sx og sy). Hint: vx = vx0, vy = vy0`+ g*t, sx = vx*t, sy = vy0*t + 0.5*a*t**2  der a=-9.81 (tyngdeakselerasjonen) (Diskuter med sidemannen.) 
-\end{question}
+\end{exercise}
 
 Mange eksempler som viser hva man kan gjøre med matplotlib
 https://matplotlib.org/examples/index.html

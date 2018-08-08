@@ -1,8 +1,9 @@
 \ProvidesPackage{usn_python}[2018/06/19 USN Compendium/book package]
 
 \RequirePackage[T1]{fontenc}  % Font encoding - helps with accented character, copy-and-paste etc
-\RequirePackage{exsheets}     % For exercises and questions
-\RequirePackage{exsheets-listings}     % For exercises and questions
+%\RequirePackage{exsheets}     % For exercises and questions
+%\RequirePackage{exsheets-listings}     % For exercises and questions
+\RequirePackage{xsim}     % For exercises and questions
 \RequirePackage{xcolor}       % For more colors and color options
 \RequirePackage[backend=biber, style=numeric, sorting=none]{biblatex} % Biber reference motor
 \RequirePackage{hyperref}     % Create hyperlinks automatically
@@ -56,6 +57,20 @@
   tabsize=3
 }
 
+\DeclareExerciseTranslations{exercise}{
+	Fallback = exercise,
+	Norsk = oppgave
+}
+\DeclareExerciseTranslations{solution}{
+	Fallback = solution,
+	Norsk = løsning
+}
+\xsimsetup{
+	exercise/within = section,
+	exercise/the-counter = \thesection.\arabic{exercise},
+	solution/print = true
+}
+
 \newcommand{\usninlinecode}[1]{\lstinline{#1}}
 \newcommand{\usnfilename}[1]{\textit{#1}}
 \newcommand{\usnvarname}[1]{\texttt{\textit{#1}}}
@@ -65,8 +80,10 @@
 \newcommand{\usntablabel}[1]{\textit{#1}}
 \newcommand{\usnbuttonlabel}[1]{{\em#1}}
 \newcommand{\usnoutput}[1]{\texttt{#1}}
+\newcommand{\usnsubmenusep}{\mbox{\hspace{4pt}$\triangleright$\hspace{4pt}}}
 \newenvironment{usnintro}{\par\addvspace{\baselineskip}\noindent\begin{minipage}[tbh]{0.9\textwidth}\textbf{I denne delen:}}{\end{minipage}\par\addvspace{\baselineskip}}
 \newenvironment{usncomment}{\par\addvspace{\baselineskip}\noindent\begin{minipage}[t]{0.9\textwidth}\textbf{Merk:}\\}{\end{minipage}\par\addvspace{\baselineskip}}
+\lstnewenvironment{usncodebox}{}{}
 \NewEnviron{usncbox}[1]{\vskip4pt\colorbox{#1}{\parbox{\textwidth}{\vskip4pt\leftskip8pt\rightskip8pt\BODY\vskip4pt}}\vskip4pt}
 
 

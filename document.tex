@@ -6,25 +6,25 @@
 %\syntaxonly % Comment out this line to do a proper build
 \title{Python-kurs\\
 Førsteårs ingeniørstudenter USN Kongsberg}
-\author{Joakim Bjørk \and Børge Kile Gjelsten}
+\author{Joakim Bjørk \and Børge Kile Gjelsten \and Christian Scott}
 \date{02.08.18}
 \includeonly{%
-%	./tex/F01_Revisjoner,%
-%	./tex/01_Introduksjon,%
+	./tex/F01_Revisjoner,%
+	./tex/01_Introduksjon,%
 	./tex/02_EnGodBegynnelse,%
-%	./tex/03_NumpyMatlib,%
-%	./tex/04_Matte,%
-%	./tex/05_Annet,%
-%	./tex/06_Pygame,%
+	./tex/03_NumpyMatlib,%
+	./tex/04_Matte,%
+	./tex/05_Annet,%
+	./tex/06_Pygame,%
 	}
 \setlength{\headheight}{15.5pt}
 \begin{document}
 \frontmatter
 \maketitle
 \include{./tex/F01_Revisjoner}
+\iffalse % Har ikke nok av disse til å lage lister
 \listoffigures
 \lstlistoflistings
-\iffalse % iiffalse hvis det ikke er noen tabeller
 \listoftables
 \fi
 \tableofcontents
@@ -40,7 +40,7 @@ Førsteårs ingeniørstudenter USN Kongsberg}
 \backmatter
 \printbibliography[heading=bibnumbered]
 %\iffalse % iffalse for å fjerne todo-list
-\listoftodos
+%\listoftodos
 %\fi
 
 \end{document}
