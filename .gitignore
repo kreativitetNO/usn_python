@@ -1,4 +1,4 @@
-document-exercise*.tex
+document-exercise *.tex
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

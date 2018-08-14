@@ -365,7 +365,7 @@ int(33.3)        # gir 33
 int(33.6)        # gir 33 (!)
 \end{lstlisting}
 
-int() runder altså ikke av slik vi er vant til, den bare fjerner desmaldelen. 
+int() runder altså ikke av slik vi er vant til, den bare fjerner desimaldelen. 
 
 Der er en annen funksjon som runder av, round().
 
@@ -653,7 +653,7 @@ print("Du heter", navn, "og er", alder, "år gammel.")
 
 Trykk så \usnmenulabel{File} fra menyen øverst, dernest \usnmenulabel{Save as}. Du bør nå velge en grei plass på maskinen for Python filer. Du kan også lage en ny folder med \usnbuttonlabel{New Folder}-knappen og klikke deg inn i den.
 
-Filnavnet bør være beskrivende, f.eks. \usnfilename{tut\_{}prog\_{}navnogalder1.py}. Filen må ha ending \usnfilename{.py}. I Windows blir \usnfilename{.py} lagt til automatisk dersom du ikke selv gjør det.
+Filnavnet bør være beskrivende, f.eks. \usnfilename{tut\_prog\_{}navnogalder1.py}. Filen må ha ending \usnfilename{.py}. I Windows blir \usnfilename{.py} lagt til automatisk dersom du ikke selv gjør det.
 
 For å kjøre filen, trykker du på den grønne pilen øverst til venstre (\usnbuttonlabel{Run file}), eller trykker \usnkeypress{F5}. I det interaktive vinduet (IPython-konsollen) får du nå spørsmål å svare på. Du må sannsynligvis først aktivere vinduet ved å klikke på det før du kan skrive inn navn (og trykke \usnkeypress{enter}) og alder (og trykke \usnkeypress{enter}). Merk at mens programmet kjøres, kan du ikke bruke IPython-konsollen til andre ting. Når du har oppgitt navn og alder avsluttes programmet. Da kan du igjen bruke det interaktive vinduet til andre ting. 
 
@@ -695,7 +695,7 @@ print("Hei,", navn, "! Du er", random.randint(15, 35), "år.")
 
 \section{Betingelser}
 
-Ofte må man i et programmet gjøre forskjellige ting avhengig av verdien til variablene. I python gjøres dette med if-konstruksjonen. Skriv in følgende programsnutt i et nytt dokument og kjør det: 
+Ofte må man i et programmet gjøre forskjellige ting avhengig av verdien til variablene. I Python gjøres dette med \usninlinecode{if}-konstruksjonen. Skriv inn følgende programsnutt i et nytt dokument og kjør det: 
 
 \begin{usncodebox}
 alder = 18
@@ -705,17 +705,18 @@ if alder < 20:            # merk kolonet og indenteringen nedenfor
 print("Dette blir printet uansett")
 \end{usncodebox}
 
-Her er å merke seg at to linjer er forskyvd mot høyre, de er indenterte. Det som er indentert blir utført dersom alder < 20. Siste linja er det ikke indentert. Det blir printet uansett alder.
+Her er å merke seg at to linjer er forskyvd mot høyre, de er indenterte. Det som er indentert blir utført dersom alder < 20. Siste linja er ikke indentert. Det blir printet uansett alder.
 
-Det er altså via indenteringen du forteller Python logikken i if-setningen din. Editoren du bruker (spyder, emacs, ..) kjenner til indenteringsreglene i python. Det vil derfor typisk foreslå indentering når du trykker ENTER etter kolonet. Når du er ferdig med indenteringen, må du selv avslutte den ved å trykke BACKSPACE eller SHIFT+TAB. 
+Det er altså via indenteringen du forteller Python logikken i \usninlinecode{if}-setningen din. Editoren du bruker (Spyder, Emacs, ..) kjenner til indenteringsreglene i Python. Det vil derfor typisk foreslå indentering når du trykker \usnkeypress{enter} etter kolonnen. Når du er ferdig med indenteringen, må du selv avslutte den ved å trykke \usnkeypress{backspace} eller \usnkeypress{shift-tab}. 
 
 Prøv å skrive inn manuelt (ikke copy/paste), se om Spyder oppfører seg slik den skal. 
 
-(NB: hvis du av en eller annen grunn ikke har .py som endelse på filen, vil editoren ikke nødvendigvis vite at du skriver i python, og da heller ikke hjelpe deg med indenteringen.) 
+\begin{usncomment}
+Hvis du av en eller annen grunn ikke har \usnfilename{.py} som endelse på filen, vil editoren ikke nødvendigvis vite at du skriver i Python, og heller ikke hjelpe deg med indenteringen.
+\end{usncomment}
 
-\paragraph{Mer komplisert if-setning}
-En if-setning kan også inneholde else, som betyr otherwise/hvis ikke. Dette utføres dersom if-betingelsen ikke er tilfredsstilt. 
-
+\subsection{Mer komplisert if-setning}
+En \usninlinecode{if}-setning kan også inneholde else, som betyr {\em otherwise/hvis ikke}. Dette utføres dersom if-betingelsen ikke er tilfredsstilt:
 \begin{usncodebox}
 if alder < 20: 
    print("Tenåring")
@@ -725,8 +726,7 @@ else:
    # gjerne flere linjer
 \end{usncodebox}
 
-Du kan også teste flere alderskategorier (elif, som forstås som else if) 
-
+Du kan også teste flere alderskategorier ved hjelp av \usninlinecode{elif}, som forstås som else if:
 \begin{usncodebox}
 if alder < 20: 
    print("Tenåring")
@@ -738,23 +738,23 @@ else:
    print("Ung igjen")  # 40 eller mer 
 \end{usncodebox}
 
-Merk logikken. Vær sikker på at du forstår hvorfor alderen må være mellom 30 og 40 på tredje siste linje. (Poenget er at hvis vi allerede har kommet til elif alder < 40, vil vi allerede ha feilet på alder < 30, dvs. alderen er 30 eller mer.) 
+Merk logikken. Vær sikker på at du forstår hvorfor alderen må være mellom 30 og 40 på tredje siste linje. (Poenget er at hvis vi allerede har kommet til \usninlinecode{elif alder < 40}, vil vi allerede ha feilet på \usninlinecode{elif alder < 30}, dvs. alderen er 30 eller mer.) 
 
 Mer generelt ser konstruksjonen slik ut
 
 \begin{usncodebox}
-if <BETINGELSE1>: 
-   <handling1>
-elif <BETINGELSE2>: 
-   <handling2>
+if <betingelse>: 
+   <handling>
+elif <betingelse>: 
+   <handling>
 <evt. flere elif-bokkker>
 else: 
-   <handling_resten>
+   <handling>
 \end{usncodebox}
 
-Handling kan gå over flere linjer. 
+En handling kan gå over flere linjer. 
 
-Verdien til BETINGELSE er True eller False. (NB: stor førstebokstav, resten små. Verdien er ikke true eller TRUE, men True.) Dette er en ny datatype: logisk (boolsk, boolean). En boolsk variabel (eller uttrykk) har altså kun to mulige verdier: True eller False. 
+Verdien til {\em betingelse} er \usninlinecode{True} eller \usninlinecode{False}. (Stor førstebokstav, resten små. Verdien er ikke true eller TRUE, men True.) Dette er en ny datatype: logisk (boolsk, boolean). En boolsk variabel (eller uttrykk) har altså kun to mulige verdier: \usninlinecode{True} eller \usninlinecode{False}. 
 
 Ofte blir den produsert via følgende sammenligningsoperatorer:
 \begin{tabbing}
@@ -818,27 +818,98 @@ Betingelser og logiske operatorer blir utført i en viss rekkefølge. Dersom du 
 
 \subsection{Oppgaver}
 
-
+\begin{exercise}
+Lag et program som leser inn tre tall, gjør de om til float, så sjekker hvilket av de tre som er størst og skriver til skjerm om det var det første, andre eller tredje som ble skrevet inn.
+\end{exercise}
 \begin{solution}
 \begin{lstlisting}
+tall1 = int(input('Tast inn tall 1: '))
+tall2 = int(input('Tast inn tall 2: '))
+tall3 = int(input('Tast inn tall 3: '))
+
+if tall1 > tall2 and tall1 > tall3:
+    print('tall1 er størst')
+elif tall2 > tall1 and tsall2 > tall3:
+    print('tall2 er størst')
+elif tall3 > tall1 and tall3 > tall2:
+    print('tall3 er størst')
+else:
+    print('ingen av tallene er større enn begge de andre')
 \end{lstlisting}
 \end{solution}
 
 \begin{exercise}
-Lag et program som leser inn tre tall, gjør de om til float, så sjekker hvilket av de tre som er størst og skriver til skjerm om det var det første, andre eller tredje som ble skrevet inn.
-\end{exercise}
-
-\begin{exercise}
 Lag et program som finner et tilfeldig tall mellom 1 og 10 (grenser inkludert), og så ber deg gjette tallet. Programmet sier til slutt ifrå om du gjettet for høyt, for lavt eller riktig.
 \end{exercise}
+\begin{solution}
+\begin{lstlisting}
+import random
+
+tilfeldigTall = random.randint(1, 10)
+gjetning = int(input('Prøv å gjett tallet: '))
+if gjetning > tilfeldigTall:
+    print('Du gjettet for høyt')
+elif gjetning < tilfeldigTall:
+    print('Du gjettet for lavt')
+else:
+    print('Du gjettet riktig')
+\end{lstlisting}
+\end{solution}
 
 \begin{exercise}
 Lag et program som simulerer tre terningkast og skriver ut hvor mange like det ble (3 like, 2 like eller ingen like).
 \end{exercise}
+\begin{solution}
+\begin{lstlisting}
+import random
+
+terning1 = random.randint(1, 6)
+terning2 = random.randint(1, 6)
+terning3 = random.randint(1, 6)
+
+print(terning1, terning2, terning3)
+
+if terning1 == terning2 and terning1 == terning3:
+    print('3 like')
+elif terning1 == terning2 or terning2 == terning3 or terning1 == terning3:
+    print('2 like')
+else:
+    print('ingen like')
+\end{lstlisting}
+\end{solution}
 
 \begin{exercise}
 Lag et program plukker to tall, x og y, mellom (f.eks.) 10 og 100. Brukeren blir så spurt om å svare på følgende regnestykker, x+y, x-y, x*y (etc?) For hvert regnestykke kontrollerer programmet svaret og skriver en kommentar. 
 \end{exercise}
+\begin{solution}
+\begin{lstlisting}
+import random
+
+x = random.randint(10, 100)
+y = random.randint(10, 100)
+
+print('Hva er', x, '+', y, '?')
+svarSum = int(input('Ditt svar: '))
+if svarSum == x+y:
+    print('Riktig')
+else:
+    print('Feil. Svaret var:', x+y)
+
+print('Hva er', x, '-', y, '?')
+svarSum = int(input('Ditt svar: '))
+if svarSum == x-y:
+    print('Riktig')
+else:
+    print('Feil. Svaret var:', x-y)
+
+print('Hva er', x, '*', y, '?')
+svarSum = int(input('Ditt svar: '))
+if svarSum == x*y:
+    print('Riktig')
+else:
+    print('Feil. Svaret var:', x*y)
+\end{lstlisting}
+\end{solution}
 
 \section{Ny datatype: List}
 
@@ -846,18 +917,17 @@ Lag et program plukker to tall, x og y, mellom (f.eks.) 10 og 100. Brukeren blir
 Nye funksjoner: \usninlinecode{len, help, range}
 \end{usnintro}
 
-Datatyper så langt: int, float, str, bool
-
 Datatypen list er en liste (sekvens) med elementer. Elementene kan være tall, tekst, andre lister eller andre ting.
 
 Prøv i IPython-konsollen:
-
 \begin{usncodebox}
 liste1 = [1,3,5,2,33,0,2]  # deklarerer og fyller en liste med tall
 type(liste1)
 \end{usncodebox}
 
-(Du trenger å bruke hakeparentesene. Med engelsk tastatur (som ofte er det enkleste for programmering), er de lette å nå. Med norsk tastatur er det via alt gr. (Mac: alt))
+\begin{usncomment}
+Du trenger å bruke hakeparentesene. Med engelsk tastatur (som ofte er det enkleste for programmering), er de lette å nå. Med norsk tastatur er det via \usnkeypress{alt gr}. (Mac: \usnkeypress{alt})
+\end{usncomment}
 
 \begin{usncodebox}
 en_liste = []        # tom liste
@@ -879,8 +949,8 @@ help(print)
 help(list)
 \end{usncodebox}
 
-(Når du putter inn en variabel, får du info om den typen det er. 
-\usninlinecode{help(biler)} vil vise så å si det samme som help(list).) Beskrivelsen i help kan være ganske teknisk. Det er ikke alltid så lett å finne frem til det man leter etter. Ofte er et søk på nettet raskeste vei, men \usninlinecode{help()} kan også være til god hjelp. 
+Når du putter inn en variabel, får du info om den typen det er. 
+\usninlinecode{help(biler)} vil vise så å si det samme som help(list). Beskrivelsen i help kan være ganske teknisk. Det er ikke alltid så lett å finne frem til det man leter etter. Ofte er et søk på nettet raskeste vei, men \usninlinecode{help()} kan også være til god hjelp. 
 
 Tilbake til lister.
 
@@ -903,21 +973,18 @@ Hvilke funksjoner (metoder) eksisterer for en liste? Skriv biler. og trykk \usnk
 La oss se på noen av dem. 
 
 Legge element bakerst i listen / Legge til elementer:
-
 \begin{usncodebox}
 biler.append("Tesla")
 print(biler)
 \end{usncodebox}
 
-Legge Mercedes inn som bil nr. 3 og skyve Audi og Tesla til bil 4 og 5 biler.
-
+Legge Mercedes inn som bil nr. 3 og skyve Audi og Tesla til bil 4 og 5 biler:
 \begin{usncodebox}
-insert(2,'Mercedes')
+biler.insert(2, 'Mercedes')
 print(biler)
 \end{usncodebox}
 
-Kan erstatte elementer
-
+Erstatte elementer:
 \begin{usncodebox}
 biler[1] = "Golf"
 print(biler)
@@ -931,14 +998,13 @@ biler = biler + ['Honda','Renault']
 biler = ['BMW','Volvo'] + biler
 \end{usncodebox}
 
-Du kan aksessere (velge) en del (en slice) av listen ved å spesifisere to indekser. Prøv: 
+Du kan aksessere (velge) en del (en slice) av listen ved å spesifisere to indekser. Prøv:
 
 \begin{usncodebox}
-print(biler)
-biler[2:5]
+print(biler[2:5])
 \end{usncodebox}
 
-De to indeksene er det første elementet du vil ha med, og til det siste elementet du vil ha med PLUSS 1. biler[2:5] viser element 2, 3 og 4, som er bil 3, 4 og 5. Det kan være forvirrende. 
+De to indeksene er det første elementet du vil ha med, og til det siste elementet du vil ha med PLUSS 1. biler[2:5] viser element 2, 3 og 4, som er bil 3, 4 og 5. Det kan være forvirrende.
 
 \begin{usncodebox}
 biler2 = biler[2:5] 
@@ -947,14 +1013,12 @@ print(biler)          # NB: biler endres ikke
 \end{usncodebox}
 
 Prøv også:
-
 \begin{usncodebox}
 biler[1:1]   # tomt
 biler[1:2]   # element 1
 \end{usncodebox}
 
-Du kan også droppe første eller andre indeks.
-
+Du kan også droppe første eller andre indeks:
 \begin{usncodebox}
 biler[:5]     # viser de 5 første bilene
 biler[2:]     # viser fra bil nummer 3 og til enden av listen
@@ -981,7 +1045,7 @@ biler.pop()           # fjerner siste element fra listen
 print(biler)
 \end{usncodebox}
 
-Du kan også "plukke opp" det som fjernes:
+Du kan også ``plukke opp'' det som fjernes:
 \begin{usncodebox}
 bil1 = biler.pop()
 print(bil1)
@@ -1003,16 +1067,16 @@ F.eks.:
 if 'Fiat' in biler:
    print('Ja, har Fiat.')
 
-\subsection{RANGE()}
+\subsection{range()}
 
-En litt spesiell måte å lage en liste på er via range-funksjonen
+En litt spesiell måte å lage en liste på er via \usninlinecode{range}-funksjonen
 \begin{usncodebox}
 range(5)        # lager listen [0,1,2,3,4]  
 range(2,6)      # lager listen [2,3,4,5]
 range(2,13,3)   # lager listen [2,5,8,11]
 \end{usncodebox}
 
-Forklaring: 
+\paragraph{Forklaring*} 
 Når bare ett argument er gitt, gir det maks-grensen på listen, mens start er 0. Merk at maks-grensen selv er ikke med i listen.
 
 Når to argumenter er gitt, er det startverdi og maks-grensen. Igjen: maks-grensen er ikke med i listen. 
@@ -1024,27 +1088,64 @@ Sjekk også \usninlinecode{help(range)}
 
 range() fungerer bare med heltall (int). (Senere skal vi introdusere arange(), som også fungerer med desimaltall (float).) 
 
-Detalj 1: Merk at range(2,12,3), range(2,13,3), range(2,14,3) gir samme liste.
+\subsubsection{Detalj 1}
+Merk at følgende kodelinjer gir samme liste.
 \begin{usncodebox}
 list(range(2,12,3))
 list(range(2,13,3))
 list(range(2,14,3))
 \end{usncodebox}
 
-Detalj 2: Det er ikke helt sant at range er en liste. Det ser du dersom du skriver f.eks. range(5) eller print(range(5)). Hvis det var en liste, ville [0,1,2,3,4] blitt printet. Men for de fleste hensyn oppfører det seg som en liste. Du kan lage den tilsvarende listen slik:
+\subsubsection{Detalj 2}
+Det er ikke helt sant at range er en liste. Det ser du dersom du skriver f.eks. range(5) eller print(range(5)). Hvis det var en liste, ville [0,1,2,3,4] blitt printet. Men for de fleste hensyn oppfører det seg som en liste. Du kan lage den tilsvarende listen slik:
 \begin{usncodebox}
 list(range(5))
 \end{usncodebox}
 
-Vi bruker ofte range-funksjonen i for-løkker (nedenfor). 
+Vi bruker ofte range-funksjonen i for-løkker som vi skal se på i neste avsnitt. 
+
+\subsection{Oppgaver}
 
 \begin{exercise}
 Lag et program som leser inn tre navn og legger de i en liste, sorterer listen alfabetisk og skriver den sortert ut til skjerm, navn for navn. 
 \end{exercise}
+\begin{solution}
+\begin{lstlisting}
+navnListe = []
+
+navnListe.append(input("Skriv inn navn 1: "))
+navnListe.append(input("Skriv inn navn 2: "))
+navnListe.append(input("Skriv inn navn 3: "))
+
+navnListe.sort()
+
+print(navnListe[0])
+print(navnListe[1])
+print(navnListe[2])
+\end{lstlisting}
+\end{solution}
 
 \begin{exercise}
 Som ovenfor, men nå skal det sorteres motsatt vei. 
 \end{exercise}
+\begin{solution}
+\begin{lstlisting}
+navnListe = []
+
+navnListe.append(input("Skriv inn navn 1: "))
+navnListe.append(input("Skriv inn navn 2: "))
+navnListe.append(input("Skriv inn navn 3: "))
+
+navnListe.sort()
+navnListe.reverse()
+# Eller
+#navnListe.sort(reverse = True)
+
+print(navnListe[0])
+print(navnListe[1])
+print(navnListe[2])
+\end{lstlisting}
+\end{solution}
 
 \begin{exercise}
 Lag ved hjelp av range() følgende lister:
@@ -1055,14 +1156,55 @@ Lag ved hjelp av range() følgende lister:
 \item {[5,8,11,14,17]}
 \end{itemize}
 \end{exercise}
+\begin{solution}
+\begin{lstlisting}
+liste1 = range(0, 10)
+liste2 = range(0, 8, 2)
+liste3 = range(2, 8, 2)
+liste4 = range(5, 20, 3)
+\end{lstlisting}
+\end{solution}
 
 \begin{exercise}
 Fjern element med indeks 3 fra listen lst1 = [0,1,2,3,4,5]. Fjern så elementet med verdi 2. Stikk så inn i listen et element 5 slik at det får indeks 2. Still så inn i listen et element 'fire' slik at det får indeks 2. Finn så hvilken indeks elementet 5 har. (NB: du har to like elementer i listen. Forstå hva funksjonen returnerer.) Fjern så elementet 5 fra listen. (Igjen, du har to elementer med verdi 5. Se hvilken som fjernes.)
 \end{exercise}
+\begin{solution}
+\begin{lstlisting}
+lst1 = list(range(6))
+print(lst1)
+lst1.pop(3)
+print(lst1)
+lst1.remove(2)
+print(lst1)
+lst1.insert(2, 5)
+print(lst1)
+lst1.insert(2, 'fire')
+print(lst1)
+print(lst1.index(5))
+lst1.remove(5)
+print(lst1)
+\end{lstlisting}
+\end{solution}
 
 \begin{exercise}
 Du har lst2 = [11,22,33,44,55,66,77]. Lag en ny liste som inneholder de tre midterste elementene. (Det kan gjøres på mange måter. Hva er den raskeste?)
 \end{exercise}
+\begin{solution}
+\begin{lstlisting}
+lst2 = [11,22,33,44,55,66,77]
+# Raskest
+lst3 = lst2[2:5]
+# Alternativt
+lst3 = [lst2[2], lst2[3], lst2[4]]
+# Alternativt
+lst3 = lst2
+lst3.pop(0)
+lst3.pop(0)
+lst3.pop(-1)
+lst3.pop(-1)
+print(lst3)
+\end{lstlisting}
+\end{solution}
 
 \section{For-løkke (For-loop)}
 
@@ -1075,22 +1217,20 @@ tall = random.randint(1,6)   # velger mellom 1 og 6
 
 Men dette skal du gjøre 100 ganger. Det er ikke spesielt praktisk å skrive opp linjen 100 ganger. Det er her en for-løkke kommer inn. 
 
-La oss først ta en veldig enkel for-løkke:
-
-(Du kan skrive dette i IPython-konsollen.) 
+La oss først ta en veldig enkel \usninlinecode{for}-løkke. (Du kan skrive dette i IPython-konsollen.):
 
 \begin{usncodebox}
 for i in [0,1,2,3]:
     print(i)
 \end{usncodebox}
 
-Når du er trykker ENTER etter kolon på første linje, vil IPython-konsollen selv sørge for å indentere teksten. Skriv så inn print(i) og trykk ENTER, og ENTER igjen på den tomme linjen etterpå. Da utføres for-loopen. (Vanligvis vil vi ha for-looper inne i et program, ikke interaktivt.)
+Når du er trykker \usnkeypress{enter} etter kolon på første linje, vil IPython-konsollen selv sørge for å indentere teksten. Skriv så inn print(i) og trykk \usnkeypress{enter}, og \usnkeypress{enter} igjen på den tomme linjen etterpå. Da utføres \usninlinecode{for}-løkka.
 
-Hvordan virker en for-løkke? Iterasjonsvariabelen i går gjennom listen [0,1,2,3]. Første gangen er i lik 0, neste gang er i lik 1 etc. For hver i-verdi blir det som er indentert utført (her kun print(i)). Det skjer altså 4 ganger her. 
+Hvordan virker en \usninlinecode{for}-løkke? Iterasjonsvariabelen \usnvarname{i} går gjennom listen \usnvarvalue{[0,1,2,3]}. Første gangen er \usnvarname{i} lik \usnvarvalue{0}, neste gang er \usnvarname{i} lik \usnvarvalue{1} etc. For hver \usnvarname{i}-verdi blir det som er indentert utført (her kun \usninlinecode{print(i)}). Det skjer altså 4 ganger her.
 
 Vi kunne også skrevet listen v.h.a. range(), som altså er nesten det samme som en liste.
 \begin{usncodebox}
-for i in range(4): 
+for i in range(4):
     print(i)
 \end{usncodebox}
 
@@ -1098,7 +1238,7 @@ Det er praktisk dersom du f.eks. skal gjøre det hundre ganger. Da slipper du å
 
 Nå er vi i stand til å utføre den lille terningtesten. 
 
-Åpne en ny fil, dvs klikk på ikonet oppe til venstre. (Eller velg File / Open.) Skriv inn følgende (etter de første 6-7 linjene som automatisk kommer opp): 
+Åpne en ny fil, dvs klikk på ikonet oppe til venstre. (Eller velg \usnmenulabel{File}\usnsubmenusep\usnmenulabel{Open}.) Skriv inn følgende (etter de første 6-7 linjene som automatisk kommer opp): 
 
 \begin{usncodebox}
 import random
@@ -1119,7 +1259,7 @@ for kast in range(100):
 print("Det ble totalt", n6, "seksere og", n5, "femmere.")
 \end{usncodebox}
 
-Linjer som starter med \# er kommentarlinjer. Python bryr seg ikke om disse. 
+Linjer som starter med \# er kommentarlinjer. Python bryr seg ikke om disse.
 
 Trykk på grønn pil for å kjøre programmet. Du får nå beskjed om å lagre filen. Bruk helst samme katalog som sist. Velg et passende navn, f.eks. \usnfilename{tut\_for\_terning1.py}
 
@@ -1130,15 +1270,73 @@ Med for-loop på reportoaret, er det plutselig mange flere ting vi kan gjøre.
 \begin{exercise}
 Hva om du brukte range(1,101) i for-linja. Hva ville endret seg? (Noen ganger bruker du tellevariabelen (iterasjonsvariabelen) inne i løkka, andre ganger er den ikke i bruk til annet enn å telle f.eks. 100 ganger.)
 \end{exercise}
+\begin{solution}
+Da inneholder kast alle tallene fra 1 til 100 (istedenfor 0 til 99). Da hadde vi sluppet å skrive \usninlinecode{kast+1} i \usninlinecode{print()}-linja.
+\end{solution}
 
 \begin{exercise}
-Tell også opp antall ganger terningen ga 1, 2, 3 og 4, og skriv ut.
-Forsikre deg også om at det hele summerer til 100, skriv evt. ut feilmelding.
+Tell også opp antall ganger terningen ga 1, 2, 3 og 4, og skriv ut. Forsikre deg også om at det hele summerer til 100, skriv evt. ut feilmelding.
 \end{exercise}
+\begin{solution}
+\begin{usncodebox}
+from random import randint
+
+n1 = 0
+n2 = 0
+n3 = 0
+n4 = 0
+n5 = 0
+n6 = 0
+
+for kast in range(1, 101):
+    tall = randint(1, 6)
+    print("Kast nr", kast, "ble", tall)
+    if tall == 6:
+        n6 = n6 + 1
+    elif tall == 5:
+        n5 = n5 + 1
+    elif tall == 4:
+        n4 = n4 + 1
+    elif tall == 3:
+        n3 = n3 + 1
+    elif tall == 2:
+        n2 = n2 + 1
+    else:
+        n1 = n1 + 1
+
+if n1+n2+n3+n4+n5+n6 != 100:
+    print("Summen ble ikke 100. Da er det noe som gikk galt.")
+else:
+    print("Det ble totalt", n6, "seksere og", n5, "femmere og", n4, "firere og"
+      , n3, "treere og", n2, "toere og", n1, "enere")
+\end{usncodebox}
+\end{solution}
 
 \begin{exercise}
 Som ovenfor, men i stedet for å bruke variablene n1, n2, ..., n6, bruk heller en liste antall som er initialisert slik: antall = [0,0,0,0,0,0]. NB: antall[0] vil da typisk innholde antall 1'ere. NB: Kan du nå forenkle testingen? Bruke bare én test-linje i stedet for seks? 
 \end{exercise}
+\begin{solution}
+\begin{usncodebox}
+import random
+
+antall = [0,0,0,0,0,0]
+
+for kast in range(1, 101):
+    tall = randint(1, 6);
+    antall[tall-1] = antall[tall-1] + 1
+
+teller = 0
+for tall in range(0, 6):
+    teller = teller + antall[tall]
+
+if teller != 100:
+    print("Summen ble ikke 100. Da er det noe som gikk galt.")
+else:
+    print("Det ble totalt:")
+    for tall in range(0, 6):
+        print(antall[tall], tall+1, "-ere")
+\end{usncodebox}
+\end{solution}
 
 \section{While-løkker (While-loop)}
 
@@ -1168,11 +1366,43 @@ While-løkke oppfører seg veldig likt en for-løkke. Det som er indentert etter
 Lag et gangetabelltestingsprogram som først tar følgende input fra brukeren:
 \begin{itemize}
 \item Antall oppgaver som må klares (f.eks. 10)
+\item Hvor mange poeng man får av å svare riktig (f.eks. 1)
 \item Hvor mange minuspoeng man får av å svare feil (f.eks. 1)
 \item Det laveste og høyeste tallet i gangetabellen som man blir spurt fra, f.eks. 5 og 12.
 \end{itemize}
-Da er det høyeste gangestykket 12x12, det laveste 5x5, og alt imellom er tillatt. (Så f.eks. 5x6, 5x12, 11x5, 12x5 er tillatt, men ikke f.eks. 3x11.) Deretter, i en passende loop, vil to tilfeldige tall (a og b) bli trukket. Du vil så bli spurt om produktet (a ganger b). Svarer du rett, får du poeng, svarer du feil mister du poeng. Når du har svart korrekt det bestemte antall ganger, går programmet ut av loopen. Programmet skriver så ut hvor mange forsøk du trengte. (La programmet gi en optimistisk kommentar til brukeren.) 
+Da er det høyeste gangestykket 12x12, det laveste 5x5, og alt imellom er tillatt. (Så f.eks. 5x6, 5x12, 11x5, 12x5 er tillatt, men ikke f.eks. 3x11.) Deretter, i en passende loop, vil to tilfeldige tall (a og b) bli trukket. Du vil så bli spurt om produktet (a ganger b). Svarer du rett, får du poeng, svarer du feil mister du poeng. Når du har svart korrekt det bestemte antall ganger, går programmet ut av loopen. Programmet skriver så ut hvor mange forsøk du trengte og poengsummen din. (La programmet gi en positiv kommentar til brukeren hvis de får en god poengsum.) 
 \end{exercise}
+\begin{solution}
+\begin{usncodebox}
+from random import randint
+
+antallMaaKlare = int(input("Antall oppgaver som må løses: "))
+plussPoeng = int(input("Antall poeng for riktig svar: "))
+minusPoeng = int(input("Antall minuspoeng for feil svar: "))
+nedreGrense = int(input("Det laveste tallet i gangetabellen man blir spurt fra: "))
+oevreGrense = int(input("Det høyeste tallet i gangetabellen man blir spurt fra: "))
+antallForsoek = 0
+antallRiktigSvar = 0
+antallPoeng = 0
+
+while antallRiktigSvar < antallMaaKlare:
+    tall1 = randint(nedreGrense, oevreGrense)
+    tall2 = randint(nedreGrense, oevreGrense)
+    print("Hva er", tall1, "x", tall2,"?")
+    svar = int(input("Ditt svar:"))
+    if svar == tall1 * tall2:
+        antallRiktigSvar = antallRiktigSvar + 1
+        antallPoeng = antallPoeng + plussPoeng
+    else:
+        antallPoeng = antallPoeng - minusPoeng
+    antallForsoek = antallForsoek + 1
+    
+if antallForsoek == antallMaaKlare:
+    print("Du klarte alle!")
+else:
+    print("Du brukte", antallForsoek, "forsøk")
+\end{usncodebox}
+\end{solution}
 
 \begin{exercise}
 For å gjøre det litt gøyere, kan du også legge til tidtaking. 
@@ -1180,30 +1410,113 @@ Da må du importere pakken time.
 Funksjonen time.time() gir deg antall sekunder (med desimaler) siden 1.1.1970.
 Det kan vi bruke til å finne ut hvor lang tid noe tar.
 
-Ved starten av programmet må du ha \usninlinecode{import time} Ved starten av løkka skriver du: \usninlinecode{t_start = time.time()}. Ved slutten av løkka skriver du:
+Ved starten av programmet må du ha \usninlinecode{import time} Ved starten av løkka skriver du: \usninlinecode{t\_start = time.time()}. Ved slutten av løkka skriver du:
 \end{exercise}
 \begin{usncodebox}
 t_slutt = time.time()
 t_tid = t_slutt - t_start
 print("Du brukte", t_tid, "sekunder")
 \end{usncodebox}
+\begin{solution}
+\begin{usncodebox}
+from random import randint
+import time
+
+antallMaaKlare = int(input("Antall oppgaver som må løses: "))
+plussPoeng = int(input("Antall poeng for riktig svar: "))
+minusPoeng = int(input("Antall minuspoeng for feil svar: "))
+nedreGrense = int(input("Det laveste tallet i gangetabellen man blir spurt fra: "))
+oevreGrense = int(input("Det høyeste tallet i gangetabellen man blir spurt fra: "))
+antallForsoek = 0
+antallRiktigSvar = 0
+antallPoeng = 0
+
+t_start = time.time()
+while antallRiktigSvar < antallMaaKlare:
+    tall1 = randint(nedreGrense, oevreGrense)
+    tall2 = randint(nedreGrense, oevreGrense)
+    print("Hva er", tall1, "x", tall2,"?")
+    svar = int(input("Ditt svar:"))
+    if svar == tall1 * tall2:
+        print("Riktig!")
+        antallRiktigSvar = antallRiktigSvar + 1
+        antallPoeng = antallPoeng + plussPoeng
+    else:
+        print("Feil :(")
+        antallPoeng = antallPoeng - minusPoeng
+    antallForsoek = antallForsoek + 1
+t_slutt = time.time()
+t_tid = t_slutt - t_start
+
+print("Du brukte", t_tid, "sekunder")
+if antallForsoek == antallMaaKlare:
+    print("Du klarte alle!")
+else:
+    print("Du brukte", antallForsoek, "forsøk")
+print("Du fikk", antallPoeng, "poeng")
+\end{usncodebox}
+\end{solution}
 
 \begin{exercise}
 Mulige utvidelser:
 a) Legge til mulighet for addisjon, subtraksjon og/eller divisjon. 
 b) Legge til tidskrav per spørsmål.
-Rett svar på spørsmålet blir ikke godkjent hvis for lang tid er brukt. 
+Rett svar på spørsmålet blir ikke godkjent hvis for lang tid er brukt.
 \end{exercise}
+\begin{solution}
+\begin{usncodebox}
+from random import randint
+import time
+
+antallMaaKlare = int(input("Antall oppgaver som må løses: "))
+plussPoeng = int(input("Antall poeng for riktig svar: "))
+minusPoeng = int(input("Antall minuspoeng for feil svar: "))
+nedreGrense = int(input("Det laveste tallet man blir spurt om: "))
+oevreGrense = int(input("Det høyeste tallet man blir spurt om: "))
+antallForsoek = 0
+antallRiktigSvar = 0
+antallPoeng = 0
+operatorer = ['+', '-', '*', '/']
+
+while antallRiktigSvar < antallMaaKlare:
+    tall1 = randint(nedreGrense, oevreGrense)
+    tall2 = randint(nedreGrense, oevreGrense)
+    operator = operatorer[randint(0, 3)]
+    print("Hva er", tall1, operator, tall2,"?")
+    t_start = time.time()
+    svar = round(float(input("Ditt svar:")), 1)
+    t_slutt = time.time()
+    t_tid = t_slutt - t_start
+    if operator == '+' and svar == tall1 + tall2 \
+        or operator == '-' and svar == tall1 - tall2 \
+        or operator == '*' and svar == tall1 * tall2 \
+        or operator == '/' and svar == tall1 / tall2:
+        if t_tid <= 5:
+            print("Riktig!")
+            antallRiktigSvar = antallRiktigSvar + 1
+            antallPoeng = antallPoeng + plussPoeng
+        else:
+            print("Du svarte riktig, men brukte for lang tid :(")
+            antallPoeng = antallPoeng - minusPoeng
+    else:
+        print("Feil :(")
+        antallPoeng = antallPoeng - minusPoeng
+    antallForsoek = antallForsoek + 1
+
+if antallForsoek == antallMaaKlare:
+    print("Du klarte alle!")
+else:
+    print("Du brukte", antallForsoek, "forsøk")
+print("Du fikk", antallPoeng, "poeng")
+\end{usncodebox}
+\end{solution}
 
 \begin{exercise}
 Sjekke (omtrentlig) om time.time() faktisk angir antall sekunder fra. 1.1.1970. 
 \end{exercise}
 
 \begin{exercise}
-La python tenke på et tilfeldig heltall mellom 1 og 100 (grenser inkludert). 
-Lag så en løkke der du via input() gjetter på tallet til du har klart det. 
-For hver gang du gjetter skal programmet si ifra om du gjetter for høyt eller for lavt.
-Når du gjetter riktig, avsluttes programmet og det skrives ut hvor mange forsøk du brukte. 
+La Python tenke på et tilfeldig heltall mellom 1 og 100 (grenser inkludert). Lag så en løkke der du via input() gjetter på tallet til du har klart det. For hver gang du gjetter skal programmet si ifra om du gjetter for høyt eller for lavt. Når du gjetter riktig, avsluttes programmet og det skrives ut hvor mange forsøk du brukte. 
 
 Mulige utvidelser
 \begin{enumerate}
@@ -1211,43 +1524,79 @@ Mulige utvidelser
 \item La brukeren få mulighet til å avslutte gjettingen med f.eks. å skrive inn 'quit'.
 \end{enumerate}
 \end{exercise}
+\begin{solution}
+\begin{usncodebox}
+from random import randint
+
+etTall = randint(1, 100)
+gjetning = 0
+antallForsoek = 0
+brukerInput = ""
+print("Python tenker på et tall mellom 1 til 100. Prøv å finne ut hvilket tall den tenker på.")
+while gjetning != etTall and brukerInput != "quit":
+    antallForsoek = antallForsoek + 1
+    print("Forsøk", antallForsoek)
+    brukerInput = input("Hva gjetter du ('quit' for å gi opp)? ")
+    if brukerInput != "quit":
+        gjetning = int(brukerInput)
+        if gjetning < etTall:
+            print("Det var for lavt")
+        elif gjetning > etTall:
+            print("Det var for høyt")
+if brukerInput != "quit":
+    print("Gratulerer! Du gjettet tallet på", antallForsoek, "forsøk")
+else:
+    print("Du ga opp :(")
+\end{usncodebox}
+\end{solution}
 
 \begin{exercise}
 Som ovenfor, men la nå programmet gjette på tallet du tenker på.
-Start med å oppgi med input() grensene, samt det spesifikke tallet du tenker på.
-Programmet kjenner til grensene, men ikke tallet.
-Før du leser videre: prøv å tenk ut hvordan du skal programmere dette.
-Hvordan tenker du selv når det er du som gjetter?
-Kan du overføre den metoden til programmet?
+Start med å oppgi med input() grensene, samt det spesifikke tallet du tenker på. Programmet kjenner til grensene, men ikke tallet. Før du leser videre: prøv å tenk ut hvordan du skal programmere dette. Hvordan tenker du selv når det er du som gjetter? Kan du overføre den metoden til programmet?
 
-(Ikke les videre før du har fundert litt på hvordan dette bør løses.) 
-Cluet ligger i at programmet oppdaterer grensene sine når det gjetter for høyt
-eller for lavt. 
-Set opp en while-løkke der følgende foregår: 
+(Ikke les videre før du har fundert litt på hvordan dette bør løses.) Cluet ligger i at programmet oppdaterer grensene sine når det gjetter for høyt eller for lavt. Sett opp en while-løkke der følgende foregår: 
+
 Programmet starter med å gjette midt mellom nedre og øvre grense
 (du må sørge for at det er et heltall, runde opp eller ned).
-Den sjekker så mot det korrekte svaret. 
-Prosedyren er da at hvis den gjettingen er for lav,
-så endres nedre grense til det maskinen akkurat gjettet.
-(Tenk etter om det er logisk.) 
+Den sjekker så mot det korrekte svaret. Prosedyren er da at hvis den gjettingen er for lav, så endres nedre grense til det maskinen akkurat gjettet. (Tenk etter om det er logisk.) 
 Er gjettingen for høy, er det øvre grense som endres til det maskinen akkurat gjettet.
 På denne måten blir området stadig snevret inn.
 
-Neste gjetting foregår da i starten av while-løkka, den ene grensa er ny. 
-Når maskinen gjetter riktig tall, avsluttes while-løkka.
-Det skrives da ut hvor mange forsøk den brukte. 
+Neste gjetting foregår da i starten av while-løkka, den ene grensa er ny. Når maskinen gjetter riktig tall, avsluttes while-løkka. Det skrives da ut hvor mange forsøk den brukte. 
 
-Utvidelse a): La programmet heller gjette et tilfeldig tall mellom den til enhver tid
-øvre og nedre grense i stedet for å gå mot midten av intervallet.
-Programmet er da typisk mindre effektivt, men muligens mer robust mot.
+Utvidelse a): La programmet heller gjette et tilfeldig tall mellom den til enhver tid øvre og nedre grense i stedet for å gå mot midten av intervallet. Programmet er da typisk mindre effektivt, men muligens mer robust mot.
 
-Utvidelse b): Hva skjer hvis du angir grensene 1 og 10, og så velger tallet 15?
-(NB: Du kan avbryte en evig loop ved å trykke CTRL+c i IPython-konsollen.) 
-Kan du sikre deg mot dette i koden? Prøv. 
+Utvidelse b): Hva skjer hvis du angir grensene 1 og 10, og så velger tallet 15? (NB: Du kan avbryte en evig loop ved å trykke CTRL+c i IPython-konsollen.) Kan du sikre deg mot dette i koden? Prøv. 
 \end{exercise}
+\begin{solution}
+\begin{usncodebox}
+from random import randint
+
+antallForsoek = 0
+brukerInput = ""
+nedreGrense = 0
+oevreGrense = 100
+print("Tenk på et tall fra 1 til 100 så skal Python prøve å gjette tallet.")
+while brukerInput != "r" and brukerInput != "quit" and oevreGrense != nedreGrense:
+    antallForsoek = antallForsoek + 1
+    gjetning = (oevreGrense + nedreGrense) // 2
+    print("Python gjetter", gjetning)
+    brukerInput = input("Var det for høyt, lavt, riktig eller skal du avslutte (h, l, r, quit)? ")
+    if brukerInput == "h":
+        oevreGrense = gjetning - 1
+    elif brukerInput == "l":
+        nedreGrense = gjetning + 1
+if brukerInput == "r":
+    print("Python klarte det på", antallForsoek, "forsøk")
+elif oevreGrense == nedreGrense:
+    print("Tallet var", oevreGrense)
+    print("Python klarte det på", antallForsoek + 1, "forsøk")
+else:
+    print("Python fikk ikke lov til å gjette flere ganger :(")
+\end{usncodebox}
+\end{solution}
 
 \section{Funksjoner}
-
 Noen ganger trenger du å utføre samme identiske bit med kode flere steder i programmet ditt. En løsning er da å skrive den samme biten kode flere ganger. Det er en dårlig løsning. Det kan ta mye plass og gjøre koden din uoversiktlig. Og dersom du skal gjøre endringer i den koden, må du gjøre de samme endringene flere plasser. 
 
 Den gode løsningen er å legge denne delen av koden inn i en funksjon. Så kan du kalle denne funksjonen fra ulike steder i programmet din.
@@ -1274,9 +1623,7 @@ rettlinje(2,1,9)
 \end{usncodebox}
 
 Forstå koden:
-En funksjon starter med def (define/definition). Så kommer navnet. Så kommer en liste med argumenter i parentes. Og til slutt må der stå et kolon. 
-
-Selve funksjonskoden er rykket inn (indentert).
+En funksjon starter med def (define/definition). Så kommer navnet. Så kommer en liste med argumenter i parentes. Og til slutt må det stå et kolon. Selve funksjonskoden er rykket inn (indentert).
 
 Navnet følger samme regler som variabelnavn:
 \begin{itemize}
@@ -1461,7 +1808,7 @@ for i in range(len(sko)):
 print('slutt')
 \end{usncodebox}
 
-Kall det gjerne \usnfilename{tut\_{}debugtest1.py} (File/Save as)
+Kall det gjerne \usnfilename{tut\_debugtest1.py} (\usnmenulabel{File}\usnsubmenusep\usnmenulabel{Save as})
 
 Start debugging ved Debug/Debug eller CTRL+F5 (virker kanskje ikke) eller klikk på symbolet.
 
@@ -1798,7 +2145,7 @@ Hvis filen ikke eksisterer fra før, vil den bli opprettet.
  
 \begin{exercise}
 Lag et program som leser inn et par opplysninger fra tastaturet (navn, yrke etc.), skriver opplysningene til fil, og til slutt leser 
-opplysningene fra filen og skriver de til skjerm. (Bruk gjerne oppg\_{}skrivetilfil.py som filnavn.)
+opplysningene fra filen og skriver de til skjerm. (Bruk gjerne \usnfilename{oppg\_skrivetilfil.py} som filnavn.)
 \end{exercise}
 
 \begin{exercise}
@@ -1882,7 +2229,7 @@ Alternativt kunne vi gått gjennom alle key/verdi-par i mer\_{}om\_{}meg, og lag
 Dictionaries er veldig fleksible, kan brukes til mye. F.eks. har du kanskje en liste med 100 kunder. For hver kunde vil du ha visse opplysninger. Da kunne det vært praktisk å ha en liste der hvert av elementene i listen er en dictionary. (Det kunne også vært relevant å bruke klasser (senere), men det er litt mer komplisert.)
 
 \begin{exercise}
-Lag et program som leser inn informasjon om fire personer fra tastaturet. For hver person skal fornavn, etternavn, alder leses inn og legges i en dictionary. Hver persons dictionary legges så inn i en liste. Til slutt skal det loopes gjennom listen og informasjonen skrives ut. (Bruk gjerne \usnfilename{oppg\_{}dictionary1.py} som filnavn.)
+Lag et program som leser inn informasjon om fire personer fra tastaturet. For hver person skal fornavn, etternavn, alder leses inn og legges i en dictionary. Hver persons dictionary legges så inn i en liste. Til slutt skal det loopes gjennom listen og informasjonen skrives ut. (Bruk gjerne \usnfilename{oppg\_dictionary1.py} som filnavn.)
 \end{exercise} 
 
 \begin{exercise}
