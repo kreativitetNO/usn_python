@@ -1622,7 +1622,7 @@ Prøv:
 rettlinje(2,1,9) 
 \end{usncodebox}
 
-Forstå koden:
+\paragraph*{Forstå koden}
 En funksjon starter med def (define/definition). Så kommer navnet. Så kommer en liste med argumenter i parentes. Og til slutt må det stå et kolon. Selve funksjonskoden er rykket inn (indentert).
 
 Navnet følger samme regler som variabelnavn:
@@ -1636,30 +1636,30 @@ Navnet følger samme regler som variabelnavn:
 Argumenter:
 \begin{itemize}
 \item Har funksjonen ingen argumenter må du likevel ha med parentesene. 
-\item Argumenter kan ha en default-verdi. I vårt eksempel er b lik 0 dersom det tredje argumentet er utelatt fra funksjonskallet, som er tilfellet i y1 = rettlinje(2,1).
-\item Argumenter med default-verdi må stå sist i argumentasjonsrekken. Følgende funksjonsdefinisjon er f.eks. ikke tillatt:  ``def rettlinje(x, a=1, b):''
+\item Argumenter kan ha en default-verdi. I vårt eksempel er b lik 0 dersom det tredje argumentet er utelatt fra funksjonskallet, som er tilfellet i \usninlinecode{y1 = rettlinje(2,1)}.
+\item Argumenter med default-verdi må stå sist i argumentasjonsrekken. Følgende funksjonsdefinisjon er f.eks. ikke tillatt:  \usninlinecode{def rettlinje(x, a=1, b):}
 \item Når vi kaller en funksjon kan vi utelate de argumentene som har en default verdi, mens de som ikke har en defaultverdi må angis. 
-\item Vi kan også ta med argumentsnavnene i funksjonskallet, f.eks. rettlinje(x=2, a=1, b=10) som da betyr det samme som rettlinje(2, 1, 10). Ofte gir det mer oversiktlig kode å gjøre det på denne måten. Men linjen kan også bli veldig lang dersom variabelnavnene er lange. 
+\item Vi kan også ta med argumentsnavnene i funksjonskallet, f.eks. \usninlinecode{rettlinje(x=2, a=1, b=10)} som da betyr det samme som \usninlinecode{rettlinje(2, 1, 10)}. Ofte gir det mer oversiktlig kode å gjøre det på denne måten. Men linjen kan også bli veldig lang dersom variabelnavnene er lange. 
 \end{itemize}
 
 Return: 
-Funksjonen avslutter ved å returnere en verdi (return y), eller ved å returnere ingen verdi (return), eller ved å komme til slutten i den aktuelle indenteringen. Det er altså ikke alltid en funksjon returnerer en verdi, men ofte er det slik. 
+Funksjonen avslutter ved å returnere en verdi (\usninlinecode{return y}), eller ved å returnere ingen verdi (\usninlinecode{return}), eller ved å komme til slutten i den aktuelle indenteringen. Det er altså ikke alltid en funksjon returnerer en verdi, men ofte er det slik. 
 
-Funksjonen må være definert før den blir brukt. Dvs. vi kunne ikke hatt y1 = rettlinje(2,1) før vi faktisk definerte fuksjonen. Da ville vi fått NameError: not defined. Altså: definisjonen må stå tidlig nok i programmet. 
+Funksjonen må være definert før den blir brukt. Dvs. vi kunne ikke hatt \usninlinecode{y1 = rettlinje(2,1)} før vi faktisk definerte fuksjonen. Da ville vi fått \usnoutput{NameError: not defined}. Altså: definisjonen må stå tidlig nok i programmet. 
 
-Hva python-interpreteren gjør når den kjører koden ovenfor:
+Hva Python-interpreteren gjør når den kjører koden ovenfor:
 \begin{itemize}
 \item Interpreteren starter (alltid) øverst i filen.
 \item Det første den møter er en funksjonsdefinisjon. Den laster prosedyren (funksjonen) inn i hukommelsen (og sjekker at syntaks er ok), og merker seg funksjonsnavnet. 
-\item Så kommer den til y1 = rettlinje(2,1).
-\item Den husker da at rettlinje() er en funksjon. Den tar med seg argumentene: her blir x=2 og a=1, og b som er uspesifisert får default verdi som er 0, så blir funksjonen utført (eksekvert). 
-\item Når den kommer til return y, går den tilbake til y1 = rettlinje(2,1) og lar y1 få verdien som ble returnert.
+\item Så kommer den til \usninlinecode{y1 = rettlinje(2,1)}.
+\item Den husker da at \usninlinecode{rettlinje()} er en funksjon. Den tar med seg argumentene: her blir x=2 og a=1, og b som er uspesifisert får default verdi som er 0, så blir funksjonen utført (eksekvert).
+\item Når den kommer til \usninlinecode{return y}, går den tilbake til \usninlinecode{y1 = rettlinje(2,1)} og lar \usnvarname{y1} få verdien som ble returnert.
 \item Så printer den. 
-\item Så er det et nytt kall til rettlinje() (inne i print). Interpreteren tar igjen med seg argumentene, kjører rettlinje-koden, og ved return y gir den resultatet som argument til print() i hovedprogrammet.
+\item Så er det et nytt kall til \usninlinecode{rettlinje()} (inne i print). Interpreteren tar igjen med seg argumentene, kjører rettlinje-koden, og ved \usninlinecode{return y} gir den resultatet som argument til \usninlinecode{print()} i hovedprogrammet.
 \item Når der ikke er mer kode, avslutter interpreteren og gir kontrollen tilbake til det interaktive vinduet. 
 \end{itemize}
 
-Litt mer om return:
+\paragraph*{Litt mer om return}
 
 Se på følgende funksjon: 
 
@@ -1689,10 +1689,9 @@ print("a2:", a2)
 
 Lagre gjerne funksjonen som \usnfilename{tut\_funksjon2.py}
 
-Her er det fire måter funksjonen kan returnere (avsluttes) på. Ved x<0 eller x>5 returnerer den en tekststreng, likt det vi hadde i forrige eksempel. Ved x mellom 3 og 5 blir funksjonen avsluttet med return, men ingenting blir returnert. Det som da blir returnert er spesialverdien None (Ingenting). Ved x mellom 0 og 3 er der ingen return, men funksjonen ender av seg self siden 
-indenteringen ender. Da blir også None returnert.
+Her er det fire måter funksjonen kan returnere (avsluttes) på. Ved x<0 eller x>5 returnerer den en tekststreng, likt det vi hadde i forrige eksempel. Ved x mellom 3 og 5 blir funksjonen avsluttet med return, men ingenting blir returnert. Det som da blir returnert er spesialverdien None (Ingenting). Ved x mellom 0 og 3 er der ingen return, men funksjonen ender av seg self siden indenteringen ender. Da blir også None returnert.
 
-Så der er alltid en verdi som blir returnert fra en funksjon. Men det er ikke alltid vi bryr oss om den. Noen ganger har vi en funksjon som ikke skal returnere noe f.eks. print().
+Så det er alltid en verdi som blir returnert fra en funksjon. Men det er ikke alltid vi bryr oss om den. Noen ganger har vi en funksjon som ikke skal returnere noe f.eks. print().
 
 Jo større et program er, jo viktigere er det å skille ut oppgaver til funksjoner. Også om den aktuelle koden blir kjørt bare én gang. En forutsetning for å plassere en oppgave i en funksjon er at oppgaven avhenger av et begrenset antall variabler og gjør endringer i et begrenset antall variabler. Det er ofte lett å se hva som kan høre hjemme i en funksjon. 
 
@@ -1704,18 +1703,17 @@ Lag Trumps tvitre-funksjon. Den tar ingen argumenter, og la det i funksjonen til
 Lag en funksjon som tar argumentene t, v0 og a (tid, startfart og akselerasjon). La både v0 og a ha default-verdi lik 0 mens t ikke har default-verdi. Funksjonen skal regne ut og returnere  s = v0*t + 0.5*a * t**2 Sett opp en for-loop slik at en tidsvariabel går fra 0, 0.5, 1, ..., 10 (sekunder). For hver t-verdi skal funksjonen kalles med v0=0 og g=9.81, og tid og strekning skal printes ut. (Hvor langt faller man på 10 sekunder?)
 \end{exercise}
 
-\section{Variabler innenfor og utenfor en funksjoner (namespaces, scopes}
+\section{Variabler innenfor og utenfor en funksjoner (scope)}
 
 Der finnes regler for hvor i programmet ulike variabler er synlige. 
 
 En variabel som er definert inne i en funksjon (en variabel som er lokal for funksjonen), er ikke synlig utenfor funksjonen. Variabelen blir borte når funksjonen er ferdig. 
 
-En variabel som er definert utenfor en funksjon, kan ikke nødvendigvis brukes eller endres inne i funksjonen. 
+En variabel som er definert utenfor en funksjon, kan ikke nødvendigvis brukes eller endres inne i funksjonen.
 
 Samme variabelnavn kan brukes flere steder i koden din uten at det nødvendigvis er den samme variabelen.
 
-La oss se på noen situasjoner. Lag et nytt program (File / New file) og skriv inn følgende etter linje 6-7.
-
+La oss se på noen situasjoner. Lag et nytt program (\usnmenulabel{File}\usnsubmenusep\usnmenulabel{New file}) og skriv inn følgende:
 \begin{usncodebox}
 x1 = 10
 x2 = 20
@@ -1754,15 +1752,17 @@ Kommenter den ut, dvs. sett \# helt til venstre i linjen. Kjør programmet på n
 
 Studer utskriften. Prøv å forstå hvorfor variablene har de verdiene de har innenfor og utenfor programmet. Diskuter med sidemannen. Gjør endringer og test litt, se om ting oppfører seg slik du forventer.
 
-\section{Gode programmeringsvaner (valgfri)}
+\section{Gode programmeringsvaner (optional)}
 
-Bruk nok kommentarer i koden din. Linjer som starter med \# er kommentarlinjer. Python bryr seg ikke om disse. Likedan med tekst som står til høyre for \# på en linje som inneholder kode. Når du skriver programmer er det lurt å legge inn nok kommentarer. De skal hjelpe deg til å skjønne hva du har tenkt når du ser på koden din en uke eller måned senere og kanskje skal forbedre den. Dersom andre skal lese koden din, er det enda viktigere at den er godt kommentert. Man føler ofte man har "dårlig tid" når man koder, og at man derfor ikke har tid til å kommentere koden. Og kanskje at det heller ikke er nødvendig. Men: Selv om du akkurat nå umiddelbart ser hva en gitt del av programmet gjør og hvordan, er sjelden det tilfelle det neste gang du ser på programmet. Da må du bruke en del tid på å forstå hva du har gjort. Noen konsise kommentarer hjelper. (Men ikke skriv for mye heller, da skjuler du koden.) 
+Bruk nok kommentarer i koden din. Linjer som starter med \# er kommentarlinjer. Python bryr seg ikke om disse. Likedan med tekst som står til høyre for \# på en linje som inneholder kode. Når du skriver programmer er det lurt å legge inn nok kommentarer. De skal hjelpe deg til å skjønne hva du har tenkt når du ser på koden din en uke eller måned senere og kanskje skal forbedre den.
 
-Kommentarlinjer brukes også til å debugge kode, finne feil. Du lurer f.eks. på hva en kodelinje gjør, om den har effekt i det hele tatt. Da kan du kommentere den ut og se hvilken effekt det har. (Der finnes mer avanserte metoder for debugging, se senere.)
+Dersom andre skal lese koden din, er det enda viktigere at den er godt kommentert. Man føler ofte man har dårlig tid når man koder, og at man derfor ikke har tid til å kommentere koden. Og kanskje at det heller ikke er nødvendig. Men: Selv om du akkurat nå umiddelbart ser hva en gitt del av programmet gjør og hvordan, er sjelden det tilfelle det neste gang du ser på programmet. Da må du bruke en del tid på å forstå hva du har gjort. Noen konsise kommentarer hjelper. (Men ikke skriv for mye heller, da skjuler du koden.) 
+
+Kommentarlinjer brukes også til å debugge kode, finne feil. Du lurer f.eks. på hva en kodelinje gjør, om den har effekt i det hele tatt. Da kan du kommentere den ut og se hvilken effekt det har. (Det finnes mer avanserte metoder for debugging, se senere.)
 
 Og kommentarlinjer kan brukes til enkel ``kodehistorikk''. Noen ganger har du gjort endringer i koden, men vil ikke fjerne den gamle måten å gjøre det på. Kanskje fordi du muligens vil gå tilbake til denne etterhvert. Da kommenterer du typisk ut linjen(e) enn så lenge i stedet for å slette de.
 
-Hvis du ønsker å kommentere ut mange linjer med kode, kan du gjøre det ved å sette ''\textquotedbl`` før og etter den delen du vil kommentere ut. Dette fungerer, men har i Python egentlig en annen funksjon, nemlig å dokumentere hva et program eller en funksjon gjør. Så for små prosjekter, som vi vil gjøre her, er det ok, men for større prosjekter, som også gjerne skal deles med andre, er det ikke anbefalt.  (Det er f.eks. vanlig å ha en slik "kommentar"-del i begynnelsen av fila. Der fortelles kanskje hvem som har laget programmet, når, og hva det gjør. Spyder legger inn noen slike linjer når du oppretter en ny fil. Du kan selv legge til kommentarer der.) 
+Hvis du ønsker å kommentere ut mange linjer med kode, kan du gjøre det ved å sette 3 apostrofer før og etter den delen du vil kommentere ut. Dette fungerer, men har i Python egentlig en annen funksjon, nemlig å dokumentere hva et program eller en funksjon gjør. Så for små prosjekter, som vi vil gjøre her, er det ok, men for større prosjekter, som også gjerne skal deles med andre, er det ikke anbefalt.  (Det er f.eks. vanlig å ha en slik "kommentar"-del i begynnelsen av fila. Der fortelles kanskje hvem som har laget programmet, når, og hva det gjør. Spyder legger inn noen slike linjer når du oppretter en ny fil. Du kan selv legge til kommentarer der.) 
 
 Gode variabelnavn og funksjonsnavn er også viktig for å lage forståelig kode.
 
@@ -1778,7 +1778,7 @@ FartBil = 3 (CamelCase)
 Det er fint å holde seg til én konvensjon. 
 
 Funksjoner:
-Anbefalt: små bokstaver, underscore for å separere ord, f.eks. finne\_{}fart(), finne\_{}posisjon\_{}ball(), tegne\_{}graf(). (Tidligere har mixedCase også vært anbefalt.) 
+Anbefalt: små bokstaver, underscore for å separere ord, f.eks. \usninlinecode{finne_fart()}, finne\_{}posisjon\_{}ball(), tegne\_{}graf(). (Tidligere har mixedCase også vært anbefalt.) 
 
 Full info: \url{https://www.python.org/dev/peps/pep-0008/} (Style Guide for Python Code) 
 
@@ -2030,7 +2030,7 @@ print("Str %-6s str" %("alle"))   # viser "Str alle   str"  # venstre-justert
 \end{usncodebox}
 
 Ny metode:
-Vi går ikke gjennom den her. For info om den nye formateringsmetoden: se s.17\todo{Hvilken bok?} i boka eller f.eks. https://pyformat.info/
+Vi går ikke gjennom den her. For info om den nye formateringsmetoden: se s.17 i boka eller f.eks. https://pyformat.info/
 
 \begin{exercise}
 Lag et program som trekker 10 tilfeldige (desimal)tall mellom -2000 og 2000 og skriver ut tallene med tre desimaler i en fin vertikal liste.
